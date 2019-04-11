@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../../_wsg/common/js/include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">Tooltip</h1>
+				<p class="g-explain-h1">Library Modules</p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Basic</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									무궁화 꽃이 피었습니다.
+									<div class="tooltip-wrap">
+										<a href="#tooltip1" class="btn btn-type3 btn-primary tooltip-open" role="button" aria-controls="tooltip1" aria-label="Tooltip 보기" aria-expanded="false">?</a>
+										<div id="tooltip1" class="tooltip tooltip-basic tooltip-right" role="tooltip" aria-hidden="true">
+											<div class="blind-area tooltip-focus" role="text" tabindex="0" aria-label="Tooltip Panel"></div>
+											<i class="arw arw-tooltip" aria-hidden="true"></i>
+											<div class="tooltip-inner">
+												Tooltip
+												<a href="#tooltip1" role="button" aria-controls="tooltip1" aria-expanded="true" class="btn tooltip-close" aria-label="Tooltip Close"></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									무궁화 꽃이 피었습니다.
+									&lt;div class="tooltip-wrap">
+										&lt;a href="#tooltip1" aria-controls="tooltip1" aria-expanded="false" class="btn btn-type3 btn-primary tooltip-open" aria-label="Tooltip 자세히보기">?&lt;/a>
+										&lt;div id="tooltip1" class="tooltip tooltip-basic tooltip-right" role="tooltip" aria-hidden="true">
+											&lt;div class="blind-area tooltip-focus" tabindex="0" aria-label="Button Tooltip Panel">&lt;/div>
+											&lt;i class="arw arw-tooltip" aria-hidden="true">&lt;/i>
+											&lt;div class="tooltip-inner">
+												Tooltip
+												&lt;a href="#tooltip1" aria-controls="tooltip1" aria-expanded="true" class="btn tooltip-close" aria-label="Tooltip Close">&lt;/a>
+											&lt;/div>
+										&lt;/div>
+									&lt;/div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									/* ------------------------------------------------------------------------------------------
+										## Tooltip
+									------------------------------------------------------------------------------------------ */
+									/* Default */
+									.tooltip-wrap {display:inline-block; position:relative;}
+									.tooltip {display:none;}
+									.tooltip,.tooltip > .arw {position:absolute; z-index:11;}
+									.tooltip .tooltip-inner {z-index:10;}
+									.tooltip.is-active {display:block;}
+
+									/* Design - Type A (툴팁설명) */
+									.tooltip-basic {margin-left:10px; width:200px; animation:tootlpBasic 0.3s;}
+									.tooltip-basic .tooltip-inner {position:relative; padding:10px 15px; background-color:#fff; border:1px solid #ddd; border-radius:6px;}
+									.tooltip-basic .tooltip-close {position:absolute; right:5px; top:5px; font-size:11px;}
+									.tooltip-basic .tooltip-close::before {content:''; display:inline-block; width:20px; height:20px; border-radius:50%; line-height:18px; text-align:center; color:#999;}
+									.tooltip-basic .tooltip-close {position:absolute; right:5px; top:5px; width:17px; height:17px; padding:2px; border-radius:50%;}
+									.tooltip-basic .tooltip-close:before,
+									.tooltip-basic .tooltip-close:after {display:inline-block; position:absolute; left:50%; top:50%; width:1px; height:13px; margin-top:-6px; background-color:#333; content:'';}
+									.tooltip-basic .tooltip-close:before {transform:rotate(-45deg);}
+									.tooltip-basic .tooltip-close:after {transform:rotate(45deg);}
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									var ui = {
+										init : function(){
+											if ($('.tooltip-basic').length)		{this.tooltip.init();}			// #Tooltip
+										},
+
+										/*
+											기능정의 : #Tooltip
+											참고사항 : 설명
+											참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+											참고경로 : /html/menu1/page.html
+											(공통여부와 관계없이 확인이 가능한 대표화면 적용)
+										*/
+										tooltip : {
+											eleWrapper : '.tooltip-wrap',
+											eleOpener : '.tooltip-open',
+											eleCloser : '.tooltip-close',
+											eleModule : '.tooltip',
+											eleFocus  : '.tooltip-focus',
+											setTime : null,
+											init : function(){
+												this.event();
+											},
+											event : function(){
+												var _this = this;
+												$(this.eleOpener).not('.is-evented').on('click', function(){_this.open($(this).attr('href')); return false});
+												$(this.eleCloser).not('.is-evented').on('click', function(){_this.close($(this).attr('href')); return false});
+												$(this.eleWrapper).not('.is-evented').on('mouseover', function(){_this.open('#'+$(this).find(_this.eleModule).attr('id'))});
+												$(this.eleWrapper).not('.is-evented').on('mouseleave', function(){_this.close('#'+$(this).find(_this.eleModule).attr('id'))});
+											},
+											open : function(id){
+												var _this = this;
+												$(id).attr({'data-state':'null', 'aria-hidden':'false'});
+												$(id).stop().fadeIn(200, function(){$(this).attr({'data-state':'opened'})});
+												$(_this.eleOpener+'[href="'+id+'"]').attr({'aria-expanded':'true'});
+											},
+											close : function(id){
+												var _this = this;
+												$(id).attr({'data-state':'null', 'aria-hidden':'true'});
+												$(id).stop().fadeOut(200, function(){$(this).attr({'data-state':'closed'})});
+												$(_this.eleOpener+'[href="'+id+'"]').attr({'aria-expanded':'false'});
+												//	$(this.eleOpener+'[href="'+id+'"]').attr('tabindex','0').focus();
+											},
+										},
+									}
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Directions</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<div class="row">
+										<div class="col col-3">
+											Right
+											<div class="tooltip-wrap">
+												<a href="#tooltip2" aria-controls="tooltip2" aria-expanded="false" class="btn btn-type3 btn-primary tooltip-open" aria-label="Tooltip 자세히보기">?</a>
+												<div id="tooltip2" class="tooltip tooltip-basic tooltip-right" role="tooltip" aria-hidden="true">
+													<div class="blind-area tooltip-focus" tabindex="0" aria-label="Button Tooltip Panel"></div>
+													<i class="arw arw-tooltip" aria-hidden="true"></i>
+													<div class="tooltip-inner">
+														Tooltip
+														<a href="#tooltip2" aria-controls="tooltip2" aria-expanded="true" class="btn tooltip-close" aria-label="Tooltip Close"></a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col col-3">
+											Top
+											<div class="tooltip-wrap">
+												<a href="#tooltip3" aria-controls="tooltip3" aria-expanded="false" class="btn btn-type3 btn-primary tooltip-open" aria-label="Tooltip 자세히보기">?</a>
+												<div id="tooltip3" class="tooltip tooltip-basic tooltip-top" role="tooltip" aria-hidden="true">
+													<div class="blind-area tooltip-focus" tabindex="0" aria-label="Button Tooltip Panel"></div>
+													<i class="arw arw-tooltip" aria-hidden="true"></i>
+													<div class="tooltip-inner">
+														Tooltip
+														<a href="#tooltip3" aria-controls="tooltip3" aria-expanded="true" class="btn tooltip-close" aria-label="Tooltip Close"></a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col col-3">
+											Bottom
+											<div class="tooltip-wrap">
+												<a href="#tooltip4" aria-controls="tooltip4" aria-expanded="false" class="btn btn-type3 btn-primary tooltip-open" aria-label="Tooltip 자세히보기">?</a>
+												<div id="tooltip4" class="tooltip tooltip-basic tooltip-bottom" role="tooltip" aria-hidden="true">
+													<div class="blind-area tooltip-focus" tabindex="0" aria-label="Button Tooltip Panel"></div>
+													<i class="arw arw-tooltip" aria-hidden="true"></i>
+													<div class="tooltip-inner">
+														Tooltip
+														<a href="#tooltip4" aria-controls="tooltip4" aria-expanded="true" class="btn tooltip-close" aria-label="Tooltip Close"></a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col col-3">
+											Left
+											<div class="tooltip-wrap">
+												<a href="#tooltip5" aria-controls="tooltip5" aria-expanded="false" class="btn btn-type3 btn-primary tooltip-open" aria-label="Tooltip 자세히보기">?</a>
+												<div id="tooltip5" class="tooltip tooltip-basic tooltip-left" role="tooltip" aria-hidden="true">
+													<div class="blind-area tooltip-focus" tabindex="0" aria-label="Button Tooltip Panel"></div>
+													<i class="arw arw-tooltip" aria-hidden="true"></i>
+													<div class="tooltip-inner">
+														Tooltip
+														<a href="#tooltip5" aria-controls="tooltip5" aria-expanded="true" class="btn tooltip-close" aria-label="Tooltip Close"></a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									<div class="tooltip tooltip-right">(생략)</div>
+									<div class="tooltip tooltip-top">(생략)</div>
+									<div class="tooltip tooltip-bottom">(생략)</div>
+									<div class="tooltip tooltip-left">(생략)</div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									/* Common - Directions */
+									.tooltip-top {left:50%; bottom:100%; margin-bottom:10px;}
+									.tooltip-right {left:100%; top:50%; margin-left:10px;}
+									.tooltip-bottom {left:50%; top:100%; margin-top:10px;}
+									.tooltip-left {right:100%; top:50%; margin-right:10px;}
+									.tooltip-top,.tooltip-bottom {transform:translateX(-50%); -webkit-transform:translateX(-50%);}
+									.tooltip-right,.tooltip-left {transform:translateY(-50%); -webkit-transform:translateY(-50%);}
+									.tooltip-top > .arw {left:50%; bottom:3px;}
+									.tooltip-right > .arw {left:1px; top:50%;}
+									.tooltip-bottom > .arw {left:50%; top:3px;}
+									.tooltip-left > .arw {right:1px; top:50%;}
+									.tooltip-top > .arw {transform:translate(-50%, 100%) rotate(-90deg); -webkit-transform:translate(-50%, 100%) rotate(-90deg);}
+									.tooltip-bottom > .arw {transform:translate(-50%, -100%) rotate(90deg); -webkit-transform:translate(-50%, -100%) rotate(90deg);}
+									.tooltip-right > .arw {transform:translate(-100%, -50%) rotate(0deg); -webkit-transform:translate(-100%, -50%) rotate(0deg);}
+									.tooltip-left > .arw {transform:translate(100%, -50%) rotate(180deg); -webkit-transform:translate(100%, -50%) rotate(180deg);}
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

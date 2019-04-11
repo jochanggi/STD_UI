@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../../common/js/include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">표준템플릿</h1>
+				<p class="g-explain-h1">컨텐츠 + 마크업뷰 + 코드뷰전용 </p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Heading Text2</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Heading Text3</h3>
+						<h4 class="g-h4">Heading Text4</h4>
+						<ul class="g-desc">
+							<li>기본 설명이 들어간다.</li>
+							<li>주 내용의 머리말 위치에 사용한다. <span class="g-txt-primary">강조문구</span></li>
+						</ul>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode1-1" class="g-example-btn is-copyed">HTML</a><a href="javascript:void(0);" class="g-example-copy"><i class="fas fa-copy"></i></a>
+									<a href="#tabContentCode1-2" class="g-example-btn">CSS</a>
+									<a href="#tabContentCode1-3" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<p>Example HTML Markup</p>
+							</div>
+							<div id="tabContentCode1-1" class="g-example-footer">
+								<pre class="brush:html">
+									<p>Source HTML</p>
+									<p>Source HTML</p>
+									<p>Source HTML</p>
+									<p>Source HTML</p>
+								</pre>
+							</div>
+							<div id="tabContentCode1-2" class="g-example-footer">
+								<pre class="brush:css">
+									#wrapper {display:block;}
+									#header {display:block;}
+									#container {display:block;}
+									#footer {display:block;}
+								</pre>
+							</div>
+							<div id="tabContentCode1-3" class="g-example-footer">
+								<pre class="brush:js">
+									var moduels = {
+										init : function(){},
+										event : function(){},
+										action : function(){},
+									}
+								</pre>
+							</div>
+						</div>
+						<div class="g-box-guide">
+							<div class="g-box-header">
+								<strong>! 중요</strong>
+							</div>
+							<div class="g-box-body">
+								<ul class="g-desc">
+									<li>g-box-header영역은 필요한 경우를 고려하여 마크업을 적용하며, 스타일로 기본값을 제어한다.</li>
+									<li>중요하게 가이드를 설명해야 하는 경우에 사용한다.</li>
+									<li>일반적인 설명은 박스 없이 목록만 사용한다.</li>
+								</ul>
+							</div>
+						</div>
+						<ul class="g-desc-guide">
+							<li>- 보조 설명이 들어간다.</li>
+							<li>- 주 내용의 꼬리말 위치에 들어간다.</li>
+						</ul>
+					</div>
+				</section>
+				<!-- //Section -->
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">마크업이 있을때</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">코드뷰 기본 숨김</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode2-1-1" class="g-example-btn is-copyed">HTML</a><a href="javascript:void(0);" class="g-example-copy"><i class="fas fa-copy"></i></a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<p>Example HTML Markup</p>
+							</div>
+							<div id="tabContentCode2-1-1" class="g-example-footer">
+								<pre class="brush:html">
+									<p>Example HTML Markup</p>
+								</pre>
+							</div>
+						</div>
+						<h3 class="g-h3">코드뷰 기본 보임</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode2-1-2" class="g-example-btn is-active is-copyed">HTML</a><a href="javascript:void(0);" class="g-example-copy"><i class="fas fa-copy"></i></a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<p>Example HTML Markup</p>
+							</div>
+							<div id="tabContentCode2-1-2" class="g-example-footer is-active">
+								<pre class="brush:html">
+									<p>Example HTML Markup</p>
+								</pre>
+							</div>
+						</div>
+						<div class="g-box-guide">
+							<div class="g-box-header">
+								<strong>! 중요</strong>
+							</div>
+							<div class="g-box-body">
+								<ul class="g-desc">
+									<li>코드뷰 보임 기본일때<br>
+										g-example-btn is-active<br>
+										g-example-footer is-active
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">소스만 있을때</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">코드뷰 기본 숨김</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode3-1" class="g-example-btn">HTML</a>
+								</div>
+							</div>
+							<div id="tabContentCode3-1" class="g-example-footer">
+								<pre class="brush:html">
+									<p>Source HTML</p>
+									<p>Source HTML</p>
+									<p>Source HTML</p>
+									<p>Source HTML</p>
+								</pre>
+							</div>
+						</div>
+						<h3 class="g-h3">코드뷰 기본 노출</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode4-1" class="g-example-btn is-active">HTML</a>
+								</div>
+							</div>
+							<div id="tabContentCode4-1" class="g-example-footer is-active">
+								<pre class="brush:html">
+									<p>Source HTML</p>
+									<p>Source HTML</p>
+									<p>Source HTML</p>
+									<p>Source HTML</p>
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

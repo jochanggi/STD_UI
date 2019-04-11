@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../_wsg/common/js/include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">Accordion</h1>
+				<p class="g-explain-h1">Library Modules</p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Default Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#none" class="g-example-btn">HTML</a>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									&lt;div class="accordion-wrap">
+										&lt;dl role="presentation" class="accordion accordion_이름">
+											&lt;dt class="accordion-title is-active">
+												&lt;a href="#accorContent11" class="accordion-toggle" role="button" aria-controls="accorContent11" aria-expanded="true">
+													&lt;span class="accordion-label">accordion-title1 &lt;i class="arw arw-accordion">&lt;/i>&lt;/span>
+												&lt;/a>
+											&lt;/dt>
+											&lt;dd id="accorContent11" class="accordion-content is-active" aria-hidden="false">
+												&lt;div class="blind-area" role="text" aria-label="Accordion Title11 Accordion Panel">&lt;/div>
+												&lt;div class="accordion-inner">
+													accordion-content1
+												&lt;/div>
+											&lt;/dd>
+											&lt;dt class="accordion-title">
+												&lt;a href="#accorContent12" class="accordion-toggle" role="button" aria-controls="accorContent12" aria-expanded="false">
+													&lt;span class="accordion-label">accordion-title2&lt;i class="arw arw-accordion">&lt;/i>&lt;/span>
+												&lt;/a>
+											&lt;/dt>
+											&lt;dd id="accorContent12" class="accordion-content" aria-hidden="true">
+												&lt;div class="blind-area" role="text" aria-label="Accordion Title12 Accordion Panel">&lt;/div>
+												&lt;div class="accordion-inner">
+													accordion-content2
+												&lt;/div>
+											&lt;/dd>
+										&lt;/dl>
+									&lt;/div>
+
+									아코디언 외부호출 :
+									&lt;button type="button" onclick="ui.accordion.action('#accorContent13')">&lt;span>아코디언3&lt;/span>&lt;/button>
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Design Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+
+								<!-- //마크업뷰영역 -->
+							</div>
+						</div>
+
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+
+								<!-- //마크업뷰영역 -->
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

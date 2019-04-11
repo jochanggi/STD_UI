@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../../common/js/include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header g-in-sec">
+				<h1 class="g-h1">Library</h1>
+				<p class="g-explain-h1">Elements, Modules, Plugins</p>
+			</div>
+			<div class="g-content-body">
+				<!-- section1 -->
+				<section id="section1" class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Elements</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-tbl-type1">
+							<table>
+								<caption></caption>
+								<colgroup>
+									<col style="width:16%">
+									<col style="width:16%">
+									<col style="width:16%">
+									<col style="width:16%">
+									<col style="width:auto">
+								</colgroup>
+								<thead>
+								<tr>
+									<th scope="col">분류</th>
+									<th scope="col">구분</th>
+									<th scope="col">형태</th>
+									<th scope="col">구조</th>
+									<th scope="col">비고</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td rowspan="5">Section</td>
+									<td>목차</td>
+									<td>.tit-h?</td>
+									<td></td>
+									<td>h1 ~ h6</td>
+								</tr>
+								<tr>
+									<td>제목</td>
+									<td>.tit-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>내용</td>
+									<td>.txt-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>문단</td>
+									<td>.para-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>그래픽</td>
+									<td>.figure-
+									</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td rowspan="2">Form</td>
+									<td>컨트롤</td>
+									<td>.frm-text<br>
+										.frm-textarea<br>
+										.frm-select<br>
+										.frm-check<br>
+										.frm-radio<br>
+										.frm-file<br>
+										.frm-button</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>텍스트</td>
+									<td>.frm-label<br>
+										.frm-cont<br>
+										.frm-desc<br>
+										.frm-info<br>
+										.frm-alert
+									</td>
+									<td></td>
+									<td>서식 이름<br>
+										서식 내용<br>
+										서식 설명<br>
+										서식 정보<br>
+										서식 경고
+									</td>
+								</tr>
+								<tr>
+									<td>Button</td>
+									<td>버튼</td>
+									<td>.btn-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Icon</td>
+									<td>아이콘</td>
+									<td>.ico-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Label</td>
+									<td>이름표</td>
+									<td>.label-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Badge</td>
+									<td>배지</td>
+									<td>.badge-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Divider</td>
+									<td>구분선</td>
+									<td>.divider-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td rowspan="3">Lists</td>
+									<td>불릿목록</td>
+									<td>.bul-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>정의목록</td>
+									<td>.define-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>그룹목록</td>
+									<td>.lists-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td rowspan="3">Boxs</td>
+									<td>시각용 박스</td>
+									<td>.box-</td>
+									<td></td>
+									<td>시각적 구분 목적으로 표현함.<br>(예 : 약관 테두리, 이미지 테두리)</td>
+								</tr>
+								<tr>
+									<td>카드형 박스</td>
+									<td>.card-</td>
+									<td></td>
+									<td>디자인 의도를 갖추어 표현함.<br>(예 : 주요 컨텐츠 목록)</td>
+								</tr>
+								<tr>
+									<td>컨텐츠 박스</td>
+									<td>.panel-</td>
+									<td></td>
+									<td>컨텐츠 의미를 갖추어 표현함.<br>(예 : 알아두기, 참고사항 등)</td>
+								</tr>
+								<tr>
+									<td>Step</td>
+									<td>스텝</td>
+									<td>.step-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Table</td>
+									<td>표</td>
+									<td>.tbl-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td rowspan="2">Pages</td>
+									<td>페이지 이전/다음</td>
+									<td>.pager-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>페이지 넘버링</td>
+									<td>.paging-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Progress</td>
+									<td>진행율</td>
+									<td>.progress-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+				<!-- //section1 -->
+
+				<!-- section2 -->
+				<section id="section2" class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Modules</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-tbl-type1">
+							<table>
+								<caption></caption>
+								<colgroup>
+									<col style="width:16%">
+									<col style="width:16%">
+									<col style="width:16%">
+									<col style="width:16%">
+									<col>
+								</colgroup>
+								<thead>
+								<tr>
+									<th scope="col">분류</Th>
+									<th scope="col">구분</Th>
+									<th scope="col">예약어</Th>
+									<th scope="col">구조</Th>
+									<th scope="col">웹접근성</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td rowspan="9">Trigger</td>
+									<td>탭</td>
+									<td>.tab-</td>
+									<td>-nav>ul<br>
+										-nav>ul>li<br>
+										-nav>ul>li>a<br><br><br>
+										-content<br>
+										&nbsp;<br>
+										&nbsp;
+									</td>
+									<td><span class="g-txt-disable">role="tablist"</span><br>
+										<span class="g-txt-disable">role="presentation"</span><br>
+										<span class="g-txt-disable">role="tab"</span><br>
+										<span class="g-txt-disable">aria-controls=""</span><br>
+										aria-selected=""<br>
+										<span class="g-txt-disable">role="tabpanel"</span><br>
+										<span class="g-txt-disable">aria-labelledby=""</span><br>
+										aria-hidden=""
+									</td>
+								</tr>
+								<tr>
+									<td>아코디언</td>
+									<td>.accordion-</td>
+									<td>-toggle<br><br>
+										-content
+									</td>
+									<td>aria-controls=""<br>
+										aria-expanded=""<br>
+										aria-hidden=""
+									</td>
+								</tr>
+								<tr>
+									<td>폴더</td>
+									<td>.folder-</td>
+									<td>-toggle<br><br>
+										-content
+									</td>
+									<td>aria-controls=""<br>
+										aria-expanded=""<br>
+										aria-hidden=""
+									</td>
+								</tr>
+								<tr>
+									<td>컬랩스</td>
+									<td>.collapse-</td>
+									<td>-toggle<br><br>
+										-content
+									</td>
+									<td>aria-controls=""<br>
+										aria-expanded=""<br>
+										aria-hidden=""
+									</td>
+								</tr>
+								<tr>
+									<td>드롭다운</td>
+									<td>.dropdown-</td>
+									<td>-toggle<br><br>
+										-menu<br><br><br>
+									</td>
+									<td>aria-expanded=""<br>
+										aria-haspopup="true"<br>
+										role="menu"<br>
+										aria-hidden=""<br>
+										aria-labelledby=""
+									</td>
+								</tr>
+								<tr>
+									<td>셀렉트</td>
+									<td>.select-</td>
+									<td>-toggle<br><br>
+										-menu<br><br><br>
+									</td>
+									<td>aria-expanded=""<br>
+										aria-haspopup="true"<br>
+										role="menu"<br>
+										aria-hidden=""<br>
+										aria-labelledby=""
+									</td>
+								</tr>
+								<tr>
+									<td>툴팁</td>
+									<td>.tooltip-</td>
+									<td>-open<br>
+										-close<br>
+										.tooltip<br><br><br>
+									</td>
+									<td>aria-expanded="false"<br>
+										aria-expanded="true"<br>
+										role="tooltip"<br>
+										aria-hidden=""<br>
+										aria-labelledby=""
+									</td>
+								</tr>
+								<tr>
+									<td>대화상자</td>
+									<td>.modal-</td>
+									<td>-open<br>
+										-close<br>
+										.modal<br><br><br>
+									</td>
+									<td>aria-expanded="false"<br>
+										aria-expanded="true"<br>
+										role="dialog"<br>
+										aria-hidden=""<br>
+										aria-labelledby=""
+									</td>
+								</tr>
+								<tr>
+									<td>팝업</td>
+									<td>.popup-</td>
+									<td>-open<br>
+										-close<br>
+										.popup<br><br><br>
+									</td>
+									<td>aria-expanded="false"<br>
+										aria-expanded="true"<br>
+										role="dialog"<br>
+										aria-hidden=""<br>
+										aria-labelledby=""
+									</td>
+								</tr>
+								<tr>
+									<td rowspan="5">Scroll</td>
+									<td>요소고정</td>
+									<td>.sticky-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>요소이동</td>
+									<td>.floating-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>스크롤이동</td>
+									<td>.spyScroll-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>무한스크롤</td>
+									<td>.infScroll-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>사용자정의스크롤</td>
+									<td>.cusScroll-</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Touch</td>
+									<td>슬라이드쇼</td>
+									<td>.carousel-<br>
+										.swiper-
+									</td>
+									<td>-slide</td>
+									<td>aria-hidden=""</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+				<!-- //section2 -->
+
+				<!-- section3 -->
+				<section id="section4" class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Contents</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-tbl-type1">
+							<table>
+								<caption></caption>
+								<colgroup>
+									<col style="width:16%">
+									<col style="width:16%">
+									<col style="width:16%">
+									<col style="width:16%">
+									<col>
+								</colgroup>
+								<thead>
+								<tr>
+									<th scope="col">분류</Th>
+									<th scope="col">구분</Th>
+									<th scope="col">예약어</Th>
+									<th scope="col">구조</Th>
+									<th scope="col">비고</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td rowspan="5">Search</td>
+									<td>단위 검색</td>
+									<td>.search-unit</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>게시판 검색</td>
+									<td>.search-board</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>페이지 검색</td>
+									<td>.search-page</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>포털 검색</td>
+									<td>.search-portal</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>전체 검색</td>
+									<td>.search-all</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td rowspan="4">Board</td>
+									<td>일반 게시판</td>
+									<td>.board-basic</td>
+									<td>.board-list<br>
+										.board-view<br>
+										.board-write
+									</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>갤러리 게시판</td>
+									<td>.board-gallary</td>
+									<td>.board-list<br>
+										.board-view<br>
+										.board-write
+									</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>동영상 게시판</td>
+									<td>.board-movie</td>
+									<td>.board-list<br>
+										.board-view<br>
+										.board-write
+									</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>상품 게시판</td>
+									<td>.board-product</td>
+									<td>.board-list<br>
+										.board-view<br>
+										.board-write
+									</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td rowspan="3">Members</td>
+									<td>로그인</td>
+									<td>.member-login</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>약관동의</td>
+									<td>.member-terms</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>회원가입</td>
+									<td>.member-join</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td rowspan="3">Process</td>
+									<td>완료</td>
+									<td>.process-success</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>실패</td>
+									<td>.process-fail</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>오류</td>
+									<td>.process-error</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td rowspan="3">System</td>
+									<td>404</td>
+									<td>.system-error404</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>500</td>
+									<td>.system-error500</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>403</td>
+									<td>.system-error403</td>
+									<td></td>
+									<td></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+				<!-- //section3 -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../_wsg/common/js/include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">Youtube</h1>
+				<p class="g-explain-h1">Library Behaviors</p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Default Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode1-21" class="g-example-btn is-active">HTML</a>
+									<a href="#tabContentCode1-22" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div id="tabContentCode1-21" class="g-example-footer is-active">
+								<pre class="brush:html">
+									<!-- 스크립트로드 -->
+									<script src="/common/js/addon/api.youtube.js"></script>
+
+									<!-- 동영상 -->
+									<div id="ytplayer"></div>
+
+									<!-- 로드할 동영상 호출 -->
+									<div class="btn-wrap">
+										<button type="button" class="btn" onclick="setYoutube('z2olmOm6W4o')"><span>동영상1</span></button>
+										<button type="button" class="btn" onclick="setYoutube('a89vNiNQRvA')"><span>동영상2</span></button>
+										<button type="button" class="btn" onclick="setYoutube('tzAt34ed6s0')"><span>동영상3</span></button>
+									</div>
+
+									<!-- 로드된 동영상 제어 -->
+									<div class="btn-wrap">
+										<button type="button" class="btn" onclick="player.playVideo()"><span>재생</span></button>
+										<button type="button" class="btn" onclick="player.pauseVideo()"><span>일시정지</span></button>
+										<button type="button" class="btn" onclick="player.stopVideo()"><span>정지</span></button>
+									</div>
+								</pre>
+							</div>
+							<div id="tabContentCode1-22" class="g-example-footer">
+								<pre class="brush:js">
+									//동영상 플러그인
+									var player;
+									function onYouTubePlayerAPIReady() {
+										player = new YT.Player('ytplayer', {
+											width: '1200',
+											height: '676',
+											videoId: '1A3RYykqOrQ',
+											events: {
+												'onReady': onPlayerReady
+											},
+											playerVars: {
+												'controls': 1,
+												'showinfo' : 0,
+												'nologo' : 1,
+												'autoplay' : 1,
+											}
+										});
+									}
+
+									//로드된 동영상 실행
+									function onPlayerReady(event) {
+										event.target.playVideo();
+									}
+
+									//로드할 동영상 호출
+									function setYoutube(vodId) {
+										player.cueVideoById(vodId);
+										player.playVideo();
+									}
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec" hidden>
+					<div class="g-section-header">
+						<h2 class="g-h2">Design Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+
+								<!-- //마크업뷰영역 -->
+							</div>
+						</div>
+
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+
+								<!-- //마크업뷰영역 -->
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

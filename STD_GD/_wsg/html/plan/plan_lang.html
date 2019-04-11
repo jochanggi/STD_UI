@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../../common/js/include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">다국어처리</h1>
+				<p class="g-explain-h1">마크업뷰중심 + 일부컨텐츠 </p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Default Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Example</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode1-21" class="g-example-btn is-active">HTML</a>
+									<a href="#tabContentCode1-22" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div id="tabContentCode1-21" class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;!-- 페이지별 스크립트 로드 -->
+									&lt;script src="../../../common/js/language/guide_example.js">&lt;/script>
+
+									&lt;!-- 다국어 선택 data-lang -->
+									&lt;div>
+										&lt;button type="button" class="btn" data-lang="ko">&lt;span>한국어&lt;/span>&lt;/button>
+										&lt;button type="button" class="btn" data-lang="en">&lt;span>영어&lt;/span>&lt;/button>
+									&lt;/div>
+
+									&lt;!-- 다국어 마크업 data-lang-name -->
+									&lt;div>
+										&lt;h1 data-lang-name="sec1_tit1">다국어제목&lt;/h1>
+										&lt;p data-lang-name="sec1_txt1">다국어제목을 설명합니다.&lt;/p>
+									&lt;/div>
+									&lt;div>
+										&lt;ul>
+											&lt;li data-lang-name="sec2_txt1">오늘은 금요일입니다.&lt;/li>
+											&lt;li data-lang-name="sec2_txt2">내일은 토요일입니다.&lt;/li>
+										&lt;/ul>
+									&lt;/div>
+								</pre>
+							</div>
+							<div id="tabContentCode1-22" class="g-example-footer">
+								<pre class="brush:js">
+									/*
+										다국어 공통처리
+										object = [오브젝트변수]
+										다국어.언어.속성 = 다국어[언어변수][속성변수]
+									*/
+									var lang = {
+										arrayHtml : null,
+										init : function(customLang){
+											this.arrayHtml = customLang;
+											this.event();
+											this.action('ko');
+										},
+										event : function(){
+											var _this = this;
+											$('[data-lang]').on('click', function() {
+											  var currentLanguage = $(this).attr('data-lang');
+											  _this.action(currentLanguage);
+											});
+										},
+										action : function(currentLanguage){
+											var _this = this;
+											$('[data-lang-name]').each(function(k) {
+												$(this).html(_this.arrayHtml[currentLanguage][$(this).attr('data-lang-name')]);
+											});
+										}
+									}
+
+									// 다국어 페이지별
+									var ex_lang = {
+										ko : {
+											sec1_tit1 : '한국어 sec1-tit1',
+											sec1_txt1 : '한국어 sec1-txt1',
+											sec2_txt1 : '한국어 sec2-txt1',
+											sec2_txt2 : '한국어 sec2-txt2',
+										},
+										en : {
+											sec1_tit1 : 'english sec1-tit1',
+											sec1_txt1 : 'english sec1-txt1',
+											sec2_txt1 : 'english sec2-txt1',
+											sec2_txt2 : 'english sec2-txt2',
+										}
+									}
+									$(function(){
+										lang.init(ex_lang);
+									})
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Markup Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Text Examples</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+								<script src="../../../common/js/language/guide_example.js"></script>
+								<div>
+									<button type="button" class="btn" data-lang="ko"><span>한국어</span></button>
+									<button type="button" class="btn" data-lang="en"><span>영어</span></button>
+								</div>
+								<br>
+								<div>
+									<h1 data-lang-name="sec1_tit1">다국어제목</h1>
+									<p data-lang-name="sec1_txt1">다국어제목을 설명합니다.</p>
+								</div>
+								<div>
+									<ul>
+										<li data-lang-name="sec2_txt1">오늘은 금요일입니다.</li>
+										<li data-lang-name="sec2_txt2">내일은 토요일입니다.</li>
+									</ul>
+								</div>
+								<!-- //마크업뷰영역 -->
+							</div>
+						</div>
+
+						<h3 class="g-h3">Value Examples</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+
+								<!-- //마크업뷰영역 -->
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

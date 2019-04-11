@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../_wsg/common/js/include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">Form</h1>
+				<p class="g-explain-h1">Library Elements</p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Default Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Form Controls</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode1-1" class="g-example-btn is-active">HTML</a>
+								</div>
+							</div>
+							<div id="tabContentCode1-1" class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;fieldset>
+										&lt;legend>필드제목&lt;/legend>
+										&lt;!-- Form Textfield -->
+										&lt;label for="sText1">Textfield&lt;/label>
+										&lt;input type="text" name="sText1" id="sText1" value="" placeholder="" title="" class="form-text" readonly />
+										&lt;textarea rows="10" cols="50" class="form-text">Textfield Multiple&lt;/textarea>
+
+										&lt;!-- Form radio -->
+										&lt;span class="form-radio">
+											&lt;input type="radio" name="sRadio1" id="sRadio11" value="" />
+											&lt;label for="sRadio11">&lt;span>Radio&lt;/span>&lt;/label>
+										&lt;/span>
+
+										&lt;!-- Form checkbox -->
+										&lt;span class="form-check">
+											&lt;input type="checkbox" name="sCheck1" id="sCheck11" value=""/>
+											&lt;label for="sCheck11">&lt;span>Checkbox&lt;/span>&lt;/label>
+										&lt;/span>
+
+										&lt;!-- Form Switch -->
+										&lt;span class="form-switch">
+											&lt;input type="checkbox" name="sSwitch1" id="sSwitch1" value=""/>
+											&lt;label for="sSwitch1">&lt;span>&lt;/span>&lt;/label>
+										&lt;/span>
+
+										&lt;!-- Form Select -->
+										&lt;label for="sSelect1">Select&lt;/label>
+										&lt;select name="sSelect1" id="sSelect1" class="form-select">
+											&lt;option value="">선택하세요.&lt;/option>
+										&lt;/select>
+
+										&lt;!-- Form Button -->
+										&lt;span>Button&lt;/span>
+										&lt;button type="button" class="form-button" aria-haspopup="true" aria-expanted="false">&lt;span>선택하세요.&lt;/span>&lt;/button>
+
+										&lt;!-- Form Attach Files -->
+										&lt;span class="form-file">
+											&lt;input type="file" name="sFiles1" id="sFiles1" value="찾아보기" tabindex="-1" aria-hidden="true"/>
+											&lt;input type="text" class="form-text" title="첨부된 파일명" />
+											&lt;button type="button" class="btn form-file-btn" onclick="">&lt;span>파일첨부&lt;/span>&lt;/button>
+										&lt;/span>
+									&lt;/fieldset>
+								</pre>
+							</div>
+						</div>
+
+						<h3 class="g-h3">Form Texts</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode1-2" class="g-example-btn is-active">HTML</a>
+								</div>
+							</div>
+							<div id="tabContentCode1-2" class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;!-- Form Static (기본 텍스트) -->
+									&lt;p class="frm-static">홍길동&lt;/p>
+									&lt;p class="frm-static">홍길동은 옛날 옛적의 인물로 어버이를 어버이라 부르지 못하고 어버버한 자식이다.&lt;/p>
+
+									&lt;!-- Form Description (기술설명 텍스트) -->
+									&lt;p class="frm-desc">비밀번호는 특수문자, 영어 조합의 8자 이상이어야 합니다.&lt;/p>
+
+									&lt;!-- Form Alert (경고/에러 텍스트) -->
+									&lt;p class="frm-alert" role="alert" hidden>비밀번호를 입력하세요.&lt;/p>
+
+									&lt;!-- Form Alert (정보 텍스트) -->
+									&lt;div class="frm-info">
+										&lt;p>관련정보를 설명하는 문구입니다.&lt;/p>
+										&lt;p>단락 또는 목록 형태로 제공하며 목록에 대한 별도의 가이드가 적용될 수 있습니다.&lt;/p>
+									&lt;/div>
+
+									&lt;!-- Form 문자 (기호 텍스트) -->
+									&lt;span class="frm-char">/&lt;/span>
+									&lt;span class="frm-char">-&lt;/span>
+									&lt;span class="frm-char">@&lt;/span>
+									&lt;span class="frm-char">~&lt;/span>
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Design Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+
+								<!-- //마크업뷰영역 -->
+							</div>
+						</div>
+
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+
+								<!-- //마크업뷰영역 -->
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

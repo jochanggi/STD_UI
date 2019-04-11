@@ -1,0 +1,42 @@
+@charset "utf-8";
+/*-------------------------------------------------------------------
+	파일정의 : 레이아웃 스타일
+	작성날짜 : YYYY-MM-DD 홍길동
+	참고사항 : 레이아웃, 상세스타일, 메뉴스타일 분류
+	분류순서 : Wrapper > Header > Content > Footer > Navigation
+	속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------
+    ## Wrapper
+-------------------------------------------------------------------*/
+/* SkipNav */
+#skipNav {position:absolute; left:0; top:0; width:100%; height:0;}
+#skipNav a {display:block; position:absolute; left:0; bottom:0; width:100%; line-height:30px; background-color:#000; color:#fff; text-align:center; transform:translateY(0);}
+#skipNav a:focus {transform:translateY(100%);}
+
+/* Wrapper Layout */
+html, body {height:100%;}
+#wrapper {min-height:100%;}
+#header {position:relative; width:100%; height:400px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#504e77+0,7c407a+100 */
+	background: rgb(80,78,119); /* Old browsers */
+	background: -moz-linear-gradient(45deg, rgb(80,78,119) 0%, rgb(124,64,122) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(45deg, rgb(80,78,119) 0%,rgb(124,64,122) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(45deg, rgb(80,78,119) 0%,rgb(124,64,122) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+/*-------------------------------------------------------------------
+    ## Header
+-------------------------------------------------------------------*/
+#header .tit-wrap {@extend %centered-c; text-align:center; margin-top:30px;}
+#header .tit-h1 {font-family:'NSB'; font-size:36px; color:#fff;}
+#header .btn-area {margin-top:20px;}
+
+/*-------------------------------------------------------------------
+    ## Content
+-------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------------------
+    ## Footer
+-------------------------------------------------------------------*/

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../_wsg/common/js/include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">Tab</h1>
+				<p class="g-explain-h1">Library Modules</p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Default Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#none" class="g-example-btn">HTML</a>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									&lt;div class="tab-wrap">
+										&lt;div class="tab-nav tab-basic">
+											&lt;ul role="tablist">
+												&lt;li role="presentation" class="is-active">&lt;a href="#tabContent11" role="tab" aria-controls="tabContent11" aria-selected="true">탭제목1&lt;/a>&lt;/li>
+												&lt;li role="presentation">&lt;a href="#tabContent12" role="tab" aria-controls="tabContent12" aria-selected="false">탭제목2&lt;/a>&lt;/li>
+											&lt;/ul>
+										&lt;/div>
+										&lt;div class="tab-body">
+											&lt;!-- 탭내용1 -->
+											&lt;div id="tabContent11" class="tab-content is-active" aria-hidden="false">
+												&lt;div class="blind-area" role="text" aria-label="탭제목1 Tab Panel">&lt;/div>&lt;!-- role="tabpanel"(안읽어줌) 대체텍스트(Tab Panel) 직접입력 -->
+												&lt;div class="tab-inner">
+													탭내용1
+												&lt;/div>
+											&lt;/div>
+											&lt;!-- //탭내용1 -->
+											&lt;!-- 탭내용2 -->
+											&lt;div id="tabContent12" class="tab-content" aria-hidden="true">
+												&lt;div class="blind-area" role="text" aria-label="탭제목2 Tab Panel">&lt;/div>&lt;!-- role="tabpanel"(안읽어줌) 대체텍스트(Tab Panel) 직접입력  -->
+												&lt;div class="tab-inner">
+													탭내용2
+												&lt;/div>
+											&lt;/div>
+											&lt;!-- //탭내용2 -->
+										&lt;/div>
+									&lt;/div>
+
+									탭 외부호출 :
+									&lt;button type="button" onclick="ui.tab.action('#tabContent11')">&lt;span>탭 제목1&lt;/span>&lt;/button>
+									&lt;button type="button" onclick="ui.tab.action('#tabContent12')">&lt;span>탭 제목2&lt;/span>&lt;/button>
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Design Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+
+								<!-- //마크업뷰영역 -->
+							</div>
+						</div>
+
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+
+								<!-- //마크업뷰영역 -->
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

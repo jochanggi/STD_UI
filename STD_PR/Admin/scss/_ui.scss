@@ -1,0 +1,72 @@
+@charset "utf-8";
+/*-------------------------------------------------------------------
+	파일정의 : UI Modules
+	작성날짜 : YYYY-MM-DD 홍길동
+	참고사항 : 공통 범위를 최소화하고, 컨텐츠 스타일로 구분한다.
+	분류순서 : Element > Block > Layout > Plugin
+	속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------
+    ##UI
+-------------------------------------------------------------------*/
+/* Default */
+
+/* Common */
+
+/* Design */
+
+
+/*-------------------------------------------------------------------
+    ##Tabs
+-------------------------------------------------------------------*/
+/* Default */
+.tab-nav ul::after {display:block; clear:both; content:'';}
+.tab-nav li {position:relative; float:left; text-align:center;}
+.tab-nav li > a {display:block; padding:10px;}
+.tab-nav li.current > a::after,
+.tab-nav li.is-active > a::after {position:absolute; top:-9999px; content:'선택됨';}
+.tab-content {display:none; padding:10px;}
+.tab-content.is-active {display:block;}
+
+/* Common */
+
+/* Design */
+
+/*-------------------------------------------------------------------
+	##Accordion
+-------------------------------------------------------------------*/
+/* Default */
+.accordion-content {display:none;}
+.accordion-content.is-active {display:block;}
+.accordion-title .accordion-toggle {position:relative; z-index:2; text-align:left;}
+.accordion-title .accordion-toggle .arw {position:absolute; top:50%; right:20px; transform:translateY(-75%) rotate(-135deg); transition:all 0.2s;}
+.accordion-title.is-active .accordion-toggle .arw {transform:translateY(-25%) rotate(45deg)}
+
+/*-------------------------------------------------------------------
+    ##Folder
+-------------------------------------------------------------------*/
+/* Default */
+.folder-header {position:relative;}
+.folder-target {display:none;}
+
+/*-------------------------------------------------------------------
+    ##Tooltip
+-------------------------------------------------------------------*/
+/* Default */
+
+/*-------------------------------------------------------------------
+    ##Popup
+-------------------------------------------------------------------*/
+/* Basic */
+
+/* Full */
+
+/* Alert */
+
+/* Error */
+
+/* Message */
+
+/* Select */
+
+/* Event */
