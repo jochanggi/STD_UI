@@ -53,21 +53,3 @@ $color-secondary:#54873c;
 -------------------------------------------------------------------*/
 /* Floating Clear */
 %clear {content:''; clear:both; display:block;} /* selector::after {@extend %clear-b;} */
-
-/* Layer Align */
-%centered-t {position:absolute !important; left:50%; top:0; transform:translateX(-50%);}
-%centered-r {position:absolute !important; right:0; top:50%; transform:translateY(-50%);}
-%centered-b {position:absolute !important; left:50%; bottom:0; transform:translateX(-50%);}
-%centered-l {position:absolute !important; left:0; top:50%; transform:translateY(-50%);}
-%centered-c {position:absolute !important; left:50%; top:50%; transform:translate(-50%,-50%);}
-
-/*-------------------------------------------------------------------
-	@include
-	- 선언 : @mixin mixTransition($value) {property:$value}
-	- 활용 : selector {@include mixTransition(all 0.3s)}
--------------------------------------------------------------------*/
-/* CSS3 - CrossBrowser */
-@mixin mixBorderRadius($value) {border-radius: $value; -webkit-border-radius: $value;}
-@mixin mixBoxShadow($value) {box-shadow: $value; -webkit-box-shadow: $value;}
-@mixin mixTransition($value) {transition: $value; -webkit-transition: $value;}
-@mixin mixTransform($value) {transform: $value; -webkit-transform: $value; -moz-transform: $value; -ms-transform: $value; -o-transform: $value;}

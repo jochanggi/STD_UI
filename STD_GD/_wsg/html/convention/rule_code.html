@@ -27,7 +27,7 @@
 						<h2 class="g-h2">코드규칙</h2>
 					</div>
 					<div class="g-section-body">
-						<h3 class="g-h3">코드 들여쓰기</h3>
+						<h3 class="g-h3">들여쓰기</h3>
 						<ul class="g-desc">
 							<li>1탭 들여쓰기 하며, 1탭의 크기는 공백 4칸으로 설정한다.</li>
 						</ul>
@@ -47,78 +47,103 @@
 							</pre>
 						</div>
 
-						<h3 class="g-h3">주석 / 빈줄</h3>
+						<h3 class="g-h3">빈줄</h3>
 						<ul class="g-desc">
 							<li>가독성을 고려하여 빈 줄을 추가한다. 단, 1줄을 초과하지 않는다.</li>
 						</ul>
 						<div class="g-code">
 							<pre class="brush:html">
-								&lt;!-- Header --&gt;
+								&lt;!-- s: Header --&gt;
 								&lt;header id="header"&gt;
 								&lt;/header&gt;
-								&lt;!-- //Header --&gt;
+								&lt;!-- e: Header --&gt;
 
-								&lt;!-- Container --&gt;
+								&lt;!-- s: Container --&gt;
 								&lt;div id="container"&gt;
 								&lt;/div&gt;
-								&lt;!-- //Container --&gt;
+								&lt;!-- e: Container --&gt;
 
-								&lt;!-- Footer --&gt;
+								&lt;!-- s: Footer --&gt;
 								&lt;footer id="footer"&gt;
 								&lt;/footer&gt;
-								&lt;!-- //Footer --&gt;
+								&lt;!-- e: Footer --&gt;
 							</pre>
 						</div>
 
-						<h3 class="g-h3">수정/추가/삭제</h3>
+						<h3 class="g-h3">주석</h3>
 						<ul class="g-desc">
-							<li>조치사항 진행 결과의 주석을 남긴다. (예 : [날짜][조치내용][이슈])</li>
-							<li>잦은 수정사항을 고려하여 다중구조인 경우만 닫기주석으로 범위를 표시한다.</li>
-						</ul>
-						<h4 class="g-h4">인라인 수정</h4>
-						<div class="g-code">
-							<pre class="brush:html">
-								&lt;div&gt;
-									(내용생략) &lt;!-- 181130 금리변경건 수정 --&gt;
-								&lt;/div&gt;
-							</pre>
-						</div>
-						<h4 class="g-h4">단순구조 수정</h4>
-						<div class="g-code">
-							<pre class="brush:html">
-								&lt;!-- 181130 금리변경건 수정 --&gt;
-								&lt;div&gt;
-									(내용생략)
-								&lt;/div&gt;
-							</pre>
-						</div>
-						<h4 class="g-h4">다중구조 수정</h4>
-						<div class="g-code">
-							<pre class="brush:html">
-								&lt;!-- 181130 금리변경건 수정 --&gt;
-								&lt;div&gt;
-									(내용생략)
-								&lt;/div&gt;
-								&lt;div&gt;
-									(내용생략)
-								&lt;/div&gt;
-								&lt;!-- //181130 금리변경건 수정 --&gt;
-							</pre>
-						</div>
-						<h4 class="g-h4">이슈단위 표시</h4>
-						<ul class="g-desc">
-							<li>조치사항 이슈가 많은경우 이슈단위로 주석을 남긴다. (예 : [제목][조치내용][이슈])</li>
+							<li>주석의 용도 및 전달방법을 구분한다.</li>
+							<li></li>
 						</ul>
 						<div class="g-code">
 							<pre class="brush:html">
-								&lt;!-- 접근성ver1 제목문구 수정 --&gt;
-								&lt;div title="제목"&gt;
-									(내용생략)
-								&lt;/div&gt;
+								&lt;!-- s: 이름 --&gt;
+								<div>
+									<p>영역주석 : 시작과 끝이 있고, 마크업의 영역을 표시한다.</p>
+								</div>
+								&lt;!-- e: 이름 --&gt;
+
+								&lt;!-- Dev: 설명 --&gt;
+								&lt;!-- Pub: 설명 --&gt;
+								&lt;!-- All: 설명 --&gt;
+								<p>설명주석 : 시작과 끝이 없고, 개발팀(Dev)에게 전달내용을 설명한다. </p>
+								<p>설명주석 : 시작과 끝이 없고, 퍼블팀(Pub)에게 전달내용을 설명한다. </p>
+								<p>설명주석 : 시작과 끝이 없고, 모든팀(All)에게 전달내용을 설명한다. </p>
+
+								&lt;!-- 수정: 20181130 이름 설명 --&gt;
+								&lt;!-- 추가: 20181130 이름 설명 --&gt;
+								&lt;!-- 삭제: 20181130 이름 설명 --&gt;
+								<p>기록주석 : 단건인 경우 유형별로 구분하고 설명한다.</p>
+
+								&lt;!-- 고도화1: 20181130 이름 설명 --&gt;
+								&lt;!-- 고도화2: 20181130 이름 설명 --&gt;
+								&lt;!-- 고도화3: 20181130 이름 설명 --&gt;
+								<p>기록주석 : 다건인 경우 단위별로 구분하고 설명한다.</p>
+
+								&lt;!-- [구분]: 주제
+									- 제목: 설명
+									- 제목: 설명
+								--&gt;
+								<p>전달할 내용이 많은 경우 여러줄로 설명한다. </p>
 							</pre>
 						</div>
 
-						<h3 class="g-h3">Attribute 지정 순서</h3>
+						<h3 class="g-h3">기록주석</h3>
+						<ul class="g-desc">
+							<li>수정할 내용이 많은 다중구조는 닫기주석을 적용한다.</li>
+						</ul>
+						<h4 class="g-h4">인라인</h4>
+						<div class="g-code">
+							<pre class="brush:html">
+								&lt;div&gt;
+									(내용생략) &lt;!-- 수정: 20181130 이름 설명 --&gt;
+								&lt;/div&gt;
+							</pre>
+						</div>
+						<h4 class="g-h4">단순구조</h4>
+						<div class="g-code">
+							<pre class="brush:html">
+								&lt;!-- 수정: 20181130 이름 설명 --&gt;
+								&lt;div&gt;
+									(내용생략)
+								&lt;/div&gt;
+							</pre>
+						</div>
+						<h4 class="g-h4">다중구조</h4>
+						<div class="g-code">
+							<pre class="brush:html">
+								&lt;!-- 수정: 20181130 이름 설명 --&gt;
+								&lt;div&gt;
+									(내용생략)
+								&lt;/div&gt;
+								&lt;div&gt;
+									(내용생략)
+								&lt;/div&gt;
+								&lt;!-- //수정: 20181130 이름 설명 --&gt;
+							</pre>
+						</div>
+
+						<h3 class="g-h3">속성순서</h3>
 						<p class="g-desc">기능 &gt; 이름 &gt; 정보  &gt; 선택속성 &gt; 클래스 &gt; 상태 순서로 적용한다.</p>
 						<h4 class="g-h4">A 엘리먼트</h4>
 						<div class="g-code">
@@ -185,7 +210,7 @@
 							</pre>
 						</div>
 
-						<h3 class="g-h3">들여쓰기/줄 바꿈</h3>
+						<h3 class="g-h3">들여쓰기 / 줄 바꿈</h3>
 						<ul class="g-desc">
 							<li>CSS 코드 작성시 들여쓰기는 허용하지 않는다.</li>
 							<li>공통으로 사용되는 속성의 선택자간의 줄 바꿈은 허용하며 이 외의 줄바꿈은 허용하지 않는다.</li>

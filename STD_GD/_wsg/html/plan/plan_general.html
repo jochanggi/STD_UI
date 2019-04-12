@@ -22,7 +22,7 @@
 			</div>
 			<div class="g-content-body">
 				<!-- 컨텐츠구분 -->
-				<section class="g-section g-in-sec">
+				<section class="g-section g-in-sec" hidden>
 					<div class="g-section-header">
 						<h2 class="g-h2">컨텐츠구분</h2>
 					</div>
@@ -236,7 +236,7 @@
 										<tbody>
 										<tr>
 											<td>Forms</td>
-											<td>.frm-</td>
+											<td>.form-</td>
 											<td>폼</td>
 										</tr>
 										<tr>
@@ -268,16 +268,6 @@
 											<td>Bullets</td>
 											<td>.bul-</td>
 											<td>불릿목록</td>
-										</tr>
-										<tr>
-											<td>Defines</td>
-											<td>.define-</td>
-											<td>정의목록</td>
-										</tr>
-										<tr>
-											<td>Lists</td>
-											<td>.lists-</td>
-											<td>그룹목록</td>
 										</tr>
 										<tr>
 											<td>Breadcrumbs</td>
@@ -331,11 +321,6 @@
 											<td>썸네일</td>
 										</tr>
 										<tr>
-											<td>반응형 임베드</td>
-											<td>.responsive-</td>
-											<td>-16by9, -4by3</td>
-										</tr>
-										<tr>
 											<td>Steps</td>
 											<td>.step-</td>
 											<td>스텝</td>
@@ -344,11 +329,6 @@
 											<td>Tables</td>
 											<td>.tbl-</td>
 											<td>표</td>
-										</tr>
-										<tr>
-											<td>Pager</td>
-											<td>.pager-</td>
-											<td>페이지 이전/다음</td>
 										</tr>
 										<tr>
 											<td>Pagination</td>
@@ -404,11 +384,6 @@
 											<td>접기/펴기</td>
 										</tr>
 										<tr>
-											<td>Collapse</td>
-											<td>.collapse-</td>
-											<td>보이기/가리기</td>
-										</tr>
-										<tr>
 											<td>Tooltips</td>
 											<td>.tooltip-</td>
 											<td>설명 자세히보기</td>
@@ -424,14 +399,14 @@
 											<td>디자인 셀렉트</td>
 										</tr>
 										<tr>
-											<td>Modals</td>
-											<td>.modal-</td>
-											<td>대화상자</td>
-										</tr>
-										<tr>
 											<td>Popup</td>
 											<td>.popup-</td>
 											<td>팝업</td>
+										</tr>
+										<tr>
+											<td>Stikcy</td>
+											<td>.sticky-</td>
+											<td>요소고정</td>
 										</tr>
 										</tbody>
 									</table>
@@ -449,11 +424,6 @@
 										</tr>
 										</thead>
 										<tbody>
-										<tr>
-											<td>Stikcy</td>
-											<td>.sticky-</td>
-											<td>요소고정</td>
-										</tr>
 										<tr>
 											<td>Floaing</td>
 											<td>.floating-</td>
@@ -558,9 +528,9 @@
 										<td>형태구분</td>
 									</tr>
 									<tr>
-										<td>UX</td>
-										<td>[ux]-</td>
-										<td>의미구분</td>
+										<td>컨텐츠</td>
+										<td>[컨텐츠]-</td>
+										<td>이름구분</td>
 									</tr>
 								</tbody>
 							</table>
@@ -790,6 +760,50 @@
 				</section>
 				<!-- //크기단위 -->
 
+				<!-- 기준단위 -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">기준단위</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-tbl-type1">
+							<table>
+								<caption>기준단위</caption>
+								<colgroup>
+									<col style="width:25%">
+									<col style="width:25%">
+									<col style="width:auto">
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">요소</th>
+										<th scope="col">예약어</th>
+										<th scope="col">설명</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>최대</td>
+										<td>-max</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>표준</td>
+										<td>-std</td>
+										<td>standard 축약어</td>
+									</tr>
+									<tr>
+										<td>최소</td>
+										<td>-min</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+				<!-- //기준단위 -->
+
 				<!-- 색상단위 -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
@@ -830,6 +844,11 @@
 									<tr>
 										<td>더밝은</td>
 										<td>-lighter</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>색상반전</td>
+										<td>-invert</td>
 										<td></td>
 									</tr>
 								</tbody>
@@ -888,50 +907,6 @@
 				</section>
 				<!-- //굵기단위 -->
 
-				<!-- 기준단위 -->
-				<section class="g-section g-in-sec">
-					<div class="g-section-header">
-						<h2 class="g-h2">기준단위</h2>
-					</div>
-					<div class="g-section-body">
-						<div class="g-tbl-type1">
-							<table>
-								<caption>기준단위</caption>
-								<colgroup>
-									<col style="width:25%">
-									<col style="width:25%">
-									<col style="width:auto">
-								</colgroup>
-								<thead>
-									<tr>
-										<th scope="col">요소</th>
-										<th scope="col">예약어</th>
-										<th scope="col">설명</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>최대</td>
-										<td>-max</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>표준</td>
-										<td>-std</td>
-										<td>standard 축약어</td>
-									</tr>
-									<tr>
-										<td>최소</td>
-										<td>-min</td>
-										<td></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</section>
-				<!-- //기준단위 -->
-
 				<!-- 꾸미기 -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
@@ -967,11 +942,6 @@
 									<tr>
 										<td>언더라인</td>
 										<td>-underline</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>색상반전</td>
-										<td>-invert</td>
 										<td></td>
 									</tr>
 								</tbody>

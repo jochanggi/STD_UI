@@ -3,6 +3,7 @@ var gRootURL = {
 }
 var gBaseURL = {
 	_wsg : gRootURL.root+'_wsg/',
+	_front : gRootURL.root+'common/',
 	menu0 : gRootURL.root+'_wsg/html/_prototype/',
 	menu1 : gRootURL.root+'_wsg/html/convention/',
 	menu2 : gRootURL.root+'_wsg/html/plan/',
@@ -21,9 +22,15 @@ var include = {
 	},
 	head : function(){
 		document.write('<!-- Front -->');
-		document.write('<link href="'+gRootURL.root+'common/css/import.css" rel="stylesheet" />');
-		document.write('<script src="'+gRootURL.root+'common/js/libs/jquery-3.3.1.min.js"></script>');
-		document.write('<script src="'+gRootURL.root+'common/js/pub/pub_import.js"></script>');
+		document.write('<link href="'+gBaseURL._front+'css/import.css" rel="stylesheet" />');
+		document.write('<script src="'+gBaseURL._front+'js/libs/jquery-3.3.1.min.js"></script>');
+		document.write('<script src="'+gBaseURL._front+'js/libs/EasePack.js"></script>');
+		document.write('<script src="'+gBaseURL._front+'js/libs/TweenMax.js"></script>');
+		document.write('<script src="'+gBaseURL._front+'js/pub/pub_device.js"></script>');
+		document.write('<script src="'+gBaseURL._front+'js/pub/pub_ui.js"></script>');
+		document.write('<!--[if lt IE 9]>');
+		document.write('<script src="'+gBaseURL._front+'js/libs/html5shiv-printshiv.js"></script>');
+		document.write('<![endif]-->');
 
 		document.write('<!-- Guide -->');
 		document.write('<link href="'+gBaseURL._wsg+'common/css/layout.css" rel="stylesheet" />');
@@ -117,7 +124,7 @@ var include = {
 			document.write('						<ul class="g-depth2">');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'plan_codeset.html">Codeset</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'plan_layout.html">Layout</a></li>');
-			document.write('							<li class="g-node2"><a href="'+baseURL+'plan_nav.html">Navigation</a></li>');
+			//document.write('							<li class="g-node2"><a href="'+baseURL+'plan_nav.html">Navigation</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'plan_general.html">General</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'plan_wai.html">WAI-ARIA</a></li>');
 			//document.write('							<li class="g-node2"><a href="'+baseURL+'plan_lang.html">Languages</a></li>');
@@ -143,8 +150,8 @@ var include = {
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_badge.html">Badge</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_bullet.html">Bullet</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_thumbnail.html">Thumbnail</a></li>');
-			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_list.html">List</a></li>');
-			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_define.html">Define</a></li>');
+			//document.write('							<li class="g-node2"><a href="'+baseURL+'elements_list.html">List</a></li>');
+			//document.write('							<li class="g-node2"><a href="'+baseURL+'elements_define.html">Define</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_box.html">Box</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_card.html">Card</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_step.html">Step</a></li>');
