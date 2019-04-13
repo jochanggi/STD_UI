@@ -154,18 +154,14 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									<span class="label-type1">일이</span>
-									<span class="label-type1">일이삼</span>
-									<span class="label-type1">일이삼사</span>
-									<span class="label-type1">일이삼사오육칠팔구십</span>
+									&lt;span class="label-type1 primary">Primary&lt;/span>
+									&lt;span class="label-type1 outline primary">Primary&lt;/span>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									.label-type1 {
-										/* 최소 */ min-width:50px;
-										/* 최대 */ max-width:100px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
-									}
+									.label-type1.primary {background:$color-primary;}
+									.label-type1.outline.primary {border:1px solid $color-primary; color:$color-primary;}
 								</pre>
 							</div>
 						</div>

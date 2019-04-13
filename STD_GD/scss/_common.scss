@@ -10,7 +10,9 @@
     ## General
 -------------------------------------------------------------------*/
 /* IR */
+.is-hidden {display:none;}
 .blind {position:absolute; top:-999em; left:-999em; z-index:0; width:1px; height:1px; overflow:hidden;}
+.blind-wrap {position:relative;}
 .blind-area {position:absolute; top:0; right:0; bottom:0; left:0; z-index:0;}
 
 /* Align - Text */

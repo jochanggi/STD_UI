@@ -122,6 +122,9 @@ legend {
     ## General
 -------------------------------------------------------------------*/
 /* IR */
+.is-hidden {
+  display: none; }
+
 .blind {
   position: absolute;
   top: -999em;
@@ -130,6 +133,9 @@ legend {
   width: 1px;
   height: 1px;
   overflow: hidden; }
+
+.blind-wrap {
+  position: relative; }
 
 .blind-area {
   position: absolute;

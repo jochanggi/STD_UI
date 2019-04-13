@@ -2,7 +2,7 @@
 	## UI - 모듈공통
 --------------------------------------------------------------*/
 var ui = {
-	init : function(){
+	init: function(){
 		console.log('ui.init()');
 
 		if ($('.tab-nav').length)			{this.tab.init();}				// #Tab
@@ -23,63 +23,63 @@ var ui = {
 	},
 
 	/*
-		기능정의 : #Tab
-		연결방식 : href="" / id=""
-		참고경로 : modules/modules_tab.html
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		기능정의: #Tab
+		연결방식: href="" / id=""
+		참고경로: modules/modules_tab.html
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 	*/
-	tab : {
-		eleButton : '.tab-nav a',
-		eleContent : '.tab-content',
-		clsActive : 'is-active',
-		init : function(){
+	tab: {
+		eleButton: '.tab-nav a',
+		eleContent: '.tab-content',
+		clsActive: 'is-active',
+		init: function(){
 			var _this = this;
 			$(this.eleContent+'.'+this.clsActive).each(function(){_this.action('#'+$(this).attr('id'))});
 			this.event($(this.eleButton));
 		},
-		event : function($this){
+		event: function($this){
 			var _this = this;
 			$this.not('.is-evented').on('click', function(){
 				_this.action($(this).attr('href')); return false;
 			}).attr('.is-evented');
 		},
-		action : function(id){
+		action: function(id){
 			$(this.eleButton+'[href="'+id+'"]').attr({'aria-selected':'true'}).removeAttr('aria-expanded').parent().addClass(this.clsActive).siblings().removeClass(this.clsActive).children().attr({'aria-selected':'false', 'aria-expanded':'false'});
 			$(id).addClass(this.clsActive).attr('aria-hidden', 'false').siblings().removeClass(this.clsActive).attr('aria-hidden', 'true');
 		},
 	},
 
 	/*
-		기능정의 : #Accordion
-		연결방식 : href="" / id=""
-		참고경로 : modules/modules_accordion.html
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		기능정의: #Accordion
+		연결방식: href="" / id=""
+		참고경로: modules/modules_accordion.html
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 	*/
-	accordion : {
-		eleModule : '.accordion',
-		eleButton : '.accordion-toggle',
-		eleTitle : '.accordion-title',
-		eleContent : '.accordion-content',
-		clsActive : 'is-active',
-		duration : 300,
-		init : function(){
+	accordion: {
+		eleModule: '.accordion',
+		eleButton: '.accordion-toggle',
+		eleTitle: '.accordion-title',
+		eleContent: '.accordion-content',
+		clsActive: 'is-active',
+		duration: 300,
+		init: function(){
 			this.reset();
 			this.disable();
 			this.event($(this.eleButton));
 		},
-		reset : function(){
+		reset: function(){
 			var _this = this;
 			$('.accordion-basic' ).each(function(){$(this).attr({'data-sync':'true', 'data-toggle':'true' })});
 			$('.accordion-basic2').each(function(){$(this).attr({'data-sync':'true', 'data-toggle':'false'})});
 			$('.accordion-basic3').each(function(){$(this).attr({'data-sync':'false', 'data-toggle':'true'})});
 		},
-		event : function($this){
+		event: function($this){
 			var _this = this;
 			$this.not('.is-evented, [disabled]').on('click', function(){
 				_this.action($(this).attr('href')); return false;
 			}).addClass('is-evented');
 		},
-		action : function(id){
+		action: function(id){
 			var $toggle = $(this.eleButton+'[href="'+id+'"]'),
 				$title = $toggle.closest(this.eleTitle),
 				$module = $toggle.closest(this.eleModule),
@@ -110,7 +110,7 @@ var ui = {
 			}
 			this.disable();
 		},
-		disable : function(){
+		disable: function(){
 			$(this.eleButton+'[disabled]').each(function(){
 				 $(this).removeAttr('aria-expanded');
 				 $(this).attr('aria-disabled', 'true');
@@ -120,22 +120,22 @@ var ui = {
 	},
 
 	/*
-		기능정의 : #Folder
-		연결방식 : data-target="" / data-name=""
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: #Folder
+		연결방식: data-target="" / data-name=""
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	folder : {
-		eleButton : '.folder-toggle',
-		eleModule : '.folder-content',
-		eleFocus : '.folder-focus',
-		clsActive : 'is-active',
-		init : function(){
+	folder: {
+		eleButton: '.folder-toggle',
+		eleModule: '.folder-content',
+		eleFocus: '.folder-focus',
+		clsActive: 'is-active',
+		init: function(){
 			this.reset();
 			this.event($(this.eleButton));
 		},
-		reset : function(){
+		reset: function(){
 			var _this = this;
 			$(this.eleButton+'[data-role=fold]').each(function(){
 				var name = $(this).attr('data-target');
@@ -143,7 +143,7 @@ var ui = {
 				$('[data-name='+name+']').attr({'hidden':'hidden'});
 			})
 		},
-		event : function($this){
+		event: function($this){
 			var _this = this;
 			$this.filter('[data-role=fold]').not('.is-evented').on('click', function(){
 				var target = $(this).attr('data-target');
@@ -153,7 +153,7 @@ var ui = {
 				return false;
 			}).addClass('is-evented');
 		},
-		open : function(name){
+		open: function(name){
 			var _this = this;
 			$('[data-target='+name+']').attr({'data-state':'null', 'aria-expanded':'true'}).addClass(_this.clsActive);
 			$('[data-name='+name+']').addClass(_this.clsActive).slideDown(300, function(){
@@ -161,7 +161,7 @@ var ui = {
 				$('[data-target='+name+']').attr('data-state', 'opened');
 			});
 		},
-		close : function(name){
+		close: function(name){
 			var _this = this;
 			$('[data-target='+name+']').attr({'data-state':'null', 'aria-expanded':'false'}).removeClass(_this.clsActive);
 			$('[data-name='+name+']').removeClass(_this.clsActive).slideUp(300, function(){
@@ -172,23 +172,23 @@ var ui = {
 	},
 
 	/*
-		기능정의 : #FolderMore
-		연결방식 : data-target="" / data-name=""
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: #FolderMore
+		연결방식: data-target="" / data-name=""
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	folderMore : {
-		eleButton : '.folder-toggle',
-		eleModule : '.folder-content',
-		eleInner : '.folder-inner',
-		eleFocus : '.folder-focus',
-		clsActive : 'is-active',
-		init : function(){
+	folderMore: {
+		eleButton: '.folder-toggle',
+		eleModule: '.folder-content',
+		eleInner: '.folder-inner',
+		eleFocus: '.folder-focus',
+		clsActive: 'is-active',
+		init: function(){
 			this.reset();
 			this.event($(this.eleButton));
 		},
-		reset : function(){
+		reset: function(){
 			var _this = this;
 			$(this.eleButton).each(function(){
 				var name = $(this).attr('data-target');
@@ -196,7 +196,7 @@ var ui = {
 				$('[data-name='+name+']').attr({'hidden':'hidden'});
 			})
 		},
-		event : function($this){
+		event: function($this){
 			var _this = this;
 			$this.filter('[data-role=more]').not('.is-evented').on('click', function(){
 				var target = $(this).attr('data-target');
@@ -206,7 +206,7 @@ var ui = {
 				return false;
 			}).addClass('is-evented');
 		},
-		open : function(name){
+		open: function(name){
 			var _this = this;
 			var $module = $('[data-name='+name+']').closest(_this.eleModule);
 			var $inner = $('[data-name='+name+']').closest(_this.eleInner);
@@ -218,7 +218,7 @@ var ui = {
 				$('[data-target='+name+']').attr({'data-state':'opened', 'aria-expanded':'true'});
 			}});
 		},
-		close : function(name){
+		close: function(name){
 			var _this = this;
 			var $module = $('[data-name='+name+']').closest(_this.eleModule);
 			var $inner = $('[data-name='+name+']').closest(_this.eleInner);
@@ -232,36 +232,36 @@ var ui = {
 	},
 
 	/*
-		기능정의 : #Tooltip
-		참고사항 : 설명
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: #Tooltip
+		참고사항: 설명
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	tooltip : {
-		eleWrapper : '.tooltip-wrap',
-		eleOpener : '.tooltip-open',
-		eleCloser : '.tooltip-close',
-		eleModule : '.tooltip',
-		eleFocus  : '.tooltip-focus',
-		setTime : null,
-		init : function(){
+	tooltip: {
+		eleWrapper: '.tooltip-wrap',
+		eleOpener: '.tooltip-open',
+		eleCloser: '.tooltip-close',
+		eleModule: '.tooltip',
+		eleFocus : '.tooltip-focus',
+		setTime: null,
+		init: function(){
 			this.event();
 		},
-		event : function(){
+		event: function(){
 			var _this = this;
 			$(this.eleOpener).not('.is-evented').on('click', function(){_this.open($(this).attr('href')); return false});
 			$(this.eleCloser).not('.is-evented').on('click', function(){_this.close($(this).attr('href')); return false});
 			$(this.eleWrapper).not('.is-evented').on('mouseover', function(){_this.open('#'+$(this).find(_this.eleModule).attr('id'))});
 			$(this.eleWrapper).not('.is-evented').on('mouseleave', function(){_this.close('#'+$(this).find(_this.eleModule).attr('id'))});
 		},
-		open : function(id){
+		open: function(id){
 			var _this = this;
 			$(id).attr({'data-state':'null', 'aria-hidden':'false'});
 			$(id).stop().fadeIn(200, function(){$(this).attr({'data-state':'opened'})});
 			$(_this.eleOpener+'[href="'+id+'"]').attr({'aria-expanded':'true'});
 		},
-		close : function(id){
+		close: function(id){
 			var _this = this;
 			$(id).attr({'data-state':'null', 'aria-hidden':'true'});
 			$(id).stop().fadeOut(200, function(){$(this).attr({'data-state':'closed'})});
@@ -271,92 +271,83 @@ var ui = {
 	},
 
 	/*
-		기능정의 : #Dropdown
-		참고사항 : href="" / id="" 연결
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: #Dropdown
+		참고사항: href="" / id="" 연결
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	dropdown : {
-		eleWrapper : '.dropdown-wrap',
-		eleButton : '.dropdown-toggle',
-		eleModule : '.dropdown',
-		clsActive : 'is-active',
-		init : function(){
+	dropdown: {
+		eleModule: '.dropdown',
+		eleButton: '.dropdown-toggle',
+		eleMenu: '.dropdown-menu',
+		init: function(){
 			this.reset();
 			this.event();
 		},
-		reset : function(){
-			$(this.eleModule).attr({'data-state':'closed'});
+		reset: function(){
+			$(this.eleMenu).attr({'data-state':'closed'});
 		},
-		event : function(){
+		event: function(){
 			var _this = this;
-			$(_this.eleButton).on('click', function(){
-				var id = $(this).attr('href');
-				if ($(id).attr('data-state') == 'closed'){ _this.open(id); }
-				else if ($(id).attr('data-state') == 'opened'){ _this.close(id); }
-				return false;
-			}).addClass('is-evented');
+			$(_this.eleButton).off().on('click', function(){
+				var id = $(this).attr('aria-controls');
+				var $eleModule = $('#'+id).closest(_this.eleModule);
+				if ($eleModule.hasClass('is-active')) { _this.close(id) }
+				else { _this.open(id) }
+			});
+
+			var setTime;
+			$(_this.eleMenu).on('focusin', function(){ clearTimeout(setTime) });
+			$(_this.eleModule).on('focusout', function(){
+				var $this = $(this);
+				var id = $this.find(_this.eleMenu).attr('id');
+				setTime = setTimeout(function(){ if($this.hasClass('is-active')){_this.close(id)} },50);
+			})
 		},
-		open : function(id){
+		open: function(id){
 			var _this = this;
-			var $button = $(this.eleButton+'[href="'+id+'"]');
-			$(id).attr({'data-state':'null'});
-			$button.attr({'aria-expanded':'true'}).addClass(this.clsActive);
-			if ($(id).hasClass('dropdown-top')){
-				TweenMax.set($(id), {display:'block', scaleY:0, opacity:0, y:'50%', bottom:'calc(100% - 1px)'});
-				TweenMax.to($(id), 0.25,  {scaleY:1, opacity:1, y:'0%', ease:Power2.easeInOut, onComplate:function(){
-					$(id).attr({'aria-hidden':'false', 'data-state':'opened'}).addClass(_this.clsActive);
-				}});
-			} else {
-				TweenMax.set($(id), {display:'block', scaleY:0, opacity:0, y:'-50%', top:'calc(100% - 1px)'});
-				TweenMax.to($(id), 0.25,  {scaleY:1, opacity:1, y:'0%', ease:Power2.easeInOut, onComplate:function(){
-					$(id).attr({'aria-hidden':'false', 'data-state':'opened'}).addClass(_this.clsActive);
-				}});
-			}
+			var $eleMenu = $('#'+id);
+			var $eleModule = $eleMenu.closest(_this.eleModule);
+			$eleMenu.addClass('is-visible');
+			setTimeout(function(){
+				$eleModule.addClass('is-active');
+				$eleMenu.one(transitionend, function(){
+
+				});
+			},10);
 		},
-		close : function(id){
+		close: function(id){
 			var _this = this;
-			var $button = $(this.eleButton+'[href="'+id+'"]');
-			$(id).attr({'data-state':'null'});
-			if ($(id).hasClass('dropdown-top')){
-				TweenMax.set($(id), {scaleY:1, opacity:1, y:0});
-				TweenMax.to($(id), 0.25,  {scaleY:0, opacity:0, y:'50%', ease:Power2.easeInOut, onComplate:function(){
-					$button.attr({'aria-expanded':'false'}).removeClass(_this.clsActive);
-					$(id).attr({'aria-hidden':'true', 'data-state':'closed'}).removeClass(_this.clsActive);
-				}});
-			} else {
-				TweenMax.set($(id), {scaleY:1, opacity:1, y:0});
-				TweenMax.to($(id), 0.25,  {scaleY:0, opacity:0, y:'-50%', ease:Power2.easeInOut, onComplate:function(){
-					$button.attr({'aria-expanded':'false'}).removeClass(_this.clsActive);
-					$(id).attr({'aria-hidden':'true', 'data-state':'closed'}).removeClass(_this.clsActive);
-				}});
-			}
+			var $eleMenu = $('#'+id);
+			var $eleModule = $eleMenu.closest(_this.eleModule);
+			$eleModule.removeClass('is-active');
+			$eleMenu.one(transitionend, function(){ $(this).removeClass('is-visible') });
 		},
 	},
 
 	/*
-		기능정의 : #Popup
-		참고사항 : 설명
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: #Popup
+		참고사항: 설명
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	popup : {
-		eleModule : '.popup-wrap',
-		eleOpener : '.popup-open',
-		eleCloser : '.popup-close',
-		eleFocus  : '.popup-focus',
-		eleTabIdx : 'a, button, select, input, textarea', //키보드제어 요소
-		clsVisible : 'is-visible',
-		zindex    : 1000,
-		indexNum  : 0,
-		scale	  : 0.8,
-		duration  : 0.6,
-		init : function(){
+	popup: {
+		eleModule: '.popup-wrap',
+		eleOpener: '.popup-open',
+		eleCloser: '.popup-close',
+		eleFocus : '.popup-focus',
+		eleTabIdx: 'a, button, select, input, textarea', //키보드제어 요소
+		clsVisible: 'is-visible',
+		zindex   : 1000,
+		indexNum : 0,
+		scale	 : 0.8,
+		duration : 0.6,
+		init: function(){
 			this.event();
 		},
-		event : function(){
+		event: function(){
 			var _this = this;
 			//Trigger Open Event
 			$(_this.eleOpener).not('.is-clicked').on('click', function(){
@@ -377,7 +368,7 @@ var ui = {
 				}
 			}
 		},
-		open : function(id){
+		open: function(id){
 			var _this = this;
 			var $eleModule = $('#'+id);
 			_this.indexNum = _this.indexNum + 1;
@@ -396,7 +387,7 @@ var ui = {
 			dimmer.open('dimmer-popup', _this.duration); //딤 열기 (배경 가리기)
 			bodyScroll.fixed(); //배경스크롤 고정
 		},
-		close : function(id){
+		close: function(id){
 			var _this = this;
 			var $eleModule = $('#'+id);
 			_this.indexNum = _this.indexNum - 1;
@@ -412,13 +403,13 @@ var ui = {
 			dimmer.close('dimmer-popup', _this.duration); //딤 닫기 (배경 보이기)
 			bodyScroll.static(); //배경스크롤 해제
 		},
-		keyDisable : function(idx){
+		keyDisable: function(idx){
 			//보조기기, 키보드 접근제한 설정
 			$(this.eleModule + '[data-index='+idx+']').siblings().attr({'aria-hidden':'true'}).addClass('is-ariaHidden'); // 보조기기 접근제한
 			$(this.eleModule + '[data-index='+idx+']').siblings().find(this.eleTabIdx).not('[tabindex=0]').attr({'tabindex':'-1'}).addClass('not-tabindex'); // 기본요소 키보드 접근제한 (클래스로 설정표시)
 			$(this.eleModule + '[data-index='+idx+']').siblings().find('[tabindex=0]').attr({'tabindex':'-1'}).addClass('is-tabindex'); // 탭인덱스 키보드 접근제한 (클래스로 설정표시)
 		},
-		keyEnable : function(idx){
+		keyEnable: function(idx){
 			//활성화된 모달이 없는경우 전체 초기화
 			if (this.indexNum == 0){
 				$('.is-ariaHidden').attr({'aria-hidden':'false'}).removeClass('is-ariaHidden'); //보조기기 접근해제
@@ -436,163 +427,163 @@ var ui = {
 
 	/*
 		## Full Popup
-		기능정의 : 설명
-		참고사항 : 설명
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: 설명
+		참고사항: 설명
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	fullpopup : {
-		init : function(){
+	fullpopup: {
+		init: function(){
 			this.event();
 		},
-		reset : function($this){
+		reset: function($this){
 			ut.setAnchorAttr($this);
 		},
-			event : function(){
+			event: function(){
 			this.action();
 		},
-		action : function(){
+		action: function(){
 			console.log('Fullpopup Action');
 		},
 	},
 
 	/*
 		## Sticky
-		기능정의 : 설명
-		참고사항 : 설명
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: 설명
+		참고사항: 설명
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	sticky : {
-		init : function(){
+	sticky: {
+		init: function(){
 			this.event();
 		},
-		event : function(){
+		event: function(){
 			this.action();
 		},
-		action : function(){
+		action: function(){
 			console.log('Sticky Action');
 		},
 	},
 
 	/*
 		## Spy Scroll
-		기능정의 : 설명
-		참고사항 : 설명
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: 설명
+		참고사항: 설명
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	spyScroll : {
-		init : function(){
+	spyScroll: {
+		init: function(){
 			this.event();
 		},
-		event : function(){
+		event: function(){
 			this.action();
 		},
-		action : function(){
+		action: function(){
 			console.log('Spy Scroll Action');
 		},
 	},
 
 	/*
 		## Infinit Scroll
-		기능정의 : 설명
-		참고사항 : 설명
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: 설명
+		참고사항: 설명
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	infiniteScroll : {
-		init : function(){
+	infiniteScroll: {
+		init: function(){
 			this.event();
 		},
-		event : function(){
+		event: function(){
 			this.action();
 		},
-		action : function(){
+		action: function(){
 			console.log('Infinit Scroll Action');
 		},
 	},
 
 	/*
 		## Floating
-		기능정의 : 설명
-		참고사항 : 설명
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: 설명
+		참고사항: 설명
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	floating : {
-		init : function(){
+	floating: {
+		init: function(){
 			this.event();
 		},
-		event : function(){
+		event: function(){
 			this.action();
 		},
-		action : function(){
+		action: function(){
 			console.log('Floating Action');
 		},
 	},
 
 	/*
 		## Dimmer
-		기능정의 : 설명
-		참고사항 : 설명
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: 설명
+		참고사항: 설명
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	dimmer : {
-		init : function(){
+	dimmer: {
+		init: function(){
 			this.event();
 		},
-		event : function(){
+		event: function(){
 			this.action();
 		},
-		action : function(){
+		action: function(){
 			console.log('Dimmer Action');
 		},
 	},
 
 	/*
 		## Progress
-		기능정의 : 설명
-		참고사항 : 설명
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: 설명
+		참고사항: 설명
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	progress : {
-		init : function(){
+	progress: {
+		init: function(){
 			this.event();
 		},
-		event : function(){
+		event: function(){
 			this.action();
 		},
-		action : function(){
+		action: function(){
 			console.log('Progress Action');
 		},
 	},
 
 	/*
 		## Waypoint
-		기능정의 : 설명
-		참고사항 : 설명
-		참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-		참고경로 : /html/menu1/page.html
+		기능정의: 설명
+		참고사항: 설명
+		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	waypoint : {
-		init : function(){
+	waypoint: {
+		init: function(){
 			this.event();
 		},
-		event : function(){
+		event: function(){
 			this.action();
 		},
-		action : function(){
+		action: function(){
 			console.log('Waypoint Action');
 		},
 	},
