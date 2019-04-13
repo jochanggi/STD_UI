@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../../_wsg/js/wsg_include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">Sidebar</h1>
+				<p class="g-explain-h1">마크업뷰중심 + 일부컨텐츠 </p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Default</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+								</div>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;button type="button" class="btn btn-drawer js-sidebar-opener" aria-controls="sidebar" aria-expanded="false">&lt;span>Sidebar 열기&lt;/span>&lt;/button>
+
+									&lt;aside id="sidebar" class="sidebar-wrap">
+										&lt;button type="button" class="btn js-sidebar-closer" aria-controls="sidebar" aria-expanded="true">&lt;span>Sidebar 닫기&lt;/span>&lt;/button>
+									&lt;/aside>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									.btn-drawer {position:relative; width:44px; height:44px;}
+									.btn-drawer:after, .btn-drawer:before {content:''}
+									.btn-drawer span, .btn-drawer:after, .btn-drawer:before {display:block; width:22px; height:2px; background-color:#333; overflow:hidden; color:transparent; @extend %centered-l; left:11px;}
+									.btn-drawer:before {margin-top:-7px;}
+									.btn-drawer span {width:18px;}
+									.btn-drawer:after {margin-top:7px;}
+
+									#sidebar {display:none; position:absolute; z-index:1001; left:-200px; width:200px; height:100%; padding:20px; background-color:#000;}
+									#wrapper, #sidebar {transform:translateX(0); transition:transform 0.4s 0.2s ease; }/* cubic-bezier(.2,.4,.57,1); */
+									body.is-sidebar-opened #sidebar {display:block;}
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Transition Over</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<iframe src="sidebar/std_sidebar_over.html" style="height:200px; border:1px solid #ddd" frameborder="0"></iframe>
+									<a href="sidebar/std_sidebar_over.html" target="_blank" title="새창">[Sidebar Over 새창열기]</a>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									&lt;aside id="sidebar" class="sidebar-wrap" data-sidebar="over">&lt;/aside>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									body.is-sidebar-opened[data-sidebar=over] #sidebar {transform:translateX(100%);}
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									var transitionend = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend';
+									sidebar : {
+										eleModule : '.sidebar-wrap',
+										eleOpener : '.js-sidebar-opener',
+										eleCloser : '.js-sidebar-closer',
+										eleFocus : 'a, button, [tabindex=0]',
+										init : function(){
+											this.reset();
+											this.event();
+										},
+										reset : function(){
+											var clsSidebar = $(this.eleModule).attr('data-sidebar');
+											$('body').attr({'data-sidebar': clsSidebar});
+										},
+										event : function(){
+											var _this = this;
+											$(this.eleOpener).off().on('click', function(){ var id = $(this).attr('aria-controls'); _this.open(id) });
+											$(this.eleCloser).off().on('click', function(){ var id = $(this).attr('aria-controls'); _this.close(id) });
+										},
+										open : function(id){
+											var _this = this;
+											var $module = $('#'+id);
+											$module.show();
+											setTimeout(function(){
+												$('body').addClass('sidebar-opened');
+												$module.one(transitionend, function(){ $module.find(_this.eleFocus).first().focus() });
+											},10);
+										},
+										close : function(id){
+											var _this = this;
+											var $module = $('#'+id);
+											$('body').removeClass('sidebar-opened');
+											$module.one(transitionend, function(){ $module.hide(); $(_this.eleOpener).focus(); });
+										},
+									}
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Transition Push</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<iframe src="sidebar/std_sidebar_push.html" style="height:200px; border:1px solid #ddd" frameborder="0"></iframe>
+									<a href="sidebar/std_sidebar_push.html" target="_blank" title="새창">[Sidebar Push 새창열기]</a>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									&lt;aside id="sidebar" class="sidebar-wrap" data-sidebar="push">&lt;/aside>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									body.is-sidebar-opened[data-sidebar=push] #wrapper {transform:translateX(200px);}
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									sidebar : {
+										eleModule : '.sidebar-wrap',
+										eleOpener : '.js-sidebar-opener',
+										eleCloser : '.js-sidebar-closer',
+										eleFocus : 'a, button, [tabindex=0]',
+										init : function(){
+											this.reset();
+											this.event();
+										},
+										reset : function(){
+											var clsSidebar = $(this.eleModule).attr('data-sidebar');
+											$('body').attr({'data-sidebar': clsSidebar});
+										},
+										event : function(){
+											var _this = this;
+											$(this.eleOpener).off().on('click', function(){ var id = $(this).attr('aria-controls'); _this.open(id) });
+											$(this.eleCloser).off().on('click', function(){ var id = $(this).attr('aria-controls'); _this.close(id) });
+										},
+										open : function(id){
+											var _this = this;
+											var $module = $('#'+id);
+											$module.show();
+											setTimeout(function(){
+												$('body').addClass('is-sidebar-opened').css('overflow','hidden');
+												$('#wrapper').one(transitionend, function(){ $module.find(_this.eleFocus).first().focus() });
+											},10);
+										},
+										close : function(id){
+											var _this = this;
+											var $module = $('#'+id);
+											$('body').removeClass('is-sidebar-opened');
+											$('#wrapper').one(transitionend, function(){ $module.hide(); $(_this.eleOpener).focus(); $('body').removeAttr('style') });
+										},
+									}
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

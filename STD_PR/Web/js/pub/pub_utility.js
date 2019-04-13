@@ -1,8 +1,6 @@
 /*--------------------------------------------------------------
 	## Util - 유틸리티
 --------------------------------------------------------------*/
-//Transition Events
-var transitionend = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend';
 //콘솔뷰
 var consoleLog = function(value){
 	var delay = 3000;

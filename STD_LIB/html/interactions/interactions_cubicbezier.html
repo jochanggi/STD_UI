@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../../_wsg/js/wsg_include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+<style type="text/css">
+.ex-box {width:50px; height:50px; line-height:50px; text-align:center; color:#fff; transform:translateX(0);}
+.css-ease {background-color:red;}
+.css-ease:after {content:'ease';}
+.css-cubic1 {background-color:blue;}
+.css-cubic1:after {content:'cubic';}
+.css-cubic2 {background-color:blue;}
+.css-cubic2:after {content:'cubic';}
+.tween-power {background-color:green;}
+.tween-power:after {content:'tween';}
+
+.g-ease.is-active .css-ease {transform:translateX(500px); transition:transform 2s 0.5s ease;}
+.g-ease.is-active .css-cubic1 {transform:translateX(500px); transition:transform 2s 0.5s cubic-bezier(.25,.1,.25,1);}
+.g-ease-in.is-active .css-ease {transform:translateX(500px); transition:transform 2s 0.5s ease-in;}
+.g-ease-in.is-active .css-cubic1 {transform:translateX(500px); transition:transform 2s 0.5s cubic-bezier(.42,0,1,1);}
+.g-ease-out.is-active .css-ease {transform:translateX(500px); transition:transform 2s 0.5s ease-out;}
+.g-ease-out.is-active .css-cubic1 {transform:translateX(500px); transition:transform 2s 0.5s cubic-bezier(0,0,.58,1);}
+.g-ease-in-out.is-active .css-ease {transform:translateX(500px); transition:transform 2s 0.5s ease-in-out;}
+.g-ease-in-out.is-active .css-cubic1 {transform:translateX(500px); transition:transform 2s 0.5s cubic-bezier(.42,0,.58,1);}
+
+.power1.g-ease-in.is-active .css-cubic2 {transform:translateX(500px); transition:transform 2s 0.5s cubic-bezier(.565,0,1,1.03);}
+.power1.g-ease-out.is-active .css-cubic2 {transform:translateX(500px); transition:transform 2s 0.5s cubic-bezier(0,0,.45,1.01);}
+.power1.g-ease-in-out.is-active .css-cubic2 {transform:translateX(500px); transition:transform 2s 0.5s cubic-bezier(.445,0,.545,1);}
+
+.power2.g-ease-in.is-active .css-cubic2 {transform:translateX(500px); transition:transform 2s 0.5s cubic-bezier(.85,0,.90,.9);}
+.power2.g-ease-out.is-active .css-cubic2 {transform:translateX(500px); transition:transform 2s 0.5s cubic-bezier(0,0,.45,1.01);}
+.power2.g-ease-in-out.is-active .css-cubic2 {transform:translateX(500px); transition:transform 2s 0.5s cubic-bezier(.445,0,.545,1);}
+</style>
+<script type="text/javascript">
+<!--
+	$(document).ready(function(){
+		$('.g-ease').addClass('is-active');
+		$('.g-ease-in').addClass('is-active');
+		$('.g-ease-out').addClass('is-active');
+		$('.g-ease-in-out').addClass('is-active');
+
+		TweenMax.to( $('.g-ease-in.power1 .tween-power'), 2, {delay:0.5, x:500, ease: Power1.easeIn} );
+		TweenMax.to( $('.g-ease-in.power2 .tween-power'), 2, {delay:0.5, x:500, ease: Power2.easeIn} );
+		TweenMax.to( $('.g-ease-in.power3 .tween-power'), 2, {delay:0.5, x:500, ease: Power3.easeIn} );
+		TweenMax.to( $('.g-ease-in.power4 .tween-power'), 2, {delay:0.5, x:500, ease: Power4.easeIn} );
+
+		TweenMax.to( $('.g-ease-out.power1 .tween-power'), 2, {delay:0.5, x:500, ease: Power1.easeOut} );
+		TweenMax.to( $('.g-ease-out.power2 .tween-power'), 2, {delay:0.5, x:500, ease: Power2.easeOut} );
+		TweenMax.to( $('.g-ease-out.power3 .tween-power'), 2, {delay:0.5, x:500, ease: Power3.easeOut} );
+		TweenMax.to( $('.g-ease-out.power4 .tween-power'), 2, {delay:0.5, x:500, ease: Power4.easeOut} );
+
+		TweenMax.to( $('.g-ease-in-out.power1 .tween-power'), 2, {delay:0.5, x:500, ease: Power1.easeInOut} );
+		TweenMax.to( $('.g-ease-in-out.power2 .tween-power'), 2, {delay:0.5, x:500, ease: Power2.easeInOut} );
+		TweenMax.to( $('.g-ease-in-out.power3 .tween-power'), 2, {delay:0.5, x:500, ease: Power3.easeInOut} );
+		TweenMax.to( $('.g-ease-in-out.power4 .tween-power'), 2, {delay:0.5, x:500, ease: Power4.easeInOut} );
+	})
+//-->
+</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">Cubic Bezier</h1>
+				<p class="g-explain-h1">마크업뷰중심 + 일부컨텐츠 </p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">ease, cubic-bezier</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<div class="g-ease">
+										<div class="ex-box css-ease"></div>
+										<div class="ex-box css-cubic1"></div>
+										<p>transition-timing-function: ease</p>
+										<p>transition-timing-function: cubic-bezier(.25,.1,.25,1);</p>
+									</div>
+
+									<div class="g-ease-in">
+										<div class="ex-box css-ease"></div>
+										<div class="ex-box css-cubic1"></div>
+										<p>transition-timing-function: ease-in</p>
+										<p>transition-timing-function: cubic-bezier(.42,0,1,1);</p>
+									</div>
+
+									<div class="g-ease-out">
+										<div class="ex-box css-ease"></div>
+										<div class="ex-box css-cubic1"></div>
+										<p>transition-timing-function: ease-out</p>
+										<p>transition-timing-function: cubic-bezier(0,0,.58,1);</p>
+									</div>
+
+									<div class="g-ease-in-out">
+										<div class="ex-box css-ease"></div>
+										<div class="ex-box css-cubic1"></div>
+										<p>transition-timing-function: ease-in-out</p>
+										<p>transition-timing-function: cubic-bezier(.42,0,.58,1);</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">TweenMax, cubic-bezier</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">easeIn</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<div class="g-ease-in power1">
+										<div class="ex-box tween-power"></div>
+										<div class="ex-box css-cubic2"></div>
+										<p>ease: Power1.easeIn</p>
+										<p>transition-timing-function: cubic-bezier(.565,0,1,1.03);</p>
+									</div>
+									<div class="g-ease-in power2">
+										<div class="ex-box tween-power"></div>
+										<div class="ex-box css-cubic2"></div>
+										<p>ease: Power2.easeIn</p>
+										<p>transition-timing-function: cubic-bezier(.565,0,1,1.03);</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<h3 class="g-h3">easeOut</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<div class="g-ease-out">
+										<div class="ex-box tween-power"></div>
+										<div class="ex-box css-cubic2"></div>
+										<p>ease: Power1.easeOut</p>
+										<p>transition-timing-function: cubic-bezier(0,0,.45,1.01);</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<h3 class="g-h3">easeInOut</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<div class="g-ease-in-out">
+										<div class="ex-box tween-power"></div>
+										<div class="ex-box css-cubic2"></div>
+										<p>ease: Power1.easeInOut</p>
+										<p>transition-timing-function: cubic-bezier(.445,0,.545,1);</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Design Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

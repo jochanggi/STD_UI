@@ -1,43 +1,71 @@
 /*--------------------------------------------------------------
-	## UI - 모듈공통
+	## Variables, Utility
+--------------------------------------------------------------*/
+var transitionend = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend';
+
+/*--------------------------------------------------------------
+	## UI
 --------------------------------------------------------------*/
 var ui = {
-	init : function(){
-		console.log('ui.init()');
+	init: function(){
+		/* Layout */
+		if ($('셀렉터').length) {this.object.init(); } /* _Object */
 
-		if ($('.tab-nav').length)		{this.tab.init();		}	/* ##Tabs */
-		if ($('.accordion').length)		{this.accrodion.init();	}	/* ##Accordion */
+		/* Objects */
+		if ($('셀렉터').length) {this.object.init(); } /* _Object */
+
+		/* Content */
+		if ($('셀렉터').length) {this.object.init(); } /* _Object */
 	},
 
+	/*--------------------------------------------------------------
+		Layout
+	--------------------------------------------------------------*/
 	/*
-		기능이름 : ##Tabs
-		기능설정 : 전환탭 공통
-		참고내용 : data-id, id 연결방식
-		참고화면 : URL
+		인스턴스: _Object
+		기능설명: aria-controls, id 연결방식
+		특이사항:
 	*/
-	tabs : {
-		init : function(){
-			this.event();
-		},
-		event : function(){
-		},
-		action : function(){
-		},
+	object: {
+		init: function(){ },
+		event: function(){ },
+		action: function(){ },
 	},
 
+	/*--------------------------------------------------------------
+		Objects
+	--------------------------------------------------------------*/
 	/*
-		기능이름 : ##Accordion
-		기능설정 : 전환탭 공통
-		참고내용 : data-id, id 연결방식
-		참고화면 : URL
+		인스턴스: _Object
+		기능설명: aria-controls, id 연결방식
+		특이사항:
+		참고화면: URL
 	*/
-	accordion : {
-		init : function(){
-			this.event();
-		},
-		event : function(){
-		},
-		action : function(){
-		},
+	object: {
+		init: function(){ },
+		event: function(){ },
+		action: function(){ },
 	},
+
+
+	/*--------------------------------------------------------------
+		Content
+	--------------------------------------------------------------*/
+	/*
+		인스턴스: _Object
+		기능설명: aria-controls, id 연결방식
+		특이사항:
+		참고화면: URL
+	*/
+	object: {
+		init: function(){ },
+		event: function(){ },
+		action: function(){ },
+	},
+
 }
+
+$(document).ready(function(){
+	dv.init();   // 기기체크 - pub_device.js
+	ui.init();   // 모듈공통 - pub_ui.js
+});

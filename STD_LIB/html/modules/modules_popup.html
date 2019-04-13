@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../../_wsg/js/wsg_include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">Popup</h1>
+				<p class="g-explain-h1">Library Modules</p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Basic</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Popup</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<!-- popup-open -->
+									<button type="button" class="btn btn-type2 popup-open is-clicked" aria-controls="popup1" aria-haspopup="true" onclick="ui.popup.open('popup1');"><span>Popup Open</span></button>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									&lt;!-- popup-open -->
+									&lt;button type="button" class="btn btn-type2 popup-open" aria-controls="popup1" aria-haspopup="true">&lt;span>Popup Open&lt;/span>&lt;/button>
+
+									&lt;!-- 모달공통 -->
+									&lt;div id="popup1" class="popup-wrap" role="dialog" aria-labelledby="alertHeading">
+										&lt;div class="blind-area popup-focus dv-ios-only" role="text" aria-labelledby="alertHeading">&lt;!-- IOS를 다른 보조기기에 맞추기 -->&lt;/div>
+										&lt;div class="popup popup-popup popup-basic">
+											&lt;div class="popup-container">
+												&lt;div class="popup-header">
+													&lt;h3 class="popup-title" id="alertHeading">popup-title&lt;/h3>
+												&lt;/div>
+												&lt;div class="popup-body">
+													popup-body
+												&lt;/div>
+												&lt;div class="popup-footer">
+													popup-footer
+												&lt;/div>
+											&lt;/div>
+											&lt;button type="button" class="btn-ico popup-close" aria-controls="popup1" title="ESC키를 누르면 Popup을 닫습니다." aria-label="제목 Close">&lt;span>&lt;i class="ico ico-close-popup">&lt;/i>&lt;/span>&lt;/button>
+										&lt;/div>
+									&lt;/div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									/*-------------------------------------------------------------------
+										##Popup
+									-------------------------------------------------------------------*/
+									/* Default */
+									.popup-wrap {display:none; position:fixed; left:50%; top:50%; z-index:1001; min-width:280px; transform:translate(-50%, -50%); -webkit-transform:translate(-50%, -50%); opacity:0;}
+									.popup-wrap.is-visible {display:inline-block;}
+									.popup {position:relative; z-index:10;}
+
+									/* Basic */
+									.popup-basic {height:100%; border:1px solid #ddd; background-color:#fff; border-radius:5px;}
+									.popup-basic .popup-header {padding:10px; border-bottom:1px solid #ddd;}
+									.popup-basic .popup-body {min-height:101px; padding:10px;}
+									.popup-basic .popup-footer {padding:10px; border-top:1px solid #ddd;}
+									.popup-basic .popup-close {position:absolute; right:10px; top:6px; width:30px; height:30px;}
+									.popup-basic .popup-close .btn {vertical-align:top;}
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									var ui = {
+										init : function(){
+											if ($('.popup-open').length)		{this.popup.init();}			// #Popup
+										},
+
+										/*
+											기능정의 : #Popup
+											참고사항 : 설명
+											참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
+											참고경로 : /html/menu1/page.html
+											(공통여부와 관계없이 확인이 가능한 대표화면 적용)
+										*/
+										popup : {
+											eleModule : '.popup-wrap',
+											eleOpener : '.popup-open',
+											eleCloser : '.popup-close',
+											eleFocus  : '.popup-focus',
+											eleTabIdx : 'a, button, select, input, textarea', //키보드제어 요소
+											clsVisible : 'is-visible',
+											zindex    : 1000,
+											indexNum  : 0,
+											scale	  : 0.8,
+											duration  : 0.6,
+											init : function(){
+												this.event();
+											},
+											event : function(){
+												var _this = this;
+												//Trigger Open Event
+												$(_this.eleOpener).not('.is-clicked').on('click', function(){
+													var id = $(this).attr('aria-controls');
+													_this.open(id);
+												}).addClass('is-clicked');
+												//Trigger Close Event
+												$(_this.eleCloser).not('.is-clicked').on('click', function(){
+													var id = $(this).attr('aria-controls');
+													_this.close(id);
+												}).addClass('is-clicked');
+												//Kayboard Close Event
+												window.onkeydown = function(){
+													var keycode = event.keyCode;
+													if (keycode == 27 && _this.indexNum > 0){ //모달이 있을때 ESC를 눌른경우
+														var id = $(_this.eleModule + '[data-index='+_this.indexNum+']').attr('id');
+														_this.close(id);
+													}
+												}
+											},
+											open : function(id){
+												var _this = this;
+												var $eleModule = $('#'+id);
+												_this.indexNum = _this.indexNum + 1;
+												//Popup Open Active
+												$eleModule.addClass(_this.clsVisible).attr('data-index', _this.indexNum).css('z-index', _this.zindex + _this.indexNum); //모듈활성화 + 오픈순서값 + 레이어순서 적용
+												if ($eleModule.outerHeight()%2 == 1){$eleModule.css({height:$eleModule.outerHeight()+1})} //홀수 높이인경우 짝수로변환 (trnaslateY 픽셀깨짐 대응)
+												TweenMax.set($eleModule, {scale:_this.scale, onComplate:function(){ //효과준비
+													TweenMax.to($eleModule, _this.duration, {scale:1, opacity:1, ease:Power4.easeOut, onComplete:function(){ //효과진행
+														_this.keyDisable(_this.indexNum); //보조기기, 키보드 접근성
+														if ($('body').hasClass('dv-ios')){ $eleModule.removeAttr('aria-labelledby')} //IOS를 다른 보조기기에 맞추기
+														$eleModule.attr({'tabindex':'0'}).focus();
+													}});
+												}});
+
+												//Document UI
+												dimmer.open('dimmer-popup', _this.duration); //딤 열기 (배경 가리기)
+												bodyScroll.fixed(); //배경스크롤 고정
+											},
+											close : function(id){
+												var _this = this;
+												var $eleModule = $('#'+id);
+												_this.indexNum = _this.indexNum - 1;
+												//Popup Close Active
+												TweenMax.to($eleModule, _this.duration, {scale:_this.scale, opacity:0, ease:Power4.easeOut, onComplete:function(){ //효과진행
+													_this.keyEnable(_this.indexNum); //보조기기, 키보드 접근성
+													var id = $eleModule.attr('id');
+													$(_this.eleOpener+'[aria-controls='+id+']').focus();
+													$eleModule.hide().removeClass(_this.clsVisible).removeAttr('style'); //비활성 적용
+												}});
+
+												//Document UI
+												dimmer.close('dimmer-popup', _this.duration); //딤 닫기 (배경 보이기)
+												bodyScroll.static(); //배경스크롤 해제
+											},
+											keyDisable : function(idx){
+												//보조기기, 키보드 접근제한 설정
+												$(this.eleModule + '[data-index='+idx+']').siblings().attr({'aria-hidden':'true'}).addClass('is-ariaHidden'); // 보조기기 접근제한
+												$(this.eleModule + '[data-index='+idx+']').siblings().find(this.eleTabIdx).not('[tabindex=0]').attr({'tabindex':'-1'}).addClass('not-tabindex'); // 기본요소 키보드 접근제한 (클래스로 설정표시)
+												$(this.eleModule + '[data-index='+idx+']').siblings().find('[tabindex=0]').attr({'tabindex':'-1'}).addClass('is-tabindex'); // 탭인덱스 키보드 접근제한 (클래스로 설정표시)
+											},
+											keyEnable : function(idx){
+												//활성화된 모달이 없는경우 전체 초기화
+												if (this.indexNum == 0){
+													$('.is-ariaHidden').attr({'aria-hidden':'false'}).removeClass('is-ariaHidden'); //보조기기 접근해제
+													$('.not-tabindex').removeAttr('tabindex').removeClass('not-tabindex'); //탭인덱스 없었던 요소 접근해제
+													$('.is-tabindex').attr('tabindex', '0').removeClass('is-tabindex');   //탭인덱스 0이었던 요소 접근해제
+												}
+												//활성화된 모달이 남은경우 초기화
+												else {
+													$(this.eleModule + '[data-index='+idx+']').attr({'aria-hidden':'false'});
+													$(this.eleModule + '[data-index='+idx+']').find('.not-tabindex').removeAttr('tabindex'); //탭인덱스 없었던 요소 접근해제
+													$(this.eleModule + '[data-index='+idx+']').find('.is-tabindex').attr('tabindex', '0');   //탭인덱스 0이었던 요소 접근해제
+												}
+											},
+										},
+									}
+								</pre>
+							</div>
+						</div>
+
+						<h3 class="g-h3">Dimmer</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									/*-------------------------------------------------------------------
+										##Dimmer
+									-------------------------------------------------------------------*/
+									/* Default */
+									.dimmer {display:none; position:fixed; top:0; right:0; bottom:0; left:0; z-index:1000; opacity:0; background:rgba(0,0,0,0.75);}
+									.dimmer.is-visible {display:block;}
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									// Dimmer
+									var dimmer = {
+										eleModule : '.dimmer',
+										lens      : 0,
+										open : function(selector, duration){
+											var _this = this;
+											_this.lens = _this.lens + 1;
+											//처음호출할때 생성
+											if ($(_this.eleModule).length == 0){
+												$('body').append('<div class="dimmer" aria-hidden="true"></div>');
+												$(_this.eleModule).addClass(_this.selector).addClass('is-visible'); //투명상태로 활성화
+												TweenMax.to($(_this.eleModule), duration, {opacity:1, ease:Power3.easeOut}); //효과 진행
+											}
+											//기본실행
+											$(_this.eleModule).attr('data-lens', _this.lens).addClass(selector);
+										},
+										close : function(selector, duration){
+											var _this = this;
+											_this.lens = _this.lens - 1;
+											if (_this.lens == 0){
+												TweenMax.to($(_this.eleModule), duration, {opacity:0, ease:Power3.easeOut, onComplete:function(){
+													$(_this.eleModule).remove();
+												}});
+											}
+										}
+									}
+
+									//dimmer의 조건처리 확장성을 위해 셀렉터를 받음
+									//dimmer의 속도를 호출한 모듈과 맞추기 위해 값을 받음
+									dimmer.open('dimmer-popup', 0.6);
+									dimmer.close('dimmer-popup', 0.6);
+								</pre>
+							</div>
+						</div>
+
+						<h3 class="g-h3">Body Scroll</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									/* Body Fixed */
+									.is-bodyFixed {position:fixed; left:0; top:0; width:100%; height:100%; overflow:hidden;}
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									// Body Fixed
+									var bodyScroll = {
+										clsFixed : 'is-bodyFixed',
+										scrTop : null,
+										fixed : function(){
+											this.scrTop = $(window).scrollTop();
+											$('html, body').addClass(this.clsFixed);
+											$('body').scrollTop(this.scrTop);
+										},
+										static : function(){
+											$('html, body').removeClass(this.clsFixed);
+											$(window).scrollTop(this.scrTop);
+										}
+									}
+
+									bodyScroll.fixed(); //고정
+									bodyScroll.static(); //해제
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Types</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Alert</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+
+						<h3 class="g-h3">Masagge</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+
+						<h3 class="g-h3">Content Popup</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+
+						<h3 class="g-h3">Event Popup</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+
+	<!-- 모달공통 -->
+	<div id="popup1" class="popup-wrap" role="dialog" aria-labelledby="alertHeading">
+		<div class="blind-area popup-focus dv-ios-only" role="text" aria-labelledby="alertHeading"><!-- IOS를 다른 보조기기에 맞추기 --></div>
+		<div class="popup popup-popup popup-basic">
+			<div class="popup-container">
+				<div class="popup-header">
+					<h3 class="popup-title" id="alertHeading">popup-title</h3>
+				</div>
+				<div class="popup-body">
+					popup-body
+				</div>
+				<div class="popup-footer">
+					popup-footer
+				</div>
+			</div>
+			<button type="button" class="btn-ico popup-close" aria-controls="popup1" title="ESC키를 누르면 Popup을 닫습니다." aria-label="제목 Close"><span><i class="ico ico-close-popup"></i></span></button>
+		</div>
+	</div>
+</div>
+</body>
+</html>

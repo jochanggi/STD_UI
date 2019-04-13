@@ -7,13 +7,13 @@
 	속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
 -------------------------------------------------------------------*/
 /*-------------------------------------------------------------------
-    ##General
+    ## General
 -------------------------------------------------------------------*/
 /* IR */
 .blind {position:absolute; top:-999em; left:-999em; z-index:0; width:1px; height:1px; overflow:hidden;}
 .blind-area {position:absolute; top:0; right:0; bottom:0; left:0; z-index:0;}
 
-/* Align */
+/* Align - Text */
 .align-t {vertical-align:top !important;}
 .align-m {vertical-align:middle !important;}
 .align-b {vertical-align:bottom !important;}
@@ -21,6 +21,13 @@
 .align-c {text-align:center !important;}
 .align-r {text-align:right !important;}
 .align-j {text-align:justify; -moz-text-align-last:justify; -webkit-text-align-last:justify; text-align-last:justify;}
+
+/* Align - Layer */
+.centered-t {position:absolute !important; left:50%; top:0; transform:translateX(-50%);}
+.centered-r {position:absolute !important; right:0; top:50%; transform:translateY(-50%);}
+.centered-b {position:absolute !important; left:50%; bottom:0; transform:translateX(-50%);}
+.centered-l {position:absolute !important; left:0; top:50%; transform:translateY(-50%);}
+.centered-c {position:absolute !important; left:50%; top:50%; transform:translate(-50%,-50%);}
 
 /* Console Log */
 .consoleLog {position:fixed; left:50%; top:50%; z-index:2000; transform:translate(-50%,-50%); width:70%; background-color:#fff; box-shadow:1px 1px 3px 1px rgba(0,0,0,0.2);}
@@ -30,7 +37,7 @@
 .consoleLog .consoleLog-item + .js-consoleLog-item {border-top:1px solid #f5f5f5;}
 
 /*-------------------------------------------------------------------
-    ##Layout
+    ## Layout
 -------------------------------------------------------------------*/
 /* Grid */
 .grid:after {clear:both; display:block; content:'';}

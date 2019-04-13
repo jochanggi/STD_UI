@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
-<script src="../../common/js/include.js"></script>
+<script src="../../js/wsg_include.js"></script>
 <script>include.meta()</script>
 <script>include.head()</script>
 </head>
@@ -32,48 +32,15 @@
 							<li>1탭 들여쓰기 하며, 1탭의 크기는 공백 4칸으로 설정한다.</li>
 						</ul>
 
-						<h4 class="g-h4">들여쓰기를 하지 않는 경우</h4>
-						<div class="g-code">
-							<pre class="brush:html">
-								&lt;!doctype html&gt;
-								&lt;html lang="ko"&gt;
-								&lt;head&gt;
-								&lt;/head&gt;
-								&lt;body&gt;
-								&lt;div id="wrapper"&gt;
-								&lt;/div&gt;
-								&lt;/body&gt;
-								&lt;/html&gt;
-							</pre>
-						</div>
-
 						<h3 class="g-h3">빈줄</h3>
 						<ul class="g-desc">
 							<li>가독성을 고려하여 빈 줄을 추가한다. 단, 1줄을 초과하지 않는다.</li>
 						</ul>
-						<div class="g-code">
-							<pre class="brush:html">
-								&lt;!-- s: Header --&gt;
-								&lt;header id="header"&gt;
-								&lt;/header&gt;
-								&lt;!-- e: Header --&gt;
-
-								&lt;!-- s: Container --&gt;
-								&lt;div id="container"&gt;
-								&lt;/div&gt;
-								&lt;!-- e: Container --&gt;
-
-								&lt;!-- s: Footer --&gt;
-								&lt;footer id="footer"&gt;
-								&lt;/footer&gt;
-								&lt;!-- e: Footer --&gt;
-							</pre>
-						</div>
 
 						<h3 class="g-h3">주석</h3>
 						<ul class="g-desc">
-							<li>주석의 용도 및 전달방법을 구분한다.</li>
-							<li></li>
+							<li>시작과 끝의 표시는 s: e: 로 구분한다.</li>
+							<li>목적이 있는 주석은 구분을 앞에 표시한다. (예: Dev, Pub, 수정, 고도화)</li>
 						</ul>
 						<div class="g-code">
 							<pre class="brush:html">
@@ -83,24 +50,24 @@
 								</div>
 								&lt;!-- e: 이름 --&gt;
 
-								&lt;!-- Dev: 설명 --&gt;
-								&lt;!-- Pub: 설명 --&gt;
-								&lt;!-- All: 설명 --&gt;
+								&lt;!-- Dev 설명 --&gt;
+								&lt;!-- Pub 설명 --&gt;
+								&lt;!-- All 설명 --&gt;
 								<p>설명주석 : 시작과 끝이 없고, 개발팀(Dev)에게 전달내용을 설명한다. </p>
 								<p>설명주석 : 시작과 끝이 없고, 퍼블팀(Pub)에게 전달내용을 설명한다. </p>
 								<p>설명주석 : 시작과 끝이 없고, 모든팀(All)에게 전달내용을 설명한다. </p>
 
-								&lt;!-- 수정: 20181130 이름 설명 --&gt;
-								&lt;!-- 추가: 20181130 이름 설명 --&gt;
-								&lt;!-- 삭제: 20181130 이름 설명 --&gt;
+								&lt;!-- 수정 20181130 이름 설명 --&gt;
+								&lt;!-- 추가 20181130 이름 설명 --&gt;
+								&lt;!-- 삭제 20181130 이름 설명 --&gt;
+								&lt;!-- 고도화1 20181130 이름 설명 --&gt;
 								<p>기록주석 : 단건인 경우 유형별로 구분하고 설명한다.</p>
-
-								&lt;!-- 고도화1: 20181130 이름 설명 --&gt;
-								&lt;!-- 고도화2: 20181130 이름 설명 --&gt;
-								&lt;!-- 고도화3: 20181130 이름 설명 --&gt;
 								<p>기록주석 : 다건인 경우 단위별로 구분하고 설명한다.</p>
+								<p>기록주석 : 단순구조인 경우 닫기주석을 생략할 수 있다.</p>
+								<p>기록주석 : 다중구조인 경우 닫기주석을 사용한다.</p>
+								&lt;!-- e: 수정 --&gt;
 
-								&lt;!-- [구분]: 주제
+								&lt;!-- [구분] 주제
 									- 제목: 설명
 									- 제목: 설명
 								--&gt;
