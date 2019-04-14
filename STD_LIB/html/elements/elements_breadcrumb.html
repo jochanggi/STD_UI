@@ -15,7 +15,7 @@
 		<!-- Content -->
 		<article id="g-content">
 			<div class="g-content-header">
-				<h1 class="g-h1">마크업템플릿</h1>
+				<h1 class="g-h1">Breadcrumb</h1>
 				<p class="g-explain-h1">마크업뷰중심 + 일부컨텐츠 </p>
 			</div>
 			<div class="g-content-body">
@@ -86,7 +86,7 @@
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
-						<h2 class="g-h2">Select Type</h2>
+						<h2 class="g-h2">Select</h2>
 					</div>
 					<div class="g-section-body">
 						<h3 class="g-h3">Heading</h3>
@@ -97,7 +97,6 @@
 									<span class="g-example-txt"></span>
 									<a href="javascript:;" class="g-example-btn">HTML</a>
 									<a href="javascript:;" class="g-example-btn">CSS</a>
-									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
 								</div>
 							</div>
 							<div class="g-example-body">
@@ -105,10 +104,11 @@
 									<div class="breadcrumb-wrap">
 										<div class="breadcrumb-select">
 											<div class="dropdown dropdown-basic">
-												<button type="button" class="btn dropdown-toggle" aria-controls="menuDepth1"><span>Menu1-1<i class="arw arw-toggle1 dark"></i></span></button>
-												<div id="menuDepth1" class="dropdown-menu">
+												<button type="button" class="btn dropdown-toggle" aria-controls="menuDepth1" aria-expended="false"><span>Menu1-1</span><i class="arw arw-toggle1 dark"></i></button>
+												<div id="menuDepth1" class="dropdown-menu dropdown-select">
 													<ul>
-														<li class="is-current"><a href="#">Menu1-2</a></li>
+														<li class="is-current"><a href="#">Menu1-1</a></li>
+														<li><a href="#">Menu1-2</a></li>
 														<li><a href="#">Menu1-3</a></li>
 														<li><a href="#">Menu1-4</a></li>
 														<li><a href="#">Menu1-5</a></li>
@@ -116,10 +116,11 @@
 												</div>
 											</div>
 											<div class="dropdown dropdown-basic">
-												<button type="button" class="btn dropdown-toggle" aria-controls="menuDepth2"><span>Menu2-1<i class="arw arw-toggle1 dark"></i></span></button>
-												<div id="menuDepth2" class="dropdown-menu">
+												<button type="button" class="btn dropdown-toggle" aria-controls="menuDepth2" aria-expended="false"><span>Menu2-1</span><i class="arw arw-toggle1 dark"></i></button>
+												<div id="menuDepth2" class="dropdown-menu dropdown-select">
 													<ul>
-														<li class="is-current"><a href="#">Menu2-2</a></li>
+														<li class="is-current"><a href="#">Menu2-1</a></li>
+														<li><a href="#">Menu2-2</a></li>
 														<li><a href="#">Menu2-3</a></li>
 														<li><a href="#">Menu2-4</a></li>
 														<li><a href="#">Menu2-5</a></li>
@@ -127,10 +128,11 @@
 												</div>
 											</div>
 											<div class="dropdown dropdown-basic">
-												<button type="button" class="btn dropdown-toggle" aria-controls="menuDepth3"><span>Menu3-1<i class="arw arw-toggle1 dark"></i></span></button>
-												<div id="menuDepth3" class="dropdown-menu">
+												<button type="button" class="btn dropdown-toggle" aria-current="" aria-controls="menuDepth3" aria-expended="false"><span>Menu3-1</span><i class="arw arw-toggle1 dark"></i></button>
+												<div id="menuDepth3" class="dropdown-menu dropdown-select">
 													<ul>
-														<li class="is-current"><a href="#">Menu3-2</a></li>
+														<li class="is-current"><a href="#">Menu3-1</a></li>
+														<li><a href="#">Menu3-2</a></li>
 														<li><a href="#">Menu3-3</a></li>
 														<li><a href="#">Menu3-4</a></li>
 														<li><a href="#">Menu3-5</a></li>
@@ -143,49 +145,53 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									HTML SOURCE
+									&lt;div class="breadcrumb-wrap">
+										&lt;div class="breadcrumb-select">
+											&lt;div class="dropdown dropdown-basic">
+												&lt;button type="button" class="btn dropdown-toggle" aria-controls="menuDepth1" aria-expended="false">&lt;span>Menu1-1&lt;/span>&lt;i class="arw arw-toggle1 dark">&lt;/i>&lt;/button>
+												&lt;div id="menuDepth1" class="dropdown-menu dropdown-select">
+													&lt;ul>
+														&lt;li class="is-current">&lt;a href="#">Menu1-1&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu1-2&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu1-3&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu1-4&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu1-5&lt;/a>&lt;/li>
+													&lt;/ul>
+												&lt;/div>
+											&lt;/div>
+											&lt;div class="dropdown dropdown-basic">
+												&lt;button type="button" class="btn dropdown-toggle" aria-controls="menuDepth2" aria-expended="false">&lt;span>Menu2-1&lt;/span>&lt;i class="arw arw-toggle1 dark">&lt;/i>&lt;/button>
+												&lt;div id="menuDepth2" class="dropdown-menu dropdown-select">
+													&lt;ul>
+														&lt;li class="is-current">&lt;a href="#">Menu2-1&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu2-2&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu2-3&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu2-4&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu2-5&lt;/a>&lt;/li>
+													&lt;/ul>
+												&lt;/div>
+											&lt;/div>
+											&lt;div class="dropdown dropdown-basic">
+												&lt;button type="button" class="btn dropdown-toggle" aria-controls="menuDepth3" aria-expended="false">&lt;span>Menu3-1&lt;/span>&lt;i class="arw arw-toggle1 dark">&lt;/i>&lt;/button>
+												&lt;div id="menuDepth3" class="dropdown-menu dropdown-select">
+													&lt;ul>
+														&lt;li class="is-current">&lt;a href="#">Menu3-1&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu3-2&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu3-3&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu3-4&lt;/a>&lt;/li>
+														&lt;li>&lt;a href="#">Menu3-5&lt;/a>&lt;/li>
+													&lt;/ul>
+												&lt;/div>
+											&lt;/div>
+										&lt;/div>
+									&lt;/div>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									CSS SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:js">
-									SCRIPT SOURCE
-								</pre>
-							</div>
-						</div>
-
-						<h3 class="g-h3">Heading</h3>
-						<div class="g-example-wrap">
-							<div class="g-example-header">
-								<strong class="g-example-tit is-before"></strong>
-								<div class="g-example-nav">
-									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
-									<a href="javascript:;" class="g-example-btn">CSS</a>
-									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
-								</div>
-							</div>
-							<div class="g-example-body">
-								<div class="g-example-preview">
-								</div>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:html">
-									HTML SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:css">
-									CSS SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:js">
-									SCRIPT SOURCE
+									/* Select */
+									.breadcrumb-select .dropdown {width:160px;}
+									.breadcrumb-select .dropdown + .dropdown {margin-left:5px;}
 								</pre>
 							</div>
 						</div>
@@ -194,7 +200,7 @@
 				<!-- //Section -->
 
 				<!-- Section -->
-				<section class="g-section g-in-sec">
+				<section class="g-section g-in-sec" style="display:none">
 					<div class="g-section-header">
 						<h2 class="g-h2">Design Guide</h2>
 					</div>

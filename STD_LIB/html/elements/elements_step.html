@@ -38,9 +38,9 @@
 								<div class="step-wrap">
 									<div class="step step-type1">
 										<ol class="step-list">
-											<li class="is-on"><span class="step-item">1단계</span></li>
-											<li class="is-current" aria-current="step"><span class="step-item">2단계</span></li>
-											<li><span class="step-item">3단계</span></li>
+											<li class="step-item is-on"><span class="step-label">1단계</span></li>
+											<li class="step-item is-current" aria-current="step"><span class="step-label">2단계</span></li>
+											<li class="step-item"><span class="step-label">3단계</span></li>
 										</ol>
 									</div>
 								</div>
@@ -50,9 +50,9 @@
 									<div class="step-wrap">
 										<div class="step step-type1">
 											<ol class="step-list">
-												<li class="is-on"><span class="step-item">1단계</span></li>
-												<li class="is-current" aria-current="step"><span class="step-item">2단계</span></li>
-												<li><span class="step-item">3단계</span></li>
+												<li class="step-item is-on"><span class="step-label">1단계</span></li>
+												<li class="step-item is-current" aria-current="step"><span class="step-label">2단계</span></li>
+												<li class="step-item"><span class="step-label">3단계</span></li>
 											</ol>
 										</div>
 									</div>
@@ -63,13 +63,14 @@
 									/* Default */
 									.step {text-align:center;}
 									.step .step-list {display:table; position:relative; margin:auto;}
-									.step .step-list > li {display:table-cell; position:relative; z-index:1;}
+									.step .step-item {display:table-cell; position:relative; z-index:1;}
+									.step .step-label {position:relative;}
 
 									/* Design - Type1 */
-									.step-type1 .step-list > li {padding:0 30px;}
-									.step-type1 .step-list > li .step-item {display:inline-block; width:50px; height:50px; padding-bottom:1px; line-height:49px; border-radius:50%; background-color:#eee;}
-									.step-type1 .step-list > li.is-on .step-item {border:1px solid $color-primary; background-color:#fff; color:$color-primary; line-height:47px;}
-									.step-type1 .step-list > li.is-current .step-item {background-color:$color-primary; color:#fff;}
+									.step-type1 .step-item {padding:0 30px;}
+									.step-type1 .step-item .step-label {display:inline-block; width:50px; height:50px; padding-bottom:1px; line-height:49px; border-radius:50%; background-color:#eee;}
+									.step-type1 .step-item.is-on .step-label {border:1px solid $color-primary; background-color:#fff; color:$color-primary; line-height:47px;}
+									.step-type1 .step-item.is-current .step-label {background-color:$color-primary; color:#fff;}
 								</pre>
 							</div>
 							<div class="g-example-guide">
@@ -106,16 +107,16 @@
 								<div class="step-wrap">
 									<div class="step step-type2">
 										<ol class="step-list" role="img" aria-label="가입 총 3단계 중 2단계">
-											<li class="is-on" title="가입 1단계 약관동의">
-												<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+											<li class="step-item is-on" title="가입 1단계 약관동의">
+												<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 												<span class="step-text">1단계</span>
 											</li>
-											<li class="is-current" aria-current="step" title="가입 2단계 정보입력">
-												<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+											<li class="step-item is-current" aria-current="step" title="가입 2단계 정보입력">
+												<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 												<span class="step-text">2단계</span>
 											</li>
-											<li title="가입 3단계 가입완료">
-												<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+											<li class="step-item" title="가입 3단계 가입완료">
+												<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 												<span class="step-text">3단계</span>
 											</li>
 										</ol>
@@ -128,16 +129,16 @@
 									<div class="step-wrap">
 										<div class="step step-type2">
 											<ol class="step-list" role="img" aria-label="가입 총 3단계 중 2단계">
-												<li class="is-on" title="가입 1단계 약관동의">
-													<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+												<li class="step-item is-on" title="가입 1단계 약관동의">
+													<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 													<span class="step-text">1단계</span>
 												</li>
-												<li class="is-current" aria-current="step" title="가입 2단계 정보입력">
-													<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+												<li class="step-item is-current" aria-current="step" title="가입 2단계 정보입력">
+													<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 													<span class="step-text">2단계</span>
 												</li>
-												<li title="가입 3단계 가입완료">
-													<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+												<li class="step-item" title="가입 3단계 가입완료">
+													<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 													<span class="step-text">3단계</span>
 												</li>
 											</ol>
@@ -150,19 +151,20 @@
 									/* Default */
 									.step {text-align:center;}
 									.step .step-list {display:table; position:relative; margin:auto;}
-									.step .step-list > li {display:table-cell; position:relative; z-index:1;}
+									.step .step-item {display:table-cell; position:relative; z-index:1;}
+									.step .step-label {position:relative;}
 
 									/* Design - Type2 */
-									.step-type2 .step-list > li {padding:0 30px;}
-									.step-type2 .step-list > li .step-item {display:block; position:relative; width:50px; height:50px; padding-bottom:1px; line-height:49px; border-radius:50%; background-color:#eee;}
-									.step-type2 .step-list > li .step-text {display:block; margin-top:10px; color:#999;}
-									.step-type2 .step-list > li .step-item .ico-check {display:inline-block; width:12px; height:12px; border:3px solid #999; border-width:3px 3px 0 0; transform:rotate(45deg);}
-									.step-type2 .step-list > li.is-on .step-item {border:1px solid $color-primary; background-color:#fff; color:$color-primary; line-height:47px;}
-									.step-type2 .step-list > li.is-on .step-text {color:#999;}
-									.step-type2 .step-list > li.is-on .step-item .ico-check {width:18px; border-color:$color-primary; transform:rotate(135deg);}
-									.step-type2 .step-list > li.is-current .step-item {background-color:$color-primary; color:#fff;}
-									.step-type2 .step-list > li.is-current .step-text {color:$color-primary;}
-									.step-type2 .step-list > li.is-current .step-item .ico-check {width:18px; border-color:#fff; transform:rotate(135deg);}
+									.step-type2 .step-item {padding:0 30px;}
+									.step-type2 .step-item .step-label {display:block; position:relative; width:50px; height:50px; padding-bottom:1px; line-height:49px; border-radius:50%; background-color:#eee;}
+									.step-type2 .step-item .step-text {display:block; margin-top:10px; color:#999;}
+									.step-type2 .step-item .step-label .ico-check {display:inline-block; width:12px; height:12px; border:3px solid #999; border-width:3px 3px 0 0; transform:translate(-50%, -50%) rotate(45deg);}
+									.step-type2 .step-item.is-on .step-label {border:1px solid $color-primary; background-color:#fff; color:$color-primary; line-height:47px;}
+									.step-type2 .step-item.is-on .step-text {color:#999;}
+									.step-type2 .step-item.is-on .step-label .ico-check {width:18px; border-color:$color-primary; transform:translate(-50%, -50%) rotate(135deg);}
+									.step-type2 .step-item.is-current .step-label {background-color:$color-primary; color:#fff;}
+									.step-type2 .step-item.is-current .step-text {color:$color-primary;}
+									.step-type2 .step-item.is-current .step-label .ico-check {width:18px; border-color:#fff; transform:translate(-50%, -50%) rotate(135deg);}
 								</pre>
 							</div>
 						</div>
@@ -190,11 +192,11 @@
 								<div class="step-wrap">
 									<div class="step step-type3 step-flexible">
 										<ol class="step-list" role="img" aria-label="채용 총 5단계 중 3단계">
-											<li class="is-on" title="채용 1단계 이력서등록">1단계</li>
-											<li class="is-on" title="채용 2단계 서류심사">2단계</li>
-											<li class="is-current" aria-current="step" title="채용 3단계 그룹면접">3단계</li>
-											<li title="채용 4단계 임원면접">4단계</li>
-											<li title="채용 3단계 심사결과">5단계</li>
+											<li class="step-item is-on" title="채용 1단계 이력서등록">1단계</li>
+											<li class="step-item is-on" title="채용 2단계 서류심사">2단계</li>
+											<li class="step-item is-current" aria-current="step" title="채용 3단계 그룹면접">3단계</li>
+											<li class="step-item" title="채용 4단계 임원면접">4단계</li>
+											<li class="step-item" title="채용 3단계 심사결과">5단계</li>
 										</ol>
 									</div>
 								</div>
@@ -205,11 +207,11 @@
 									<div class="step-wrap">
 										<div class="step step-type3 step-flexible">
 											<ol class="step-list" role="img" aria-label="채용 총 5단계 중 3단계">
-												<li class="is-on" title="채용 1단계 이력서등록">1단계</li>
-												<li class="is-on" title="채용 2단계 서류심사">2단계</li>
-												<li class="is-current" aria-current="step" title="채용 3단계 그룹면접">3단계</li>
-												<li title="채용 4단계 임원면접">4단계</li>
-												<li title="채용 3단계 심사결과">5단계</li>
+												<li class="step-item is-on" title="채용 1단계 이력서등록">1단계</li>
+												<li class="step-item is-on" title="채용 2단계 서류심사">2단계</li>
+												<li class="step-item is-current" aria-current="step" title="채용 3단계 그룹면접">3단계</li>
+												<li class="step-item" title="채용 4단계 임원면접">4단계</li>
+												<li class="step-item" title="채용 3단계 심사결과">5단계</li>
 											</ol>
 										</div>
 									</div>
@@ -220,15 +222,17 @@
 									/* Default */
 									.step {text-align:center;}
 									.step .step-list {display:table; position:relative; margin:auto;}
-									.step .step-list > li {display:table-cell; position:relative; z-index:1;}
+									.step .step-item {display:table-cell; position:relative; z-index:1;}
+									.step .step-label {position:relative;}
 
 									/* Design - Type3 */
 									.step-type3 .step-list {width:100%;}
-									.step-type3 .step-list > li {height:50px; padding-bottom:1px; line-height:47px; border:1px solid #ccc; background-color:#eee; text-align:center;}
-									.step-type3 .step-list > li.is-on {border:1px solid $color-primary; background-color:#fff; color:$color-primary;}
-									.step-type3 .step-list > li.is-current {border:1px solid $color-primary; background-color:$color-primary; color:#fff;}
-									.step-type3 .step-list > li + li {border-left-width:0;}
-									.step-type3 .step-list > li.is-on + .is-on {border-left:0;}
+									.step-type3 .step-item {height:50px; padding-bottom:1px; line-height:47px; border:1px solid #ccc; background-color:#eee; text-align:center;}
+									.step-type3 .step-item.is-on {border:1px solid $color-primary; background-color:#fff; color:$color-primary;}
+									.step-type3 .step-item.is-current {border:1px solid $color-primary; background-color:$color-primary; color:#fff;}
+									.step-type3 .step-item + .step-item {border-left-width:0;}
+									.step-type3 .step-item.is-on + .is-on {border-left:0;}
+
 								</pre>
 							</div>
 						</div>
@@ -256,24 +260,24 @@
 								<div class="step-wrap">
 									<div class="step step-type4">
 										<ol class="step-list" role="img" aria-label="채용 총 5단계 중 3단계">
-											<li class="is-on" title="채용 1단계 이력서등록">
-												<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+											<li class="step-item is-on" title="채용 1단계 이력서등록">
+												<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 												<span class="step-text">1단계</span>
 											</li>
-											<li class="is-on" title="채용 2단계 서류심사">
-												<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+											<li class="step-item is-on" title="채용 2단계 서류심사">
+												<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 												<span class="step-text">2단계</span>
 											</li>
-											<li class="is-current" aria-current="step" title="채용 3단계 그룹면접">
-												<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+											<li class="step-item is-current" aria-current="step" title="채용 3단계 그룹면접">
+												<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 												<span class="step-text">3단계</span>
 											</li>
-											<li title="채용 4단계 임원면접">
-												<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+											<li class="step-item" title="채용 4단계 임원면접">
+												<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 												<span class="step-text">4단계</span>
 											</li>
-											<li title="채용 3단계 심사결과">
-												<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+											<li class="step-item" title="채용 3단계 심사결과">
+												<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 												<span class="step-text">5단계</span>
 											</li>
 										</ol>
@@ -286,24 +290,24 @@
 									<div class="step-wrap">
 										<div class="step step-type4">
 											<ol class="step-list" role="img" aria-label="채용 총 5단계 중 3단계">
-												<li class="is-on" title="채용 1단계 이력서등록">
-													<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+												<li class="step-item is-on" title="채용 1단계 이력서등록">
+													<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 													<span class="step-text">1단계</span>
 												</li>
-												<li class="is-on" title="채용 2단계 서류심사">
-													<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+												<li class="step-item is-on" title="채용 2단계 서류심사">
+													<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 													<span class="step-text">2단계</span>
 												</li>
-												<li class="is-current" aria-current="step" title="채용 3단계 그룹면접">
-													<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+												<li class="step-item is-current" aria-current="step" title="채용 3단계 그룹면접">
+													<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 													<span class="step-text">3단계</span>
 												</li>
-												<li title="채용 4단계 임원면접">
-													<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+												<li class="step-item" title="채용 4단계 임원면접">
+													<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 													<span class="step-text">4단계</span>
 												</li>
-												<li title="채용 3단계 심사결과">
-													<span class="step-item"><i class="ico ico-check centered-c"></i></span>
+												<li class="step-item" title="채용 3단계 심사결과">
+													<span class="step-label"><i class="ico ico-check centered-c"></i></span>
 													<span class="step-text">5단계</span>
 												</li>
 											</ol>
@@ -316,20 +320,21 @@
 									/* Default */
 									.step {text-align:center;}
 									.step .step-list {display:table; position:relative; margin:auto;}
-									.step .step-list > li {display:table-cell; position:relative; z-index:1;}
+									.step .step-item {display:table-cell; position:relative; z-index:1;}
+									.step .step-label {position:relative;}
 
 									/* Design - Type4 */
 									.step-type4 .step-list:after {content:''; position:absolute; left:0; top:24px; width:100%; height:2px; background-color:#eee;}
-									.step-type4 .step-list > li {width:25%;}
-									.step-type4 .step-list > li .step-item {display:block; width:50px; height:50px; padding-bottom:1px; line-height:49px; border-radius:50%; background-color:#eee; text-align:center;}
-									.step-type4 .step-list > li .step-text {display:block; width:50px; margin-top:10px; color:#999; text-align:center;}
-									.step-type4 .step-list > li .step-item .ico-check {display:inline-block; width:12px; height:12px; border:3px solid #999; border-width:3px 3px 0 0; transform:rotate(45deg);}
-									.step-type4 .step-list > li.is-on .step-item {border:1px solid $color-primary; background-color:#fff; color:$color-primary; line-height:47px;}
-									.step-type4 .step-list > li.is-on .step-text {color:#999;}
-									.step-type4 .step-list > li.is-on .step-item .ico-check {width:18px; border-color:$color-primary; transform:rotate(135deg);}
-									.step-type4 .step-list > li.is-current .step-item {background-color:$color-primary; color:#fff;}
-									.step-type4 .step-list > li.is-current .step-text {color:$color-primary;}
-									.step-type4 .step-list > li.is-current .step-item .ico-check {width:18px; border-color:#fff; transform:rotate(135deg);}
+									.step-type4 .step-item {width:25%;}
+									.step-type4 .step-item .step-label {display:block; position:relative; width:50px; height:50px; padding-bottom:1px; line-height:49px; border-radius:50%; background-color:#eee; text-align:center;}
+									.step-type4 .step-item .step-text {display:block; width:50px; margin-top:10px; color:#999; text-align:center;}
+									.step-type4 .step-item .step-label .ico-check {display:inline-block; width:12px; height:12px; border:3px solid #999; border-width:3px 3px 0 0; transform:translate(-50%, -50%) rotate(45deg);}
+									.step-type4 .step-item.is-on .step-label {border:1px solid $color-primary; background-color:#fff; color:$color-primary; line-height:47px;}
+									.step-type4 .step-item.is-on .step-text {color:#999;}
+									.step-type4 .step-item.is-on .step-label .ico-check {width:18px; border-color:$color-primary; transform:translate(-50%, -50%) rotate(135deg);}
+									.step-type4 .step-item.is-current .step-label {background-color:$color-primary; color:#fff;}
+									.step-type4 .step-item.is-current .step-text {color:$color-primary;}
+									.step-type4 .step-item.is-current .step-label .ico-check {width:18px; border-color:#fff; transform:translate(-50%, -50%) rotate(135deg);}
 								</pre>
 							</div>
 						</div>
