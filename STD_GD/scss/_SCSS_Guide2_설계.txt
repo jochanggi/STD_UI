@@ -1,0 +1,67 @@
+﻿@charset "utf-8";
+
+/*-----------------------------------------
+□ 변수선언
+변수는 $변수명: 값;의 형태로 선언과 동시에 적용한다.
+이 값은 블럭내에서 쓰이거나 함수나 믹스인에 사용 될 때, 값으로 치환된다.
+-------------------------------------------*/
+$width: 100%;
+.tabs{
+  width:$width;
+}
+
+
+/*-----------------------------------------
+□ 확장-상속받기
+@extend 지시어는 다른 곳에서 정의한 셀렉터의 스타일을 그대로 가져온다. 즉 상속받는다.
+@import는 다른 곳에서 정의한 셀렉터를 현재 블럭의 부모의 하위로 들여오는 것임에 비해 @extend는 상속의 개념으로 이해하면 된다.
+-------------------------------------------*/
+%tabs{
+  width:100%;overflow:hidden
+}
+.tabs-normal{
+  @extend %tabs
+}
+
+
+/*-----------------------------------------
+★★★★★ 믹스인
+대망의 믹스인이다. 믹스인은 여러 곳에 쓰일 수 있는 sass 코드 조각에 이름을 붙인 것이다.
+믹스인은 정의할 때 파라미터를 함께 정의할 수 있고 (파이썬처럼, 기본값을 붙여줄 수도 있다) 호출할 때, 키:
+값의 형태로 파라미터를 쓸 수 있다. 마치 믹스인 자신의 컴파일 결과를 돌려주는 함수라 생각하면 된다.
+-------------------------------------------*/
+/* 문법 예
+@mixin 이름 [($파라미터[:디폴트값] ,....)] {
+    ...
+}
+*/
+
+/* 예제 1. 단순 믹스인 */
+@mixin silly-links {
+  a {
+    color: blue;
+    background-color: red;
+  }
+}
+
+@include silly-links;
+
+/* 예제 2. 믹스인 내에서 다른 믹스인 쓰기 */
+@mixin compound {
+  @include highlighted-background;
+  @include header-text;
+}
+
+@mixin highlighted-background { background-color: #fc0; }
+@mixin header-text { font-size: 20px; }
+
+/* 예제3. 파라미터 있는 믹스인 */
+@mixin sexy-border($color, $width) {
+  border: {
+    color: $color;
+    width: $width;
+    style: dashed;
+  }
+}
+
+p { @include sexy-border(blue, 1in); }
