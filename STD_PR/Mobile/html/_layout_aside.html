@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="keywords" content="COCOBUS, COCOBUS">
+<meta name="description" content="COCOBUS, COCOBUS">
+<title>레이아웃 가이드 - COCOBUS</title>
+<link rel="stylesheet" href="../css/cocobus.css">
+</head>
+<body class="is-scrollFixed">
+<!-- s: React Area -->
+<div id="app">
+	<!-- s: HTML Area -->
+	<div class="wrapper has-footer">
+		<!-- s: header -->
+		<div class="header header-sticky">
+			<div class="header-logo">
+				<h1 class="logo"><a href="javascript:;"><img src="../img/cmn/header_logo.png" alt="COCOBUS"></a></h1>
+			</div>
+			<div class="header-drawer">
+				<button type="button" class="btn-ico btn-drawer"><i class="ico ico-drawer">전체메뉴 열기</i></button>
+			</div>
+		</div>
+		<!-- e: header -->
+		<!-- s: aside -->
+		<!--  Dev aside 관련클래스
+			- 보이기 : aside is-visible
+			- Dimmer 노출 : dimmer is-visible
+			- 뒷배경 스크롤막기 : body is-scrolled (CSS에서 필요한것만 제공)
+			- 로그인전 상태 : is-login-before
+			- 로그인후 상태: is-login-after
+			- 로그인전 노출 : login-before (is-login-before 일때 login-before 를 보여준다.)
+			- 로그인후 노출 : login-after (is-login-after 일때 login-after 를 보여준다.)
+		-->
+		<aside class="aside is-visible is-login-before">
+			<!-- s: Case 로그인전 -->
+			<div class="aside-inner login-before">
+				<div class="aside-sec aside-language">
+					<div class="aside-head">
+						<h2 class="tit-aside"><i class="txt-img txt-language">Language</i></h2>
+					</div>
+					<div class="aside-cont">
+						<div class="flag-list">
+							<ul>
+								<li><button type="button" class="btn-ico btn-flag"><i class="flag flag-usa"></i></button></li>
+								<li><button type="button" class="btn-ico btn-flag"><i class="flag flag-chn"></i></button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="aside-sec aside-menu">
+					<div class="aside-head">
+						<h2 class="tit-aside"><i class="txt-img txt-menu">Menu</i></h2>
+					</div>
+					<div class="aside-cont">
+						<nav class="gnb">
+							<ul>
+								<li><a href="#">버스노선</a></li>
+								<li><a href="#">예약정보</a></li>
+								<li><a href="#">패키지정보</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<!-- e: Case 로그인전 -->
+			<!-- s: Case 로그인후 -->
+			<div class="aside-inner login-after">
+				<div class="aside-sec aside-language">
+					<div class="aside-head">
+						<h2 class="tit-aside">Language</h2>
+					</div>
+					<div class="aside-cont">
+						<div class="flag-list">
+							<ul>
+								<li><button type="button" class="btn-ico btn-flag"><i class="ico ico-flag usa"></i></button></li>
+								<li><button type="button" class="btn-ico btn-flag"><i class="ico ico-flag kor"></i></button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="aside-sec aside-menu">
+					<div class="aside-head">
+						<h2 class="tit-aside">Menu</h2>
+					</div>
+					<div class="aside-cont">
+						<nav class="gnb">
+							<ul>
+								<li><a href="#">버스노선</a></li>
+								<li><a href="#">예약정보</a></li>
+								<li><a href="#">패키지정보</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<!-- e: Case 로그인후 -->
+		</aside>
+		<!-- e: aside -->
+		<!-- s: container -->
+		<div class="container">
+			<!-- s: content -->
+			<div class="content main-page" role="main">
+				<!-- s: content-header -->
+				<div class="content-header">
+					<!-- s: main-visual -->
+					<div class="main-visual">
+						<!-- s: Swiper -->
+						<!-- Dev is-scrolled 클래스 참고
+							- 개발시 클래스 삭제
+							- 퍼블리싱 시연용 스크롤링임
+						-->
+						<div class="swiper-container is-scrolled">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide item1 is-active">
+									<p><i class="txt-img txt-visual01">DANANG CITYTOUR BUS</i></p>
+									<img src="../img/upload/@main_visual_01.png" class="item-img" alt="DANANG CITYTOUR BUS">
+								</div>
+								<div class="swiper-slide item2">
+									<p><i class="txt-img txt-visual02">DANANG CITYTOUR BUS</i></p>
+									<img src="../img/upload/@main_visual_02.png" class="item-img" alt="DANANG CITYTOUR BUS">
+								</div>
+								<div class="swiper-slide item3">
+									<p><i class="txt-img txt-visual03">DANANG CITYTOUR BUS</i></p>
+									<img src="../img/upload/@main_visual_03.png" class="item-img" alt="DANANG CITYTOUR BUS">
+								</div>
+							</div>
+						</div>
+						<div class="swiper-controls">
+							<div class="swiper-pagination">
+								<button type="button" class="btn-ico swiper-page is-active">1번 슬라이드</button>
+								<button type="button" class="btn-ico swiper-page">2번 슬라이드</button>
+								<button type="button" class="btn-ico swiper-page">3번 슬라이드</button>
+							</div>
+						</div>
+						<!-- e: Swiper -->
+					</div>
+					<!-- e: main-visual -->
+				</div>
+				<!-- e: content-header -->
+				<!-- s: content-body -->
+				<div class="content-body">
+					<!--s: main-cocobus -->
+					<div class="section-wrap main-cocobus">
+						<section class="section in-sec">
+							<div class="section-head">
+								<h2 class="tit-main"><i class="txt-img txt-cocobus">DANANG COCOBUS</i></h2>
+								<div class="explain-tit">
+									<span><em class="c-txt-gray5">단 한번의 예약</em>으로</span>
+									<span>24시간 3개의 노선 60여개 정류장을</span>
+									<span>무제한 이용하는 <em class="c-txt-primary">초특급 투어버스</em></span>
+								</div>
+							</div>
+							<div class="section-cont">
+								<!-- s: Swiper -->
+								<!-- Dev is-scrolled 클래스 참고
+									- 개발시 클래스 삭제
+									- 퍼블리싱 시연용 스크롤링임
+								-->
+								<div class="swiper-container is-scrolled">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide is-active">
+											<div class="card-wrap">
+												<div class="card-icon" aria-hidden="true">
+													<i class="ico ico-danang01 is-on"></i>
+													<i class="ico ico-danang01 is-off"></i>
+												</div>
+												<dl class="card-text">
+													<dt><i class="ico txt-in">IN</i></dt>
+													<dd>다낭</dd>
+												</dl>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="card-wrap">
+												<div class="card-icon" aria-hidden="true">
+													<i class="ico ico-danang02 is-on"></i>
+													<i class="ico ico-danang02 is-off"></i>
+												</div>
+												<dl class="card-text">
+													<dt><i class="ico txt-time">TIME</i></dt>
+													<dd>07:00 - 22:00</dd>
+												</dl>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="card-wrap">
+												<div class="card-icon" aria-hidden="true">
+													<i class="ico ico-danang03 is-on"></i>
+													<i class="ico ico-danang03 is-off"></i>
+												</div>
+												<dl class="card-text">
+													<dt><i class="ico txt-in">PAY</i></dt>
+													<dd>8,500 1인 기준<br><small>[성인/아동 동일]</small></dd>
+												</dl>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- e: Swiper -->
+							</div>
+						</section>
+					</div>
+					<!-- e: main-cocobus -->
+				</div>
+				<!-- e: content-body -->
+				<!-- s: content-popup -->
+				<div class="content-popup"></div>
+				<!-- e: content-popup -->
+			</div>
+			<!-- e: content -->
+		</div>
+		<!-- e: container -->
+		<!-- s: footer -->
+		<footer class="footer">
+			<!-- s: footer-section -->
+			<div class="footer-section">
+				<img src="../img/cmn/footer.png" class="img-footer" alt="
+					주식회사 투어벨싸일런스홀딩스&#13
+					사업자등록번호 : 101-86-69096&#13
+					통신판매업신고 : 제 2017-서울중구-0724 사업자정보확인&#13
+					대표이사 : 음두경&#13
+					개인정보관리책임자 : 김영준&#13
+					여행부문 : 서울 중구 세종대로14길 15 11층 (북창동, 백영북창빌딩)&#13
+					대표전화 : 1644-2888&#13
+					FAX : 02-733-7410&#13
+					보험대리점 정동종보험대리점&#13
+					등록번호 : 내용&#13
+					손해보험협회 : 심의필 제2017-2372호(2017.05.15)&#13
+					이메일 무단수집 거부 본 페이지의 제작진은 투어빌에 있습니다.&#13
+					Copyright © 2019 TourBell All rights reserved.
+				">
+			</div>
+			<!-- e: footer-section -->
+		</footer>
+		<!-- e: footer -->
+		<!-- s: sticky-footer -->
+		<div class="sticky-footer">
+			<button type="button" class="btn btn-style1">예약 접수</button>
+		</div>
+		<!-- e: sticky-footer -->
+		<!-- s: dimmer -->
+		<div class="dimmer is-visible" aria-hidden="true"></div>
+		<!-- e: dimmer -->
+	</div>
+	<!-- e: HTML Area -->
+</div>
+<!-- e: React Area -->
+</body>
+</html>

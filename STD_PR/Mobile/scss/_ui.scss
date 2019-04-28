@@ -1,27 +1,102 @@
 @charset "utf-8";
 /*-------------------------------------------------------------------
-	파일정의 : UI Objects
-	작성날짜 : YYYY-MM-DD 홍길동
+	파일정의 : UI 인라인 엘리먼트 스타일
+	작성날짜 : 2019-04-20 조찬기
 	참고사항 : 공통 범위를 최소화하고, 컨텐츠 스타일로 구분한다.
-	분류순서 : Element > Block > Layout > Plugin
 	속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
 -------------------------------------------------------------------*/
 /*-------------------------------------------------------------------
-    ## UI
+	## Form Controls
 -------------------------------------------------------------------*/
 /* Default */
-
-/* Common */
-
-/* Design */
-
 
 /*-------------------------------------------------------------------
-    ## UI
+	## Form Text
 -------------------------------------------------------------------*/
 /* Default */
 
+/*-------------------------------------------------------------------
+	## Form Groups
+-------------------------------------------------------------------*/
+/* Default */
+
+/*-------------------------------------------------------------------
+	## Button
+-------------------------------------------------------------------*/
+/* Default */
+.btn {position:relative; display:inline-block; vertical-align:middle; text-align:center;}
+.btn-ico {display:inline-block; position:relative; text-align:center; line-height:1;}
+.btn-ico > .ico {@extend .centered-c;}
+
 /* Common */
+.btn-fluid {display:block; width:100%;}
+.btn-table {display:table; table-layout:fixed; width:100%;}
+.btn-table .col {display:table-cell;}
 
-/* Design */
+/*-------------------------------------------------------------------
+	## Icon, Arrow, Flag
+-------------------------------------------------------------------*/
+/* Default */
+.ico, .arw, .flag {display:inline-block; background:no-repeat 0 0; background-size:100% 100%; vertical-align:middle; overflow:hidden; color:transparent; text-indent:-999px; white-space:nowrap;}
 
+/*-------------------------------------------------------------------
+	## Label, Hashtag, Badge
+-------------------------------------------------------------------*/
+/* Default */
+.label {display:inline-block;}
+
+/*-------------------------------------------------------------------
+	## Link
+-------------------------------------------------------------------*/
+/* Default */
+
+/*-------------------------------------------------------------------
+	## Thumbnail
+-------------------------------------------------------------------*/
+/* Default */
+.thumbnail {display:block; position:relative; overflow:hidden;}
+.thumbnail-img {position:relative; margin-top:50%; left:50%; min-width:100%; min-height:100%; transform:translate(-50%, -50%);}
+
+/*-------------------------------------------------------------------
+    ## Tabs
+-------------------------------------------------------------------*/
+/* Default */
+.tab-content {display:none;}
+.tab-content.is-active {display:block;}
+
+/* Common */
+.tab-table {display:table; table-layout:fixed; width:100%;}
+.tab-table ul {display:table-row;}
+.tab-table ul:after {content:none !important;}
+.tab-table ul li {display:table-cell; float:none !important;}
+
+/*-------------------------------------------------------------------
+	## Table
+-------------------------------------------------------------------*/
+/* Default */
+.tbl-wrap {overflow:hidden;}
+.tbl {overflow:hidden; margin:0 -1px;}
+.tbl table {width:100%; margin:-1px 0; table-layout:fixed; border-collapse:collapse; border:0; border-spacing:0;}
+
+/*-------------------------------------------------------------------
+    ## Pagination
+-------------------------------------------------------------------*/
+/* Default */
+.pagination-wrap {position:relative; text-align:center;}
+.pagination {display:inline-block; position:relative; z-index:10; vertical-align:top;}
+.pagination:after {content:''; display:block; clear:both;}
+.pagination .page-btn-group,.pagination .btn-num-group,.pagination .page-btn,.pagination .btn-num {display:inline-block; position:relative; z-index:0; float:left; overflow:hidden;}
+
+/*-------------------------------------------------------------------
+    ## Dimmer
+-------------------------------------------------------------------*/
+/* Default */
+.dimmer {position:fixed; left:0; top:0; z-index:1000; width:0; height:0; background-color:#000; opacity:0; transition:opacity 0.3s 0.3s ease;}
+.dimmer.is-visible {width:100%; height:100%; opacity:0.7;}
+
+/*-------------------------------------------------------------------
+    ## Swiper
+-------------------------------------------------------------------*/
+/* Default */
+.swiper-button-prev,.swiper-button-next,.swiper-pagination {display:none;}
+.swiper-button-prev.is-visible,.swiper-button-next.is-visible,.swiper-pagination.is-visible {display:block;}
