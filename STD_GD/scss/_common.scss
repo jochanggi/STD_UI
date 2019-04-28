@@ -15,9 +15,6 @@
 .blind-wrap {position:relative;}
 .blind-area {position:absolute; top:0; right:0; bottom:0; left:0; z-index:0;}
 
-/* Clear */
-.clear { &:after {content:''; clear:both; display:block;} }
-
 /* Page Scroll */
 .is-scrollFixed {position:fixed; left:0; top:0; height:100%; overflow:hidden;}
 
@@ -48,22 +45,8 @@
 .consoleLog .consoleLog-item {display:block; padding:5px 10px 6px; word-break:break-all; font-size:12px;}
 .consoleLog .consoleLog-item + .js-consoleLog-item {border-top:1px solid #f5f5f5;}
 
-/*-------------------------------------------------------------------
-    ## Color
--------------------------------------------------------------------*/
-/* General Color */
-.color-primary {color:#ffee5e8;}
-
-/* Grayscale */
-.color-gray-3 {color:#333333;}
-
-/* Gradient */
-.gradient-primary {
-	background: rgb(252,8,20); /* Old browsers */
-	background: -moz-linear-gradient(-45deg, rgb(223,40,120) 0%, rgb(252,8,20) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(-45deg, rgb(223,40,120) 0%,rgb(252,8,20) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(135deg, rgb(223,40,120) 0%,rgb(252,8,20) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-}
+/* Color */
+.color-primary {color:$color-primary;}
 
 /*-------------------------------------------------------------------
     ## Layout

@@ -51,6 +51,4 @@ $color-gray-f: #f8f8f8;
 
 
 /* 유틸리티 */
-%clear {
-	&:after {content:''; clear:both; display:block;}
-}
+%clear { &:after {content:''; clear:both; display:block;} }

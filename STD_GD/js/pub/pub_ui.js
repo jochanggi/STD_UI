@@ -1,42 +1,48 @@
 /*--------------------------------------------------------------
-	## Variables, Utility
+	Variables
 --------------------------------------------------------------*/
 var transitionend = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend';
 
 /*--------------------------------------------------------------
-	## UI
+	UI
 --------------------------------------------------------------*/
 var ui = {
 	init: function(){
-		/* Layout */
-		if ($('셀렉터').length) {this.object.init(); } /* _Object */
+		/* ## Layout */
+		if ($('셀렉터').length) {this.object.init(); } /* # Object */
+		if ($('셀렉터').length) {this.object.init(); } /* # Object */
 
-		/* Objects */
-		if ($('셀렉터').length) {this.object.init(); } /* _Object */
+		/* ## Modules */
+		if ($('셀렉터').length) {this.object.init(); } /* # Object */
+		if ($('셀렉터').length) {this.object.init(); } /* # Object */
 
-		/* Content */
-		if ($('셀렉터').length) {this.object.init(); } /* _Object */
+		/* ## Content */
+		if ($('셀렉터').length) {this.object.init(); } /* # Object */
+		if ($('셀렉터').length) {this.object.init(); } /* # Object */
 	},
 
 	/*--------------------------------------------------------------
-		Layout
+		## Layout
 	--------------------------------------------------------------*/
 	/*
-		인스턴스: _Object
+		인스턴스: # Object
 		기능설명: aria-controls, id 연결방식
 		특이사항:
 	*/
 	object: {
-		init: function(){ },
+		isEvented : false,
+		init: function(){
+			if (this.isEvented == false){ this.event(); this.isEvented = true; }
+		},
 		event: function(){ },
 		action: function(){ },
 	},
 
 	/*--------------------------------------------------------------
-		Objects
+		## Modules
 	--------------------------------------------------------------*/
 	/*
-		인스턴스: _Object
+		인스턴스: # Object
 		기능설명: aria-controls, id 연결방식
 		특이사항:
 		참고화면: URL
@@ -49,10 +55,10 @@ var ui = {
 
 
 	/*--------------------------------------------------------------
-		Content
+		## Content
 	--------------------------------------------------------------*/
 	/*
-		인스턴스: _Object
+		인스턴스: # Object
 		기능설명: aria-controls, id 연결방식
 		특이사항:
 		참고화면: URL

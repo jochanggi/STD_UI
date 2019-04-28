@@ -11,20 +11,6 @@ var consoleLog = function(value){
 	clearTimeout(setTime);
 	setTime = setTimeout(function(){$('.consoleLog').fadeOut('fast', function(){$(this).remove()})}, delay);
 }
-// 스크립트파일 로드
-var setScriptLoader = function(url, id, callback){
-	if ($('#'+id).length == 0){
-		$('head').append('<script src="'+url+'" id="'+id+'"></script>');
-		if (callback){callback()}
-	}
-}
-// Attribute 설정
-var setAnchorAttr = function($this){
-	$this.each(function(){
-		if ($($(this).attr('href')).length && !$(this).is('[data-id]')){$(this).attr('data-id', $(this).attr('href'))}
-		else if ($($(this).attr('data-id')).length > 0 && $(this).is('a')){$(this).attr('href', $(this).attr('data-id'))}
-	})
-}
 // 실제값의 퍼센트 구하기 (실제값/최대값 * 100%)
 var getPercent = function(val, max){
 	var value = (val/max) * 100;
