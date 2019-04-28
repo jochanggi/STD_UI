@@ -110,23 +110,91 @@
 							</pre>
 						</div>
 
-						<h3 class="g-h3">속성순서</h3>
-						<p class="g-desc">기능 &gt; 이름 &gt; 정보  &gt; 선택속성 &gt; 클래스 &gt; 상태 순서로 적용한다.</p>
-						<h4 class="g-h4">A 엘리먼트</h4>
-						<div class="g-code">
-							<pre class="brush:html">&lt;a href="#none" title="새창열기" target="" class=""&gt;인쇄하기&lt;/a&gt;</pre>
+						<h3 class="g-h3">속성 선언순서</h3>
+						<div class="g-tbl-type1">
+							<table>
+								<caption>HTML 속성선언순서</caption>
+								<colgroup>
+									<col style="width:20%;">
+									<col>
+									<col style="width:20%;">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>구분</th>
+										<th>속성</th>
+										<th>속성 값</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1. 기능</td>
+										<td>
+											<p>href, src, type</p>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>2. 이름</td>
+										<td>
+											<p>name, id</p>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>3. 정보</td>
+										<td>
+											<p>value, title, alt</p>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>4. 옵션</td>
+										<td>
+											<p>target, tabindex</p>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>5. 꾸미기</td>
+										<td>
+											<p>class</p>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>6. 역할</td>
+										<td>
+											<p>role</p>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>7. 속성</td>
+										<td>
+											<p>aria-controls, aria-describedby, aria-labelledby, aria-popup, aria-modal 등</p>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>8. 상태</td>
+										<td>
+											<p>checked, disabled, selected, required, aria-selected, aria-current, aria-hidden 등</p>
+										</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-						<h4 class="g-h4">Iframe 엘리먼트</h4>
+
+						<h4 class="g-h4">엘리먼트 예시</h4>
 						<div class="g-code">
-							<pre class="brush:html">&lt;iframe src="about:blank" title="빈프레임"&gt;&lt;/iframe&gt;</pre>
-						</div>
-						<h4 class="g-h4">Img 엘리먼트</h4>
-						<div class="g-code">
-							<pre class="brush:html">&lt;img src="img.gif" alt="대체텍스트" /&gt;</pre>
-						</div>
-						<h4 class="g-h4">Input 엘리먼트</h4>
-						<div class="g-code">
-							<pre class="brush:html">&lt;input type="text" name="" id="" value="" title="" class="" style="" disabled /&gt;</pre>
+							<pre class="brush:html">
+								&lt;a href="#none" title="새창열기" target="" class=""&gt;인쇄하기&lt;/a&gt;
+								&lt;iframe src="about:blank" title="빈프레임"&gt;&lt;/iframe&gt;
+								&lt;img src="img.gif" alt="대체텍스트" /&gt;
+								&lt;input type="text" name="" id="" value="" title="" class="" style="" disabled /&gt;
+							</pre>
 						</div>
 
 						<h3 class="g-h3">CSS 기본 규칙</h3>
@@ -216,7 +284,7 @@
 							</pre>
 						</div>
 
-						<h3 class="g-h3">속성의 선언 순서</h3>
+						<h3 class="g-h3">속성 선언순서</h3>
 						<div class="g-tbl-type1">
 							<table>
 								<caption>CSS 속성선언순서</caption>

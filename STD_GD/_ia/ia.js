@@ -1,3 +1,6 @@
+var iaURL = '/';		// 현황판 잘업목록 URL
+var ajaxURL = 'html/';	// 현황판 리스트 URL
+
 var ia = {
 	baseUrl : 'html/',
 	init : function(){
@@ -19,7 +22,7 @@ var ia = {
 			$('.ia-graph .graph').append(graphHtml);
 
 			//IA페이지 로드 후 설정
-			$(this).load(_this.baseUrl+file+'.html', function(){
+			$(this).load(ajaxURL+file+'.html', function(){
 				_this.cal('#gIA'+i);
 				_this.url('#gIA'+i);
 			});
@@ -102,7 +105,7 @@ var ia = {
 	url : function(obj){
 		$(obj).find('td.col-url').each(function(){
 			var text = $(this).text();
-			$(this).empty().append('<a href="/'+text+'" target="_blank">/'+text+'</a>');
+			$(this).empty().append('<a href="'iaURL+text+'" target="_blank">/'+text+'</a>');
 		})
 	},
 }
