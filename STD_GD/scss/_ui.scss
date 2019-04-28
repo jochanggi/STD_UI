@@ -84,7 +84,7 @@
 .pagination-wrap {position:relative; text-align:center;}
 .pagination {display:inline-block; position:relative; z-index:10; vertical-align:top;}
 .pagination:after {content:''; display:block; clear:both;}
-.pagination .page-btn-group,.pagination .btn-num-group,.pagination .page-btn,.pagination .btn-num {display:inline-block; position:relative; z-index:0; float:left; overflow:hidden;}
+.pagination .btn-page-group,.pagination .btn-num-group,.pagination .btn-page,.pagination .btn-num {display:inline-block; position:relative; z-index:0; float:left; overflow:hidden;}
 
 /*-------------------------------------------------------------------
     ## Dimmer
