@@ -5,6 +5,8 @@ var ui = {
 	init: function(){
 		console.log('ui.init()');
 
+		if ($('.gnb-dropdown').length)		{this.gnb_dropdown.init();}		// #Gnb Dropdown
+		if ($('.gnb-fulldown').length)		{this.gnb_fulldown.init();}		// #Gnb Fulldown
 		if ($('.tab-nav').length)			{this.tab.init();}				// #Tab
 		if ($('.accordion').length)			{this.accordion.init();}		// #Accordion
 		if ($('[data-role=fold]').length)	{this.folder.init();}			// #Folder (접기)
@@ -20,6 +22,96 @@ var ui = {
 		if ($('.js-dimmer').length)			{this.dimmer.init();}			// Dimmer
 		if ($('.js-progress').length)		{this.progress.init();}			// Progress
 		if ($('.js-waypoint').length)		{this.waypoint.init();}			// Waypoint
+	},
+
+	//#Gnb Dropdown
+	gnb_dropdown : {
+		eleModule		: '.gnb-dropdown',
+		eleNode1_item	: '.node1-item',
+		eleNode1_link	: '.node1-link',
+		eleNode2_item	: '.node2-item',
+		eleNode2_link	: '.node2-link',
+		idxNode1		: -1,
+		idxNode2		: -1,
+		isEvented		: false,
+		init : function(){
+			if (this.isEvented == false){ this.event(); this.isEvented = true; }
+		},
+		reset : function(n1, n2){
+			this.idxNode1 = n1, this.idxNode2 = n2;
+			if (this.idxNode1 > -1){ $(this.eleModule).find(this.eleNode1_item).eq(this.idxNode1).addClass('is-current').siblings('.is-current').removeClass('is-current') }
+			if (this.idxNode2 > -1){ $(this.eleModule).find(this.eleNode2_item).eq(this.idxNode2).addClass('is-current').siblings('.is-current').removeClass('is-current') }
+		},
+		event : function(){
+			var _this = this, setTime = null;
+			$(this.eleModule).find(this.eleNode1_item).on('mouseenter focusin', function(){
+				clearTimeout(setTime);
+				var idx = $(this).index();
+				_this.open(idx);
+			});
+			$(this.eleModule).find(this.eleNode1_item).on('mouseleave focusout', function(){
+				var idx = $(this).index();
+				setTime = setTimeout(function(){
+					_this.close(idx)
+				}, 50);
+			});
+		},
+		open : function(idx){
+			var $item = $(this.eleModule).find(this.eleNode1_item).eq(idx);
+			$item.addClass('is-active').find(this.eleNode1_link).attr({'aria-expended':'true'});
+			$item.siblings('.is-active').removeClass('is-active').find(this.eleNode1_link).attr({'aria-expended':'false'});
+
+		},
+		close : function(idx){
+			$(this.eleNode1_item).eq(idx).removeClass('is-active');
+		},
+	},
+
+	//#Gnb Fulldown
+	gnb_fulldown : {
+		eleModule		: '.gnb-fulldown',
+		eleNode1_item	: '.node1-item',
+		eleNode1_link	: '.node1-link',
+		eleNode2_item	: '.node2-item',
+		eleNode2_link	: '.node2-link',
+		idxNode1		: -1,
+		idxNode2		: -1,
+		isEvented		: false,
+		init : function(){
+			if (this.isEvented == false){ this.event(); this.isEvented = true; }
+		},
+		reset : function(n1, n2){
+			this.idxNode1 = n1, this.idxNode2 = n2;
+			if (this.idxNode1 > -1){ $(this.eleModule).find(this.eleNode1_item).eq(this.idxNode1).addClass('is-current').siblings('.is-current').removeClass('is-current') }
+			if (this.idxNode2 > -1){ $(this.eleModule).find(this.eleNode2_item).eq(this.idxNode2).addClass('is-current').siblings('.is-current').removeClass('is-current') }
+		},
+		event : function(){
+			var _this = this, setTime = null;
+			$(this.eleModule).find(this.eleNode1_item).on('mouseenter focusin', function(){
+				clearTimeout(setTime);
+				var idx = $(this).index();
+				_this.open(idx);
+			});
+			$(this.eleModule).find(this.eleNode1_item).on('mouseleave focusout', function(){
+				var idx = $(this).index();
+				setTime = setTimeout(function(){
+					_this.close(idx)
+				}, 50);
+			});
+		},
+		open : function(idx){
+			var $module		= $(this.eleModule);
+			var $item		= $(this.eleModule).find(this.eleNode1_item).eq(idx);
+			$module.addClass('is-active').find(this.eleNode1_link).attr({'aria-expended':'true'});
+			$item.addClass('is-active');
+			$item.siblings('.is-active').removeClass('is-active');
+		},
+		close : function(idx){
+			var $module		= $(this.eleModule);
+			var $item		= $(this.eleModule).find(this.eleNode1_item).eq(idx);
+			$module.removeClass('is-active');
+			$item.removeClass('is-active');
+		},
 	},
 
 	/*
