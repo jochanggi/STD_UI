@@ -30,6 +30,7 @@
 .centered-b {position:absolute !important; left:50%; bottom:0; transform:translateX(-50%);}
 .centered-l {position:absolute !important; left:0; top:50%; transform:translateY(-50%);}
 .centered-c {position:absolute !important; left:50%; top:50%; transform:translate(-50%,-50%);}
+.centered-rb {position:absolute !important; right:0; bottom:0;}
 
 /* Console Log */
 .consoleLog {position:fixed; left:50%; top:50%; z-index:2000; transform:translate(-50%,-50%); width:70%; background-color:#fff; box-shadow:1px 1px 3px 1px rgba(0,0,0,0.2);}

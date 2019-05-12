@@ -285,6 +285,11 @@ legend {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
+.centered-rb {
+  position: absolute !important;
+  right: 0;
+  bottom: 0; }
+
 /* Console Log */
 .consoleLog {
   position: fixed;
@@ -3416,7 +3421,7 @@ button::-moz-focus-inner {
   right: 0;
   z-index: 1; }
 
-.folder-toggle .arw-toggle {
+.folder-toggle .arw {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -3427,7 +3432,7 @@ button::-moz-focus-inner {
   -o-transition: all 0.3s;
   transition: all 0.3s; }
 
-.folder-toggle.is-active .arw-toggle {
+.folder-toggle.is-active .arw {
   -ms-transform: translate(-50%, -50%) rotate(180deg);
   transform: translate(-50%, -50%) rotate(180deg);
   -webkit-transform: translate(-50%, -50%) rotate(180deg); }
@@ -3586,6 +3591,7 @@ button::-moz-focus-inner {
 -------------------------------------------------------------------*/
 /* Default */
 .dropdown {
+  width: 100%;
   position: relative;
   z-index: 10;
   display: inline-block; }

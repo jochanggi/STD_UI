@@ -25,6 +25,8 @@ var include = {
 		document.write('<!-- Front -->');
 		document.write('<link href="'+gRootURL.root+'css/import.css" rel="stylesheet" />');
 		document.write('<script src="'+gRootURL.root+'js/libs/jquery-3.3.1.min.js"></script>');
+		document.write('<script src="'+gRootURL.root+'js/libs/EasePack.js"></script>');
+		document.write('<script src="'+gRootURL.root+'js/libs/TweenMax.js"></script>');
 		document.write('<script src="'+gRootURL.root+'js/pub/pub_utility.js"></script>');
 		document.write('<script src="'+gRootURL.root+'js/pub/pub_device.js"></script>');
 		document.write('<script src="'+gRootURL.root+'js/pub/pub_ui.js"></script>');

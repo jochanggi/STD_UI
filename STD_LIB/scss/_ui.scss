@@ -858,8 +858,8 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 	##Folder
 ------------------------------------------------------------------------------------------ */
 .folder-toggle {width:40px; height:40px; right:0; z-index:1;}
-.folder-toggle .arw-toggle {position:absolute; left:50%; top:50%; transform:translate(-50%, -50%) rotate(0deg); -webkit-transform:translate(-50%, -50%) rotate(0deg); transition:all 0.3s;}
-.folder-toggle.is-active .arw-toggle {transform:translate(-50%, -50%) rotate(180deg); -webkit-transform:translate(-50%, -50%) rotate(180deg);}
+.folder-toggle .arw {position:absolute; left:50%; top:50%; transform:translate(-50%, -50%) rotate(0deg); -webkit-transform:translate(-50%, -50%) rotate(0deg); transition:all 0.3s;}
+.folder-toggle.is-active .arw {transform:translate(-50%, -50%) rotate(180deg); -webkit-transform:translate(-50%, -50%) rotate(180deg);}
 .folder-toggle.bg {background:#eee;}
 .folder-toggle.round {border-radius:50%;}
 
@@ -903,7 +903,7 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 	##Dropdown
 -------------------------------------------------------------------*/
 /* Default */
-.dropdown {position:relative; z-index:10; display:inline-block;}
+.dropdown {width:100%; position:relative; z-index:10; display:inline-block;}
 .dropdown-menu {display:none; position:absolute; z-index:2; width:100%; background-color:#fff;}
 .dropdown-toggle {position:relative; z-index:3; width:100%; text-align:left;}
 .dropdown-toggle .arw {position:absolute; top:50%; right:10px;}
