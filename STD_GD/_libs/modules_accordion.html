@@ -33,37 +33,23 @@
 									<a href="#none" class="g-example-btn">HTML</a>
 								</div>
 							</div>
-							<div class="g-example-footer">
+							<div class="g-example-footer is-active">
 								<pre class="brush:html">
-									&lt;div class="accordion-wrap">
-										&lt;dl role="presentation" class="accordion accordion_이름">
-											&lt;dt class="accordion-title is-active">
-												&lt;a href="#accorContent11" class="accordion-toggle" role="button" aria-controls="accorContent11" aria-expanded="true">
-													&lt;span class="accordion-label">accordion-title1 &lt;i class="arw arw-accordion">&lt;/i>&lt;/span>
-												&lt;/a>
-											&lt;/dt>
-											&lt;dd id="accorContent11" class="accordion-content is-active" aria-hidden="false">
-												&lt;div class="blind-area" role="text" aria-label="Accordion Title11 Accordion Panel">&lt;/div>
-												&lt;div class="accordion-inner">
-													accordion-content1
-												&lt;/div>
-											&lt;/dd>
-											&lt;dt class="accordion-title">
-												&lt;a href="#accorContent12" class="accordion-toggle" role="button" aria-controls="accorContent12" aria-expanded="false">
-													&lt;span class="accordion-label">accordion-title2&lt;i class="arw arw-accordion">&lt;/i>&lt;/span>
-												&lt;/a>
-											&lt;/dt>
-											&lt;dd id="accorContent12" class="accordion-content" aria-hidden="true">
-												&lt;div class="blind-area" role="text" aria-label="Accordion Title12 Accordion Panel">&lt;/div>
-												&lt;div class="accordion-inner">
-													accordion-content2
-												&lt;/div>
-											&lt;/dd>
-										&lt;/dl>
-									&lt;/div>
-
-									아코디언 외부호출 :
-									&lt;button type="button" onclick="ui.accordion.action('#accorContent13')">&lt;span>아코디언3&lt;/span>&lt;/button>
+									&lt;ul class="ui-acco">
+										&lt;li class="ui-acco-item is-active">
+											&lt;div class="ui-acco-title">
+												&lt;button type="button" id="accorTitle11" aria-controls="accorContent11" aria-expanded="false" class="ui-acco-toggle">
+													&lt;span class="ui-acco-label">accordion-title1&lt;/span>
+													&lt;i class="ui-arw">&lt;/i>
+												&lt;/button>
+											&lt;/div>
+											&lt;div id="accorContent11" aria-labelledby="accorTitle11" class="ui-acco-content">
+												accordion-content1
+											&lt;/div>
+										&lt;/li>
+										&lt;li class="ui-acco-item is-disabled">&lt;/li>
+										&lt;li class="ui-acco-item">&lt;/li>
+									&lt;/ul>
 								</pre>
 							</div>
 						</div>

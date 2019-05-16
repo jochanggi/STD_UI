@@ -25,7 +25,11 @@ $color-danger: #d45704;
 $color-error: #ff0000;
 $color-info: #949494;
 
-/* 명암 */
+/* 컬러 - 명암 */
+$color-none: transparent;
+$color-white: white;
+$color-black: black;
+$color-gray: gray;
 $color-gray-2: #222;
 $color-gray-3: #333;
 $color-gray-4: #444;
@@ -49,8 +53,34 @@ $color-gray-f: #f8f8f8;
 	background: linear-gradient(135deg, rgb(223,40,120) 0%,rgb(252,8,20) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
+/* 컬러 - 의미 */
+$color-basic: #333;
+$color-success: #47a104;
+$color-warning: #e9b500;
+$color-danger: #d45704;
+$color-error: #ff0000;
+$color-info: #949494;
+$color-primary: #0089b3;
+$color-primary-dark: #006d8e;
+$color-primary-light: #2496ee;
+$color-secondary: #54873c;
 
-/* 유틸리티 */
+/* 컬래 - 채도 */
+$color-red: red;
+
+/*-------------------------------------------------------------------
+	@Extend
+	- 클래스선택자를 정의할 경우 common.css에 정의한다.
+	- 선언 : %selector1
+	- 활용 : selector2 {@extend %selector1}
+-------------------------------------------------------------------*/
+/* Floating Clear */
 %clear {
 	&:after {content:''; clear:both; display:block;}
 }
+
+/* Transition */
+%dropdown {opacity:0; transform:translateY(-50%) scaleY(0); transition:all 0.4s ease;}
+%dropdown-active {opacity:1; transform:translateY(0) scaleY(1);}
+%wideScale {transform:scaleX(0); transition:transform 0.4s ease;}
+%wideScale-active {transform:scaleX(1);}

@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../../_wsg/js/wsg_include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header g-in-sec">
+				<h1 class="g-h1">웹퍼블리싱가이드</h1>
+				<p class="g-explain-h1">Guideline Introduction</p>
+			</div>
+			<div class="g-content-body">
+				<!-- section1 -->
+				<section id="section1" class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">폴더구조</h2>
+					</div>
+					<div class="g-section-body">
+						<ul class="g-desc">
+							<li>현황판은 웹스타일가이드에 포함하지 않고 링크만 연결한다.</li>
+							<li>가이드 Root폴더는 _(언더바)를 붙힌다. (사이트폴더와의 구분 및 고정적 의미를 적용)</li>
+						</ul>
+						<div class="g-tbl-type1">
+							<table>
+								<caption>폴더구조 정의</caption>
+								<colgroup>
+									<col span="4" style="width:12%">
+									<col>
+								</colgroup>
+								<thead>
+									<tr>
+										<th colspan="3">경로/폴더</th>
+										<th colspan="2">파일</th>
+										<th>설명</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>_wsg</td>
+										<td>common</td>
+										<td>css</td>
+										<td></td>
+										<td>
+											import.css<br>
+											setting.css<br>
+											layout.css<br>
+											ui.css
+										</td>
+										<td>
+											CSS 가져오기<br>
+											스타일 - 설정하기<br>
+											스타일 - 레이아웃<br>
+											스타일 - 공통형태
+										</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td>js</td>
+										<td>&nbsp;<br>&nbsp;<br>&nbsp;<br>addon</td>
+										<td>
+											import.js<br>
+											guide.js<br>
+											include.js<br>
+											jquery.clipboard.min.js<br>
+										</td>
+										<td>
+											JS 가져오기<br>
+											스크립트 - 가이드<br>
+											스크립트 - 인클루드<br>
+											추가모듈 - 클립보드
+										</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td>codeview</td>
+										<td></td>
+										<td></td>
+										<td>플러그인 코드보기</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td>fontawesome</td>
+										<td></td>
+										<td></td>
+										<td>플러그인 폰트아이콘</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>html</td>
+										<td>
+											_prototype<br>
+											convention<br>
+											plan<br>
+											library<br>
+											checklist
+										</td>
+										<td></td>
+										<td></td>
+										<td>
+											폴더 - 프로토타입<br>
+											폴더 - 규칙가이드<br>
+											폴더 - 설계가기이드<br>
+											폴더 - 라이브러리<br>
+											폴더 - 체크리스트
+										</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>images</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>가이드 이미지</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+				<!-- //section1 -->
+
+				<!-- section2 -->
+				<section id="section2" class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">구조설계</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Document</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode1-1" class="g-example-btn">HTML</a>
+									<a href="#tabContentCode1-2" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div id="tabContentCode1-1" class="g-example-footer">
+								<pre class="brush:html">
+									&lt;!doctype html>
+									&lt;html lang="ko">
+									&lt;head>
+									&lt;meta charset="UTF-8" />
+									&lt;script src="/_wsg/js/wsg_include.js">&lt;/script>
+									&lt;script>include.meta()&lt;/script>
+									&lt;script>include.head()&lt;/script>
+									&lt;/head>
+									&lt;body>
+									&lt;div id="g-wrap">
+										&lt;script>include.header()&lt;/script>
+										&lt;div id="g-container">
+											&lt;script>include.aside.init()&lt;/script>
+											&lt;!-- Content -->
+											&lt;article id="g-content">
+											&lt;/article>
+											&lt;!-- //Content -->
+											&lt;script>include.quick.init()&lt;/script>
+										&lt;/div>
+										&lt;script>include.footer()&lt;/script>
+									&lt;/div>
+									&lt;/body>
+									&lt;/html>
+								</pre>
+							</div>
+							<div id="tabContentCode1-2" class="g-example-footer">
+								<pre class="brush:js">
+									//include.js
+									var gBaseURL = {
+										menu1 : '',
+										menu2 : '',
+										menu3 : '',
+									}
+									var include = {
+										meta : function(){
+											document.write('');
+										},
+										head : function(){
+											document.write('');
+										},
+										header : function(){
+											document.write('');
+										},
+										aside : {
+											init : function(){
+												this.menu1();
+												this.menu2();
+												this.menu3();
+											},
+											menu1 : function(){
+												var baseURL = gBaseURL.menu1;
+												document.write('');
+											},
+											menu2 : function(){
+												var baseURL = gBaseURL.menu2;
+												document.write('');
+											},
+											menu3 : function(){
+												var baseURL = gBaseURL.menu3;
+												document.write('');
+											},
+										},
+										quick : {
+											init : function(){
+												document.write('');
+											},
+										},
+										footer : function(){
+											document.write('');
+										},
+									}
+								</pre>
+							</div>
+						</div>
+						<h3 class="g-h3">Layout</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode2-1" class="g-example-btn">HTML</a>
+								</div>
+							</div>
+							<div id="tabContentCode2-1" class="g-example-footer">
+								<pre class="brush:html">
+									<div id="g-wrapper">
+										<header id="g-header">
+											<div class="g-header-inner"></div>
+										</header>
+										<div id="g-container">
+											<aside id="g-aside"></aside>
+											<article id="g-content">
+												<div class="g-content-header">
+													<h1 class="g-h1">Heading Text1</h1>
+												</div>
+												<div class="g-content-body">
+													Content-body
+												</div>
+											</article>
+										</div>
+										<footer id="g-footer"></footer>
+									</div>
+								</pre>
+							</div>
+						</div>
+						<h3 class="g-h3">Section</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode3-1" class="g-example-btn">HTML</a>
+								</div>
+							</div>
+							<div id="tabContentCode3-1" class="g-example-footer">
+								<pre class="brush:html">
+									<!-- section1 -->
+									<section id="section1" class="g-section">
+										<div class="g-section-header">
+											<h2 class="g-h2">Heading Text2</h2>
+										</div>
+										<div class="g-section-body">
+											<h3 class="g-h3">Heading Text3</h3>
+											<p>Section-body</p>
+										</div>
+									</section>
+									<!-- //section1 -->
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //section2 -->
+
+				<!-- section3 -->
+				<section id="section3" class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">컨텐츠설계</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">목차</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode4-1" class="g-example-btn is-copyed">HTML</a><a href="javascript:void(0);" class="g-example-copy"><i class="fas fa-copy"></i></a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<h1 class="g-h1">h1, Heading Text, 헤딩텍스트</h1>
+								<h2 class="g-h2">h2, Heading Text, 헤딩텍스트</h2>
+								<h3 class="g-h3">h3, Heading Text, 헤딩텍스트</h3>
+								<h4 class="g-h4">h4, Heading Text, 헤딩텍스트</h4>
+								<h5 class="g-h5">h5, Heading Text, 헤딩텍스트</h5>
+							</div>
+							<div id="tabContentCode4-1" class="g-example-footer">
+								<pre class="brush:html">
+									<h1 class="g-h1">h1, Heading Text, 헤딩텍스트</h1>
+									<h2 class="g-h2">h2, Heading Text, 헤딩텍스트</h2>
+									<h3 class="g-h3">h3, Heading Text, 헤딩텍스트</h3>
+									<h4 class="g-h4">h4, Heading Text, 헤딩텍스트</h4>
+									<h5 class="g-h5">h5, Heading Text, 헤딩텍스트</h5>
+								</pre>
+							</div>
+						</div>
+
+						<h3 class="g-h3">목록</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode5-1" class="g-example-btn is-copyed">HTML</a><a href="javascript:void(0);" class="g-example-copy"><i class="fas fa-copy"></i></a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<p>기본단락입니다. <span class="g-txt-primary">강조문구</span>입니다.</p>
+								<p>제목의 기본설명으로 사용되며 클래스는 사용되지 않는다.</p>
+
+								<ul class="g-desc">
+									<li>기본목록 가이드입니다.</li>
+									<li>주 내용의 머리말 위치에서 사용한다.</li>
+								</ul>
+
+								<ul class="g-desc-guide">
+									<li>- 보조목록 가이드입니다. (블릿은 원하는 특수문자로 직접 입력한다.)</li>
+									<li>- 주 내용의 고리말 위치에서 사용한다.</li>
+								</ul>
+							</div>
+							<div id="tabContentCode5-1" class="g-example-footer">
+								<pre class="brush:html">
+									<p>기본단락입니다. <span class="g-txt-primary">강조문구</span>입니다.</p>
+									<p>제목의 기본설명으로 사용되며 클래스는 사용되지 않는다.</p>
+
+									<ul class="g-desc">
+										<li>기본목록 가이드입니다.</li>
+										<li>기본목록 가이드입니다.</li>
+									</ul>
+
+									<ul class="g-desc-guide">
+										<li>- 보조목록 가이드입니다.</li>
+										<li>- 블릿은 원하는 특수문자로 직접 입력한다.</li>
+									</ul>
+								</pre>
+							</div>
+						</div>
+
+						<h3 class="g-h3">표</h3>
+						<h4 class="g-h4">Type1 Cols</h4>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode6-1" class="g-example-btn is-copyed">HTML</a><a href="javascript:void(0);" class="g-example-copy"><i class="fas fa-copy"></i></a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-tbl-type1">
+									<table>
+										<caption></caption>
+										<colgroup>
+											<col style="width:auto">
+											<col>
+										</colgroup>
+										<thead>
+										<tr>
+											<th scope="col">1234567890</th>
+											<th scope="col">1234567890</th>
+											<th scope="col">1234567890</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td>1234567890</td>
+											<td>1234567890</td>
+											<td>1234567890</td>
+										</tr>
+										<tr>
+											<td>1234567890</td>
+											<td>1234567890</td>
+											<td>1234567890</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div id="tabContentCode6-1" class="g-example-footer">
+								<pre class="brush:html">
+									<div class="g-tbl-type1">
+										<table>
+											<caption></caption>
+											<colgroup>
+												<col style="width:auto">
+												<col>
+											</colgroup>
+											<thead>
+											<tr>
+												<th scope="col">1234567890</th>
+												<th scope="col">1234567890</th>
+												<th scope="col">1234567890</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr>
+												<td>1234567890</td>
+												<td>1234567890</td>
+												<td>1234567890</td>
+											</tr>
+											<tr>
+												<td>1234567890</td>
+												<td>1234567890</td>
+												<td>1234567890</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</pre>
+							</div>
+						</div>
+						<h4 class="g-h4">Type1 Rows</h4>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode7-1" class="g-example-btn is-copyed">HTML</a><a href="javascript:void(0);" class="g-example-copy"><i class="fas fa-copy"></i></a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-tbl-type1">
+									<table>
+										<caption></caption>
+										<colgroup>
+											<col style="width:auto">
+											<col>
+										</colgroup>
+										<tbody>
+										<tr>
+											<th scope="row">1234567890</th>
+											<td>1234567890</td>
+											<td>1234567890</td>
+											<td>1234567890</td>
+										</tr>
+										<tr>
+											<th scope="row">1234567890</th>
+											<td>1234567890</td>
+											<td>1234567890</td>
+											<td>1234567890</td>
+										</tr>
+										<tr>
+											<th scope="row">1234567890</th>
+											<td>1234567890</td>
+											<td>1234567890</td>
+											<td>1234567890</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div id="tabContentCode7-1" class="g-example-footer">
+								<pre class="brush:html">
+									<div class="g-tbl-type1">
+										<table>
+											<caption></caption>
+											<colgroup>
+												<col style="width:auto">
+												<col>
+											</colgroup>
+											<tbody>
+											<tr>
+												<th scope="row">1234567890</th>
+												<td>1234567890</td>
+												<td>1234567890</td>
+												<td>1234567890</td>
+											</tr>
+											<tr>
+												<th scope="row">1234567890</th>
+												<td>1234567890</td>
+												<td>1234567890</td>
+												<td>1234567890</td>
+											</tr>
+											<tr>
+												<th scope="row">1234567890</th>
+												<td>1234567890</td>
+												<td>1234567890</td>
+												<td>1234567890</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</pre>
+							</div>
+						</div>
+
+						<h4 class="g-h4">Type2 Cols</h4>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode8-1" class="g-example-btn is-copyed">HTML</a><a href="javascript:void(0);" class="g-example-copy"><i class="fas fa-copy"></i></a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-tbl-type2">
+									<table>
+										<caption></caption>
+										<colgroup>
+											<col style="width:auto">
+											<col>
+										</colgroup>
+										<thead>
+										<tr>
+											<th scope="col">1234567890</th>
+											<th scope="col">1234567890</th>
+											<th scope="col">1234567890</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td>1234567890</td>
+											<td>1234567890</td>
+											<td>1234567890</td>
+										</tr>
+										<tr>
+											<td>1234567890</td>
+											<td>1234567890</td>
+											<td>1234567890</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div id="tabContentCode8-1" class="g-example-footer">
+								<pre class="brush:html">
+									<div class="g-tbl-type2">
+										<table>
+											<caption></caption>
+											<colgroup>
+												<col style="width:auto">
+												<col>
+											</colgroup>
+											<thead>
+											<tr>
+												<th scope="col">1234567890</th>
+												<th scope="col">1234567890</th>
+												<th scope="col">1234567890</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr>
+												<td>1234567890</td>
+												<td>1234567890</td>
+												<td>1234567890</td>
+											</tr>
+											<tr>
+												<td>1234567890</td>
+												<td>1234567890</td>
+												<td>1234567890</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //section3 -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Box</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Example Box</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode9-1" class="g-example-btn">HTML</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+								<div class="g-example-wrap">
+									<div class="g-example-header">
+										<strong class="g-example-tit is-before"></strong>
+										<div class="g-example-nav">
+											<span class="g-example-txt"></span>
+											<a href="#tabContentCode9-1-1" class="g-example-btn">HTML</a>
+										</div>
+									</div>
+									<div class="g-example-body">
+										<!-- 마크업뷰영역 -->
+										<p>마크업뷰영역</p>
+										<!-- //마크업뷰영역 -->
+									</div>
+									<div id="tabContentCode9-1-1" class="g-example-footer">
+										<pre class="brush:html">
+											&lt;p>마크업뷰영역&lt;/p>
+										</pre>
+									</div>
+								</div>
+								<!-- //마크업뷰영역 -->
+							</div>
+							<div id="tabContentCode9-1" class="g-example-footer">
+								<pre class="brush:html">
+									&lt;div class="g-example-wrap">
+										&lt;div class="g-example-header">
+											&lt;strong class="g-example-tit is-before">&lt;/strong>
+											&lt;div class="g-example-nav">
+												&lt;span class="g-example-txt">&lt;/span>
+												&lt;a href="#tabContentCode9-1" class="g-example-btn">HTML&lt;/a>
+											&lt;/div>
+										&lt;/div>
+										&lt;div class="g-example-body">
+											&lt;!-- 마크업뷰영역 -->
+											&lt;p>마크업뷰영역&lt;/p>
+											&lt;!-- //마크업뷰영역 -->
+										&lt;/div>
+										&lt;div id="tabContentCode9-1" class="g-example-footer">
+											&lt;pre class="brush:html">
+												&lt;p>마크업뷰영역&lt;/p>
+											&lt;/pre>
+										&lt;/div>
+									&lt;/div>
+								</pre>
+							</div>
+						</div>
+						<div class="g-box-guide">
+							<div class="g-box-header">
+								<strong>! 중요</strong>
+							</div>
+							<div class="g-box-body">
+								<ul class="g-desc">
+									<li>Example Box를 포함한 모든 탭은 아이디 연결을 통해서 제어한다.</li>
+								</ul>
+							</div>
+						</div>
+
+						<h3 class="g-h3">Guide Box</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode10-1" class="g-example-btn">HTML</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<!-- 마크업뷰영역 -->
+								<div class="g-box-guide">
+									<div class="g-box-header">
+										<strong>! 중요</strong>
+									</div>
+									<div class="g-box-body">
+										<ul class="g-desc">
+											<li>중요하게 가이드를 설명해야 하는 경우에 사용한다.</li>
+											<li>일반적인 설명은 박스 없이 목록만 사용한다.</li>
+										</ul>
+									</div>
+								</div>
+								<!-- //마크업뷰영역 -->
+							</div>
+							<div id="tabContentCode10-1" class="g-example-footer">
+								<pre class="brush:html">
+									<div class="g-box-guide">
+										<div class="g-box-header">
+											<strong>! 중요</strong>
+										</div>
+										<div class="g-box-body">
+											<ul class="g-desc">
+												<li>중요하게 가이드를 설명해야 하는 경우에 사용한다.</li>
+												<li>일반적인 설명은 박스 없이 목록만 사용한다.</li>
+											</ul>
+										</div>
+									</div>
+								</pre>
+							</div>
+						</div>
+						<div class="g-box-guide">
+							<div class="g-box-header">
+								<strong>! 중요</strong>
+							</div>
+							<div class="g-box-body">
+								<ul class="g-desc">
+									<li>g-box-header영역은 필요한 경우를 고려하여 마크업을 적용하며, 스타일로 기본값을 제어한다.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

@@ -1,10 +1,63 @@
 @charset "UTF-8";
+/*-------------------------------------------------------------------
+	파일정의 : Settings
+	작성날짜 : 2018-11-18 조찬기
+	참고사항 : 이 파일은 설정값만 정의한다.
+	분류순서 : 기본정책 > 유틸리티 > 사용자정의(컬러, 폰트, 보더, 간격 등)
+	속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------
+	Variables
+-------------------------------------------------------------------*/
+/* 기본정책 */
+/* 컬러 - 명암 */
+/* 컬러 - 의미 */
+/* 컬래 - 채도 */
+/*-------------------------------------------------------------------
+	@Extend
+	- 클래스선택자를 정의할 경우 common.css에 정의한다.
+	- 선언 : %selector1
+	- 활용 : selector2 {@extend %selector1}
+-------------------------------------------------------------------*/
+/* Floating Clear */
 @import url(animate.css);
 @import url(plugin.css);
 .form-group:after, .form-group-row:after, .breadcrumb-basic:after {
   content: '';
   clear: both;
   display: block; }
+
+/* Transition */
+.gnb-dropdown .node2-wrap, .gnb-fulldown .node2-wrap, .gnb-fulldown .gnb-bg {
+  opacity: 0;
+  -webkit-transform: translateY(-50%) scaleY(0);
+  -ms-transform: translateY(-50%) scaleY(0);
+  transform: translateY(-50%) scaleY(0);
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+
+.gnb-dropdown .is-active > .node2-wrap, .gnb-fulldown.is-active .node2-wrap,
+.gnb-fulldown.is-active .gnb-bg {
+  opacity: 1;
+  -webkit-transform: translateY(0) scaleY(1);
+  -ms-transform: translateY(0) scaleY(1);
+  transform: translateY(0) scaleY(1); }
+
+.gnb-dropdown .node1-link:after, .gnb-fulldown .node1-link:after {
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  -o-transition: transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease; }
+
+.gnb-dropdown .is-current > .node1-link:after, .gnb-fulldown .is-current > .node1-link:after {
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  transform: scaleX(1); }
 
 /*-------------------------------------------------------------------
     파일정의 : 초기화 스타일
@@ -232,6 +285,11 @@ legend {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
+.centered-rb {
+  position: absolute !important;
+  right: 0;
+  bottom: 0; }
+
 /* Console Log */
 .consoleLog {
   position: fixed;
@@ -382,15 +440,156 @@ legend {
 /*-------------------------------------------------------------------
     ## Wrapper
 -------------------------------------------------------------------*/
+/* Layout */
 /*-------------------------------------------------------------------
     ## Header
 -------------------------------------------------------------------*/
+/* Layout */
+/* GNB Dropdown - Default */
+.gnb-dropdown .node1-list {
+  position: relative;
+  white-space: nowrap;
+  margin: 0 -10px; }
+
+.gnb-dropdown .node1-item {
+  display: inline-table;
+  position: relative;
+  padding: 0 10px; }
+
+.gnb-dropdown .node1-link {
+  display: block;
+  position: relative;
+  padding: 0 15px;
+  line-height: 30px;
+  color: #555; }
+
+.gnb-dropdown .node1-link:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+  height: 2px;
+  background-color: #000; }
+
+.gnb-dropdown .node2-wrap {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  z-index: 10;
+  padding-top: 5px;
+  width: 120px;
+  margin-left: -60px;
+  background-color: #fff; }
+
+.gnb-dropdown .node2-list {
+  padding: 10px 5px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px; }
+
+.gnb-dropdown .node2-link {
+  display: block;
+  padding: 0 15px;
+  line-height: 24px;
+  font-size: 12px;
+  color: #333; }
+
+/* GNB Dropdown - Active */
+.gnb-dropdown .node1-link:focus,
+.gnb-dropdown .node1-link:hover,
+.gnb-dropdown .node1-link:active,
+.gnb-dropdown .is-active > .node1-link,
+.gnb-dropdown .is-current > .node1-link {
+  color: #000; }
+
+.gnb-dropdown .node2-link:focus,
+.gnb-dropdown .node2-link:hover,
+.gnb-dropdown .node2-link:active,
+.gnb-dropdown .is-active > .node2-link,
+.gnb-dropdown .is-current > .node2-link {
+  color: #000; }
+
+/* GNB Fullpdown - Default */
+.gnb-fulldown {
+  position: relative;
+  height: 30px; }
+
+.gnb-fulldown .node1-list {
+  position: relative;
+  white-space: nowrap;
+  margin: 0 -10px;
+  z-index: 11; }
+
+.gnb-fulldown .node1-item {
+  display: inline-table;
+  position: relative;
+  padding: 0 10px;
+  text-align: center; }
+
+.gnb-fulldown .node1-link {
+  display: block;
+  position: relative;
+  padding: 0 15px;
+  line-height: 30px;
+  color: #555; }
+
+.gnb-fulldown .node1-link:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+  height: 2px;
+  background-color: #000; }
+
+.gnb-fulldown .node2-wrap {
+  padding-top: 5px;
+  width: 100%;
+  height: 0;
+  text-align: left; }
+
+.gnb-fulldown .node2-list {
+  padding: 0 5px; }
+
+.gnb-fulldown .node2-link {
+  display: block;
+  padding: 0 15px;
+  line-height: 24px;
+  font-size: 12px;
+  color: #333; }
+
+.gnb-fulldown .gnb-bg {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #eee;
+  height: 135px; }
+
+/* GNB Fullpdown - Active */
+.gnb-fulldown .node1-link:focus,
+.gnb-fulldown .node1-link:hover,
+.gnb-fulldown .node1-link:active,
+.gnb-fulldown .is-active > .node1-link,
+.gnb-fulldown .is-current > .node1-link {
+  color: #000; }
+
+.gnb-fulldown .node2-link:focus,
+.gnb-fulldown .node2-link:hover,
+.gnb-fulldown .node2-link:active,
+.gnb-fulldown .is-active > .node2-link,
+.gnb-fulldown .is-current > .node2-link {
+  color: #000; }
+
+.gnb-fulldown.is-active .node2-wrap {
+  height: auto; }
+
 /*-------------------------------------------------------------------
     ## Footer
 -------------------------------------------------------------------*/
-/*-------------------------------------------------------------------
-    ## Navigation
--------------------------------------------------------------------*/
+/* Layout */
 /*-------------------------------------------------------------------
 파일정의 : UI Modules
 작성날짜 : YYYY-MM-DD 홍길동
@@ -3222,7 +3421,7 @@ button::-moz-focus-inner {
   right: 0;
   z-index: 1; }
 
-.folder-toggle .arw-toggle {
+.folder-toggle .arw {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -3233,7 +3432,7 @@ button::-moz-focus-inner {
   -o-transition: all 0.3s;
   transition: all 0.3s; }
 
-.folder-toggle.is-active .arw-toggle {
+.folder-toggle.is-active .arw {
   -ms-transform: translate(-50%, -50%) rotate(180deg);
   transform: translate(-50%, -50%) rotate(180deg);
   -webkit-transform: translate(-50%, -50%) rotate(180deg); }
@@ -3392,6 +3591,7 @@ button::-moz-focus-inner {
 -------------------------------------------------------------------*/
 /* Default */
 .dropdown {
+  width: 100%;
   position: relative;
   z-index: 10;
   display: inline-block; }

@@ -33,38 +33,26 @@
 									<a href="#none" class="g-example-btn">HTML</a>
 								</div>
 							</div>
-							<div class="g-example-footer">
+							<div class="g-example-footer is-active">
 								<pre class="brush:html">
-									&lt;div class="tab-wrap">
-										&lt;div class="tab-nav tab-basic">
-											&lt;ul role="tablist">
-												&lt;li role="presentation" class="is-active">&lt;a href="#tabContent11" role="tab" aria-controls="tabContent11" aria-selected="true">탭제목1&lt;/a>&lt;/li>
-												&lt;li role="presentation">&lt;a href="#tabContent12" role="tab" aria-controls="tabContent12" aria-selected="false">탭제목2&lt;/a>&lt;/li>
-											&lt;/ul>
-										&lt;/div>
-										&lt;div class="tab-body">
-											&lt;!-- 탭내용1 -->
-											&lt;div id="tabContent11" class="tab-content is-active" aria-hidden="false">
-												&lt;div class="blind-area" role="text" aria-label="탭제목1 Tab Panel">&lt;/div>&lt;!-- role="tabpanel"(안읽어줌) 대체텍스트(Tab Panel) 직접입력 -->
-												&lt;div class="tab-inner">
-													탭내용1
-												&lt;/div>
-											&lt;/div>
-											&lt;!-- //탭내용1 -->
-											&lt;!-- 탭내용2 -->
-											&lt;div id="tabContent12" class="tab-content" aria-hidden="true">
-												&lt;div class="blind-area" role="text" aria-label="탭제목2 Tab Panel">&lt;/div>&lt;!-- role="tabpanel"(안읽어줌) 대체텍스트(Tab Panel) 직접입력  -->
-												&lt;div class="tab-inner">
-													탭내용2
-												&lt;/div>
-											&lt;/div>
-											&lt;!-- //탭내용2 -->
-										&lt;/div>
+									&lt;div class="tab-nav">
+										&lt;ul role="tablist">
+											&lt;li role="presentation" class="is-selected">&lt;button type="button" id="tabNav11" role="tab" aria-controls="tabContent11" aria-selected="true">탭제목1&lt;/button>&lt;/li>
+											&lt;li role="presentation">&lt;button type="button" id="tabNav12" role="tab" aria-controls="tabContent12" aria-selected="false">탭제목2&lt;/button>&lt;/li>
+										&lt;/ul>
 									&lt;/div>
-
-									탭 외부호출 :
-									&lt;button type="button" onclick="ui.tab.action('#tabContent11')">&lt;span>탭 제목1&lt;/span>&lt;/button>
-									&lt;button type="button" onclick="ui.tab.action('#tabContent12')">&lt;span>탭 제목2&lt;/span>&lt;/button>
+									&lt;div class="tab-body">
+										&lt;!-- 탭내용1 -->
+										&lt;div id="tabContent11" role="tabpanel" aria-labelledby="tabNav11" class="tab-content is-visibled">
+											탭내용1
+										&lt;/div>
+										&lt;!-- //탭내용1 -->
+										&lt;!-- 탭내용2 -->
+										&lt;div id="tabContent12" role="tabpanel" aria-labelledby="tabNav12" class="tab-content">
+											탭내용2
+										&lt;/div>
+										&lt;!-- //탭내용2 -->
+									&lt;/div>
 								</pre>
 							</div>
 						</div>

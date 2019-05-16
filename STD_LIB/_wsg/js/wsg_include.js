@@ -25,6 +25,8 @@ var include = {
 		document.write('<!-- Front -->');
 		document.write('<link href="'+gRootURL.root+'css/import.css" rel="stylesheet" />');
 		document.write('<script src="'+gRootURL.root+'js/libs/jquery-3.3.1.min.js"></script>');
+		document.write('<script src="'+gRootURL.root+'js/libs/EasePack.js"></script>');
+		document.write('<script src="'+gRootURL.root+'js/libs/TweenMax.js"></script>');
 		document.write('<script src="'+gRootURL.root+'js/pub/pub_utility.js"></script>');
 		document.write('<script src="'+gRootURL.root+'js/pub/pub_device.js"></script>');
 		document.write('<script src="'+gRootURL.root+'js/pub/pub_ui.js"></script>');
@@ -137,6 +139,7 @@ var include = {
 			document.write('					<li class="g-node1">');
 			document.write('						<a href="javascript:;">Modules</a>');
 			document.write('						<ul class="g-depth2">');
+			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_nav.html">Nav</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_tab.html">Tab</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_accordion.html">Accordion</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_folder.html">Folder</a></li>');

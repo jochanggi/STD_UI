@@ -1,3 +1,6 @@
+var iaURL = '/';		// 현황판 잘업목록 URL
+var ajaxURL = 'html/';	// 현황판 리스트 URL
+
 var ia = {
 	baseUrl : 'html/',
 	init : function(){
@@ -19,17 +22,17 @@ var ia = {
 			$('.ia-graph .graph').append(graphHtml);
 
 			//IA페이지 로드 후 설정
-			$(this).load(_this.baseUrl+file+'.html', function(){
+			$(this).load(ajaxURL+file+'.html', function(){
 				_this.cal('#gIA'+i);
 				_this.url('#gIA'+i);
-			});
 
-			if (lens - 1 == i){
-				iaUI.spyScroll.init();
-				setTimeout(function(){
-					iaUI.accordion.init();
-				},200)
-			}
+				if (lens - 1 == i){
+					iaUI.spyScroll.init();
+					setTimeout(function(){
+						iaUI.accordion.init();
+					},200)
+				}
+			});
 		})
 	},
 	cal : function(obj){
@@ -101,8 +104,16 @@ var ia = {
 	},
 	url : function(obj){
 		$(obj).find('td.col-url').each(function(){
-			var text = $(this).text();
-			$(this).empty().append('<a href="/'+text+'" target="_blank">/'+text+'</a>');
+			var src = iaURL + $(this).text();
+			$(this).empty().append('<a href="'+src+'" target="_blank">'+src+'</a>');
+			/* Preview 모드 */
+			if ($(obj).find('.ia-iframe-list').length){
+				var depth1 = $(this).prevAll('.col-1depth').text();
+				var depth2 = $(this).prevAll('.col-2depth').text();
+				var itemTit = depth1 + ' > ' + depth2;
+				var $objFrameList = $(obj).find('.ia-iframe-list');
+				$objFrameList.append('<div class="item"><iframe src="'+src+'" frameborder="0"></iframe><div class="item-tit"><a href="'+src+'" target="_blank" class="item-link">'+itemTit+' (새창보기)</a></div></div>');
+			}
 		})
 	},
 }
@@ -147,7 +158,6 @@ var iaUI = {
 			var _this = this;
 			_this.event();
 			_this.action($(this.eleModule).eq(1).find(this.eleBody));
-			_this.action($(this.eleModule).eq(2).find(this.eleBody));
 		},
 		event : function(){
 			var _this = this;
@@ -161,6 +171,18 @@ var iaUI = {
 			} else {
 				$this.css('height', '0');
 			}
+		},
+	},
+	preview : {
+		eleThumb : '.ia-tab-content.type-thumb',
+		eleList : '.ia-tab-content.type-list',
+		thumb : function(){
+			$(this.eleThumb).addClass('is-visible');
+			$(this.eleList).removeClass('is-visible');
+		},
+		list : function(){
+			$(this.eleThumb).removeClass('is-visible');
+			$(this.eleList).addClass('is-visible');
 		},
 	}
 }
