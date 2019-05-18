@@ -30,21 +30,40 @@
 								<strong class="g-example-tit is-before"></strong>
 								<div class="g-example-nav">
 									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn is-active">CSS</a>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
 								</div>
 							</div>
 							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									<ul class="ui-bul-list">
+										<li></li>
+									</ul>
+									<ol class="ui-bul-list">
+										<li></li>
+									</ol>
+									<div class="ui-bul-list">
+										<p class="ui-bul"></p>
+									</div>
+									<dl class="ui-bul-list">
+										<dt class="ui-bul"></dt>
+										<dd></dd>
+									</dl>
+									<dl class="ui-bul-list">
+										<dt></dt>
+										<dd class="ui-bul"></dd>
+									</dl>
+								</pre>
+							</div>
+							<div class="g-example-footer">
 								<pre class="brush:css">
 									/*-------------------------------------------------------------------
 										## Bullet
 									-------------------------------------------------------------------*/
 									/* Default */
-									.bul > li, .bul > p, .bul-dt > dt, .bul-dd > dd {display:table; line-height:20px;}
-									.bul > li::before, .bul > p::before, .bul-dt > dt::before, .bul-dd > dd::before {content:''; display:table-cell; position:relative; padding-right:5px; background:url(../../img/bul_sprite.png) no-repeat 999em 999em;}
-									.bul > li[data-bul]::before {content:attr(data-bul) !important;}/* (사용자정의 목록) data-bul속성 사용하는 경우 우선순위로 적용 */
-									.bul-dt.bul-dot > dt:before,.bul-dd.bul-dot > dd:before,.bul-dot > li::before,
-									.bul-dt.bul-circle > dt:before,.bul-dd.bul-circle > dd::before,.bul-circle > li::before,
-									.bul-dt.bul-square > dt:before,.bul-dd.bul-square > dd:before,.bul-square > li::before {display:inline-block; padding-right:0;}
+									.ui-bul-list > li, .ui-bul-list > .ui-bul {display:table; width:100%;}
+									.ui-bul-list > li:before, .ui-bul-list > .ui-bul:before {content:''; display:table-cell; position:relative; padding-right:5px;}
+									.ui-bul-list > li[data-bul]::before, .ui-bul-list > .ui-bul[data-bul]::before {content:attr(data-bul) !important;}/* (사용자정의 목록) data-bul속성 사용하는 경우 우선순위로 적용 */
 								</pre>
 							</div>
 						</div>
@@ -55,10 +74,9 @@
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
-						<h2 class="g-h2">순서없는 목록</h2>
+						<h2 class="g-h2">특수문자</h2>
 					</div>
 					<div class="g-section-body">
-						<h3 class="g-h3">이미지블릿</h3>
 						<div class="g-example-wrap">
 							<div class="g-example-header">
 								<strong class="g-example-tit">Markup Codeview</strong>
@@ -70,98 +88,15 @@
 							</div>
 							<div class="g-example-body">
 								<!-- 마크업뷰영역 -->
-								<ul class="bul bul-dot">
-									<li>목록 텍스트
-										<ul class="bul bul-circle">
-											<li>목록 텍스트
-												<ul class="bul bul-square">
-													<li>목록 텍스트</li>
-												</ul>
-											</li>
-										</ul>
-									</li>
-								</ul>
-								<br>
-								<dl class="bul-dt bul-dot">
-									<dt>블릿 제목</dt>
-									<dd>일반 텍스트</dd>
-								</dl>
-								<br>
-								<dl class="bul-dd bul-dot">
-									<dt>일반 제목</dt>
-									<dd>블릿 텍스트</dd>
-								</dl>
-								<!-- //마크업뷰영역 -->
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:html">
-									<!-- 순서없는목록 -->
-									<ul class="bul bul-dot">
-										<li>목록 텍스트
-											<ul class="bul bul-circle">
-												<li>목록 텍스트
-													<ul class="bul bul-square">
-														<li>목록 텍스트</li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-									</ul>
-
-									<!-- 정의목록 -->
-									<dl class="bul-dt bul-dot">
-										<dt>블릿 제목</dt>
-										<dd>일반 텍스트</dd>
-									</dl>
-									<dl class="bul-dd bul-dot">
-										<dt>일반 제목</dt>
-										<dd>블릿 텍스트</dd>
-									</dl>
-
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:css">
-									/* 순서없는목록 */
-									.bul-dot > li {padding-left:14px;} .bul-dot > li::before {top:-4px; margin-left:-14px; margin-right:11px; width:3px; height:3px; border-radius:50%; background-color:#222;} .dv-ie ul.bul-dot > li::before {top:0px;}
-									.bul-circle > li {padding-left:16px;} .bul-circle > li::before {top:-3px; margin-left:-16px; margin-right:12px; width:5px; height:5px; border-radius:50%; background-color:#222;} .dv-ie ul.bul-circle > li::before {top:-1px;}
-									.bul-square > li {padding-left:16px;} .bul-square > li::before {top:-3px; margin-left:-16px; margin-right:12px; width:5px; height:5px; border-radius:0; background-color:#222;} .dv-ie ul.bul-square > li::before {top:-1px;}
-
-									/* 정의목록 DT */
-									.bul-dt.bul-dot > dt {padding-left:14px;} .bul-dt.bul-dot > dt::before {top:-4px; margin-left:-14px; margin-right:11px; width:3px; height:3px; border-radius:50%; background-color:#222;} .dv-ie .bul-dt.bul-dot > dt::before {top:0px;}
-									.bul-dt.bul-circle > dt {padding-left:16px;} .bul-dt.bul-circle > dt::before {top:-3px; margin-left:-16px; margin-right:12px; width:5px; height:5px; border-radius:50%; background-color:#222;} .dv-ie .bul-dt.bul-circle > dt::before {top:-1px;}
-									.bul-dt.bul-square > dt {padding-left:16px;} .bul-dt.bul-square > dt::before {top:-3px; margin-left:-16px; margin-right:12px; width:5px; height:5px; border-radius:0; background-color:#222;} .dv-ie .bul-dt.bul-square > dt::before {top:-1px;}
-
-									/* 정의목록 DD */
-									.bul-dd.bul-dot > dd {padding-left:14px;} .bul-dd.bul-dot > dd::before {top:-4px; margin-left:-14px; margin-right:11px; width:3px; height:3px; border-radius:50%; background-color:#222;} .dv-ie .bul-dd.bul-dot > dd::before {top:0px;}
-									.bul-dd.bul-circle > dd {padding-left:16px;} .bul-dd.bul-circle > dd::before {top:-3px; margin-left:-16px; margin-right:12px; width:5px; height:5px; border-radius:50%; background-color:#222;} .dv-ie .bul-dd.bul-circle > dd::before {top:-1px;}
-									.bul-dd.bul-square > dd {padding-left:16px;} .bul-dd.bul-square > dd::before {top:-3px; margin-left:-16px; margin-right:12px; width:5px; height:5px; border-radius:0; background-color:#222;} .dv-ie .bul-dd.bul-square > dd::before {top:-1px;}
-
-								</pre>
-							</div>
-						</div>
-
-						<h3 class="g-h3">특수문자</h3>
-						<div class="g-example-wrap">
-							<div class="g-example-header">
-								<strong class="g-example-tit">Markup Codeview</strong>
-								<div class="g-example-nav">
-									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
-									<a href="javascript:;" class="g-example-btn">CSS</a>
-								</div>
-							</div>
-							<div class="g-example-body">
-								<!-- 마크업뷰영역 -->
-								<ul class="bul bul-hyphen">
+								<ul class="ui-bul-list bul-hyphen">
 									<li>목록 텍스트</li>
 								</ul>
 								<br>
-								<ul class="bul bul-star">
+								<ul class="ui-bul-list bul-star">
 									<li>목록 텍스트</li>
 								</ul>
 								<br>
-								<ul class="bul bul-bill">
+								<ul class="ui-bul-list bul-bill">
 									<li>목록 텍스트</li>
 								</ul>
 								<!-- //마크업뷰영역 -->
@@ -169,17 +104,17 @@
 							<div class="g-example-footer">
 								<pre class="brush:html">
 									<!-- 하이픈 -->
-									<ul class="bul bul-hyphen">
+									<ul class="ui-bul-list bul-hyphen">
 										<li>목록 텍스트</li>
 									</ul>
 
 									<!-- 스타 -->
-									<ul class="bul bul-star">
+									<ul class="ui-bul-list bul-star">
 										<li>목록 텍스트</li>
 									</ul>
 
 									<!-- 당구장 -->
-									<ul class="bul bul-bill">
+									<ul class="ui-bul-list bul-bill">
 										<li>목록 텍스트</li>
 									</ul>
 								</pre>
@@ -215,13 +150,13 @@
 							</div>
 							<div class="g-example-body">
 								<!-- 마크업뷰영역 -->
-								<ol class="bul bul-num1">
+								<ol class="ui-bul-list bul-num1">
 									<li>목록 텍스트
-										<ol class="bul bul-num2">
+										<ol class="ui-bul-list bul-num2">
 											<li>목록 텍스트
-												<ol class="bul bul-num3">
+												<ol class="ui-bul-list bul-num3">
 													<li>목록 텍스트
-														<ol class="bul bul-num4">
+														<ol class="ui-bul-list bul-num4">
 															<li>목록 텍스트
 															</li>
 														</ol>
@@ -235,13 +170,13 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									<ol class="bul bul-num1">
+									<ol class="ui-bul-list bul-num1">
 										<li>목록 텍스트
-											<ol class="bul bul-num2">
+											<ol class="ui-bul-list bul-num2">
 												<li>목록 텍스트
-													<ol class="bul bul-num3">
+													<ol class="ui-bul-list bul-num3">
 														<li>목록 텍스트
-															<ol class="bul bul-num4">
+															<ol class="ui-bul-list bul-num4">
 																<li>목록 텍스트
 																</li>
 															</ol>
@@ -276,11 +211,11 @@
 							</div>
 							<div class="g-example-body">
 								<!-- 마크업뷰영역 -->
-								<ol class="bul bul-kor1">
+								<ol class="ui-bul-list bul-kor1">
 									<li>목록 텍스트
-										<ol class="bul bul-kor2">
+										<ol class="ui-bul-list bul-kor2">
 											<li>목록 텍스트
-												<ol class="bul bul-kor3">
+												<ol class="ui-bul-list bul-kor3">
 													<li>목록 텍스트</li>
 												</ol>
 											</li>
@@ -291,11 +226,11 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									<ol class="bul bul-kor1">
+									<ol class="ui-bul-list bul-kor1">
 										<li>목록 텍스트
-											<ol class="bul bul-kor2">
+											<ol class="ui-bul-list bul-kor2">
 												<li>목록 텍스트
-													<ol class="bul bul-kor3">
+													<ol class="ui-bul-list bul-kor3">
 														<li>목록 텍스트</li>
 													</ol>
 												</li>
@@ -326,13 +261,13 @@
 							</div>
 							<div class="g-example-body">
 								<!-- 마크업뷰영역 -->
-								<ol class="bul bul-eng1">
+								<ol class="ui-bul-list bul-eng1">
 									<li>목록 텍스트
-										<ol class="bul bul-eng2">
+										<ol class="ui-bul-list bul-eng2">
 											<li>목록 텍스트
-												<ol class="bul bul-eng3">
+												<ol class="ui-bul-list bul-eng3">
 													<li>목록 텍스트
-														<ol class="bul bul-eng4">
+														<ol class="ui-bul-list bul-eng4">
 															<li>목록 텍스트</li>
 														</ol>
 													</li>
@@ -345,13 +280,13 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									<ol class="bul bul-eng1">
+									<ol class="ui-bul-list bul-eng1">
 										<li>목록 텍스트
-											<ol class="bul bul-eng2">
+											<ol class="ui-bul-list bul-eng2">
 												<li>목록 텍스트
-													<ol class="bul bul-eng3">
+													<ol class="ui-bul-list bul-eng3">
 														<li>목록 텍스트
-															<ol class="bul bul-eng4">
+															<ol class="ui-bul-list bul-eng4">
 																<li>목록 텍스트</li>
 															</ol>
 														</li>

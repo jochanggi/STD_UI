@@ -22,7 +22,7 @@
 /* Floating Clear */
 @import url(animate.css);
 @import url(plugin.css);
-.ui-form-group:after, .ui-form-group-row:after, .breadcrumb-basic:after {
+.ui-form-group:after, .ui-form-group-row:after, .ui-breadcrumb:after {
   content: '';
   clear: both;
   display: block; }
@@ -269,7 +269,7 @@ legend {
   -ms-transform: translateX(-50%);
   transform: translateX(-50%); }
 
-.centered-l, .btn-drawer span, .btn-drawer:after, .btn-drawer:before, .breadcrumb-basic .arw {
+.centered-l, .btn-drawer span, .btn-drawer:after, .btn-drawer:before, .ui-breadcrumb .arw {
   position: absolute !important;
   left: 0;
   top: 50%;
@@ -327,19 +327,13 @@ legend {
 /*-------------------------------------------------------------------
     ##Layout
 -------------------------------------------------------------------*/
-/* Flexible */
-.ui-flexible {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
 /* Grid */
-.grid:after {
+.ui-grid:after {
   clear: both;
   display: block;
   content: ''; }
 
-.grid > .col {
+.ui-grid > .ui-col {
   float: left;
   width: 100%;
   min-height: 1px;
@@ -350,90 +344,90 @@ legend {
   -moz-transition: all 0.3s ease-out 0s;
   -o-transition: all 0.3s ease-out 0s; }
 
-.grid > .col.right {
+.ui-grid > .ui-col.right {
   float: right; }
 
 /* 너비 - 자신 칸수 */
-.grid > .col.col-1 {
+.ui-grid > .ui-col.col-1 {
   width: 8.33333333%; }
 
-.grid > .col.col-2 {
+.ui-grid > .ui-col.col-2 {
   width: 16.6666%; }
 
-.grid > .col.col-3 {
+.ui-grid > .ui-col.col-3 {
   width: 25%; }
 
-.grid > .col.col-4 {
+.ui-grid > .ui-col.col-4 {
   width: 33.3333%; }
 
-.grid > .col.col-5 {
+.ui-grid > .ui-col.col-5 {
   width: 41.66666667%; }
 
-.grid > .col.col-6 {
+.ui-grid > .ui-col.col-6 {
   width: 50%; }
 
-.grid > .col.col-7 {
+.ui-grid > .ui-col.col-7 {
   width: 58.33333333%; }
 
-.grid > .col.col-8 {
+.ui-grid > .ui-col.col-8 {
   width: 66.66666667%; }
 
-.grid > .col.col-9 {
+.ui-grid > .ui-col.col-9 {
   width: 75%; }
 
-.grid > .col.col-10 {
+.ui-grid > .ui-col.col-10 {
   width: 83.33333334%; }
 
-.grid > .col.col-11 {
+.ui-grid > .ui-col.col-11 {
   width: 91.66666667%; }
 
-.grid > .col.col-12 {
+.ui-grid > .ui-col.col-12 {
   width: 100%; }
 
 /* 너비 - 자식 칸수 */
-.grid.col-2 > .col {
+.ui-grid.col-2 > .ui-col {
   width: 50%; }
 
-.grid.col-3 > .col {
+.ui-grid.col-3 > .ui-col {
   width: 33.3333%; }
 
-.grid.col-3 > .col:first-child {
+.ui-grid.col-3 > .ui-col:first-child {
   width: 33.3334%; }
 
-.grid.col-4 > .col {
+.ui-grid.col-4 > .ui-col {
   width: 25%; }
 
-.grid.col-5 > .col {
+.ui-grid.col-5 > .ui-col {
   width: 20%; }
 
-.grid.col-6 > .col {
+.ui-grid.col-6 > .ui-col {
   width: 16.6666%; }
 
-.grid.col-6 > .col:first-child {
+.ui-grid.col-6 > .ui-col:first-child {
   width: 16.667%; }
 
-.grid.col-7 > .col {
+.ui-grid.col-7 > .ui-col {
   width: 14.2857142%; }
 
-.grid.col-7 > .col:first-child {
+.ui-grid.col-7 > .ui-col:first-child {
   width: 14.2857148%; }
 
-.grid.col-8 > .col {
+.ui-grid.col-8 > .ui-col {
   width: 12.5%; }
 
-.grid.col-9 > .col {
+.ui-grid.col-9 > .ui-col {
   width: 11.1111%; }
 
-.grid.col-9 > .col:first-child {
+.ui-grid.col-9 > .ui-col:first-child {
   width: 11.1112%; }
 
-.grid.col-10 > .col {
+.ui-grid.col-10 > .ui-col {
   width: 10%; }
 
-.grid.col-12 > .col {
+.ui-grid.col-12 > .ui-col {
   width: 8.3333%; }
 
-.grid.col-12 > .col:first-child {
+.ui-grid.col-12 > .ui-col:first-child {
   width: 8.3334%; }
 
 /*-------------------------------------------------------------------
@@ -604,7 +598,7 @@ legend {
 속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
 -------------------------------------------------------------------*/
 /*-------------------------------------------------------------------
-    ##Section
+    ## Section
 -------------------------------------------------------------------*/
 /* Common */
 .ui-sec {
@@ -654,7 +648,7 @@ legend {
   margin-top: 5px; }
 
 /*-------------------------------------------------------------------
-    ##Form
+    ## Form
 -------------------------------------------------------------------*/
 /* Default */
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
@@ -1158,7 +1152,7 @@ textarea.ui-form-text {
   float: left; }
 
 /*-------------------------------------------------------------------
-	##Button
+	## Button
 -------------------------------------------------------------------*/
 /* Default */
 button {
@@ -1205,51 +1199,52 @@ button::-moz-focus-inner {
   width: 100%; }
 
 /* Common - Layout */
-.btn-wrap::after {
+.btn-float::after {
   content: "";
   display: block;
   clear: both; }
 
-.btn-wrap .btn-left {
+.btn-float .btn-left {
   display: inline-block;
   float: left; }
 
-.btn-wrap .btn-right {
+.btn-float .btn-right {
   display: inline-block;
   float: right; }
+
+.btn-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.btn-flex .btn-col {
+  display: block;
+  width: 100%; }
+
+.btn-flex .ui-btn {
+  display: block;
+  width: 100%; }
 
 .btn-block {
   width: 100%; }
 
-.btn-flexible {
+.btn-table {
   display: table;
+  table-layout: fixed;
   width: 100%; }
 
-.btn-flexible .item {
+.btn-table .btn-col {
   display: table-cell;
   width: auto; }
 
-.btn-flexible.has-gutter {
-  width: calc(100% + 10px);
-  margin: 0 -5px; }
+.btn-table .ui-btn {
+  display: block;
+  width: 100%; }
 
-.btn-flexible.has-gutter .item {
-  padding: 0 5px; }
+.ui-btn.btn-fluid {
+  width: 100%; }
 
-.btn-basic.ui-primary {
-  background: #0089b3;
-  color: #fff; }
-
-.btn-basic.ui-secondary {
-  background: #333;
-  color: #fff; }
-
-/* Types
-    btn-basic : (페이지) 확인, 취소
-    btn-type2 : (컨텐츠) 등록, 수정, 삭제
-    btn-type3 : (모  듈) 검색, 파일첨부
-    btn-type4 : (기  타)
-*/
+/* Styles */
 .btn-basic {
   min-height: 34px;
   line-height: 33px;
@@ -1257,59 +1252,17 @@ button::-moz-focus-inner {
   font-size: 16px;
   background: #eee; }
 
-.btn-basic[disabled] {
-  background: #aaa;
-  color: #fff; }
-
-.btn-type2 {
-  min-width: 60px;
-  min-height: 32px;
-  line-height: 31px;
-  padding: 0 10px 1px;
-  background: #eee;
-  border-radius: 3px;
-  font-size: 16px; }
-
-.btn-type2.ui-primary {
+.btn-basic.btn-primary {
   background: #0089b3;
   color: #fff; }
 
-.btn-type2.ui-secondary {
-  background: #777;
+.btn-basic.btn-secondary {
+  background: #333;
   color: #fff; }
 
-.btn-type2[disabled] {
+.btn-basic[disabled] {
   background: #aaa;
   color: #fff; }
-
-.btn-type3 {
-  display: inline-block;
-  position: relative;
-  min-height: 30px;
-  padding: 0 10px 1px;
-  line-height: 27px;
-  padding-bottom: 1px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  vertical-align: middle;
-  border-radius: 3px;
-  -webkit-box-shadow: 1px 1px 2px 0px rgba(200, 200, 200, 0.3);
-  box-shadow: 1px 1px 2px 0px rgba(200, 200, 200, 0.3); }
-
-.btn-type4 {
-  display: inline-block;
-  position: relative;
-  min-height: 24px;
-  padding: 0 5px 1px;
-  line-height: 21px;
-  padding-bottom: 1px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  vertical-align: middle;
-  border-radius: 3px;
-  -webkit-box-shadow: 1px 1px 2px 0px rgba(200, 200, 200, 0.3);
-  box-shadow: 1px 1px 2px 0px rgba(200, 200, 200, 0.3);
-  font-size: 12px; }
 
 /* ETC */
 .btn-drawer {
@@ -1346,7 +1299,7 @@ button::-moz-focus-inner {
   border: 1px solid #ddd; }
 
 /*-------------------------------------------------------------------
-	##Icon
+	## Icon
 -------------------------------------------------------------------*/
 /* Default
 .ico {display:inline-block; overflow:hidden; background:url(../img/cmn/ico_sprite.png) no-repeat -999em -999em; color:transparent; vertical-align:middle;}
@@ -1380,9 +1333,9 @@ button::-moz-focus-inner {
 [disabled] .ico-tooltip {background-position-x:-75px;}
 */
 /* Default */
-.arw, bul, .ico {
+.ui-arw, .ui-ico, .ui-flag {
   display: inline-block;
-  background: url() no-repeat 0 0;
+  background: no-repeat 0 0;
   vertical-align: middle;
   overflow: hidden;
   color: transparent;
@@ -1836,11 +1789,14 @@ button::-moz-focus-inner {
   background-image: url(../img/cmn/rat_star01_5.png); }
 
 /*-------------------------------------------------------------------
-	##Label
+	## Label
 -------------------------------------------------------------------*/
+/* Default */
+.ui-label {
+  display: inline-block; }
+
 /* Design */
-.label-type1 {
-  display: inline-block;
+.label-basic {
   padding: 1px 8px 2px;
   line-height: 21px;
   background-color: #444;
@@ -1849,7 +1805,7 @@ button::-moz-focus-inner {
   text-align: center;
   vertical-align: middle; }
 
-.label-type1 {
+.label-basic {
   min-width: 50px;
   max-width: 100px;
   overflow: hidden;
@@ -1857,165 +1813,96 @@ button::-moz-focus-inner {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
-.label-type1.primary {
+.label-basic.label-primary {
   background: #0089b3; }
 
-.label-type1.color1 {
-  background: #0089b3; }
-
-.label-type1.outline {
+.label-basic.label-outline {
   padding: 0px 7px 1px;
   background: transparent;
   border: 1px solid #444;
   color: #444; }
 
-.label-type1.outline.primary {
+.label-basic.label-outline.label-primary {
   border: 1px solid #0089b3;
   color: #0089b3; }
 
 /*-------------------------------------------------------------------
-	##Badge
+	## Badge
 -------------------------------------------------------------------*/
 /* Default */
-.badge {
-  display: inline-block;
-  background: url() 0 0 no-repeat;
-  vertical-align: top; }
+.ui-badge {
+  display: inline-block; }
 
-.badge-wrap {
-  position: absolute;
-  z-index: 3; }
+.badge-group {
+  position: absolute; }
 
-.badge-wrap.t {
-  top: 0; }
-
-.badge-wrap.r {
-  right: 0; }
-
-.badge-wrap.b {
-  bottom: 0; }
-
-.badge-wrap.l {
-  left: 0; }
-
-/* Design */
-.badge-type1 {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
+/* Styles */
+.badge-basic {
+  width: 24px;
+  height: 24px;
   padding-bottom: 1px;
-  background-color: #444;
+  line-height: 21px;
+  border: 1px solid transparent;
+  background-color: #333;
   color: #fff;
-  line-height: 29px;
-  text-align: center;
-  vertical-align: middle; }
+  text-align: center; }
 
-.badge-type1.outline {
-  background: transparent !important;
-  border: 1px solid #444;
-  color: #444;
-  line-height: 27px; }
-
-.badge-type1.primary {
-  background: #0089b3; }
-
-.badge-type1.outline.primary {
-  border: 1px solid #0089b3;
-  color: #0089b3; }
-
-.badge-type1.type1 {
-  background-color: #666699; }
-
-.badge-type1.type2 {
-  background-color: #668699; }
-
-.badge-type1.type3 {
-  background-color: #669899; }
-
-.badge-type1.type1.outline {
-  color: #666699;
-  border-color: #666699; }
-
-.badge-type1.type2.outline {
-  color: #668699;
-  border-color: #668699; }
-
-.badge-type1.type3.outline {
-  color: #669899;
-  border-color: #669899; }
-
-.badge-type2 {
-  width: 40px;
-  height: 28px;
-  line-height: 27px;
-  padding-right: 14px;
-  padding-bottom: 1px;
-  background: url(../img/cmn/ico_badge01.png) no-repeat -40px 0;
-  text-align: center;
-  color: #fff; }
-
-.badge-type2:hover {
-  background-position: 0 0; }
+.badge-basic.badge-outline {
+  color: #333;
+  border-color: #333;
+  background-color: #fff; }
 
 /*-------------------------------------------------------------------
-	##Bullet
+	## Bullet
 -------------------------------------------------------------------*/
 /* Default */
-.bul > li, .bul > p, .bul-dt > dt, .bul-dd > dd {
-  display: table;
-  line-height: 20px; }
+.ui-bul-list > li, .ui-bul-list > .ui-bul {
+  display: table; }
 
-.bul > li::before, .bul > p::before, .bul-dt > dt::before, .bul-dd > dd::before {
+.ui-bul-list > li:before, .ui-bul-list > .ui-bul:before {
   content: '';
   display: table-cell;
   position: relative;
-  padding-right: 5px;
-  background: url() no-repeat 999em 999em; }
+  padding-right: 5px; }
 
-.bul > li[data-bul]::before {
+.ui-bul-list > li[data-bul]::before, .ui-bul-list > .ui-bul[data-bul]::before {
   content: attr(data-bul) !important; }
 
 /* (사용자정의 목록) data-bul속성 사용하는 경우 우선순위로 적용 */
-.bul-dt.bul-dot > dt:before, .bul-dd.bul-dot > dd:before, .bul-dot > li::before,
-.bul-dt.bul-circle > dt:before, .bul-dd.bul-circle > dd::before, .bul-circle > li::before,
-.bul-dt.bul-square > dt:before, .bul-dd.bul-square > dd:before, .bul-square > li::before {
-  display: inline-block;
-  padding-right: 0; }
-
 /* Common
     그룹 {counter-reset:이름}
     목록 {counter-increment:이름}
     순서 {content:"문자" counter(이름, 형식) "문자"} ("문자"는 생략가능)
 */
 /* 특수문자 */
-.bul-hyphen > li::before, .bul-hyphen > p::before {
+.bul-hyphen > li::before, .bul-hyphen > .ui-bul::before {
   content: '-'; }
 
-.bul-star > li::before, .bul-star > p::before {
+.bul-star > li::before, .bul-star > .ui-bul::before {
   content: '*'; }
 
-.bul-bill > li::before, .bul-bill > p::before {
+.bul-bill > li::before, .bul-bill > .ui-bul::before {
   content: '※'; }
 
 /* 숫자목록 : 1. (1) 1) ① */
 .bul-num1 {
   counter-reset: num1; }
 
-.bul-num1 > li::before {
+.bul-num1 > li:before {
   counter-increment: num1;
   content: counter(num1, decimal) "."; }
 
 .bul-num2 {
   counter-reset: num2; }
 
-.bul-num2 > li::before {
+.bul-num2 > li:before {
   counter-increment: num2;
   content: "(" counter(num2, decimal) ")"; }
 
 .bul-num3 {
   counter-reset: num3; }
 
-.bul-num3 > li::before {
+.bul-num3 > li:before {
   counter-increment: num3;
   content: counter(num3, decimal) ")"; }
 
@@ -2228,163 +2115,27 @@ button::-moz-focus-inner {
 .bul-eng4 > li + li + li + li + li + li + li + li + li + li::before {
   content: 'ⓙ'; }
 
-/* Design - 도형 (position 또는 background 처리하는 경우 .dv-ie는 높이를 1px 높여준다. */
-.bul-dot > li {
-  padding-left: 14px; }
-
-.bul-dot > li::before {
-  top: -4px;
-  margin-left: -14px;
-  margin-right: 11px;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background-color: #222; }
-
-.dv-ie ul.bul-dot > li::before {
-  top: 0px; }
-
-.bul-circle > li {
-  padding-left: 16px; }
-
-.bul-circle > li::before {
-  top: -3px;
-  margin-left: -16px;
-  margin-right: 12px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: #222; }
-
-.dv-ie ul.bul-circle > li::before {
-  top: -1px; }
-
-.bul-square > li {
-  padding-left: 16px; }
-
-.bul-square > li::before {
-  top: -3px;
-  margin-left: -16px;
-  margin-right: 12px;
-  width: 5px;
-  height: 5px;
-  border-radius: 0;
-  background-color: #222; }
-
-.dv-ie ul.bul-square > li::before {
-  top: -1px; }
-
-.bul-dt.bul-dot > dt {
-  padding-left: 14px; }
-
-.bul-dt.bul-dot > dt::before {
-  top: -4px;
-  margin-left: -14px;
-  margin-right: 11px;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background-color: #222; }
-
-.dv-ie .bul-dt.bul-dot > dt::before {
-  top: 0px; }
-
-.bul-dt.bul-circle > dt {
-  padding-left: 16px; }
-
-.bul-dt.bul-circle > dt::before {
-  top: -3px;
-  margin-left: -16px;
-  margin-right: 12px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: #222; }
-
-.dv-ie .bul-dt.bul-circle > dt::before {
-  top: -1px; }
-
-.bul-dt.bul-square > dt {
-  padding-left: 16px; }
-
-.bul-dt.bul-square > dt::before {
-  top: -3px;
-  margin-left: -16px;
-  margin-right: 12px;
-  width: 5px;
-  height: 5px;
-  border-radius: 0;
-  background-color: #222; }
-
-.dv-ie .bul-dt.bul-square > dt::before {
-  top: -1px; }
-
-.bul-dd.bul-dot > dd {
-  padding-left: 14px; }
-
-.bul-dd.bul-dot > dd::before {
-  top: -4px;
-  margin-left: -14px;
-  margin-right: 11px;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background-color: #222; }
-
-.dv-ie .bul-dd.bul-dot > dd::before {
-  top: 0px; }
-
-.bul-dd.bul-circle > dd {
-  padding-left: 16px; }
-
-.bul-dd.bul-circle > dd::before {
-  top: -3px;
-  margin-left: -16px;
-  margin-right: 12px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: #222; }
-
-.dv-ie .bul-dd.bul-circle > dd::before {
-  top: -1px; }
-
-.bul-dd.bul-square > dd {
-  padding-left: 16px; }
-
-.bul-dd.bul-square > dd::before {
-  top: -3px;
-  margin-left: -16px;
-  margin-right: 12px;
-  width: 5px;
-  height: 5px;
-  border-radius: 0;
-  background-color: #222; }
-
-.dv-ie .bul-dd.bul-square > dd::before {
-  top: -1px; }
-
 /*-------------------------------------------------------------------
-	##Breadcrumb
+	## Breadcrumb
 ----------------------------------------------------------------- --*/
-/* Basic */
-.breadcrumb-basic {
+/* Style */
+.ui-breadcrumb {
   position: relative;
   display: inline-block;
   margin: 0 -10px;
   overflow: hidden;
   line-height: 1; }
 
-.breadcrumb-basic .item {
+.ui-breadcrumb .item {
   position: relative;
   float: left;
   padding: 0 10px 0 16px;
   vertical-align: middle; }
 
-.breadcrumb-basic .item.is-current {
+.ui-breadcrumb .item.is-current {
   color: #0089b3; }
 
-.breadcrumb-basic .arw {
+.ui-breadcrumb .arw {
   margin-top: 1px; }
 
 /* Select */
@@ -2395,83 +2146,7 @@ button::-moz-focus-inner {
   margin-left: 5px; }
 
 /*-------------------------------------------------------------------
-	##Box
------------------------------------------------------------------ --*/
-/* Default */
-.box {
-  position: relative; }
-
-.box-inner, .box-header, .box-body, .box-footer {
-  position: relative;
-  z-index: 2; }
-
-/* Common */
-.box-hover {
-  display: block; }
-
-.box-hover-overlay {
-  z-index: 3; }
-
-.box-hover-underlay {
-  z-index: 1; }
-
-.box-hover-inner {
-  display: table;
-  width: 100%;
-  height: 100%; }
-
-.box-hover-body {
-  display: table-cell;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  vertical-align: middle; }
-
-.box-hover-overlay,
-.box-hover-underlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  background-color: #eee;
-  transition: all 0.15s ease-out 0s;
-  -webkit-transition: all 0.15s ease-out 0s;
-  -moz-transition: all 0.15s ease-out 0s;
-  -o-transition: all 0.15s ease-out 0s; }
-
-.box-hover:hover .box-hover-overlay,
-.box-hover:focus .box-hover-overlay,
-.box-hover:hover .box-hover-underlay,
-.box-hover:focus .box-hover-underlay {
-  opacity: 1; }
-
-/* Design */
-.box-type1 {
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  line-height: 20px; }
-
-.box-type1 .box-header {
-  padding: 10px 20px;
-  border-bottom: 1px solid #ddd; }
-
-.box-type1 .box-body {
-  padding: 10px 20px; }
-
-.box-type1 .box-footer {
-  padding: 10px 20px;
-  border-top: 1px solid #ddd; }
-
-.box-type1 + .explain-footer {
-  margin-top: 5px; }
-
-.explain-header + .box-type1 {
-  margin-top: 5px; }
-
-/*-------------------------------------------------------------------
-	##Thubmnail
+	## Thubmnail
 -------------------------------------------------------------------*/
 /* Common Layout */
 .thubmnail {
@@ -2549,17 +2224,100 @@ button::-moz-focus-inner {
   height: 150px; }
 
 /*-------------------------------------------------------------------
-	##Table
+	## Box
+----------------------------------------------------------------- --*/
+/* Default */
+.ui-box {
+  position: relative; }
+
+.ui-box-inner, .ui-box-header, .ui-box-body, .ui-box-footer {
+  position: relative;
+  z-index: 2; }
+
+/* Design */
+.box-basic {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  line-height: 20px; }
+
+.box-basic .ui-box-head {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd; }
+
+.box-basic .ui-box-body {
+  padding: 10px 20px; }
+
+.box-basic .ui-box-foot {
+  padding: 10px 20px;
+  border-top: 1px solid #ddd; }
+
+/*-------------------------------------------------------------------
+	## Card
+----------------------------------------------------------------- --*/
+/* Default */
+.ui-card {
+  position: relative; }
+
+.ui-card-inner, .ui-card-header, .ui-card-body, .ui-card-footer {
+  position: relative;
+  z-index: 2; }
+
+/* Design */
+.card-basic {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  line-height: 20px; }
+
+.card-basic .card-head {
+  padding: 10px 20px; }
+
+.card-basic .card-body {
+  padding: 10px 20px; }
+
+.card-basic .card-foot {
+  padding: 10px 20px; }
+
+/*-------------------------------------------------------------------
+	## Panel
+----------------------------------------------------------------- --*/
+/* Default */
+.ui-panel {
+  position: relative; }
+
+.ui-panel-inner, .ui-panel-header, .ui-panel-body, .ui-panel-footer {
+  position: relative;
+  z-index: 2; }
+
+/* Design */
+.panel-basic {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  line-height: 20px; }
+
+.panel-basic .ui-panel-head {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd; }
+
+.panel-basic .ui-panel-body {
+  padding: 10px 20px; }
+
+.panel-basic .ui-panel-foot {
+  padding: 10px 20px;
+  border-top: 1px solid #ddd; }
+
+/*-------------------------------------------------------------------
+	## Table
 -------------------------------------------------------------------*/
 /* Default */
-.tbl-wrap {
+.tbl-group {
   overflow: hidden; }
 
-.tbl {
+.ui-tbl {
   overflow: hidden;
   margin: 0 -1px; }
 
-.tbl > table {
+.ui-tbl > table {
   width: 100%;
   margin: -1px 0;
   table-layout: fixed;
@@ -2581,29 +2339,29 @@ button::-moz-focus-inner {
   text-align: right; }
 
 /* Basic Type */
-.tbl-type1 {
+.tbl-style1 {
   overflow: hidden;
   margin: 0 -1px;
   border: 1px solid #444;
   border-width: 2px 0 1px 0; }
 
-.tbl-type1 table {
+.tbl-style1 table {
   margin: -1px 0; }
 
-.tbl-type1 th, .tbl-type1 td {
+.tbl-style1 th, .tbl-style1 td {
   padding: 6px 15px;
   text-align: left;
   border: 1px solid #ddd; }
 
-.tbl-type1 thead th {
+.tbl-style1 thead th {
   background-color: #e4e8f3;
   text-align: center;
   border-bottom-color: #444; }
 
-.tbl-type1 tbody th {
+.tbl-style1 tbody th {
   background-color: #e4e8f3; }
 
-.tbl-type1 .th-depth2 {
+.tbl-style1 .th-depth2 {
   background-color: #f1f3f9; }
 
 /* Form Type */
@@ -2698,28 +2456,28 @@ button::-moz-focus-inner {
   margin-top: 10px; }
 
 /*-------------------------------------------------------------------
-	##Pagination
+	## Pagination
 -------------------------------------------------------------------*/
 /* Default */
-.pagination-wrap {
+.pagination-group {
   position: relative;
   text-align: center; }
 
-.pagination {
+.ui-pagination {
   display: inline-block;
   position: relative;
   z-index: 10;
   vertical-align: top; }
 
-.pagination:after {
+.ui-pagination:after {
   content: '';
   display: block;
   clear: both; }
 
-.pagination .page-group,
-.pagination .num-group,
-.pagination .btn-page,
-.pagination .btn-num {
+.ui-pagination .ui-page-group,
+.ui-pagination .ui-num-group,
+.ui-pagination .ui-page,
+.ui-pagination .ui-num {
   display: inline-block;
   position: relative;
   z-index: 0;
@@ -2727,63 +2485,63 @@ button::-moz-focus-inner {
   overflow: hidden; }
 
 /* pagination-stick */
-.pagination.pagination-stick .btn-page + .btn-page,
-.pagination.pagination-stick .btn-num + .btn-num {
+.ui-pagination.pagination-stick .ui-page + .ui-page,
+.ui-pagination.pagination-stick .ui-num + .ui-num {
   margin-left: -1px; }
 
-.pagination.pagination-stick .btn-num.is-current + .btn-num {
+.ui-pagination.pagination-stick .ui-num.is-current + .ui-num {
   margin-left: 0;
   border-left: 0; }
 
 /* Design */
-.pagination .num-group {
+.ui-pagination .ui-num-group {
   margin: 0 16px; }
 
-.pagination .btn-page, .pagination .btn-num {
+.ui-pagination .ui-page, .ui-pagination .ui-num {
   min-width: 30px;
   height: 30px;
   padding: 0 5px 1px;
   line-height: 27px;
   border: 1px solid #ddd; }
 
-.pagination .btn-page + .btn-page,
-.pagination .btn-num + .btn-num {
+.ui-pagination .ui-page + .ui-page,
+.ui-pagination .ui-num + .ui-num {
   margin-left: 4px; }
 
-.pagination .btn-page.first:after {
+.ui-pagination .ui-page.first:after {
   width: 13px;
   height: 14px;
   background-position: 0 0; }
 
-.pagination .btn-page.prev:after {
+.ui-pagination .ui-page.prev:after {
   width: 8px;
   height: 14px;
   background-position: -30px 0; }
 
-.pagination .btn-page.next:after {
+.ui-pagination .ui-page.next:after {
   width: 8px;
   height: 14px;
   background-position: -60px 0; }
 
-.pagination .btn-page.last:after {
+.ui-pagination .ui-page.last:after {
   width: 13px;
   height: 14px;
   background-position: -90px 0; }
 
-.pagination .btn-page[disabled]:after {
+.ui-pagination .ui-page[disabled]:after {
   background-position-y: -30px !important; }
 
-.pagination .btn-num.is-current {
+.ui-pagination .ui-num.is-current {
   border: 1px solid #0089b3; }
 
-.pagination .btn-num.is-current:after {
+.ui-pagination .ui-num.is-current:after {
   content: ' 현재 페이지 번호';
   position: absolute;
   left: -p99px;
   top: -999px; }
 
 /*-------------------------------------------------------------------
-	##Board
+	## Board
 -------------------------------------------------------------------*/
 /* board-wrap */
 /* board-search */
@@ -2890,30 +2648,30 @@ button::-moz-focus-inner {
 /* pagination */
 /* btn-wrap */
 /*-------------------------------------------------------------------
-	##Step
+	## Step
 -------------------------------------------------------------------*/
 /* Default */
-.step {
+.ui-step {
   text-align: center; }
 
-.step .step-list {
+.ui-step .ui-step-list {
   display: table;
   position: relative;
   margin: auto; }
 
-.step .step-item {
+.ui-step .ui-step-item {
   display: table-cell;
   position: relative;
   z-index: 1; }
 
-.step .step-label {
+.ui-step .ui-step-label {
   position: relative; }
 
-/* Design - Type1 */
-.step-type1 .step-item {
+/* Design - Style1 */
+.step-style1 .ui-step-item {
   padding: 0 30px; }
 
-.step-type1 .step-item .step-label {
+.step-style1 .ui-step-item .ui-step-label {
   display: inline-block;
   width: 50px;
   height: 50px;
@@ -2922,21 +2680,21 @@ button::-moz-focus-inner {
   border-radius: 50%;
   background-color: #eee; }
 
-.step-type1 .step-item.is-on .step-label {
+.step-style1 .ui-step-item.is-on .ui-step-label {
   border: 1px solid #0089b3;
   background-color: #fff;
   color: #0089b3;
   line-height: 47px; }
 
-.step-type1 .step-item.is-current .step-label {
+.step-style1 .ui-step-item.is-current .ui-step-label {
   background-color: #0089b3;
   color: #fff; }
 
-/* Design - Type2 */
-.step-type2 .step-item {
+/* Design - Style2 */
+.step-style2 .ui-step-item {
   padding: 0 30px; }
 
-.step-type2 .step-item .step-label {
+.step-style2 .ui-step-item .ui-step-label {
   display: block;
   position: relative;
   width: 50px;
@@ -2946,12 +2704,12 @@ button::-moz-focus-inner {
   border-radius: 50%;
   background-color: #eee; }
 
-.step-type2 .step-item .step-text {
+.step-style2 .ui-step-item .ui-step-text {
   display: block;
   margin-top: 10px;
   color: #999; }
 
-.step-type2 .step-item .step-label .ico-check {
+.step-style2 .ui-step-item .ui-step-label .ico-check {
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -2961,41 +2719,41 @@ button::-moz-focus-inner {
   -ms-transform: translate(-50%, -50%) rotate(45deg);
   transform: translate(-50%, -50%) rotate(45deg); }
 
-.step-type2 .step-item.is-on .step-label {
+.step-style2 .ui-step-item.is-on .ui-step-label {
   border: 1px solid #0089b3;
   background-color: #fff;
   color: #0089b3;
   line-height: 47px; }
 
-.step-type2 .step-item.is-on .step-text {
+.step-style2 .ui-step-item.is-on .ui-step-text {
   color: #999; }
 
-.step-type2 .step-item.is-on .step-label .ico-check {
+.step-style2 .ui-step-item.is-on .ui-step-label .ico-check {
   width: 18px;
   border-color: #0089b3;
   -webkit-transform: translate(-50%, -50%) rotate(135deg);
   -ms-transform: translate(-50%, -50%) rotate(135deg);
   transform: translate(-50%, -50%) rotate(135deg); }
 
-.step-type2 .step-item.is-current .step-label {
+.step-style2 .ui-step-item.is-current .ui-step-label {
   background-color: #0089b3;
   color: #fff; }
 
-.step-type2 .step-item.is-current .step-text {
+.step-style2 .ui-step-item.is-current .ui-step-text {
   color: #0089b3; }
 
-.step-type2 .step-item.is-current .step-label .ico-check {
+.step-style2 .ui-step-item.is-current .ui-step-label .ico-check {
   width: 18px;
   border-color: #fff;
   -webkit-transform: translate(-50%, -50%) rotate(135deg);
   -ms-transform: translate(-50%, -50%) rotate(135deg);
   transform: translate(-50%, -50%) rotate(135deg); }
 
-/* Design - Type3 */
-.step-type3 .step-list {
+/* Design - Style3 */
+.step-style3 .ui-step-list {
   width: 100%; }
 
-.step-type3 .step-item {
+.step-style3 .ui-step-item {
   height: 50px;
   padding-bottom: 1px;
   line-height: 47px;
@@ -3003,24 +2761,24 @@ button::-moz-focus-inner {
   background-color: #eee;
   text-align: center; }
 
-.step-type3 .step-item.is-on {
+.step-style3 .ui-step-item.is-on {
   border: 1px solid #0089b3;
   background-color: #fff;
   color: #0089b3; }
 
-.step-type3 .step-item.is-current {
+.step-style3 .ui-step-item.is-current {
   border: 1px solid #0089b3;
   background-color: #0089b3;
   color: #fff; }
 
-.step-type3 .step-item + .step-item {
+.step-style3 .ui-step-item + .ui-step-item {
   border-left-width: 0; }
 
-.step-type3 .step-item.is-on + .is-on {
+.step-style3 .ui-step-item.is-on + .is-on {
   border-left: 0; }
 
-/* Design - Type4 */
-.step-type4 .step-list:after {
+/* Design - Style4 */
+.step-style4 .ui-step-list:after {
   content: '';
   position: absolute;
   left: 0;
@@ -3029,10 +2787,10 @@ button::-moz-focus-inner {
   height: 2px;
   background-color: #eee; }
 
-.step-type4 .step-item {
+.step-style4 .ui-step-item {
   width: 25%; }
 
-.step-type4 .step-item .step-label {
+.step-style4 .ui-step-item .ui-step-label {
   display: block;
   position: relative;
   width: 50px;
@@ -3043,14 +2801,7 @@ button::-moz-focus-inner {
   background-color: #eee;
   text-align: center; }
 
-.step-type4 .step-item .step-text {
-  display: block;
-  width: 50px;
-  margin-top: 10px;
-  color: #999;
-  text-align: center; }
-
-.step-type4 .step-item .step-label .ico-check {
+.step-style4 .ui-step-item .ui-step-label .ico-check {
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -3060,30 +2811,24 @@ button::-moz-focus-inner {
   -ms-transform: translate(-50%, -50%) rotate(45deg);
   transform: translate(-50%, -50%) rotate(45deg); }
 
-.step-type4 .step-item.is-on .step-label {
+.step-style4 .ui-step-item.is-on .ui-step-label {
   border: 1px solid #0089b3;
   background-color: #fff;
   color: #0089b3;
   line-height: 47px; }
 
-.step-type4 .step-item.is-on .step-text {
-  color: #999; }
-
-.step-type4 .step-item.is-on .step-label .ico-check {
+.step-style4 .ui-step-item.is-on .ui-step-label .ico-check {
   width: 18px;
   border-color: #0089b3;
   -webkit-transform: translate(-50%, -50%) rotate(135deg);
   -ms-transform: translate(-50%, -50%) rotate(135deg);
   transform: translate(-50%, -50%) rotate(135deg); }
 
-.step-type4 .step-item.is-current .step-label {
+.step-style4 .ui-step-item.is-current .ui-step-label {
   background-color: #0089b3;
   color: #fff; }
 
-.step-type4 .step-item.is-current .step-text {
-  color: #0089b3; }
-
-.step-type4 .step-item.is-current .step-label .ico-check {
+.step-style4 .ui-step-item.is-current .ui-step-label .ico-check {
   width: 18px;
   border-color: #fff;
   -webkit-transform: translate(-50%, -50%) rotate(135deg);
@@ -3091,7 +2836,7 @@ button::-moz-focus-inner {
   transform: translate(-50%, -50%) rotate(135deg); }
 
 /*-------------------------------------------------------------------
-	##Tabs
+	## Tabs
 -------------------------------------------------------------------*/
 /* Default */
 .tab-content {
@@ -3183,7 +2928,7 @@ button::-moz-focus-inner {
   width: 100%; }
 
 /*-------------------------------------------------------------------
-	##Collapse
+	## Collapse
 -------------------------------------------------------------------*/
 .collapse {
   display: none; }
@@ -3192,7 +2937,7 @@ button::-moz-focus-inner {
   display: block; }
 
 /*-------------------------------------------------------------------
-	##Accordion
+	## Accordion
 -------------------------------------------------------------------*/
 /* Default */
 .accordion-content {
@@ -3341,7 +3086,7 @@ button::-moz-focus-inner {
   opacity: 1; }
 
 /* ------------------------------------------------------------------------------------------
-	##Folder
+	## Folder
 ------------------------------------------------------------------------------------------ */
 .folder-toggle {
   width: 40px;
@@ -3372,7 +3117,7 @@ button::-moz-focus-inner {
   border-radius: 50%; }
 
 /* ------------------------------------------------------------------------------------------
-	##Tooltip
+	## Tooltip
 ------------------------------------------------------------------------------------------ */
 /* Default */
 .tooltip-wrap {
@@ -3515,7 +3260,7 @@ button::-moz-focus-inner {
   transform: rotate(45deg); }
 
 /*-------------------------------------------------------------------
-	##Dropdown
+	## Dropdown
 -------------------------------------------------------------------*/
 /* Default */
 .dropdown {
@@ -3604,7 +3349,7 @@ button::-moz-focus-inner {
   outline: 0; }
 
 /*-------------------------------------------------------------------
-	##Modal
+	## Modal
 -------------------------------------------------------------------*/
 /* Default */
 .popup-wrap {
@@ -3678,7 +3423,7 @@ button::-moz-focus-inner {
 /* Select */
 /* Event */
 /*-------------------------------------------------------------------
-	##Dimmer
+	## Dimmer
 -------------------------------------------------------------------*/
 /* Default */
 .dimmer {
@@ -3696,10 +3441,10 @@ button::-moz-focus-inner {
   display: block; }
 
 /*-------------------------------------------------------------------
-    ##FullPopup
+    ## FullPopup
 -------------------------------------------------------------------*/
 /*-------------------------------------------------------------------
-	##jquery.ui.Datepicker
+	## jquery.ui.Datepicker
 -------------------------------------------------------------------*/
 /* Plugin */
 .ui-datepicker {
@@ -3873,7 +3618,7 @@ button::-moz-focus-inner {
   text-indent: -9999em; }
 
 /*-------------------------------------------------------------------
-	##bxSlider
+	## bxSlider
 -------------------------------------------------------------------*/
 /* Common */
 .bxSlider::after {
@@ -3957,7 +3702,7 @@ button::-moz-focus-inner {
   background-color: #0099cc; }
 
 /*-------------------------------------------------------------------
-	##owlCarousel
+	## owlCarousel
 -------------------------------------------------------------------*/
 /* Common */
 .owlCarousel {
@@ -4031,7 +3776,7 @@ button::-moz-focus-inner {
   background-color: #222; }
 
 /*-------------------------------------------------------------------
-	##FlexSlider
+	## FlexSlider
 -------------------------------------------------------------------*/
 /* Common */
 .flexSlider {
@@ -4089,14 +3834,14 @@ button::-moz-focus-inner {
   margin: 0 5px; }
 
 /*-------------------------------------------------------------------
-	##Swiper
+	## Swiper
 -------------------------------------------------------------------*/
 /* Default */
 .swiper-slide {
   text-align: center; }
 
 /*-------------------------------------------------------------------
-	##Slick Slider
+	## Slick Slider
 -------------------------------------------------------------------*/
 /* Default */
 .slickSlider {
@@ -4115,7 +3860,7 @@ button::-moz-focus-inner {
   margin: 0 auto; }
 
 /*-------------------------------------------------------------------
-	##mCustomScrollbar
+	## mCustomScrollbar
 -------------------------------------------------------------------*/
 /* Default */
 .mCSB_scrollTools {
@@ -4160,7 +3905,7 @@ button::-moz-focus-inner {
   -ms-filter: "alpha(opacity=100)"; }
 
 /*-------------------------------------------------------------------
-	##기타 UI
+	## 기타 UI
 -------------------------------------------------------------------*/
 /*-------------------------------------------------------------------
     파일정의 : 컨텐츠 스타일

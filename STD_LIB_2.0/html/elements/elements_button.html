@@ -22,6 +22,46 @@
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
+						<h2 class="g-h2">Default</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+								</div>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									<button type="button" class="ui-btn"><span>Button</span></button>
+								</pre>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:css">
+									/*-------------------------------------------------------------------
+										## Button
+									-------------------------------------------------------------------*/
+									/* Default */
+									button {overflow:hidden; padding:0px; border:0px; font-weight:normal; background-color:transparent; cursor:pointer;}
+									button::-moz-focus-inner {border:0px; padding:0px;}
+									.ui-btn {position:relative; display:inline-block; vertical-align:middle; text-align:center; cursor:pointer;}
+									.ui-btn > span {display:inline-block; height:100%;}
+									.ui-btn:focus,.btn:hover {transition-property: background-color, color, opacity; transition-duration:0.5s; transition-timing-function: ease-out;}
+									.ui-btn-ico {text-align:center; line-height:1; font-size:0;}
+									.ui-btn-ico > span {display:inline-block; width:100%;}
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
 						<h2 class="g-h2">Basic</h2>
 					</div>
 					<div class="g-section-body">
@@ -34,7 +74,9 @@
 								</div>
 							</div>
 							<div class="g-example-body">
-								<button type="button" class="btn btn-basic"><span>Button</span></button>
+								<div class="g-example-preview">
+									<button type="button" class="ui-btn btn-basic"><span>Button</span></button>
+								</div>
 							</div>
 							<div class="g-example-footer is-active">
 								<pre class="brush:html">
@@ -57,7 +99,7 @@
 								<strong class="g-example-tit is-before"></strong>
 								<div class="g-example-nav">
 									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
 									<a href="javascript:;" class="g-example-btn">CSS</a>
 								</div>
 							</div>
@@ -65,23 +107,116 @@
 								<div class="g-example-preview">
 									<!-- 마크업뷰영역 -->
 									<button type="button" class="ui-btn btn-basic"><span>Default</span></button>
-									<button type="button" class="ui-btn btn-basic primary"><span>Primary</span></button>
-									<button type="button" class="ui-btn btn-basic secondary"><span>Secondary</span></button>
+									<button type="button" class="ui-btn btn-basic btn-primary"><span>Primary</span></button>
+									<button type="button" class="ui-btn btn-basic btn-secondary"><span>Secondary</span></button>
 									<button type="button" class="ui-btn btn-basic" disabled="disabled"><span>Disabled</span></button>
 									<!-- //마크업뷰영역 -->
 								</div>
 							</div>
-							<div class="g-example-footer">
+							<div class="g-example-footer is-active">
 								<pre class="brush:html">
 									<button type="button" class="ui-btn btn-basic"><span>Default</span></button>
-									<button type="button" class="ui-btn btn-basic primary"><span>Primary</span></button>
-									<button type="button" class="ui-btn btn-basic secondary"><span>Secondary</span></button>
+									<button type="button" class="ui-btn btn-basic btn-primary"><span>Primary</span></button>
+									<button type="button" class="ui-btn btn-basic btn-secondary"><span>Secondary</span></button>
 									<button type="button" class="ui-btn btn-basic" disabled="disabled"><span>Disabled</span></button>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
+									.btn-basic {min-height:34px; line-height:33px; padding:0 20px 1px; font-size:16px; background:#eee;}
+									.btn-basic.primary {background:$color-primary; color:#fff;}
+									.btn-basic.secondary {background:#333; color:#fff;}
+									.btn-basic[disabled] {background:#aaa; color:#fff;}
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
 
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Group</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<!-- 마크업뷰영역 -->
+									<span class="btn-group">
+										<button type="button" class="ui-btn btn-basic btn-primary"><span>Primary</span></button>
+										<button type="button" class="ui-btn btn-basic btn-secondary"><span>Secondary</span></button>
+									</span>
+									<!-- //마크업뷰영역 -->
+								</div>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;span class="btn-group">
+										&lt;button type="button" class="ui-btn">&lt;span>&lt;/span>&lt;/button>
+										&lt;button type="button" class="ui-btn">&lt;span>&lt;/span>&lt;/button>
+									&lt;/span>
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Floating</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<!-- 마크업뷰영역 -->
+									<div class="btn-group btn-float">
+										<span class="btn-left">
+											<button type="button" class="ui-btn btn-basic btn-primary"><span>Primary</span></button>
+										</span>
+										<span class="btn-right">
+											<button type="button" class="ui-btn btn-basic btn-secondary"><span>Secondary</span></button>
+										</span>
+									</div>
+									<!-- //마크업뷰영역 -->
+								</div>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;div class="btn-group btn-float">
+										&lt;span class="btn-left">
+											&lt;button type="button" class="ui-btn">&lt;span>&lt;/span>&lt;/button>
+										&lt;/span>
+										&lt;span class="btn-right">
+											&lt;button type="button" class="ui-btn">&lt;span>&lt;/span>&lt;/button>
+										&lt;/span>
+									&lt;/div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									.btn-flex {display:flex;}
+									.btn-flex .btn-col {display:block; width:100%;}
+									.btn-flex .ui-btn {display:block; width:100%;}
 								</pre>
 							</div>
 						</div>
@@ -100,37 +235,142 @@
 								<strong class="g-example-tit is-before"></strong>
 								<div class="g-example-nav">
 									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
 									<a href="javascript:;" class="g-example-btn">CSS</a>
 								</div>
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
 									<!-- 마크업뷰영역 -->
-									<div class="ui-btn-group ui-flexible">
-										<button type="button" class="ui-btn ui-primary btn-basic"><span>Primary</span></button>
-										<button type="button" class="ui-btn ui-secondary btn-basic"><span>Secondary</span></button>
+									<div class="btn-group btn-flex">
+										<span class="btn-col">
+											<button type="button" class="ui-btn btn-basic btn-primary"><span>Primary</span></button>
+										</span>
+										<span class="btn-col">
+											<button type="button" class="ui-btn btn-basic btn-secondary"><span>Secondary</span></button>
+										</span>
 									</div>
 									<!-- //마크업뷰영역 -->
 								</div>
 							</div>
-							<div class="g-example-footer">
+							<div class="g-example-footer is-active">
 								<pre class="brush:html">
-									<button type="button" class="ui-btn btn-basic"><span>Default</span></button>
-									<button type="button" class="ui-btn btn-basic ui-primary"><span>Primary</span></button>
-									<button type="button" class="ui-btn btn-basic ui-secondary"><span>Secondary</span></button>
-									<button type="button" class="ui-btn btn-basic" disabled="disabled"><span>Disabled</span></button>
+									&lt;div class="btn-group btn-flex">
+										&lt;span class="btn-col">
+											&lt;button type="button" class="ui-btn">&lt;span>&lt;/span>&lt;/button>
+										&lt;/span>
+										&lt;span class="btn-col">
+											&lt;button type="button" class="ui-btn">&lt;span>&lt;/span>&lt;/button>
+										&lt;/span>
+									&lt;/div>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-
+									.btn-flex {display:flex;}
+									.btn-flex .btn-col {display:block; width:100%;}
+									.btn-flex .ui-btn {display:block; width:100%;}
 								</pre>
 							</div>
 						</div>
 					</div>
 				</section>
-				<!-- //Section -->			</div>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Table</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<!-- 마크업뷰영역 -->
+									<div class="btn-group btn-table">
+										<span class="btn-col">
+											<button type="button" class="ui-btn btn-basic btn-primary"><span>Primary</span></button>
+										</span>
+										<span class="btn-col">
+											<button type="button" class="ui-btn btn-basic btn-secondary"><span>Secondary</span></button>
+										</span>
+									</div>
+									<!-- //마크업뷰영역 -->
+								</div>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;div class="btn-group btn-table">
+										&lt;span class="btn-col">
+											&lt;button type="button" class="ui-btn">&lt;span>&lt;/span>&lt;/button>
+										&lt;/span>
+										&lt;span class="btn-col">
+											&lt;button type="button" class="ui-btn">&lt;span>&lt;/span>&lt;/button>
+										&lt;/span>
+									&lt;/div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									.btn-table {display:table; table-layout:fixed; width:100%;}
+									.btn-table .btn-col {display:table-cell; width:auto;}
+									.btn-table .ui-btn {display:block; width:100%;}
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Fluid</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<!-- 마크업뷰영역 -->
+									<div class="btn-group">
+										<button type="button" class="ui-btn btn-basic btn-fluid btn-primary"><span>Primary</span></button>
+										<button type="button" class="ui-btn btn-basic btn-fluid btn-secondary"><span>Secondary</span></button>
+									</div>
+									<!-- //마크업뷰영역 -->
+								</div>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;button type="button" class="ui-btn btn-basic btn-fluid">&lt;span>Button&lt;/span>&lt;/button>
+									&lt;button type="button" class="ui-btn btn-basic btn-fluid">&lt;span>Button&lt;/span>&lt;/button>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									.ui-btn.btn-fluid {width:100%;}
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
 		</article>
 		<!-- //Content -->
 
