@@ -122,6 +122,8 @@ var include = {
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_bullet.html">Bullet</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_breadcrumb.html">Breadcrumb</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_box.html">Box</a></li>');
+			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_card.html">Card</a></li>');
+			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_panel.html">Panel</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_step.html">Step</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_table.html">Table</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'elements_pagination.html">Pagination</a></li>');

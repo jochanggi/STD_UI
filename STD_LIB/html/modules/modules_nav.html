@@ -22,6 +22,52 @@
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
+						<h2 class="g-h2">Design Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+								</div>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;nav class="ui-gnb">
+										&lt;ul class="node1-list">
+											&lt;li class="node1-item" aria-current="false" aria-selected="false" aria-expanded="false">
+												&lt;a href="#" class="node1-link">Nav Menu1&lt;/a>
+												&lt;div class="node2-wrap">
+													&lt;ul class="node2-list">
+														&lt;li class="node2-item">&lt;a href="#" class="node2-link">Nav Menu11&lt;/a>&lt;/li>
+													&lt;/ul>
+												&lt;/div>
+											&lt;/li>
+										&lt;/ul>
+									&lt;/nav>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									/* Transition */
+									%dropdown {opacity:0; transform:translateY(-50%) scaleY(0); transition:all 0.4s ease;}
+									%dropdown-active {opacity:1; transform:translateY(0) scaleY(1);}
+									%wideScale {transform:scaleX(0); transition:transform 0.4s ease;}
+									%wideScale-active {transform:scaleX(1);}
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
 						<h2 class="g-h2">GNB</h2>
 					</div>
 					<div class="g-section-body">
@@ -38,252 +84,85 @@
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
-									<nav class="gnb gnb-dropdown">
+									<nav class="ui-gnb gnb-dropdown">
 										<ul class="node1-list">
-											<li class="node1-item">
+											<li class="node1-item" aria-current="false" aria-selected="false" aria-expanded="false">
 												<a href="#" class="node1-link">Nav Menu1</a>
 												<div class="node2-wrap">
 													<ul class="node2-list">
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu11</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu12</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu13</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu14</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu15</a>
-														</li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu11</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu12</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu13</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu14</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu15</a></li>
 													</ul>
 												</div>
 											</li>
-											<li class="node1-item">
+											<li class="node1-item" aria-current="false" aria-selected="false" aria-expanded="false">
 												<a href="#" class="node1-link">Nav Menu2</a>
 												<div class="node2-wrap">
 													<ul class="node2-list">
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu21</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu22</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu23</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu24</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu25</a>
-														</li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu21</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu22</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu23</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu24</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu25</a></li>
 													</ul>
 												</div>
 											</li>
-											<li class="node1-item">
+											<li class="node1-item" aria-current="false" aria-selected="false" aria-expanded="false">
 												<a href="#" class="node1-link">Nav Menu3</a>
 												<div class="node2-wrap">
 													<ul class="node2-list">
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu31</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu32</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu33</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu34</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu35</a>
-														</li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu31</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu32</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu33</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu34</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu35</a></li>
 													</ul>
 												</div>
 											</li>
-											<li class="node1-item">
+											<li class="node1-item" aria-current="false" aria-selected="false" aria-expanded="false">
 												<a href="#" class="node1-link">Nav Menu4</a>
 												<div class="node2-wrap">
 													<ul class="node2-list">
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu41</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu42</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu43</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu44</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu45</a>
-														</li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu41</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu42</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu43</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu44</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu45</a></li>
 													</ul>
 												</div>
 											</li>
-											<li class="node1-item">
+											<li class="node1-item" aria-current="false" aria-selected="false" aria-expanded="false">
 												<a href="#" class="node1-link">Nav Menu5</a>
 												<div class="node2-wrap">
 													<ul class="node2-list">
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu51</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu52</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu53</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu54</a>
-														</li>
-														<li class="node2-item">
-															<a href="#" class="node2-link">Nav Menu55</a>
-														</li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu51</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu52</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu53</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu54</a></li>
+														<li class="node2-item"><a href="#" class="node2-link">Nav Menu55</a></li>
 													</ul>
 												</div>
 											</li>
 										</ul>
 									</nav>
 									<script type="text/javascript">
-										$(document).ready(function(){ ui.gnb_dropdown.reset(0) });
+										$(document).ready(function(){ ui.gnb_dropdown.set(0) });
 									</script>
 								</div>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									&lt;nav class="gnb gnb-dropdown">
-										&lt;ul class="node1-list">
-											&lt;li class="node1-item">
-												&lt;a href="#" class="node1-link">Nav Menu1&lt;/a>
-												&lt;div class="node2-wrap">
-													&lt;ul class="node2-list">
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu11&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu12&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu13&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu14&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu15&lt;/a>
-														&lt;/li>
-													&lt;/ul>
-												&lt;/div>
-											&lt;/li>
-											&lt;li class="node1-item">
-												&lt;a href="#" class="node1-link">Nav Menu2&lt;/a>
-												&lt;div class="node2-wrap">
-													&lt;ul class="node2-list">
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu21&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu22&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu23&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu24&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu25&lt;/a>
-														&lt;/li>
-													&lt;/ul>
-												&lt;/div>
-											&lt;/li>
-											&lt;li class="node1-item">
-												&lt;a href="#" class="node1-link">Nav Menu3&lt;/a>
-												&lt;div class="node2-wrap">
-													&lt;ul class="node2-list">
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu31&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu32&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu33&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu34&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu35&lt;/a>
-														&lt;/li>
-													&lt;/ul>
-												&lt;/div>
-											&lt;/li>
-											&lt;li class="node1-item">
-												&lt;a href="#" class="node1-link">Nav Menu4&lt;/a>
-												&lt;div class="node2-wrap">
-													&lt;ul class="node2-list">
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu41&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu42&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu43&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu44&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu45&lt;/a>
-														&lt;/li>
-													&lt;/ul>
-												&lt;/div>
-											&lt;/li>
-											&lt;li class="node1-item">
-												&lt;a href="#" class="node1-link">Nav Menu5&lt;/a>
-												&lt;div class="node2-wrap">
-													&lt;ul class="node2-list">
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu51&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu52&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu53&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu54&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu55&lt;/a>
-														&lt;/li>
-													&lt;/ul>
-												&lt;/div>
-											&lt;/li>
-										&lt;/ul>
+									&lt;nav class="ui-gnb gnb-dropdown">
+										...
 									&lt;/nav>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									/* Transition */
-									%dropdown {opacity:0; transform:translateY(-50%) scaleY(0); transition:all 0.4s ease;}
-									%dropdown-active {opacity:1; transform:translateY(0) scaleY(1);}
-									%wideScale {transform:scaleX(0); transition:transform 0.4s ease;}
-									%wideScale-active {transform:scaleX(1);}
-
-									/* GNB Dropdown - Default */
+									/* GNB Dropdown - Normal */
 									.gnb-dropdown .node1-list {position:relative; white-space:nowrap; margin:0 -10px;}
 									.gnb-dropdown .node1-item {display:inline-table; position:relative; padding:0 10px;}
 									.gnb-dropdown .node1-link {display:block; position:relative; padding:0 15px; line-height:30px; color:#555;}
@@ -296,15 +175,15 @@
 									.gnb-dropdown .node1-link:focus,
 									.gnb-dropdown .node1-link:hover,
 									.gnb-dropdown .node1-link:active,
-									.gnb-dropdown .is-active > .node1-link,
-									.gnb-dropdown .is-current > .node1-link {color:#000;}
-									.gnb-dropdown .is-current > .node1-link:after {@extend %wideScale-active;}
+									.gnb-dropdown .node1-item[aria-selected=true] > .node1-link,
+									.gnb-dropdown .node1-item[aria-current=true] > .node1-link {color:#000;}
+									.gnb-dropdown .node1-item[aria-current=true] > .node1-link:after {@extend %wideScale-active;}
+									.gnb-dropdown .node1-item[aria-selected=true] > .node2-wrap {@extend %dropdown-active;}
 									.gnb-dropdown .node2-link:focus,
 									.gnb-dropdown .node2-link:hover,
 									.gnb-dropdown .node2-link:active,
-									.gnb-dropdown .is-active > .node2-link,
-									.gnb-dropdown .is-current > .node2-link {color:#000;}
-									.gnb-dropdown .is-active > .node2-wrap {@extend %dropdown-active;}
+									.gnb-dropdown .node2-item[aria-selected=true] > .node2-link,
+									.gnb-dropdown .node2-item[aria-current=true] > .node2-link {color:#000;}
 								</pre>
 							</div>
 							<div class="g-example-footer">
@@ -370,7 +249,7 @@
 								<div class="g-example-preview">
 									<nav class="gnb gnb-fulldown">
 										<ul class="node1-list">
-											<li class="node1-item">
+											<li class="node1-item" aria-current="false" aria-selected="false" aria-expanded="false">
 												<a href="#" class="node1-link">Nav Menu1</a>
 												<div class="node2-wrap">
 													<ul class="node2-list">
@@ -392,7 +271,7 @@
 													</ul>
 												</div>
 											</li>
-											<li class="node1-item">
+											<li class="node1-item" aria-current="false" aria-selected="false" aria-expanded="false">
 												<a href="#" class="node1-link">Nav Menu2</a>
 												<div class="node2-wrap">
 													<ul class="node2-list">
@@ -414,7 +293,7 @@
 													</ul>
 												</div>
 											</li>
-											<li class="node1-item">
+											<li class="node1-item" aria-current="false" aria-selected="false" aria-expanded="false">
 												<a href="#" class="node1-link">Nav Menu3</a>
 												<div class="node2-wrap">
 													<ul class="node2-list">
@@ -436,7 +315,7 @@
 													</ul>
 												</div>
 											</li>
-											<li class="node1-item">
+											<li class="node1-item" aria-current="false" aria-selected="false" aria-expanded="false">
 												<a href="#" class="node1-link">Nav Menu4</a>
 												<div class="node2-wrap">
 													<ul class="node2-list">
@@ -458,7 +337,7 @@
 													</ul>
 												</div>
 											</li>
-											<li class="node1-item">
+											<li class="node1-item" aria-current="false" aria-selected="false" aria-expanded="false">
 												<a href="#" class="node1-link">Nav Menu5</a>
 												<div class="node2-wrap">
 													<ul class="node2-list">
@@ -484,136 +363,19 @@
 										<div class="gnb-bg"></div>
 									</nav>
 									<script type="text/javascript">
-										$(document).ready(function(){ ui.gnb_fulldown.reset(0) });
+										$(document).ready(function(){ ui.gnb_fulldown.set(0) });
 									</script>
 								</div>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
 									&lt;nav class="gnb gnb-fulldown">
-										&lt;ul class="node1-list">
-											&lt;li class="node1-item">
-												&lt;a href="#" class="node1-link">Nav Menu1&lt;/a>
-												&lt;div class="node2-wrap">
-													&lt;ul class="node2-list">
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu11&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu12&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu13&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu14&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu15&lt;/a>
-														&lt;/li>
-													&lt;/ul>
-												&lt;/div>
-											&lt;/li>
-											&lt;li class="node1-item">
-												&lt;a href="#" class="node1-link">Nav Menu2&lt;/a>
-												&lt;div class="node2-wrap">
-													&lt;ul class="node2-list">
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu21&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu22&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu23&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu24&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu25&lt;/a>
-														&lt;/li>
-													&lt;/ul>
-												&lt;/div>
-											&lt;/li>
-											&lt;li class="node1-item">
-												&lt;a href="#" class="node1-link">Nav Menu3&lt;/a>
-												&lt;div class="node2-wrap">
-													&lt;ul class="node2-list">
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu31&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu32&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu33&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu34&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu35&lt;/a>
-														&lt;/li>
-													&lt;/ul>
-												&lt;/div>
-											&lt;/li>
-											&lt;li class="node1-item">
-												&lt;a href="#" class="node1-link">Nav Menu4&lt;/a>
-												&lt;div class="node2-wrap">
-													&lt;ul class="node2-list">
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu41&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu42&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu43&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu44&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu45&lt;/a>
-														&lt;/li>
-													&lt;/ul>
-												&lt;/div>
-											&lt;/li>
-											&lt;li class="node1-item">
-												&lt;a href="#" class="node1-link">Nav Menu5&lt;/a>
-												&lt;div class="node2-wrap">
-													&lt;ul class="node2-list">
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu51&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu52&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu53&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu54&lt;/a>
-														&lt;/li>
-														&lt;li class="node2-item">
-															&lt;a href="#" class="node2-link">Nav Menu55&lt;/a>
-														&lt;/li>
-													&lt;/ul>
-												&lt;/div>
-											&lt;/li>
-										&lt;/ul>
+										...
 									&lt;/nav>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									/* Transition */
-									%dropdown {opacity:0; transform:translateY(-50%) scaleY(0); transition:all 0.4s ease;}
-									%dropdown-active {opacity:1; transform:translateY(0) scaleY(1);}
-									%wideScale {transform:scaleX(0); transition:transform 0.4s ease;}
-									%wideScale-active {transform:scaleX(1);}
-
 									/* GNB Fullpdown - Default */
 									.gnb-fulldown {position:relative; height:30px;}
 									.gnb-fulldown .node1-list {position:relative; white-space:nowrap; margin:0 -10px; z-index:11;}
@@ -629,14 +391,14 @@
 									.gnb-fulldown .node1-link:focus,
 									.gnb-fulldown .node1-link:hover,
 									.gnb-fulldown .node1-link:active,
-									.gnb-fulldown .is-active > .node1-link,
-									.gnb-fulldown .is-current > .node1-link {color:#000;}
-									.gnb-fulldown .is-current > .node1-link:after {@extend %wideScale-active;}
+									.gnb-fulldown .node1-item[aria-selected=true] > .node1-link,
+									.gnb-fulldown .node1-item[aria-current=true] > .node1-link {color:#000;}
+									.gnb-fulldown .node1-item[aria-current=true] > .node1-link:after {@extend %wideScale-active;}
 									.gnb-fulldown .node2-link:focus,
 									.gnb-fulldown .node2-link:hover,
 									.gnb-fulldown .node2-link:active,
-									.gnb-fulldown .is-active > .node2-link,
-									.gnb-fulldown .is-current > .node2-link {color:#000;}
+									.gnb-fulldown .node2-item[aria-selected=true] .node2-link,
+									.gnb-fulldown .node2-item[aria-current=true] .node2-link {color:#000;}
 									.gnb-fulldown.is-active .node2-wrap {height:auto;}
 									.gnb-fulldown.is-active .node2-wrap,
 									.gnb-fulldown.is-active .gnb-bg {@extend %dropdown-active;}
@@ -648,19 +410,17 @@
 									gnb_fulldown : {
 										eleModule		: '.gnb-fulldown',
 										eleNode1_item	: '.node1-item',
-										eleNode1_link	: '.node1-link',
 										eleNode2_item	: '.node2-item',
-										eleNode2_link	: '.node2-link',
 										idxNode1		: -1,
 										idxNode2		: -1,
 										isEvented		: false,
 										init : function(){
 											if (this.isEvented == false){ this.event(); this.isEvented = true; }
 										},
-										reset : function(n1, n2){
+										set : function(n1, n2){
 											this.idxNode1 = n1, this.idxNode2 = n2;
-											if (this.idxNode1 > -1){ $(this.eleNode1_item).eq(this.idxNode1).addClass('is-current').siblings('.is-current').removeClass('is-current') }
-											if (this.idxNode2 > -1){ $(this.eleNode2_item).eq(this.idxNode2).addClass('is-current').siblings('.is-current').removeClass('is-current') }
+											if (this.idxNode1 > -1){ $(this.eleModule).find(this.eleNode1_item).eq(this.idxNode1).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
+											if (this.idxNode2 > -1){ $(this.eleModule).find(this.eleNode2_item).eq(this.idxNode2).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
 										},
 										event : function(){
 											var _this = this, setTime = null;
@@ -677,17 +437,12 @@
 											});
 										},
 										open : function(idx){
-											var $module		= $(this.eleModule);
-											var $item		= $(this.eleModule).find(this.eleNode1_item).eq(idx);
-											$module.addClass('is-active').find(this.eleNode1_link).attr({'aria-expended':'true'});
-											$item.addClass('is-active');
-											$item.siblings('.is-active').removeClass('is-active');
+											$(this.eleModule).addClass('is-active')
+											$(this.eleModule).find(this.eleNode1_item).attr({'aria-expanded':'true'}).eq(idx).attr({'aria-selected':'true'}).siblings().attr({'aria-selected':'false'});
 										},
 										close : function(idx){
-											var $module		= $(this.eleModule);
-											var $item		= $(this.eleModule).find(this.eleNode1_item).eq(idx);
-											$module.removeClass('is-active');
-											$item.removeClass('is-active');
+											$(this.eleModule).removeClass('is-active');
+											$(this.eleModule).find(this.eleNode1_item).attr({'aria-expanded':'false'}).eq(idx).attr({'aria-selected':'false'});
 										},
 									},
 								</pre>
@@ -698,82 +453,9 @@
 				<!-- //Section -->
 
 				<!-- Section -->
-				<section class="g-section g-in-sec">
+				<section class="g-section g-in-sec" style="display:none">
 					<div class="g-section-header">
 						<h2 class="g-h2">General UI</h2>
-					</div>
-					<div class="g-section-body">
-						<h3 class="g-h3">Heading</h3>
-						<div class="g-example-wrap">
-							<div class="g-example-header">
-								<strong class="g-example-tit is-before"></strong>
-								<div class="g-example-nav">
-									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
-									<a href="javascript:;" class="g-example-btn">CSS</a>
-									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
-								</div>
-							</div>
-							<div class="g-example-body">
-								<div class="g-example-preview">
-								</div>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:html">
-									HTML SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:css">
-									CSS SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:js">
-									SCRIPT SOURCE
-								</pre>
-							</div>
-						</div>
-
-						<h3 class="g-h3">Heading</h3>
-						<div class="g-example-wrap">
-							<div class="g-example-header">
-								<strong class="g-example-tit is-before"></strong>
-								<div class="g-example-nav">
-									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
-									<a href="javascript:;" class="g-example-btn">CSS</a>
-									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
-								</div>
-							</div>
-							<div class="g-example-body">
-								<div class="g-example-preview">
-								</div>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:html">
-									HTML SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:css">
-									CSS SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:js">
-									SCRIPT SOURCE
-								</pre>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- //Section -->
-
-				<!-- Section -->
-				<section class="g-section g-in-sec">
-					<div class="g-section-header">
-						<h2 class="g-h2">Design Guide</h2>
 					</div>
 					<div class="g-section-body">
 						<h3 class="g-h3">Heading</h3>

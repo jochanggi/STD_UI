@@ -7,8 +7,8 @@ var ui = {
 
 		if ($('.gnb-dropdown').length)		{this.gnb_dropdown.init();}		// #Gnb Dropdown
 		if ($('.gnb-fulldown').length)		{this.gnb_fulldown.init();}		// #Gnb Fulldown
-		if ($('.tab-nav').length)			{this.tab.init();}				// #Tab
-		if ($('.accordion').length)			{this.accordion.init();}		// #Accordion
+		if ($('.ui-tab-nav').length)		{this.tab.init();}				// #Tab
+		if ($('.ui-acco').length)			{this.acco.init();}		// #acco
 		if ($('[data-role=fold]').length)	{this.folder.init();}			// #Folder (접기)
 		if ($('[data-role=more]').length)	{this.folderMore.init();}		// #FolderMore (더보기)
 		if ($('.tooltip-basic').length)		{this.tooltip.init();}			// #Tooltip
@@ -28,19 +28,17 @@ var ui = {
 	gnb_dropdown : {
 		eleModule		: '.gnb-dropdown',
 		eleNode1_item	: '.node1-item',
-		eleNode1_link	: '.node1-link',
 		eleNode2_item	: '.node2-item',
-		eleNode2_link	: '.node2-link',
 		idxNode1		: -1,
 		idxNode2		: -1,
 		isEvented		: false,
 		init : function(){
 			if (this.isEvented == false){ this.event(); this.isEvented = true; }
 		},
-		reset : function(n1, n2){
+		set : function(n1, n2){
 			this.idxNode1 = n1, this.idxNode2 = n2;
-			if (this.idxNode1 > -1){ $(this.eleModule).find(this.eleNode1_item).eq(this.idxNode1).addClass('is-current').siblings('.is-current').removeClass('is-current') }
-			if (this.idxNode2 > -1){ $(this.eleModule).find(this.eleNode2_item).eq(this.idxNode2).addClass('is-current').siblings('.is-current').removeClass('is-current') }
+			if (this.idxNode1 > -1){ $(this.eleModule).find(this.eleNode1_item).eq(this.idxNode1).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
+			if (this.idxNode2 > -1){ $(this.eleModule).find(this.eleNode2_item).eq(this.idxNode2).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
 		},
 		event : function(){
 			var _this = this, setTime = null;
@@ -51,19 +49,14 @@ var ui = {
 			});
 			$(this.eleModule).find(this.eleNode1_item).on('mouseleave focusout', function(){
 				var idx = $(this).index();
-				setTime = setTimeout(function(){
-					_this.close(idx)
-				}, 50);
+				setTime = setTimeout(function(){ _this.close(idx) }, 50);
 			});
 		},
 		open : function(idx){
-			var $item = $(this.eleModule).find(this.eleNode1_item).eq(idx);
-			$item.addClass('is-active').find(this.eleNode1_link).attr({'aria-expended':'true'});
-			$item.siblings('.is-active').removeClass('is-active').find(this.eleNode1_link).attr({'aria-expended':'false'});
-
+			$(this.eleModule).find(this.eleNode1_item).eq(idx).attr({'aria-selected':'true', 'aria-expanded':'true'}).siblings().attr({'aria-selected':'false', 'aria-expanded':'false'});
 		},
 		close : function(idx){
-			$(this.eleNode1_item).eq(idx).removeClass('is-active');
+			$(this.eleModule).find(this.eleNode1_item).eq(idx).attr({'aria-selected':'false', 'aria-expanded':'false'});
 		},
 	},
 
@@ -71,19 +64,17 @@ var ui = {
 	gnb_fulldown : {
 		eleModule		: '.gnb-fulldown',
 		eleNode1_item	: '.node1-item',
-		eleNode1_link	: '.node1-link',
 		eleNode2_item	: '.node2-item',
-		eleNode2_link	: '.node2-link',
 		idxNode1		: -1,
 		idxNode2		: -1,
 		isEvented		: false,
 		init : function(){
 			if (this.isEvented == false){ this.event(); this.isEvented = true; }
 		},
-		reset : function(n1, n2){
+		set : function(n1, n2){
 			this.idxNode1 = n1, this.idxNode2 = n2;
-			if (this.idxNode1 > -1){ $(this.eleModule).find(this.eleNode1_item).eq(this.idxNode1).addClass('is-current').siblings('.is-current').removeClass('is-current') }
-			if (this.idxNode2 > -1){ $(this.eleModule).find(this.eleNode2_item).eq(this.idxNode2).addClass('is-current').siblings('.is-current').removeClass('is-current') }
+			if (this.idxNode1 > -1){ $(this.eleModule).find(this.eleNode1_item).eq(this.idxNode1).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
+			if (this.idxNode2 > -1){ $(this.eleModule).find(this.eleNode2_item).eq(this.idxNode2).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
 		},
 		event : function(){
 			var _this = this, setTime = null;
@@ -100,59 +91,51 @@ var ui = {
 			});
 		},
 		open : function(idx){
-			var $module		= $(this.eleModule);
-			var $item		= $(this.eleModule).find(this.eleNode1_item).eq(idx);
-			$module.addClass('is-active').find(this.eleNode1_link).attr({'aria-expended':'true'});
-			$item.addClass('is-active');
-			$item.siblings('.is-active').removeClass('is-active');
+			$(this.eleModule).addClass('is-active')
+			$(this.eleModule).find(this.eleNode1_item).attr({'aria-expanded':'true'}).eq(idx).attr({'aria-selected':'true'}).siblings().attr({'aria-selected':'false'});
 		},
 		close : function(idx){
-			var $module		= $(this.eleModule);
-			var $item		= $(this.eleModule).find(this.eleNode1_item).eq(idx);
-			$module.removeClass('is-active');
-			$item.removeClass('is-active');
+			$(this.eleModule).removeClass('is-active');
+			$(this.eleModule).find(this.eleNode1_item).attr({'aria-expanded':'false'}).eq(idx).attr({'aria-selected':'false'});
 		},
 	},
 
 	/*
 		기능정의: #Tab
-		연결방식: href="" / id=""
+		연결방식: aria-controls="" / id=""
 		참고경로: modules/modules_tab.html
 		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 	*/
 	tab: {
-		eleButton: '.tab-nav a',
-		eleContent: '.tab-content',
-		clsActive: 'is-active',
+		eleButton: '.ui-tab-nav a',
+		eleContent: '.ui-tab-content',
 		init: function(){
-			var _this = this;
-			$(this.eleContent+'.'+this.clsActive).each(function(){_this.action('#'+$(this).attr('id'))});
-			this.event($(this.eleButton));
+			this.event();
 		},
-		event: function($this){
+		event: function(){
 			var _this = this;
-			$this.not('.is-evented').on('click', function(){
-				_this.action($(this).attr('href')); return false;
-			}).attr('.is-evented');
+			$(this.eleButton).not('.is-clicked').on('click', function(){
+				_this.action($(this).attr('aria-controls')); return false;
+			}).attr('.is-clicked');
 		},
 		action: function(id){
-			$(this.eleButton+'[href="'+id+'"]').attr({'aria-selected':'true'}).removeAttr('aria-expanded').parent().addClass(this.clsActive).siblings().removeClass(this.clsActive).children().attr({'aria-selected':'false', 'aria-expanded':'false'});
-			$(id).addClass(this.clsActive).attr('aria-hidden', 'false').siblings().removeClass(this.clsActive).attr('aria-hidden', 'true');
+			$(this.eleButton+'[href="#'+id+'"]').attr({'aria-selected':'true'}).parent().siblings().children().attr({'aria-selected':'false'});
+			$('#'+id).attr({'aria-hidden':'false'}).siblings().attr({'aria-hidden': 'true'});
 		},
 	},
 
 	/*
-		기능정의: #Accordion
+		기능정의: #acco
 		연결방식: href="" / id=""
-		참고경로: modules/modules_accordion.html
+		참고경로: modules/modules_acco.html
 		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 	*/
-	accordion: {
-		eleModule: '.accordion',
-		eleButton: '.accordion-toggle',
-		eleTitle: '.accordion-title',
-		eleContent: '.accordion-content',
-		clsActive: 'is-active',
+	acco : {
+		eleModule: '.ui-acco',
+		eleItem: '.ui-acco-item',
+		eleButton: '.ui-acco-toggle',
+		eleTitle: '.ui-acco-title',
+		eleContent: '.ui-acco-cont',
 		duration: 300,
 		init: function(){
 			this.reset();
@@ -161,44 +144,43 @@ var ui = {
 		},
 		reset: function(){
 			var _this = this;
-			$('.accordion-basic' ).each(function(){$(this).attr({'data-sync':'true', 'data-toggle':'true' })});
-			$('.accordion-basic2').each(function(){$(this).attr({'data-sync':'true', 'data-toggle':'false'})});
-			$('.accordion-basic3').each(function(){$(this).attr({'data-sync':'false', 'data-toggle':'true'})});
+			$('.acco-basic').each(function(){$(this).attr({'data-sync':'true', 'data-toggle':'true' })});
 		},
 		event: function($this){
 			var _this = this;
-			$this.not('.is-evented, [disabled]').on('click', function(){
-				_this.action($(this).attr('href')); return false;
-			}).addClass('is-evented');
+			$this.not('.is-clicked, [disabled]').on('click', function(){
+				_this.action($(this).attr('aria-controls')); return false;
+			}).addClass('is-clicked');
 		},
 		action: function(id){
-			var $toggle = $(this.eleButton+'[href="'+id+'"]'),
-				$title = $toggle.closest(this.eleTitle),
-				$module = $toggle.closest(this.eleModule),
-				$content = $(id),
-				clsActive = this.clsActive;
+			var _this = this,
+				$content = $('#'+id),
+				$toggle = $('[aria-controls'+id+']'),
+				$module = $content.closest(this.eleModule),
+				$Item  = $content.closest(this.eleItem);
+				console.log(id, $('#'+id), !$Item.hasClass('is-active'));
 
 			// Toggle 접기
-			if ($module.attr('data-toggle') == 'true' && $content.hasClass(clsActive)){
-				$title.removeClass(clsActive);
-				$toggle.attr('aria-expanded','false');
-				$content.stop().slideUp(this.duration, function(){$(this).removeClass(clsActive).attr('aria-hidden', 'true')});
+			if ($module.attr('data-toggle') == 'true' && $Item.hasClass('is-active')){
+				$Item.removeClass('is-active').find(_this.eleButton).attr('aria-expanded','false');
+				$(this).attr('aria-hidden', 'true');
+				$content.stop().slideUp(this.duration);
+				console.log('Accordion Toggle');
 			}
 			// Syncroize 펼치기
-			else if ($module.attr('data-sync') == 'true' && !$content.hasClass(clsActive)){
-				$title.addClass(clsActive).find(this.eleButton).attr('aria-expanded','true');
-				$title.siblings(this.eleTitle).removeClass(clsActive).find(this.eleButton).attr('aria-expanded','false');
-				$content.stop().slideDown(this.duration, function(){$(this).addClass(clsActive).attr('aria-hidden', 'false')});
-				$content.siblings(this.eleContent).stop().slideUp(this.duration, function(){$(this).removeClass(clsActive).attr('aria-hidden', 'true')});
+			else if ($module.attr('data-sync') == 'true' && !$Item.hasClass('is-active')){
+				$Item.addClass('is-active').find(_this.eleButton).attr('aria-expanded','true');
+				$Item.find(this.eleContent).stop().slideDown(this.duration);
+				$Item.siblings().removeClass('is-active').find(_this.eleButton).attr('aria-expanded','false');
+				$Item.siblings().find(this.eleContent).stop().slideUp(this.duration);
+				console.log('Syncroize Toggle');
 			}
 			// Default 펼치기
-			else if ($module.attr('data-sync') == 'false' && !$content.hasClass(clsActive)){
-				$title.addClass(clsActive).find(this.eleButton).attr('aria-expanded','true');
-				$content.stop().slideDown(this.duration, function(){$(this).addClass(clsActive).attr('aria-hidden', 'false')});
-			}
-			// 토글이 아니면 생성된 aria-expanded 속성삭제
-			if ($module.attr('data-toggle') == 'false' && $toggle.attr('aria-expanded') == 'true'){
-				$toggle.removeAttr('aria-expanded');
+			else if ($module.attr('data-sync') == 'false' && !$Item.hasClass('is-active')){
+				$Item.addClass('is-active').find(_this.eleButton).attr('aria-expanded','true');
+				$(this).attr('aria-hidden', 'false');
+				$Item.find(this.eleContent).stop().slideDown(this.duration);
+				console.log('Default Toggle');
 			}
 			this.disable();
 		},

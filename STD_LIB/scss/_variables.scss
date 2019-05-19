@@ -9,21 +9,9 @@
 /*-------------------------------------------------------------------
 	Variables
 -------------------------------------------------------------------*/
-/* 여백,간격 */
-$width-primary: 1200px;
-$gutter-primary: 20px;
-
-/* 컬러 */
-$color-basic: #333;
-$color-primary: #0089b3;
-$color-primary-dark: #006d8e;
-$color-primary-light: #2496ee;
-$color-secondary: #54873c;
-$color-success: #47a104;
-$color-warning: #e9b500;
-$color-danger: #d45704;
-$color-error: #ff0000;
-$color-info: #949494;
+/* 기본정책 */
+$base-width: 1200px;
+$base-gutter: 20px;
 
 /* 컬러 - 명암 */
 $color-none: transparent;
@@ -44,14 +32,6 @@ $color-gray-c: #ccc;
 $color-gray-d: #ddd;
 $color-gray-e: #eee;
 $color-gray-f: #f8f8f8;
-
-/* 그라데이션 */
-%gradient-primary {
-	background: rgb(252,8,20); /* Old browsers */
-	background: -moz-linear-gradient(-45deg, rgb(223,40,120) 0%, rgb(252,8,20) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(-45deg, rgb(223,40,120) 0%,rgb(252,8,20) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(135deg, rgb(223,40,120) 0%,rgb(252,8,20) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-}
 
 /* 컬러 - 의미 */
 $color-basic: #333;
