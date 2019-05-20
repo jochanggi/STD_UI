@@ -8,9 +8,9 @@ var ui = {
 		if ($('.gnb-dropdown').length)		{this.gnb_dropdown.init();}		// #Gnb Dropdown
 		if ($('.gnb-fulldown').length)		{this.gnb_fulldown.init();}		// #Gnb Fulldown
 		if ($('.ui-tab-nav').length)		{this.tab.init();}				// #Tab
-		if ($('.ui-acco').length)			{this.acco.init();}		// #acco
-		if ($('[data-role=fold]').length)	{this.folder.init();}			// #Folder (접기)
-		if ($('[data-role=more]').length)	{this.folderMore.init();}		// #FolderMore (더보기)
+		if ($('.ui-acco').length)			{this.acco.init();}				// #acco
+		if ($('[data-role=fold]').length)	{this.foldToggle.init();}		// #Folder (접기)
+		if ($('[data-role=more]').length)	{this.moreToggle.init();}		// #FolderMore (더보기)
 		if ($('.tooltip-basic').length)		{this.tooltip.init();}			// #Tooltip
 		if ($('.dropdown').length)			{this.dropdown.init();}			// #Dropdown
 		if ($('.popup-open').length)		{this.popup.init();}			// #Popup
@@ -195,53 +195,34 @@ var ui = {
 
 	/*
 		기능정의: #Folder
-		연결방식: data-target="" / data-name=""
 		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	folder: {
-		eleButton: '.folder-toggle',
-		eleModule: '.folder-content',
-		eleFocus: '.folder-focus',
-		clsActive: 'is-active',
-		init: function(){
-			this.reset();
-			this.event($(this.eleButton));
-		},
-		reset: function(){
+	foldToggle : {
+		eleButton: '.ui-fold-toggle[data-role=fold]',
+		eleContent: '.ui-fold-cont',
+		eleFocus: '.ui-fold-focus',
+		speed: 250,
+		init : function(){
 			var _this = this;
-			$(this.eleButton+'[data-role=fold]').each(function(){
-				var name = $(this).attr('data-target');
-				$('[data-target='+name+']').attr({'data-state':'closed', 'aria-expanded':'false'});
-				$('[data-name='+name+']').attr({'hidden':'hidden'});
-			})
+			this.event();
+			$(this.eleContent).each(function(){ _this.reset($(this).attr('id')) });
 		},
-		event: function($this){
-			var _this = this;
-			$this.filter('[data-role=fold]').not('.is-evented').on('click', function(){
-				var target = $(this).attr('data-target');
-				var state = $(this).attr('data-state');
-				if (state == 'closed'){_this.open(target)}
-				else if (state == 'opened'){_this.close(target)}
-				return false;
-			}).addClass('is-evented');
+		reset : function(id){
+			var $button = $('[aria-controls='+id+']');
+			if ($('#'+id).is(':visible') == true){ $button.attr({'aria-expanded':'true'}) }
+			else { $button.attr({'aria-expanded':'false'}) }
 		},
-		open: function(name){
+		event : function(){
 			var _this = this;
-			$('[data-target='+name+']').attr({'data-state':'null', 'aria-expanded':'true'}).addClass(_this.clsActive);
-			$('[data-name='+name+']').addClass(_this.clsActive).slideDown(300, function(){
-				$('[data-name='+name+']').removeAttr('hidden');
-				$('[data-target='+name+']').attr('data-state', 'opened');
-			});
+			$(this.eleButton).not('.is-clicked').on('click', function(){
+				_this.action($(this).attr('aria-controls'));
+			}).addClass('is-clicked');
 		},
-		close: function(name){
+		action : function(id){
 			var _this = this;
-			$('[data-target='+name+']').attr({'data-state':'null', 'aria-expanded':'false'}).removeClass(_this.clsActive);
-			$('[data-name='+name+']').removeClass(_this.clsActive).slideUp(300, function(){
-				$('[data-name='+name+']').attr('hidden', 'hidden');
-				$('[data-target='+name+']').attr('data-state', 'closed');
-			});
+			$('#'+ id).stop().slideToggle(_this.speed, function(){ _this.reset(id) });
 		}
 	},
 
@@ -252,56 +233,38 @@ var ui = {
 		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	folderMore: {
-		eleButton: '.folder-toggle',
-		eleModule: '.folder-content',
-		eleInner: '.folder-inner',
-		eleFocus: '.folder-focus',
-		clsActive: 'is-active',
+	moreToggle : {
+		eleButton:	'.ui-fold-toggle[data-role=more]',
+		eleContent: '.ui-fold-cont',
+		eleHide:	'.ui-fold-hide',
+		eleFocus:	'.ui-fold-focus',
+		speed: 250,
 		init: function(){
-			this.reset();
-			this.event($(this.eleButton));
-		},
-		reset: function(){
 			var _this = this;
-			$(this.eleButton).each(function(){
-				var name = $(this).attr('data-target');
-				$('[data-target='+name+']').attr({'data-state':'closed', 'aria-expanded':'false'});
-				$('[data-name='+name+']').attr({'hidden':'hidden'});
+			this.event();
+			$(this.eleContent).each(function(){ _this.reset($(this).attr('id')) });
+		},
+		reset: function(id, obj){
+			var $button = $('[aria-controls='+id+']');
+			var $eleHide = $('#'+id).find(this.eleHide);
+			if ($eleHide.is(':visible') == true){
+				$button.attr({'aria-expanded':'true'});
+				$eleHide.removeAttr('hidden');
+				if (typeof(obj) == 'object'){ obj.attr({'role':'text', 'tabindex':'0'}).focus(); }
+			} else {
+				$button.attr({'aria-expanded':'false'});
+				$eleHide.attr('hidden');
+			}
+		},
+		event: function(){
+			var _this = this;
+			$(this.eleButton).not('.is-clicked').on('click', function(){
+				_this.action($(this).attr('aria-controls'));
 			})
 		},
-		event: function($this){
-			var _this = this;
-			$this.filter('[data-role=more]').not('.is-evented').on('click', function(){
-				var target = $(this).attr('data-target');
-				var state = $(this).attr('data-state');
-				if (state == 'closed'){_this.open(target)}
-				else if (state == 'opened'){_this.close(target)}
-				return false;
-			}).addClass('is-evented');
-		},
-		open: function(name){
-			var _this = this;
-			var $module = $('[data-name='+name+']').closest(_this.eleModule);
-			var $inner = $('[data-name='+name+']').closest(_this.eleInner);
-			$module.css({height:$inner.height(), overflow:'hidden'}).attr('data-height', $inner.height()).addClass(_this.clsActive);
-			$('[data-target='+name+']').addClass(_this.clsActive).attr({'data-state':'null'});
-			$('[data-name='+name+']').removeAttr('hidden');
-			TweenMax.to($module, 0.3, {height:$inner.height(), ease:Power2.easeOut, onComplete:function(){
-				$('[data-name='+name+']').eq(0).find(_this.eleFocus).attr('tabindex','0').focus();
-				$('[data-target='+name+']').attr({'data-state':'opened', 'aria-expanded':'true'});
-			}});
-		},
-		close: function(name){
-			var _this = this;
-			var $module = $('[data-name='+name+']').closest(_this.eleModule);
-			var $inner = $('[data-name='+name+']').closest(_this.eleInner);
-			$module.css({height:$module.height(), overflow:'hidden'}).removeClass(_this.clsActive);
-			$('[data-target='+name+']').attr({'data-state':'null'}).removeClass(_this.clsActive);
-			TweenMax.to($module, 0.3, {height:parseInt($module.attr('data-height')), ease:Power2.easeOut, onComplete:function(){
-				$('[data-name='+name+']').attr('hidden', 'hidden');
-				$('[data-target='+name+']').attr({'data-state':'closed', 'aria-expanded':'false'});
-			}});
+		action: function(id){
+			$('#'+id).find(this.eleHide).toggle();
+			this.reset(id, $('#'+id).find(this.eleFocus));
 		}
 	},
 

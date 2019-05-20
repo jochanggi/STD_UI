@@ -792,11 +792,12 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 /* ------------------------------------------------------------------------------------------
 	## Folder
 ------------------------------------------------------------------------------------------ */
-.ui-fold-toggle {width:40px; height:40px; right:0; z-index:1;}
+.ui-fold-toggle {position:absolute; right:0; bottom:0; width:40px; height:40px; right:0; z-index:3;}
 .ui-fold-toggle .arw {position:absolute; left:50%; top:50%; transform:translate(-50%, -50%) rotate(0deg); -webkit-transform:translate(-50%, -50%) rotate(0deg); transition:all 0.3s;}
 .ui-fold-toggle.is-active .arw {transform:translate(-50%, -50%) rotate(180deg); -webkit-transform:translate(-50%, -50%) rotate(180deg);}
 .ui-fold-toggle.bg {background:#eee;}
 .ui-fold-toggle.round {border-radius:50%;}
+
 
 /* ------------------------------------------------------------------------------------------
 	## Tooltip
