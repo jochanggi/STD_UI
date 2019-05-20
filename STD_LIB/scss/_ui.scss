@@ -503,7 +503,7 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 ----------------------------------------------------------------- --*/
 /* Default */
 .ui-box {position:relative;}
-.ui-box-inner,.ui-box-header,.ui-box-body,.ui-box-footer {position:relative; z-index:2;}
+.ui-box-inner,.ui-box-head,.ui-box-body,.ui-box-foot {position:relative; z-index:2;}
 
 /* Design */
 .box-basic {border:1px solid #ddd; border-radius:3px; line-height:20px;}
@@ -792,11 +792,11 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 /* ------------------------------------------------------------------------------------------
 	## Folder
 ------------------------------------------------------------------------------------------ */
-.folder-toggle {width:40px; height:40px; right:0; z-index:1;}
-.folder-toggle .arw {position:absolute; left:50%; top:50%; transform:translate(-50%, -50%) rotate(0deg); -webkit-transform:translate(-50%, -50%) rotate(0deg); transition:all 0.3s;}
-.folder-toggle.is-active .arw {transform:translate(-50%, -50%) rotate(180deg); -webkit-transform:translate(-50%, -50%) rotate(180deg);}
-.folder-toggle.bg {background:#eee;}
-.folder-toggle.round {border-radius:50%;}
+.ui-fold-toggle {width:40px; height:40px; right:0; z-index:1;}
+.ui-fold-toggle .arw {position:absolute; left:50%; top:50%; transform:translate(-50%, -50%) rotate(0deg); -webkit-transform:translate(-50%, -50%) rotate(0deg); transition:all 0.3s;}
+.ui-fold-toggle.is-active .arw {transform:translate(-50%, -50%) rotate(180deg); -webkit-transform:translate(-50%, -50%) rotate(180deg);}
+.ui-fold-toggle.bg {background:#eee;}
+.ui-fold-toggle.round {border-radius:50%;}
 
 /* ------------------------------------------------------------------------------------------
 	## Tooltip
