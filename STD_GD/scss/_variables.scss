@@ -1,0 +1,54 @@
+@charset "utf-8";
+/*-------------------------------------------------------------------
+	파일정의 : Settings
+	작성날짜 : 2018-11-18 조찬기
+	참고사항 : 이 파일은 설정값만 정의한다.
+	분류순서 : 기본정책 > 유틸리티 > 사용자정의(컬러, 폰트, 보더, 간격 등)
+	속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------
+	Variables
+-------------------------------------------------------------------*/
+/* 여백,간격 */
+$width-primary: 1200px;
+$gutter-primary: 20px;
+
+/* 컬러 */
+$color-basic: #333;
+$color-primary: #0089b3;
+$color-primary-dark: #006d8e;
+$color-primary-light: #2496ee;
+$color-secondary: #54873c;
+$color-success: #47a104;
+$color-warning: #e9b500;
+$color-danger: #d45704;
+$color-error: #ff0000;
+$color-info: #949494;
+
+/* 명암 */
+$color-gray-2: #222;
+$color-gray-3: #333;
+$color-gray-4: #444;
+$color-gray-5: #555;
+$color-gray-6: #666;
+$color-gray-7: #777;
+$color-gray-8: #888;
+$color-gray-9: #999;
+$color-gray-a: #aaa;
+$color-gray-b: #bbb;
+$color-gray-c: #ccc;
+$color-gray-d: #ddd;
+$color-gray-e: #eee;
+$color-gray-f: #f8f8f8;
+
+/* 그라데이션 */
+%gradient-primary {
+	background: rgb(252,8,20); /* Old browsers */
+	background: -moz-linear-gradient(-45deg, rgb(223,40,120) 0%, rgb(252,8,20) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, rgb(223,40,120) 0%,rgb(252,8,20) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, rgb(223,40,120) 0%,rgb(252,8,20) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+
+/* 유틸리티 */
+%clear { &:after {content:''; clear:both; display:block;} }

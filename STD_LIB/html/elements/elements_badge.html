@@ -22,7 +22,7 @@
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
-						<h2 class="g-h2">Text</h2>
+						<h2 class="g-h2">Default</h2>
 					</div>
 					<div class="g-section-body">
 						<div class="g-example-wrap">
@@ -30,62 +30,23 @@
 								<strong class="g-example-tit">Markup Codeview</strong>
 								<div class="g-example-nav">
 									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
 									<a href="javascript:;" class="g-example-btn">CSS</a>
 								</div>
 							</div>
-							<div class="g-example-body">
-								<div class="badge-wrap" style="position:static">
-									<span style="display:inline-block; width:60px;">Basic</span>
-									<span class="badge-type1">1</span>
-									<span class="badge-type1 outline">1</span>
-								</div>
-								<br>
-								<div class="badge-wrap" style="position:static">
-									<span style="display:inline-block; width:60px;">Primary</span>
-									<span class="badge-type1 primary">1</span>
-									<span class="badge-type1 primary outline">1</span>
-								</div>
-								<br>
-								<div class="badge-wrap" style="position:static">
-									<span style="display:inline-block; width:60px;">Colored</span>
-									<span class="badge-type1 type1">1</span>
-									<span class="badge-type1 type2">2</span>
-									<span class="badge-type1 type3">3</span>
-									<span class="badge-type1 type1 outline">1</span>
-									<span class="badge-type1 type2 outline">2</span>
-									<span class="badge-type1 type3 outline">3</span>
-								</div>
-							</div>
-							<div class="g-example-footer">
+							<div class="g-example-footer is-active">
 								<pre class="brush:html">
-									<!-- Basic -->
-									<div class="badge-wrap">
-										<span class="badge-type1">1</span>
-										<span class="badge-type1 outline">1</span>
-									</div>
-
-									<!-- Primary -->
-									<div class="badge-wrap">
-										<span class="badge-type1 primary">1</span>
-										<span class="badge-type1 primary outline">1</span>
-									</div>
-
-									<!-- Colored -->
-									<div class="badge-wrap">
-										<span class="badge-type1 type1">1</span>
-										<span class="badge-type1 type2">2</span>
-										<span class="badge-type1 type3">3</span>
-										<span class="badge-type1 type1 outline">1</span>
-										<span class="badge-type1 type2 outline">2</span>
-										<span class="badge-type1 type3 outline">3</span>
-									</div>
+									<span class="ui-badge"></span>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									.badge-type1 {display:inline-block; width:30px; height:30px; padding-bottom:1px; background-color:#444; color:#fff; line-height:29px; text-align:center; vertical-align:middle;}
-									.badge-type1.outline {background:transparent; border:1px solid #444; color:#444; line-height:27px;}
+									/*-------------------------------------------------------------------
+										## Badge
+									-------------------------------------------------------------------*/
+									/* Default */
+									.ui-badge {display:inline-block;}
+									.badge-group {position:absolute;}
 								</pre>
 							</div>
 						</div>
@@ -96,7 +57,7 @@
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
-						<h2 class="g-h2">Image</h2>
+						<h2 class="g-h2">Style</h2>
 					</div>
 					<div class="g-section-body">
 						<div class="g-example-wrap">
@@ -104,30 +65,31 @@
 								<strong class="g-example-tit is-before"></strong>
 								<div class="g-example-nav">
 									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
 									<a href="javascript:;" class="g-example-btn">CSS</a>
 								</div>
 							</div>
 							<div class="g-example-body">
 								<!-- 마크업뷰영역 -->
-								<div class="badge-wrap" style="position:static">
-									<span class="badge badge-type2">1</span>
-									<span class="badge badge-type2">2</span>
-									<span class="badge badge-type2">3</span>
-									<span class="badge badge-type2">40</span>
-									<span class="badge badge-type2">99</span>
+								<div class="badge-group" style="position:static">
+									<span class="ui-badge badge-basic">1</span>
+									<span class="ui-badge badge-basic badge-outline">1</span>
 								</div>
 								<!-- //마크업뷰영역 -->
 							</div>
-							<div class="g-example-footer">
+							<div class="g-example-footer is-active">
 								<pre class="brush:html">
-									<div class="badge-wrap">
-										<span class="badge badge-이름"></span>
+									<div class="badge-group">
+										<span class="ui-badge badge-basic">1</span>
+										<span class="ui-badge badge-basic badge-outline">1</span>
 									</div>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
+									/* Styles */
+									.badge-basic {width:24px; height:24px; padding-bottom:1px; line-height:21px; border:1px solid transparent; background-color:#333; color:#fff; text-align:center;}
+									.badge-basic.badge-outline {color:#333; border-color:#333; background-color:#fff;}
 								</pre>
 							</div>
 						</div>

@@ -15,7 +15,7 @@
 		<!-- Content -->
 		<article id="g-content">
 			<div class="g-content-header">
-				<h1 class="g-h1">Modal</h1>
+				<h1 class="g-h1">Popup</h1>
 				<p class="g-explain-h1">Library Modules</p>
 			</div>
 			<div class="g-content-body">
@@ -36,31 +36,37 @@
 							<div id="tabContentCode1-1" class="g-example-footer is-active">
 								<pre class="brush:html">
 									<!-- 버튼공통 -->
-									<button type="button" class="btn modal-open" aria-controls="modal1" onclick="ui.modal.open(this, '#modal1')"><span>Modal Open</span></button>
-									<button type="button" class="btn modal-close" aria-controls="modal1" onclick="ui.modal.close(this, '#modal1')"><span>Modal Close</span></button>
+									<button type="button" class="ui-btn ui-popup-open" aria-controls="popupName1" onclick="ui.popup.open(this, 'popupName1')"><span>Popup Open</span></button>
+									<button type="button" class="ui-btn ui-popup-close" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')"><span>Popup Close</span></button>
 
-									<!-- 모달공통 -->
-									<div id="이름" class="modal modal-종류 modal-디자인" tabindex="-1" role="역할" aria-labelledby="이름_title">
-										<div class="modal-container">
-											<div class="modal-header">
-												<h3 id="이름_title" class="modal-title">modal-title</h3>
+									<!-- 컨텐츠 팝업 -->
+									<div id="popupName1" class="ui-popup-wrap" role="dialog" aria-modal="true" aria-labelledby="popupTitle1" aria-describedby="popupDesc1">
+										<div class="ui-popup">
+											<div class="ui-popup-header">
+												<h3 id="popupTitle1"></h3>
 											</div>
-											<div class="modal-body">
-												modal-body
+											<div class="ui-popup-body">
+												<div id="popupDesc1" class="ui-popup-content">
+													컨텐츠설명
+												</div>
 											</div>
-											<div class="modal-footer">
-												modal-footer
-											</div>
+											<div class="ui-popup-footer"></div>
+											<button type="button" class="ui-btn ui-popup-close" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')"><span>Popup Close</span></button>
 										</div>
 									</div>
 
-									<!-- 경고 대화상자 -->
-									역할 : role="alertdialog"
-									종류 : class="modal-alert"
-
-									<!-- 딤팝업 대화상자 -->
-									역할 : role="dialog"
-									종류 : class="modal-popup"
+									<!-- 경고 팝업 -->
+									<div id="popupName2" class="ui-popup-wrap" role="alertdialog" aria-modal="true" aria-describedby="popupDesc2">
+										<div class="ui-popup">
+											<div class="ui-popup-body">
+												<div id="popupDesc2" class="ui-popup-alert">
+													경고메세지
+												</div>
+											</div>
+											<div class="ui-popup-footer"></div>
+											<button type="button" class="ui-btn ui-popup-close" aria-controls="popupName2" onclick="ui.popup.close(this, 'popupName2')"><span>Popup Close</span></button>
+										</div>
+									</div>
 								</pre>
 							</div>
 						</div>
