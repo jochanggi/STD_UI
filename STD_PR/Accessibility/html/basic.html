@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="keywords" content="웹스타일가이드, 더웹스타일㈜">
+<meta name="description" content="웹스타일가이드, 더웹스타일㈜">
+<title>Accessibility Basic - 더웹스타일㈜</title>
+<style>
+#wrapper {width:calc(100% + 10px); padding-right:10px;}
+
+.blind {position:absolute; lefT:-999px; top:-999px; width:1px; height:1px; overflow:hidden;}
+.color-primary {color:#ff0000;}
+</style>
+</head>
+<body>
+<div id="wrapper">
+	<h1>Accessibility Basic</h1>
+	<p>기본적인 컨텐츠에 대한 웹접근성</p>
+
+	<hr>
+
+	<section>
+		<h2>모바일접근성 초점의 특성</h2>
+		<p>Android와 IOS의 초점비고 기본예시</p>
+		<dl>
+			<dt>Android</dt>
+			<dd>Element 초점 접근방식</dd>
+			<dd>파이어폭스 > 삼성브라우저 > 구글크롬 순서로 기본적인 초점 호환성차이가 있다.</dd>
+			<dt>IOS</dt>
+			<dd>Content 초점 접근방식</dd>
+			<dd>사파리기준이며, Content 초점 접근방식에 의해 숨김텍스트와 Translate에 민감하다.</dd>
+		</dl>
+		<h3>초점예시</h3>
+		<h4>일반 텍스트</h4>
+		<div class="">
+			<p style="line-height:24px">줄간격 24px 샘플텍스트</p>
+			<p style="line-height:34px">줄간격 34px 샘플텍스트</p>
+			<p style="line-height:44px">줄간격 44px 샘플텍스트</p>
+		</div>
+		<h4>숨김 텍스트</h4>
+		<div class="">
+			<p style="line-height:24px"><span class="blind">줄간격 24px</span> 샘플텍스트</p>
+			<p style="line-height:34px"><span class="blind">줄간격 34px</span> 샘플텍스트</p>
+			<p style="line-height:44px"><span class="blind">줄간격 44px</span> 샘플텍스트</p>
+		</div>
+		<h4>Role 텍스트</h4>
+		<div class="">
+			<p style="line-height:24px" role="text">줄간격 24px 샘플텍스트</p>
+			<p style="line-height:34px" role="text">줄간격 34px 샘플텍스트</p>
+			<p style="line-height:44px" role="text">줄간격 44px 샘플텍스트</p>
+		</div>
+		<h4>Role + 숨김 텍스트</h4>
+		<div class="">
+			<p style="line-height:24px" role="text"><span class="blind">줄간격 24px</span> 샘플텍스트</p>
+			<p style="line-height:34px" role="text"><span class="blind">줄간격 34px</span> 샘플텍스트</p>
+			<p style="line-height:44px" role="text"><span class="blind">줄간격 44px</span> 샘플텍스트</p>
+		</div>
+		<h4>Anchor 텍스트</h4>
+		<div class="">
+			<a href="#" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:24px">줄간격 24px 샘플링크</a>
+			<a href="#" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:34px">줄간격 34px 샘플링크</a>
+			<a href="#" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:44px">줄간격 44px 샘플링크</a>
+		</div>
+		<h4>Button 텍스트</h4>
+		<div class="">
+			<button type="button" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:24px">줄간격 24px 샘플버튼</button>
+			<button type="button" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:34px">줄간격 34px 샘플버튼</button>
+			<button type="button" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:44px">줄간격 44px 샘플버튼</button>
+		</div>
+		<h4>Anchor Role Tab </h4>
+		<div role="tablist">
+			<a href="#" role="tab" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:24px">줄간격 24px 샘플탭</a>
+			<a href="#" role="tab" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:34px">줄간격 34px 샘플탭</a>
+			<a href="#" role="tab" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:44px">줄간격 44px 샘플탭</a>
+		</div>
+		<h4>Anchor Item</h4>
+		<ul style="padding:0">
+			<li class="item" style="display:inline-block; width:150px; padding:0">
+				<a href="#" class="item-body" style="display:block;">
+					<p class="thumbnail"><img src="http://i.011st.com/ex_t/R/175x175/1/85/1/src/pd/19/2/6/9/7/5/5/jfKBo/2414269755_L300.jpg" alt="아디다스/리복 운동화 전상품 단독특가 썸네일" style="width:100%"></p>
+					<p class="tit">아디다스/리복 운동화 전상품 단독특가</p>
+					<p class="txt">배송지연보상 프리미엄 패션브랜드 전문쇼핑몰</p>
+				</a>
+			</li>
+			<li class="item" style="display:inline-block; width:150px;">
+				<a href="#" class="item-body" style="display:block;">
+					<p class="thumbnail"><img src="http://i.011st.com/ex_t/R/175x175/1/85/1/src/pd/19/2/6/9/7/5/5/jfKBo/2414269755_L300.jpg" alt="아디다스/리복 운동화 전상품 단독특가 썸네일" style="width:100%"></p>
+					<p class="tit">아디다스/리복 운동화 전상품 단독특가</p>
+					<p class="txt">배송지연보상 프리미엄 패션브랜드 전문쇼핑몰</p>
+				</a>
+			</li>
+		</ul>
+	</section>
+
+	<hr>
+
+	<section>
+		<h2>텍스트의 종류</h2>
+		<p>기본텍스트 = 숨김텍스트 = 대체텍스트(alt) = 라벨텍스트(aria-label)</p>
+		<p>1.1.1 적절한 대체 텍스트 제공 : 텍스트 아닌 콘텐츠는 그 의미나 용도를 이해할 수 있도록 대체 텍스트를 제공해야 한다.</p>
+		<ul>
+			<li>숨김텍스트
+				<ul>
+					<li><s>배경이미지 정보</s></li>
+					<li>제목 정보 : 문서구조화를 위한 목차제공
+						<ul>
+							<li>일반적인 논리적인 구조 : PC는 숨김텍스트, Mobile은 display:none (초점이슈가 발생)</li>
+							<li>탭내용의 논리적인 구조 : PC는 숨김텍스트, Mobile은 display:none (초점이슈가 발생)
+								<p>- (권고) 목차로 제공할것은 권장하나, 탭 제목이 제공된 것으로 준수함.<br>
+								- 공식적인 WAI-ARIA 방법 : role="tabpanel" aria-labelledby="IDHREF"</p>
+								<p>- Device Display 처리 예<br>
+									 .dv-pc-only, .dv-mo-only, .dv-ios-only, .dv-and-only {display:none;}<br>
+									 .dv-pc .dv-pc-only, .dv-ios .dv-ios-only  {display:block;}
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li>부가 정보 : ("구매단가 : ") <span class="blind">구매단가 : </span>300,000 </li>
+					<li>상태 정보 : 선택됨, 현재항목 (예 : 모바일은 aria-selected, aria-current로 처리가능, PC는 숨김텍스트 처리)
+						<ol>
+							<li>처음부터 제공하고 필요한것 활성화</li>
+							<li>필요할때 append로 제공해서 활성화 </li>
+						</ol>
+					</li>
+				</ul>
+			</li>
+			<li>alt
+				<ul>
+					<li><s>의미없는 이미지 : alt="[빈값]"</s></li>
+					<li><s>텍스트 이미지 : alt="[텍스트]"</s></li>
+					<li>정보성 이미지 : alt="[텍스트] + [구분]"
+						<dl>
+							<dt>[텍스트]</dt>
+							<dd>이름 또는 설명</dd>
+							<dt>[구분]</dt>
+							<dd>로고, 앱 아이콘, 썸네일, 대표사진 (한글로 표현할 것을 권장)</dd>
+						</dl>
+					</li>
+				</ul>
+			</li>
+			<li>aria-label
+				<ul>
+					<li>기본텍스트 무시하고 aria-label로 읽어준다. (단, 기본텍스트가 생략될 수 없다.)</li>
+					<li>특수문자의 대체텍스트 : * (aria-label="필수입력")</li>
+					<li>원문에대한 부가정보 : 300,000 (aria-label="구매단가 : 300,000")</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+
+	<hr>
+
+	<h2>링크와 버튼의 기능설명</h2>
+	<p>title="" : 주어, 용도, 목적, 경고에 대한 설명텍스트</p>
+	<p>2.4.3 적절한 링크 텍스트 : 링크 텍스트는 용도나 목적을 이해할 수 있도록 제공해야 한다.</p>
+	<ul>
+		<li>새창열림 : title="새창열림"</li>
+		<li>더보기 : title="공지사항 더보기"</li>
+		<li>확인 : title="가입완료 확인", title="메인페이지로 이동" aria-label="가입완료 확인"</li>
+		<li>닫기 : title="만족도팝업 닫기"</li>
+		<li>제목링크 : title="공지사항 상세페이지로 이동"</li>
+		<li>1단계 : title="가입 1단계 동의하기"</li>
+	</ul>
+</div>
+</body>
+</html>
