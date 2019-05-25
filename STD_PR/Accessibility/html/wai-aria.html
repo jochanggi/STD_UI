@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="keywords" content="웹스타일가이드, 더웹스타일㈜">
+<meta name="description" content="웹스타일가이드, 더웹스타일㈜">
+<title>Accessibility Basic - 더웹스타일㈜</title>
+<script type="text/javascript" src="/js/libs/jquery-3.3.1.min.js"></script>
+<style>
+#wrapper {width:calc(100% + 10px); padding-right:10px;}
+
+.blind {position:absolute; lefT:-999px; top:-999px; width:1px; height:1px; overflow:hidden;}
+.color-primary {color:#ff0000;}
+</style>
+<script type="text/javascript">
+<!--
+function popupOpen(id, obj) {
+	$('#'+id).removeAttr('hidden');
+}
+function popupClose(id, obj) {
+	$('#'+id).attr('hidden', 'hidden');
+}
+//-->
+</script>
+</head>
+<body>
+<div id="wrapper">
+	<h1>Accessibility WAI-ARIA (Codeview)</h1>
+	<p><a href="index.html">목록으로 이동</a> <a href="wai-aria_markup.html">Markup</a></p>
+	<hr>
+
+	<section aria-labelledby="sectionTitle1">
+		<h2 id="sectionTitle1">Elements</h2>
+
+		<h3>Section</h3>
+		<p>id, aria-labelledby</p>
+		<section aria-labelledby="sectionTitle11">
+			<h4 id="sectionTitle11">section Title</h4>
+		</section>
+
+		<h3>Navigation</h3>
+		<nav class="gnb">
+			<ul>
+				<li aria-current="page"><a href="#">Menu1</a></li>
+				<li aria-selected="true" aria-expanded="true"><a href="#">Menu1</a></li>
+			</ul>
+		</nav>
+
+		<h3>BreadCrumb</h3>
+		<div class="breadcrumb">
+			<ul>
+				<li><a href="#">HOME</a></li>
+				<li><a href="#">Menu1</a></li>
+				<li aria-current="page"><a href="#">Menu2</a></li>
+			</ul>
+		</div>
+
+		<h3>Pagination</h3>
+		<div class="pagination">
+			<div class="btn-page-group">
+				<button type="button" class="btn btn-first" aria-label="공지사항 처음 페이지"><span>처음</span></button>
+				<button type="button" class="btn btn-prev" aria-label="공지사항 이전 페이지"><span>이전</span></button>
+			</div>
+			<ul class="btn-num-group">
+				<li aria-current="page"><button type="button" aria-label="공지사항 1페이지"><span>1</span></button></li>
+				<li><button type="button" aria-label="공지사항 2페이지"><span>2</span></button></li>
+				<li><button type="button" aria-label="공지사항 3페이지"><span>3</span></button></li>
+			</ul>
+			<div class="btn-page-group">
+				<button type="button" class="btn btn-next" aria-label="공지사항 다음 페이지"><span>다음</span></button>
+				<button type="button" class="btn btn-first" aria-label="공지사항 마지막 페이지"><span>마지막</span></button>
+			</div>
+		</div>
+	</section>
+
+	<hr>
+
+	<section>
+		<h2>Modules</h2>
+		<h3>Tab</h3>
+		<div class="tab">
+			<div class="tab-nav">
+				<ul role="tablist">
+					<li role="tab" aria-controls="tabCont1" aria-selected="true" id="tabNav1"><button type="button"><span>탭1</span></button></li>
+					<li role="tab" aria-controls="tabCont2" aria-selected="false" id="tabNav2"><button type="button"><span>탭2</span></button></li>
+				</ul>
+			</div>
+			<div class="tab-body">
+				<div class="tab-cont" role="tabpanel" aria-labelledby="tabNav1" aria-hidden="true">
+					<p>탭1</p>
+				</div>
+				<div class="tab-cont" role="tabpanel" aria-labelledby="tabNav2" aria-hidden="false">
+					<p>탭2</p>
+				</div>
+			</div>
+		</div>
+
+		<h3>Accordion</h3>
+		<ul class="acco">
+			<li class="acco-item">
+				<div class="acco-title">
+					<button type="button" class="btn" id="accoTitle1" aria-controls="accoCont1" aria-expanded="true"><span>아코디언1</span></button>
+				</div>
+				<div id="accoCont1" class="acco-cont" aria-labelledby="accoTitle1" aria-hidden="false">
+					<p>아코디언1</p>
+				</div>
+			</li>
+			<li class="acco-item">
+				<div class="acco-title">
+					<button type="button" class="btn" id="accoTitle2" aria-controls="accoCont2" aria-expanded="true"><span>아코디언2</span></button>
+				</div>
+				<div id="accoCont2" class="acco-cont" aria-labelledby="accoTitle2" aria-hidden="true">
+					<p>아코디언2</p>
+				</div>
+			</li>
+		</ul>
+
+		<h3>Drop-down</h3>
+		<div class="drop drop-down">
+			<button type="button" id="dropDownBtn1" class="btn" aria-controls="dropDown1" aria-expanded="true" aria-haspopup="listbox"><span>드롭다운 버튼</span></button>
+			<div id="dropDown1" class="drop-menu" aria-labelledby="dropDownBtn1" aria-hidden="false">
+				<ul>
+					<li><a href="#">드롭다운 메뉴1</a></li>
+					<li><a href="#">드롭다운 메뉴2</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<h3>Tooltip</h3>
+		<div class="tooltip-area">
+			<button type="button" class="btn" aria-controls="tooltip1" aria-expanded="true" aria-describedby="tooltip1"><span>툴팁 버튼</span></button>
+			<div id="tooltip1" class="tooltip" role="tooltip" aria-hidden="true">
+				<p>툴팁내용</p>
+			</div>
+		</div>
+
+		<h3>Alert</h3>
+		<div class="form-alert" role="alert" aria-hidden="true">
+			경고메세지
+		</div>
+
+		<h3>Dialog</h3>
+		<button type="button" class="btn" aria-controls="popup1" aria-expanded="false" aria-haspopup="true" onclick="popupOpen('popup1', this);"><span>팝업열기</span></button>
+		<div id="popup1" class="popup" role="dialog" aria-modal="true" aria-labelledby="popupHeader1" aria-describedby="popupBody1" hidden>
+			<div class="popup-header">
+				<h3 id="popupHeader1">팝업제목</h3>
+			</div>
+			<div id="popupBody1" class="popup-body">
+				<p>팝업내용</p>
+			</div>
+			<div class="popup-footer">
+				<button type="button" class="btn" aria-controls="popup1" onclick="popupClose('popup1', this);"><span>팝업닫기</span></button>
+			</div>
+		</div>
+
+		<h3>AlertDialog</h3>
+		<button type="button" class="btn" aria-controls="popup2" aria-expanded="false" aria-haspopup="true" onclick="popupOpen('popup2', this);"><span>팝업열기</span></button>
+		<div id="popup2" class="popup" role="alertdialog" aria-modal="true" aria-labelledby="popupHeader2" aria-describedby="popupBody2" hidden>
+			<div class="popup-header">
+				<h3 id="popupHeader2">팝업제목</h3>
+			</div>
+			<div id="popupBody2" class="popup-body">
+				<p>팝업내용</p>
+			</div>
+			<div class="popup-footer">
+				<button type="button" class="btn" aria-controls="popup2" onclick="popupClose('popup2', this);"><span>팝업닫기</span></button>
+			</div>
+		</div>
+	</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="keywords" content="웹스타일가이드, 더웹스타일㈜">
+<meta name="description" content="웹스타일가이드, 더웹스타일㈜">
+<title>Accessibility Basic - 더웹스타일㈜</title>
+<style>
+#wrapper {width:calc(100% + 10px); padding-right:10px;}
+
+.blind {position:absolute; lefT:-999px; top:-999px; width:1px; height:1px; overflow:hidden;}
+.color-primary {color:#ff0000;}
+</style>
+</head>
+<body>
+<div id="wrapper">
+	<h1>Accessibility Focus</h1>
+	<p><a href="index.html">목록으로 이동</a></p>
+	<hr>
+
+	<section>
+		<h2>모바일접근성 초점의 특성</h2>
+		<p>Android와 IOS의 초점비고 기본예시</p>
+		<dl>
+			<dt>Android</dt>
+			<dd>Element 초점 접근방식</dd>
+			<dd>파이어폭스 > 삼성브라우저 > 구글크롬 순서로 기본적인 초점 호환성차이가 있다.</dd>
+			<dt>IOS</dt>
+			<dd>Content 초점 접근방식</dd>
+			<dd>사파리기준이며, Content 초점 접근방식에 의해 숨김텍스트와 Translate에 민감하다.</dd>
+		</dl>
+		<h3>초점예시</h3>
+		<h4>일반 텍스트</h4>
+		<div class="">
+			<p style="line-height:24px">줄간격 24px 샘플텍스트</p>
+			<p style="line-height:34px">줄간격 34px 샘플텍스트</p>
+			<p style="line-height:44px">줄간격 44px 샘플텍스트</p>
+		</div>
+		<h4>숨김 텍스트</h4>
+		<div class="">
+			<p style="line-height:24px"><span class="blind">줄간격 24px</span> 샘플텍스트</p>
+			<p style="line-height:34px"><span class="blind">줄간격 34px</span> 샘플텍스트</p>
+			<p style="line-height:44px"><span class="blind">줄간격 44px</span> 샘플텍스트</p>
+		</div>
+		<h4>Role 텍스트</h4>
+		<div class="">
+			<p style="line-height:24px" role="text">줄간격 24px 샘플텍스트</p>
+			<p style="line-height:34px" role="text">줄간격 34px 샘플텍스트</p>
+			<p style="line-height:44px" role="text">줄간격 44px 샘플텍스트</p>
+		</div>
+		<h4>Role + 숨김 텍스트</h4>
+		<div class="">
+			<p style="line-height:24px" role="text"><span class="blind">줄간격 24px</span> 샘플텍스트</p>
+			<p style="line-height:34px" role="text"><span class="blind">줄간격 34px</span> 샘플텍스트</p>
+			<p style="line-height:44px" role="text"><span class="blind">줄간격 44px</span> 샘플텍스트</p>
+		</div>
+		<h4>Anchor 텍스트</h4>
+		<div class="">
+			<a href="#" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:24px">줄간격 24px 샘플링크</a>
+			<a href="#" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:34px">줄간격 34px 샘플링크</a>
+			<a href="#" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:44px">줄간격 44px 샘플링크</a>
+		</div>
+		<h4>Button 텍스트</h4>
+		<div class="">
+			<button type="button" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:24px">줄간격 24px 샘플버튼</button>
+			<button type="button" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:34px">줄간격 34px 샘플버튼</button>
+			<button type="button" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:44px">줄간격 44px 샘플버튼</button>
+		</div>
+		<h4>Anchor Role Tab </h4>
+		<div role="tablist">
+			<a href="#" role="tab" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:24px">줄간격 24px 샘플탭</a>
+			<a href="#" role="tab" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:34px">줄간격 34px 샘플탭</a>
+			<a href="#" role="tab" style="display:inline-block; border:1px solid #ddd; padding:5px; text-align:center; line-height:44px">줄간격 44px 샘플탭</a>
+		</div>
+		<h4>Anchor Item</h4>
+		<ul style="padding:0">
+			<li class="item" style="display:inline-block; width:150px; padding:0">
+				<a href="#" class="item-body" style="display:block;">
+					<p class="thumbnail"><img src="http://i.011st.com/ex_t/R/175x175/1/85/1/src/pd/19/2/6/9/7/5/5/jfKBo/2414269755_L300.jpg" alt="아디다스/리복 운동화 전상품 단독특가 썸네일" style="width:100%"></p>
+					<p class="tit">아디다스/리복 운동화 전상품 단독특가</p>
+					<p class="txt">배송지연보상 프리미엄 패션브랜드 전문쇼핑몰</p>
+				</a>
+			</li>
+			<li class="item" style="display:inline-block; width:150px;">
+				<a href="#" class="item-body" style="display:block;">
+					<p class="thumbnail"><img src="http://i.011st.com/ex_t/R/175x175/1/85/1/src/pd/19/2/6/9/7/5/5/jfKBo/2414269755_L300.jpg" alt="아디다스/리복 운동화 전상품 단독특가 썸네일" style="width:100%"></p>
+					<p class="tit">아디다스/리복 운동화 전상품 단독특가</p>
+					<p class="txt">배송지연보상 프리미엄 패션브랜드 전문쇼핑몰</p>
+				</a>
+			</li>
+		</ul>
+	</section>
+</div>
+</body>
+</html>
