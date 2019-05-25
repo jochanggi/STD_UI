@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../../_wsg/js/wsg_include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+<style type="text/css">
+	.to-animate-sec {opacity:0;}
+	.to-animate {opacity:0;}
+	.ui-animate-sec {height:500px; border:1px solid #ddd; border-radius:10px;}
+	.ui-animate-sec + .ui-animate-sec {margin-top:50px;}
+	.ui-animate-head {border-bottom:1px solid #ddd;}
+	.delay-03 {-webkit-animation-delay: 0.3s; animation-delay: 0.3s;}
+	.delay-05 {-webkit-animation-delay: 0.5s; animation-delay: 0.5s;}
+</style>
+<script type="text/javascript">
+<!--
+	$(document).ready(function(){
+		var $eleAnimateSec = $('.to-animate-sec');
+		var clsAnimate = 'animated';
+		var percent = 0.5;
+		var time = null;
+
+		function action(){
+			$eleAnimateSec.each(function(){
+				var $this = $(this);
+				var objH = $this.offset().top + ($this.outerHeight() * percent);
+				var winH = $(window).scrollTop() + $(window).outerHeight();
+
+				if (winH > objH){
+					$this.addClass(clsAnimate).addClass($this.attr('data-animate'));
+					$this.find('.to-animate').each(function(){
+						$(this).addClass(clsAnimate).addClass($(this).attr('data-delay')).addClass($(this).attr('data-animate'));
+					})
+				}
+			})
+		}
+		$(window).on('scroll', function(){
+			clearTimeout(time);
+			time = setTimeout(function(){ action() });
+		})
+
+		action();
+	})
+//-->
+</script>
+
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">Scroll Animate</h1>
+				<p class="g-explain-h1">마크업뷰중심 + 일부컨텐츠 </p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Default</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;div class="to-animate-sec" data-animate="fadeInUp">
+										&lt;div class="to-animate" data-duration="dur-03" data-delay="delay-03" data-animate="fadeInUp">&lt;/div>
+										&lt;div class="to-animate" data-duration="dur-05" data-delay="delay-05" data-animate="fadeInUp">&lt;/div>
+									&lt;/div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									.to-animate-sec {opacity:0;}
+									.to-animate {opacity:0;}
+									.ui-animate-sec {height:500px; border:1px solid #ddd; border-radius:10px;}
+									.ui-animate-sec + .ui-animate-sec {margin-top:50px;}
+									.ui-animate-head {border-bottom:1px solid #ddd;}
+									.delay-03 {-webkit-animation-delay: 0.3s; animation-delay: 0.3s;}
+									.delay-05 {-webkit-animation-delay: 0.5s; animation-delay: 0.5s;}
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									$(document).ready(function(){
+										var $eleAnimateSec = $('.to-animate-sec');
+										var clsAnimate = 'animated';
+										var percent = 0.5;
+										var time = null;
+
+										function action(){
+											$eleAnimateSec.each(function(){
+												var $this = $(this);
+												var objH = $this.offset().top + ($this.outerHeight() * percent);
+												var winH = $(window).scrollTop() + $(window).outerHeight();
+
+												if (winH > objH){
+													$this.addClass(clsAnimate).addClass($this.attr('data-animate'));
+													$this.find('.to-animate').each(function(){
+														$(this).addClass(clsAnimate).addClass($(this).attr('data-delay')).addClass($(this).attr('data-animate'));
+													})
+												}
+											})
+										}
+										$(window).on('scroll', function(){
+											clearTimeout(time);
+											time = setTimeout(function(){ action() });
+										})
+
+										action();
+									})
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Basic</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<div class="ui-animate-sec to-animate-sec" data-animate="fadeInUp">
+										<div class="ui-animate-head to-animate" data-delay="delay-03" data-animate="fadeInUp">우리나라 금수강산</div>
+										<div class="ui-animate-body to-animate" data-delay="delay-05" data-animate="fadeInUp">대한민국 만세</div>
+									</div>
+									<div class="ui-animate-sec to-animate-sec" data-animate="fadeInUp">
+										2
+										<div class="ui-animate-head to-animate" data-delay="delay-03" data-animate="fadeInUp">너네나라 금수강산</div>
+										<div class="ui-animate-body to-animate" data-delay="delay-05" data-animate="fadeInUp">대한민국 만세</div>
+									</div>
+									<div class="ui-animate-sec to-animate-sec" data-animate="fadeInUp">
+										3
+										<div class="ui-animate-head to-animate" data-delay="delay-03" data-animate="fadeInUp">그네나라 금수강산</div>
+										<div class="ui-animate-body to-animate" data-delay="delay-05" data-animate="fadeInUp">대한민국 만세</div>
+									</div>
+									<div class="ui-animate-sec to-animate-sec" data-animate="fadeInUp">
+										4
+										<div class="ui-animate-head to-animate" data-delay="delay-03" data-animate="fadeInUp">저네나라 금수강산</div>
+										<div class="ui-animate-body to-animate" data-delay="delay-05" data-animate="fadeInUp">대한민국 만세</div>
+									</div>
+									<div class="ui-animate-sec to-animate-sec" data-animate="fadeInUp">
+										5
+										<div class="ui-animate-head to-animate" data-delay="delay-03" data-animate="fadeInUp">남의나라 금수강산</div>
+										<div class="ui-animate-body to-animate" data-delay="delay-05" data-animate="fadeInUp">대한민국 만세</div>
+									</div>
+									<div class="ui-animate-sec to-animate-sec" data-animate="fadeInUp">
+										6
+										<div class="ui-animate-head to-animate" data-delay="delay-03" data-animate="fadeInUp">나의나라 금수강산</div>
+										<div class="ui-animate-body to-animate" data-delay="delay-05" data-animate="fadeInUp">대한민국 만세</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec" style="display:none">
+					<div class="g-section-header">
+						<h2 class="g-h2">General UI</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec" style="display:none">
+					<div class="g-section-header">
+						<h2 class="g-h2">Design Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

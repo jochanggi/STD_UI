@@ -213,6 +213,7 @@ var include = {
 			document.write('						<a href="javascript:;">Interactions</a>');
 			document.write('						<ul class="g-depth2">');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'interactions_cubicbezier.html">Cubic Bezier</a></li>');
+			document.write('							<li class="g-node2"><a href="'+baseURL+'interactions_scrollAnimate.html">Scroll Animate</a></li>');
 			document.write('						</ul>');
 			document.write('					</li>');
 			document.write('				</ul>');
