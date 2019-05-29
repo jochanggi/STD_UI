@@ -38,20 +38,20 @@
 							<div class="g-example-footer is-active">
 								<pre class="brush:html">
 									&lt;!-- s: Tab Area -->
-									&lt;div class="ui-tab-nav tab-basic">
+									&lt;div class="tab-nav tab-basic">
 										&lt;ul role="tablist">
 											&lt;li role="tab">&lt;a href="#tabContent01" id="tabNav01" aria-controls="tabContent01" aria-selected="true">&lt;span>제목1&lt;/span>&lt;/a>&lt;/li>&lt;/li>
 											&lt;li role="tab">&lt;a href="#tabContent02" id="tabNav02" aria-controls="tabContent02" aria-selected="false">&lt;span>제목2&lt;/span>&lt;/a>&lt;/li>&lt;/li>
 										&lt;/ul>
 									&lt;/div>
-									&lt;div class="ui-tab-body">
+									&lt;div class="tab-body">
 										&lt;!-- s: 제목1 -->
-										&lt;div id="tabContent01" class="ui-tab-content" aria-labelledby="tabNav01" aria-hidden="false">
+										&lt;div id="tabContent01" class="tab-content" aria-labelledby="tabNav01" aria-hidden="false">
 											탭내용1
 										&lt;/div>
 										&lt;!-- e: 제목1 -->
 										&lt;!-- s: 제목2 -->
-										&lt;div id="tabContent02" class="ui-tab-content" aria-labelledby="tabNav02" aria-hidden="true">
+										&lt;div id="tabContent02" class="tab-content" aria-labelledby="tabNav02" aria-hidden="true">
 											탭내용2
 										&lt;/div>
 										&lt;!-- e: 제목2 -->
@@ -65,18 +65,18 @@
 										## Tabs
 									-------------------------------------------------------------------*/
 									/* Default */
-									.ui-tab-nav li {position:relative; text-align:center;}
-									.ui-tab-nav a {display:block; padding:10px;}
-									.ui-tab-content {position:relative; padding:10px;}
-									.ui-tab-content[aria-hidden=false] {display:block;}
-									.ui-tab-content[aria-hidden=true] {display:none;}
+									.tab-nav li {position:relative; text-align:center;}
+									.tab-nav a {display:block; padding:10px;}
+									.tab-content {position:relative; padding:10px;}
+									.tab-content[aria-hidden=false] {display:block;}
+									.tab-content[aria-hidden=true] {display:none;}
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:js">
 									var ui = {
 										init : function(){
-											if ($('.ui-tab-nav').length){this.tab.init();} // ##Tab
+											if ($('.tab-nav').length){this.tab.init();} // ##Tab
 										},
 										/*
 											기능정의: ##Tab
@@ -85,8 +85,8 @@
 											참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 										*/
 										tab: {
-											eleButton: '.ui-tab-nav a',
-											eleContent: '.ui-tab-content',
+											eleButton: '.tab-nav a',
+											eleContent: '.tab-content',
 											init: function(){
 												this.event();
 											},
@@ -127,20 +127,20 @@
 							<div class="g-example-body">
 								<div class="g-example-preview">
 									<!-- s: Tab Area -->
-									<div class="ui-tab-nav tab-basic">
+									<div class="tab-nav tab-basic">
 										<ul role="tablist">
 											<li role="tab"><a href="#tabContent11" id="tabNav11" aria-controls="tabContent11" aria-selected="true"><span>제목1</span></a></li></li>
 											<li role="tab"><a href="#tabContent12" id="tabNav12" aria-controls="tabContent12" aria-selected="false"><span>제목2</span></a></li></li>
 										</ul>
 									</div>
-									<div class="ui-tab-body">
+									<div class="tab-body">
 										<!-- s: 제목1 -->
-										<div id="tabContent11" class="ui-tab-content" aria-labelledby="tabNav11" aria-hidden="false">
+										<div id="tabContent11" class="tab-content" aria-labelledby="tabNav11" aria-hidden="false">
 											탭내용1
 										</div>
 										<!-- e: 제목1 -->
 										<!-- s: 제목2 -->
-										<div id="tabContent12" class="ui-tab-content" aria-labelledby="tabNav12" aria-hidden="true">
+										<div id="tabContent12" class="tab-content" aria-labelledby="tabNav12" aria-hidden="true">
 											탭내용2
 										</div>
 										<!-- e: 제목2 -->
@@ -150,7 +150,7 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									&lt;div class="ui-tab-nav tab-basic">
+									&lt;div class="tab-nav tab-basic">
 										...
 									&lt;/div>
 								</pre>
@@ -188,20 +188,20 @@
 							<div class="g-example-body">
 								<div class="g-example-preview">
 									<!-- s: Tab Area -->
-									<div class="ui-tab-nav tab-basic tab-flex">
+									<div class="tab-nav tab-basic tab-flex">
 										<ul role="tablist">
 											<li role="tab"><a href="#tabContent21" id="tabNav21" aria-controls="tabContent21" aria-selected="true"><span>제목1</span></a></li></li>
 											<li role="tab"><a href="#tabContent22" id="tabNav22" aria-controls="tabContent22" aria-selected="false"><span>제목2</span></a></li></li>
 										</ul>
 									</div>
-									<div class="ui-tab-body">
+									<div class="tab-body">
 										<!-- s: 제목1 -->
-										<div id="tabContent21" class="ui-tab-content" aria-labelledby="tabNav21" aria-hidden="false">
+										<div id="tabContent21" class="tab-content" aria-labelledby="tabNav21" aria-hidden="false">
 											탭내용1
 										</div>
 										<!-- e: 제목1 -->
 										<!-- s: 제목2 -->
-										<div id="tabContent22" class="ui-tab-content" aria-labelledby="tabNav22" aria-hidden="true">
+										<div id="tabContent22" class="tab-content" aria-labelledby="tabNav22" aria-hidden="true">
 											탭내용2
 										</div>
 										<!-- e: 제목2 -->
@@ -219,8 +219,8 @@
 							<div class="g-example-footer">
 								<pre class="brush:css">
 									/* Layout */
-									.ui-tab-nav.tab-flex ul {display:flex;}
-									.ui-tab-nav.tab-flex li {float:none; width:100%;}
+									.tab-nav.tab-flex ul {display:flex;}
+									.tab-nav.tab-flex li {float:none; width:100%;}
 								</pre>
 							</div>
 						</div>
@@ -245,56 +245,56 @@
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
-									<div class="ui-tab-nav tab-basic">
-										<ul role="tablist" class="ui-grid">
-											<li role="tab" class="ui-col col-3"><a href="#tabContent31" id="tabNav3-1" aria-controls="tabContent31" aria-selected="true">탭제목1</a></li>
-											<li role="tab" class="ui-col col-3"><a href="#tabContent32" id="tabNav3-2" aria-controls="tabContent32" aria-selected="false">탭제목2</a></li>
-											<li role="tab" class="ui-col col-3"><a href="#tabContent33" id="tabNav3-3" aria-controls="tabContent33" aria-selected="false">탭제목3</a></li>
-											<li role="tab" class="ui-col col-3"><a href="#tabContent34" id="tabNav3-4" aria-controls="tabContent34" aria-selected="false">탭제목4</a></li>
-											<li role="tab" class="ui-col col-3"><a href="#tabContent35" id="tabNav3-5" aria-controls="tabContent35" aria-selected="false">탭제목5</a></li>
-											<li role="tab" class="ui-col col-3"><a href="#tabContent36" id="tabNav3-6" aria-controls="tabContent36" aria-selected="false">탭제목6</a></li>
-											<li role="tab" class="ui-col col-3"><a href="#tabContent37" id="tabNav3-7" aria-controls="tabContent37" aria-selected="false">탭제목7</a></li>
-											<li role="tab" class="ui-col col-3"><a href="#tabContent38" id="tabNav3-8" aria-controls="tabContent38" aria-selected="false">탭제목8</a></li>
+									<div class="tab-nav tab-basic">
+										<ul role="tablist" class="grid">
+											<li role="tab" class="col col-3"><a href="#tabContent31" id="tabNav3-1" aria-controls="tabContent31" aria-selected="true">탭제목1</a></li>
+											<li role="tab" class="col col-3"><a href="#tabContent32" id="tabNav3-2" aria-controls="tabContent32" aria-selected="false">탭제목2</a></li>
+											<li role="tab" class="col col-3"><a href="#tabContent33" id="tabNav3-3" aria-controls="tabContent33" aria-selected="false">탭제목3</a></li>
+											<li role="tab" class="col col-3"><a href="#tabContent34" id="tabNav3-4" aria-controls="tabContent34" aria-selected="false">탭제목4</a></li>
+											<li role="tab" class="col col-3"><a href="#tabContent35" id="tabNav3-5" aria-controls="tabContent35" aria-selected="false">탭제목5</a></li>
+											<li role="tab" class="col col-3"><a href="#tabContent36" id="tabNav3-6" aria-controls="tabContent36" aria-selected="false">탭제목6</a></li>
+											<li role="tab" class="col col-3"><a href="#tabContent37" id="tabNav3-7" aria-controls="tabContent37" aria-selected="false">탭제목7</a></li>
+											<li role="tab" class="col col-3"><a href="#tabContent38" id="tabNav3-8" aria-controls="tabContent38" aria-selected="false">탭제목8</a></li>
 										</ul>
 									</div>
 									<div class="tab-body">
 										<!-- 탭내용1 -->
-										<div id="tabContent31" class="ui-tab-content" aria-labelledby="tabNav31" aria-hidden="false">
+										<div id="tabContent31" class="tab-content" aria-labelledby="tabNav31" aria-hidden="false">
 											탭내용1
 										</div>
 										<!-- //탭내용1 -->
 										<!-- 탭내용2 -->
-										<div id="tabContent32" class="ui-tab-content" aria-labelledby="tabNav32" aria-hidden="true">
+										<div id="tabContent32" class="tab-content" aria-labelledby="tabNav32" aria-hidden="true">
 											탭내용2
 										</div>
 										<!-- //탭내용2 -->
 										<!-- 탭내용3 -->
-										<div id="tabContent33" class="ui-tab-content" aria-labelledby="tabNav33" aria-hidden="true">
+										<div id="tabContent33" class="tab-content" aria-labelledby="tabNav33" aria-hidden="true">
 											탭내용3
 										</div>
 										<!-- //탭내용3 -->
 										<!-- 탭내용4 -->
-										<div id="tabContent34" class="ui-tab-content" aria-labelledby="tabNav34" aria-hidden="true">
+										<div id="tabContent34" class="tab-content" aria-labelledby="tabNav34" aria-hidden="true">
 											탭내용4
 										</div>
 										<!-- //탭내용4 -->
 										<!-- 탭내용5 -->
-										<div id="tabContent35" class="ui-tab-content" aria-labelledby="tabNav35" aria-hidden="true">
+										<div id="tabContent35" class="tab-content" aria-labelledby="tabNav35" aria-hidden="true">
 											탭내용5
 										</div>
 										<!-- //탭내용5 -->
 										<!-- 탭내용6 -->
-										<div id="tabContent36" class="ui-tab-content" aria-labelledby="tabNav36" aria-hidden="true">
+										<div id="tabContent36" class="tab-content" aria-labelledby="tabNav36" aria-hidden="true">
 											탭내용6
 										</div>
 										<!-- //탭내용6 -->
 										<!-- 탭내용7 -->
-										<div id="tabContent37" class="ui-tab-content" aria-labelledby="tabNav37" aria-hidden="true">
+										<div id="tabContent37" class="tab-content" aria-labelledby="tabNav37" aria-hidden="true">
 											탭내용7
 										</div>
 										<!-- //탭내용7 -->
 										<!-- 탭내용8 -->
-										<div id="tabContent38" class="ui-tab-content" aria-labelledby="tabNav38" aria-hidden="true">
+										<div id="tabContent38" class="tab-content" aria-labelledby="tabNav38" aria-hidden="true">
 											탭내용8
 										</div>
 										<!-- //탭내용8 -->

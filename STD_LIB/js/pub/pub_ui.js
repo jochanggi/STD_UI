@@ -7,8 +7,8 @@ var ui = {
 
 		if ($('.gnb-dropdown').length)		{this.gnb_dropdown.init();}		// #Gnb Dropdown
 		if ($('.gnb-fulldown').length)		{this.gnb_fulldown.init();}		// #Gnb Fulldown
-		if ($('.ui-tab-nav').length)		{this.tab.init();}				// #Tab
-		if ($('.ui-acco').length)			{this.acco.init();}				// #acco
+		if ($('.tab-nav').length)		{this.tab.init();}				// #Tab
+		if ($('.acco').length)			{this.acco.init();}				// #acco
 		if ($('[data-role=fold]').length)	{this.foldToggle.init();}		// #Folder (접기)
 		if ($('[data-role=more]').length)	{this.moreToggle.init();}		// #FolderMore (더보기)
 		if ($('.tooltip-basic').length)		{this.tooltip.init();}			// #Tooltip
@@ -26,78 +26,49 @@ var ui = {
 
 	//#Gnb Dropdown
 	gnb_dropdown : {
-		eleModule		: '.gnb-dropdown',
-		eleNode1_item	: '.node1-item',
-		eleNode2_item	: '.node2-item',
-		idxNode1		: -1,
-		idxNode2		: -1,
-		isEvented		: false,
-		init : function(){
-			if (this.isEvented == false){ this.event(); this.isEvented = true; }
+		eleNode1_item : '.gnb-dropdown .node1-item',
+		eleNode2_item : '.gnb-dropdown .node2-item',
+		init: function(){
+			var setTime = null;
+			$(this.eleNode1_item).not('.is-entered').on('mouseenter focusin', function(){
+				clearTimeout(setTime);
+				$(this).addClass('is-active').find('> a').attr({'aria-expended':'true'});
+				$(this).siblings().removeClass('is-active').find('> a').attr({'aria-expended':'false'});
+			}).addClass('is-entered');
+			$(this.eleNode1_item).not('.is-leaved').on('mouseleave focusout', function(){
+				var $this = $(this);
+				setTime = setTimeout(function(){ $this.removeClass('is-active') });
+			}).addClass('is-leaved');
 		},
 		set : function(n1, n2){
-			this.idxNode1 = n1, this.idxNode2 = n2;
-			if (this.idxNode1 > -1){ $(this.eleModule).find(this.eleNode1_item).eq(this.idxNode1).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
-			if (this.idxNode2 > -1){ $(this.eleModule).find(this.eleNode2_item).eq(this.idxNode2).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
-		},
-		event : function(){
-			var _this = this, setTime = null;
-			$(this.eleModule).find(this.eleNode1_item).on('mouseenter focusin', function(){
-				clearTimeout(setTime);
-				var idx = $(this).index();
-				_this.open(idx);
-			});
-			$(this.eleModule).find(this.eleNode1_item).on('mouseleave focusout', function(){
-				var idx = $(this).index();
-				setTime = setTimeout(function(){ _this.close(idx) }, 50);
-			});
-		},
-		open : function(idx){
-			$(this.eleModule).find(this.eleNode1_item).eq(idx).attr({'aria-selected':'true', 'aria-expanded':'true'}).siblings().attr({'aria-selected':'false', 'aria-expanded':'false'});
-		},
-		close : function(idx){
-			$(this.eleModule).find(this.eleNode1_item).eq(idx).attr({'aria-selected':'false', 'aria-expanded':'false'});
-		},
+			$(this.eleNode1_item).eq(n1).addClass('is-current').siblings().removeClass('is-current');
+			$(this.eleNode2_item).eq(n2).addClass('is-current').siblings().removeClass('is-current');
+		}
 	},
 
 	//#Gnb Fulldown
 	gnb_fulldown : {
-		eleModule		: '.gnb-fulldown',
-		eleNode1_item	: '.node1-item',
-		eleNode2_item	: '.node2-item',
-		idxNode1		: -1,
-		idxNode2		: -1,
-		isEvented		: false,
+		eleModule : '.gnb-fulldown',
+		eleNode1_item : '.gnb-fulldown .node1-item',
+		eleNode2_item : '.gnb-fulldown .node2-item',
 		init : function(){
-			if (this.isEvented == false){ this.event(); this.isEvented = true; }
+			var _this = this, setTime = null;
+			$(this.eleNode1_item).not('.is-entered').on('mouseenter focusin', function(){
+				clearTimeout(setTime);
+				$(_this.eleModule).addClass('is-active');
+				$(_this.eleNode1_item).find('> a').attr({'aria-expanded':'true'});
+			}).addClass('is-entered');
+			$(this.eleNode1_item).not('.is-leaved').on('mouseleave focusout', function(){
+				setTime = setTimeout(function(){
+					$(_this.eleModule).removeClass('is-active');
+					$(_this.eleNode1_item).find('> a').attr({'aria-expanded':'false'});
+				});
+			}).addClass('is-leaved');
 		},
 		set : function(n1, n2){
-			this.idxNode1 = n1, this.idxNode2 = n2;
-			if (this.idxNode1 > -1){ $(this.eleModule).find(this.eleNode1_item).eq(this.idxNode1).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
-			if (this.idxNode2 > -1){ $(this.eleModule).find(this.eleNode2_item).eq(this.idxNode2).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
-		},
-		event : function(){
-			var _this = this, setTime = null;
-			$(this.eleModule).find(this.eleNode1_item).on('mouseenter focusin', function(){
-				clearTimeout(setTime);
-				var idx = $(this).index();
-				_this.open(idx);
-			});
-			$(this.eleModule).find(this.eleNode1_item).on('mouseleave focusout', function(){
-				var idx = $(this).index();
-				setTime = setTimeout(function(){
-					_this.close(idx)
-				}, 50);
-			});
-		},
-		open : function(idx){
-			$(this.eleModule).addClass('is-active')
-			$(this.eleModule).find(this.eleNode1_item).attr({'aria-expanded':'true'}).eq(idx).attr({'aria-selected':'true'}).siblings().attr({'aria-selected':'false'});
-		},
-		close : function(idx){
-			$(this.eleModule).removeClass('is-active');
-			$(this.eleModule).find(this.eleNode1_item).attr({'aria-expanded':'false'}).eq(idx).attr({'aria-selected':'false'});
-		},
+			$(this.eleNode1_item).eq(n1).addClass('is-current').siblings().removeClass('is-current');
+			$(this.eleNode2_item).eq(n2).addClass('is-current').siblings().removeClass('is-current');
+		}
 	},
 
 	/*
@@ -107,8 +78,8 @@ var ui = {
 		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 	*/
 	tab: {
-		eleButton: '.ui-tab-nav a',
-		eleContent: '.ui-tab-content',
+		eleButton: '.tab-nav a',
+		eleContent: '.tab-content',
 		init: function(){
 			this.event();
 		},
@@ -131,11 +102,11 @@ var ui = {
 		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 	*/
 	acco : {
-		eleModule: '.ui-acco',
-		eleItem: '.ui-acco-item',
-		eleButton: '.ui-acco-toggle',
-		eleTitle: '.ui-acco-title',
-		eleContent: '.ui-acco-cont',
+		eleModule: '.acco',
+		eleItem: '.acco-item',
+		eleButton: '.acco-toggle',
+		eleTitle: '.acco-title',
+		eleContent: '.acco-cont',
 		duration: 300,
 		init: function(){
 			this.reset();
@@ -200,9 +171,9 @@ var ui = {
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
 	foldToggle : {
-		eleButton: '.ui-fold-toggle[data-role=fold]',
-		eleContent: '.ui-fold-cont',
-		eleFocus: '.ui-fold-focus',
+		eleButton: '.fold-toggle[data-role=fold]',
+		eleContent: '.fold-cont',
+		eleFocus: '.fold-focus',
 		speed: 250,
 		init : function(){
 			var _this = this;
@@ -234,10 +205,10 @@ var ui = {
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
 	moreToggle : {
-		eleButton:	'.ui-fold-toggle[data-role=more]',
-		eleContent: '.ui-fold-cont',
-		eleHide:	'.ui-fold-hide',
-		eleFocus:	'.ui-fold-focus',
+		eleButton:	'.fold-toggle[data-role=more]',
+		eleContent: '.fold-cont',
+		eleHide:	'.fold-hide',
+		eleFocus:	'.fold-focus',
 		speed: 250,
 		init: function(){
 			var _this = this;

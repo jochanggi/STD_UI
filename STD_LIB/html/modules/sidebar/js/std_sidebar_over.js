@@ -7,9 +7,9 @@ var cm = {
 		if ($('#sidebar').length)		{ this.sidebar.init()	}	/* Aside Menu */
 	},
 	sidebar : {
-		eleModule : '.sidebar-wrap',
-		eleOpener : '.js-sidebar-opener',
-		eleCloser : '.js-sidebar-closer',
+		eleModule : '.sidebar',
+		eleOpener : '.sidebar-opener',
+		eleCloser : '.sidebar-closer',
 		eleFocus : 'a, button, [tabindex=0]',
 		init : function(){
 			this.reset();

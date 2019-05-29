@@ -29,15 +29,15 @@
 .gnb-dropdown .node1-link:focus,
 .gnb-dropdown .node1-link:hover,
 .gnb-dropdown .node1-link:active,
-.gnb-dropdown .node1-item[aria-selected=true] > .node1-link,
-.gnb-dropdown .node1-item[aria-current=true] > .node1-link {color:#000;}
-.gnb-dropdown .node1-item[aria-current=true] > .node1-link:after {@extend %wideScale-active;}
-.gnb-dropdown .node1-item[aria-selected=true] > .node2-wrap {@extend %dropdown-active;}
+.gnb-dropdown .node1-item.is-active > .node1-link,
+.gnb-dropdown .node1-item.is-current > .node1-link {color:#000;}
+.gnb-dropdown .node1-item.is-current > .node1-link:after {@extend %wideScale-active;}
+.gnb-dropdown .node1-item.is-active > .node2-wrap {@extend %dropdown-active;}
 .gnb-dropdown .node2-link:focus,
 .gnb-dropdown .node2-link:hover,
 .gnb-dropdown .node2-link:active,
-.gnb-dropdown .node2-item[aria-selected=true] > .node2-link,
-.gnb-dropdown .node2-item[aria-current=true] > .node2-link {color:#000;}
+.gnb-dropdown .node2-item.is-active > .node2-link,
+.gnb-dropdown .node2-item.is-current > .node2-link {color:#000;}
 
 /* GNB Fullpdown - Default */
 .gnb-fulldown {position:relative; height:30px;}
@@ -54,14 +54,14 @@
 .gnb-fulldown .node1-link:focus,
 .gnb-fulldown .node1-link:hover,
 .gnb-fulldown .node1-link:active,
-.gnb-fulldown .node1-item[aria-selected=true] > .node1-link,
-.gnb-fulldown .node1-item[aria-current=true] > .node1-link {color:#000;}
-.gnb-fulldown .node1-item[aria-current=true] > .node1-link:after {@extend %wideScale-active;}
+.gnb-fulldown .node1-item.is-active > .node1-link,
+.gnb-fulldown .node1-item.is-current > .node1-link {color:#000;}
+.gnb-fulldown .node1-item.is-current > .node1-link:after {@extend %wideScale-active;}
 .gnb-fulldown .node2-link:focus,
 .gnb-fulldown .node2-link:hover,
 .gnb-fulldown .node2-link:active,
-.gnb-fulldown .node2-item[aria-selected=true] .node2-link,
-.gnb-fulldown .node2-item[aria-current=true] .node2-link {color:#000;}
+.gnb-fulldown .node2-item.is-active .node2-link,
+.gnb-fulldown .node2-item.is-current .node2-link {color:#000;}
 .gnb-fulldown.is-active .node2-wrap {height:auto;}
 .gnb-fulldown.is-active .node2-wrap,
 .gnb-fulldown.is-active .gnb-bg {@extend %dropdown-active;}
