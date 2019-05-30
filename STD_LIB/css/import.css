@@ -28,7 +28,9 @@
   display: block; }
 
 /* Transition */
-.gnb-dropdown .node2-wrap, .gnb-fulldown .node2-wrap, .gnb-fulldown .gnb-bg {
+.gnb-dropdown .node2-wrap, .gnb-fulldown .node2-wrap, .gnb-fulldown .gnb-bg, .drop-down .drop-menu {
+  left: 0;
+  top: 100%;
   opacity: 0;
   -webkit-animation: dropdown 0.3s ease both;
   animation: dropdown 0.3s ease both;
@@ -37,14 +39,31 @@
   transform: translateY(-50%) scaleY(0);
   -webkit-transition: opacity 0.2s ease;
   -o-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
-  will-change: transform,opacity; }
+  transition: opacity 0.2s ease; }
 
 .gnb-dropdown .node1-item.is-active > .node2-wrap, .gnb-fulldown.is-active .node2-wrap,
-.gnb-fulldown.is-active .gnb-bg {
+.gnb-fulldown.is-active .gnb-bg, .drop-down.is-active .drop-menu {
   opacity: 1;
   -webkit-animation: dropdown-active 0.3s ease both;
   animation: dropdown-active 0.3s ease both; }
+
+.drop-top .drop-menu {
+  left: 0;
+  bottom: 100%;
+  opacity: 0;
+  -webkit-animation: dropup 0.3s ease both;
+  animation: dropup 0.3s ease both;
+  -webkit-transform: translateY(-50%) scaleY(0);
+  -ms-transform: translateY(-50%) scaleY(0);
+  transform: translateY(-50%) scaleY(0);
+  -webkit-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease; }
+
+.drop-top.is-active .drop-menu {
+  opacity: 1;
+  -webkit-animation: dropup-active 0.3s ease both;
+  animation: dropup-active 0.3s ease both; }
 
 .gnb-dropdown .node1-link:after, .gnb-fulldown .node1-link:after {
   -webkit-transform: scaleX(0);
@@ -89,6 +108,38 @@
   from {
     -webkit-transform: translateY(-50%) scaleY(0);
     transform: translateY(-50%) scaleY(0); }
+  to {
+    -webkit-transform: translateY(0) scaleY(1);
+    transform: translateY(0) scaleY(1); } }
+
+@-webkit-keyframes dropup {
+  from {
+    -webkit-transform: translateY(0) scaleY(1);
+    transform: translateY(0) scaleY(1); }
+  to {
+    -webkit-transform: translateY(50%) scaleY(0);
+    transform: translateY(50%) scaleY(0); } }
+
+@keyframes dropup {
+  from {
+    -webkit-transform: translateY(0) scaleY(1);
+    transform: translateY(0) scaleY(1); }
+  to {
+    -webkit-transform: translateY(50%) scaleY(0);
+    transform: translateY(50%) scaleY(0); } }
+
+@-webkit-keyframes dropup-active {
+  from {
+    -webkit-transform: translateY(50%) scaleY(0);
+    transform: translateY(50%) scaleY(0); }
+  to {
+    -webkit-transform: translateY(0) scaleY(1);
+    transform: translateY(0) scaleY(1); } }
+
+@keyframes dropup-active {
+  from {
+    -webkit-transform: translateY(50%) scaleY(0);
+    transform: translateY(50%) scaleY(0); }
   to {
     -webkit-transform: translateY(0) scaleY(1);
     transform: translateY(0) scaleY(1); } }
@@ -1297,6 +1348,15 @@ button::-moz-focus-inner {
 .btn-basic[disabled] {
   background: #aaa;
   color: #fff; }
+
+.btn-style1 {
+  height: 30px;
+  padding: 0 10px 1px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(200, 200, 200, 0.3);
+  box-shadow: 1px 1px 2px 0px rgba(200, 200, 200, 0.3);
+  line-height: 27px; }
 
 /* Content */
 .btn-pager {
@@ -3213,85 +3273,73 @@ button::-moz-focus-inner {
 /*-------------------------------------------------------------------
 	## Dropdown
 -------------------------------------------------------------------*/
-/* Default */
-.dropdown {
+/* Common */
+.drop {
   width: 100%;
   position: relative;
   z-index: 10;
   display: inline-block; }
 
-.dropdown-menu {
-  display: none;
+.drop-menu {
   position: absolute;
   z-index: 2;
   width: 100%;
   background-color: #fff; }
 
-.dropdown-toggle {
+.drop-toggle {
   position: relative;
   z-index: 3;
   width: 100%;
   text-align: left; }
 
-.dropdown-toggle .arw {
+.drop-toggle .arw {
   position: absolute;
   top: 50%;
   right: 10px; }
 
-.dropdown.is-visible .dropdown-menu {
-  display: block; }
-
 /* Transition */
-.dropdown-menu, .dropdown-toggle .arw {
+.drop-down .drop-toggle .arw {
+  -webkit-transform: translateY(-50%) rotate(0deg);
+  -ms-transform: translateY(-50%) rotate(0deg);
+  transform: translateY(-50%) rotate(0deg);
   -webkit-transition: -webkit-transform 0.2s ease;
   transition: -webkit-transform 0.2s ease;
   -o-transition: transform 0.2s ease;
   transition: transform 0.2s ease;
   transition: transform 0.2s ease, -webkit-transform 0.2s ease; }
 
-.dropdown-menu {
-  -webkit-transform: translateY(-50%) scaleY(0);
-  -ms-transform: translateY(-50%) scaleY(0);
-  transform: translateY(-50%) scaleY(0);
-  opacity: 0;
-  -webkit-transition-property: opacity, -webkit-transform;
-  transition-property: opacity, -webkit-transform;
-  -o-transition-property: transform, opacity;
-  transition-property: transform, opacity;
-  transition-property: transform, opacity, -webkit-transform; }
-
-.dropdown-toggle .arw {
-  -webkit-transform: translateY(-50%) rotate(0deg);
-  -ms-transform: translateY(-50%) rotate(0deg);
-  transform: translateY(-50%) rotate(0deg); }
-
-.dropdown.is-active .dropdown-menu {
-  -webkit-transform: translateY(0) scaleY(1);
-  -ms-transform: translateY(0) scaleY(1);
-  transform: translateY(0) scaleY(1);
-  opacity: 1; }
-
-.dropdown.is-active .dropdown-toggle .arw {
+.drop-down.is-active .drop-toggle .arw {
   -webkit-transform: translateY(-50%) rotate(180deg);
   -ms-transform: translateY(-50%) rotate(180deg);
   transform: translateY(-50%) rotate(180deg); }
 
-/* Select */
-.dropdown-menu .is-current {
-  display: none; }
+.drop-top .drop-toggle .arw {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+  -ms-transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease; }
+
+.drop-top.is-active .drop-toggle .arw {
+  -webkit-transform: translateY(-50%) rotate(0deg);
+  -ms-transform: translateY(-50%) rotate(0deg);
+  transform: translateY(-50%) rotate(0deg); }
 
 /* Design */
-.dropdown-basic {
+.drop-basic {
   width: 150px; }
 
-.dropdown-basic .dropdown-toggle {
+.drop-basic .drop-toggle {
   padding: 0 30px 0 10px;
   border: 1px solid #ddd;
   border-radius: 3px 3px 0 0;
   line-height: 30px;
   font-size: 14px; }
 
-.dropdown-basic .dropdown-menu {
+.drop-basic .drop-menu {
   padding: 5px 10px;
   border: 1px solid #ddd;
   background-color: #fff;

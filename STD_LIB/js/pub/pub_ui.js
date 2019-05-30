@@ -7,12 +7,13 @@ var ui = {
 
 		if ($('.gnb-dropdown').length)		{this.gnb_dropdown.init();}		// #Gnb Dropdown
 		if ($('.gnb-fulldown').length)		{this.gnb_fulldown.init();}		// #Gnb Fulldown
-		if ($('.tab-nav').length)		{this.tab.init();}				// #Tab
-		if ($('.acco').length)			{this.acco.init();}				// #acco
+		if ($('.tab-nav').length)			{this.tab.init();}				// #Tab
+		if ($('.acco').length)				{this.acco.init();}				// #acco
 		if ($('[data-role=fold]').length)	{this.foldToggle.init();}		// #Folder (접기)
 		if ($('[data-role=more]').length)	{this.moreToggle.init();}		// #FolderMore (더보기)
-		if ($('.tooltip-basic').length)		{this.tooltip.init();}			// #Tooltip
-		if ($('.dropdown').length)			{this.dropdown.init();}			// #Dropdown
+		if ($('.tooltip').length)			{this.tooltip.init();}			// #Tooltip
+		if ($('.drop').length)				{this.drop.init();}				// #Dropdown
+		if ($('.drop-select').length)		{this.dropSelect.init();}		// #Dropdown
 		if ($('.popup-open').length)		{this.popup.init();}			// #Popup
 		if ($('.js-popup').length)			{this.fullpopup.init();}		// Full Popup
 		if ($('.js-sticky').length)			{this.sticky.init();}			// Sticky
@@ -251,116 +252,115 @@ var ui = {
 		eleOpener: '.tooltip-open',
 		eleCloser: '.tooltip-close',
 		eleModule: '.tooltip',
-		eleFocus : '.tooltip-focus',
-		setTime: null,
 		init: function(){
 			this.event();
 		},
 		event: function(){
 			var _this = this;
-			$(this.eleOpener).not('.is-evented').on('click', function(){_this.open($(this).attr('href')); return false});
-			$(this.eleCloser).not('.is-evented').on('click', function(){_this.close($(this).attr('href')); return false});
-			$(this.eleWrapper).not('.is-evented').on('mouseover', function(){_this.open('#'+$(this).find(_this.eleModule).attr('id'))});
-			$(this.eleWrapper).not('.is-evented').on('mouseleave', function(){_this.close('#'+$(this).find(_this.eleModule).attr('id'))});
+			$(this.eleOpener).not('.is-evented').on('click', function(){_this.open($(this).attr('aria-controls')); return false});
+			$(this.eleCloser).not('.is-evented').on('click', function(){_this.close($(this).attr('aria-controls')); return false});
+			$(this.eleWrapper).not('.is-evented').on('mouseover', function(){_this.open($(this).find(_this.eleModule).attr('id'))});
+			$(this.eleWrapper).not('.is-evented').on('mouseleave', function(){_this.close($(this).find(_this.eleModule).attr('id'))});
 		},
-		open: function(id){
+		open: function(id, callback){
 			var _this = this;
-			$(id).attr({'data-state':'null', 'aria-hidden':'false'});
-			$(id).stop().fadeIn(200, function(){$(this).attr({'data-state':'opened'})});
-			$(_this.eleOpener+'[href="'+id+'"]').attr({'aria-expanded':'true'});
+			var $id = $('#'+id);
+			$id.attr({'data-state':'null', 'aria-hidden':'false'});
+			$id.stop().fadeIn(200);
+			$(_this.eleOpener+'[aria-controls="'+id+'"]').attr({'aria-expanded':'true'});
+			if (callback){ callback }
 		},
-		close: function(id){
+		close: function(id, callback){
 			var _this = this;
-			$(id).attr({'data-state':'null', 'aria-hidden':'true'});
-			$(id).stop().fadeOut(200, function(){$(this).attr({'data-state':'closed'})});
-			$(_this.eleOpener+'[href="'+id+'"]').attr({'aria-expanded':'false'});
-			//	$(this.eleOpener+'[href="'+id+'"]').attr('tabindex','0').focus();
+			var $id = $('#'+id);
+			$id.attr({'data-state':'null', 'aria-hidden':'true'});
+			$id.stop().fadeOut(200);
+			$(_this.eleOpener+'[aria-controls="'+id+'"]').attr({'aria-expanded':'false'});
+			if (callback){ callback }
 		},
 	},
 
 	/*
-		기능정의: #Dropdown
+		기능정의: #Drop
 		참고사항: href="" / id="" 연결
 		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	dropdown: {
-		eleModule: '.dropdown',
-		eleButton: '.dropdown-toggle',
-		eleMenu: '.dropdown-menu',
-		eleSelect : '.dropdown-select',
+	drop: {
+		eleWrap: '.drop',
+		eleButton: '.drop-toggle',
 		init: function(){
-			this.reset($(this.eleModule));
 			this.event();
-		},
-		reset: function($eleModule){
-			$eleModule.each(function(){
-				if ($(this).hasClass('is-visible')){ $(this).attr({'data-state':'opened'}) }
-				else if (!$(this).hasClass('is-visible')){ $(this).attr({'data-state':'closed'}) }
-			})
 		},
 		event: function(){
 			var _this = this;
 			var setTime;
-			//토글
-			$(_this.eleButton).off().on('click', function(){
+			//토글이벤트(기본기능) Reflow 발생하므로 토글슬라이스 사용안함
+			$(this.eleButton).not('.is-toggled').on('click', function(){
 				var id = $(this).attr('aria-controls');
-				var $eleModule = $('#'+id).closest(_this.eleModule);
-				if($eleModule.attr('data-state') == 'opened') { _this.close(id) }
-				else if($eleModule.attr('data-state') == 'closed') { _this.open(id) }
-			});
-			//포커싱
-			$(_this.eleMenu).on('focusin', function(){
-				clearTimeout(setTime);
-			});
-			$(_this.eleModule).on('focusout', function(){
-				var $this = $(this);
-				var id = $this.find(_this.eleMenu).attr('id');
-				setTime = setTimeout(function(){ if( $this.attr('data-state') == 'opened'){ _this.close(id)} },50);
-			})
-			//셀렉트
-			$(_this.eleSelect).find('a, button').off().on('click', function(){
-				_this.select($(this));
-			})
+				var isActive = $(this).closest(_this.eleWrap).hasClass('is-active');
+				if (isActive){ _this.close(id) } //활성화된 경우, 닫기
+				if (!isActive){ _this.open(id) } //비활성화 경우, 열기
+			}).addClass('is-toggled');
+			//모듈내 포커스아웃 닫기 막기
+			$(this.eleWrap).not('.is-focusin').on('focusin', function(){ clearTimeout(setTime) }).addClass('is-focusin');
+			//모듈 포커스아웃 닫기
+			$(this.eleWrap).not('.is-focusout').on('focusout', function(){
+				var id = $(this).find(_this.eleButton).attr('aria-controls');
+				if ($(this).hasClass('is-active')){ setTime = setTimeout(function(){ _this.close(id) }, 10) }
+			}).addClass('is-focusout');
 		},
 		open: function(id){
-			var _this = this;
-			var $eleMenu = $('#'+id);
-			var $eleModule = $eleMenu.closest(_this.eleModule);
-			var $eleButton = $eleModule.find(_this.eleButton);
-			$eleModule.attr({'data-state':'wait'}).addClass('is-visible');
-			setTimeout(function(){
-				$eleModule.addClass('is-active');
-				$eleMenu.off(transitionend).on(transitionend, function(){
-					$eleButton.attr({'aria-expanded':'true'});
-					_this.reset($eleModule);
-				});
-			});
+			//초기화
+			var $wrapActive = $(this.eleWrap).filter('.is-active');
+			var idActive = $wrapActive.find(this.eleButton).attr('aria-controls');
+			this.close(idActive);
+
+			//활성화
+			var $id = $('#'+id);
+			var $button = $('[aria-controls='+id+']');
+			var $wrap = $('#'+id).closest(this.eleWrap);
+			$id.removeAttr('hidden');
+			$button.attr({'aria-expanded':'true'});
+			setTimeout(function(){ $wrap.addClass('is-active') });
 		},
 		close: function(id){
-			var _this = this;
-			var $eleMenu = $('#'+id);
-			var $eleModule = $eleMenu.closest(_this.eleModule);
-			var $eleButton = $eleModule.find(_this.eleButton);
-			$eleModule.attr({'data-state':'wait'});
-			$eleModule.removeClass('is-active');
-			$eleMenu.off(transitionend).on(transitionend, function(){
-				$eleModule.removeClass('is-visible');
-				$eleButton.attr({'aria-expanded':'false'});
-				_this.reset($eleModule);
-			});
+			var $id = $('#'+id);
+			var $button = $('[aria-controls='+id+']');
+			var $wrap = $('#'+id).closest(this.eleWrap);
+			$wrap.removeClass('is-active');
+			$id.one(transitionend, function(){
+				if (!$wrap.hasClass('is-active')){
+					$id.attr({'hidden':'hidden'});
+					$button.attr({'aria-expanded':'false'});
+				}
+			})
 		},
-		select : function($this){
+	},
+
+	dropSelect : {
+		eleModule: '.drop-select',
+		eleLabel: '.drop-label',
+		eleItem: '.drop-item',
+		init : function(){
+			this.event();
+		},
+		event : function(){
 			var _this = this;
-			var $eleModule = $this.closest(_this.eleModule);
-			var $eleButton = $eleModule.find(_this.eleButton);
-			var $eleLabel = $eleButton.children();
-			var id = $eleButton.attr('aria-controls');
-			$this.parent().addClass('is-current').siblings().removeClass('is-current');
-			$eleLabel.text($this.text());
-			if($eleModule.attr('data-state') == 'opened') { _this.close(id) }
-		}
+			$(this.eleModule).find(this.eleItem).children().not('.is-clicked').on('click', function(e){
+				_this.action($(this));
+				e.preventDefault();
+			}).addClass('is-clicked');
+		},
+		action : function($link){
+			var $eleCurrent = $link.closest(this.eleItem);
+			var $eleModule = $link.closest(this.eleModule);
+			var $eleLabel = $eleModule.find(this.eleLabel);
+			$eleCurrent.attr({'hidden':'hidden'}).siblings().removeAttr('hidden');
+			$eleLabel.text($link.text());
+
+		},
 	},
 
 	/*

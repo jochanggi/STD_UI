@@ -208,6 +208,8 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 .btn-basic.btn-secondary {background:#333; color:#fff;}
 .btn-basic[disabled] {background:#aaa; color:#fff;}
 
+.btn-style1 {height:30px; padding:0 10px 1px; border:1px solid #ddd; border-radius:3px; box-shadow:1px 1px 2px 0px rgba(200,200,200,0.3); line-height:27px;}
+
 /* Content */
 .btn-pager {width:20px; height:20px; line-height:18px; border:1px solid #ddd;}
 
@@ -830,27 +832,26 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 /*-------------------------------------------------------------------
 	## Dropdown
 -------------------------------------------------------------------*/
-/* Default */
-.dropdown {width:100%; position:relative; z-index:10; display:inline-block;}
-.dropdown-menu {display:none; position:absolute; z-index:2; width:100%; background-color:#fff;}
-.dropdown-toggle {position:relative; z-index:3; width:100%; text-align:left;}
-.dropdown-toggle .arw {position:absolute; top:50%; right:10px;}
-.dropdown.is-visible .dropdown-menu {display:block;}
+/* Common */
+.drop {width:100%; position:relative; z-index:10; display:inline-block;}
+.drop-menu {position:absolute; z-index:2; width:100%; background-color:#fff;}
+.drop-toggle {position:relative; z-index:3; width:100%; text-align:left;}
+.drop-toggle .arw {position:absolute; top:50%; right:10px;}
 
 /* Transition */
-.dropdown-menu, .dropdown-toggle .arw {transition:transform 0.2s ease;}
-.dropdown-menu {transform:translateY(-50%) scaleY(0); opacity:0; transition-property:transform, opacity;}
-.dropdown-toggle .arw {transform:translateY(-50%) rotate(0deg);}
-.dropdown.is-active .dropdown-menu {transform:translateY(0) scaleY(1); opacity:1;}
-.dropdown.is-active .dropdown-toggle .arw {transform:translateY(-50%) rotate(180deg);}
-
-/* Select */
-.dropdown-menu .is-current {display:none;}
+.drop-down .drop-menu {@extend %dropdown}
+.drop-down.is-active .drop-menu {@extend %dropdown-active}
+.drop-down .drop-toggle .arw {transform:translateY(-50%) rotate(0deg); transition:transform 0.2s ease;}
+.drop-down.is-active .drop-toggle .arw {transform:translateY(-50%) rotate(180deg);}
+.drop-top .drop-menu {@extend %dropup}
+.drop-top.is-active .drop-menu {@extend %dropup-active}
+.drop-top .drop-toggle .arw {transform:translateY(-50%) rotate(180deg); transition:transform 0.2s ease;}
+.drop-top.is-active .drop-toggle .arw {transform:translateY(-50%) rotate(0deg);}
 
 /* Design */
-.dropdown-basic {width:150px;}
-.dropdown-basic .dropdown-toggle {padding:0 30px 0 10px; border:1px solid #ddd; border-radius:3px 3px 0 0; line-height:30px; font-size:14px;}
-.dropdown-basic .dropdown-menu {padding:5px 10px; border:1px solid #ddd; background-color:#fff; border-radius:0 0 3px 3px; line-height:24px; outline:0;}
+.drop-basic {width:150px;}
+.drop-basic .drop-toggle {padding:0 30px 0 10px; border:1px solid #ddd; border-radius:3px 3px 0 0; line-height:30px; font-size:14px;}
+.drop-basic .drop-menu {padding:5px 10px; border:1px solid #ddd; background-color:#fff; border-radius:0 0 3px 3px; line-height:24px; outline:0;}
 
 /*-------------------------------------------------------------------
 	## Modal

@@ -60,8 +60,10 @@ $color-red: red;
 }
 
 /* Transition */
-%dropdown {opacity:0; animation:dropdown 0.3s ease both; transform:translateY(-50%) scaleY(0); transition:opacity 0.2s ease; will-change:transform,opacity;}
+%dropdown {left:0; top:100%; opacity:0; animation:dropdown 0.3s ease both; transform:translateY(-50%) scaleY(0); transition:opacity 0.2s ease;}
 %dropdown-active {opacity:1; animation:dropdown-active 0.3s ease both;}
+%dropup {left:0; bottom:100%; opacity:0; animation:dropup 0.3s ease both; transform:translateY(-50%) scaleY(0); transition:opacity 0.2s ease;}
+%dropup-active {opacity:1; animation:dropup-active 0.3s ease both;}
 %wideScale {transform:scaleX(0); transition:transform 0.25s ease;}
 %wideScale-active {transform:scaleX(1);}
 
@@ -71,5 +73,13 @@ $color-red: red;
 }
 @keyframes dropdown-active {
 	from {transform:translateY(-50%) scaleY(0);}
+	to {transform:translateY(0) scaleY(1);}
+}
+@keyframes dropup {
+	from {transform:translateY(0) scaleY(1);}
+	to {transform:translateY(50%) scaleY(0);}
+}
+@keyframes dropup-active {
+	from {transform:translateY(50%) scaleY(0);}
 	to {transform:translateY(0) scaleY(1);}
 }

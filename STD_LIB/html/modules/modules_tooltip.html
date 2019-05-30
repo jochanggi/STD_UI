@@ -39,14 +39,13 @@
 								<div class="g-example-preview">
 									무궁화 꽃이 피었습니다.
 									<div class="tooltip-wrap">
-										<a href="#tooltip1" class="btn btn-type3 btn-primary tooltip-open" role="button" aria-controls="tooltip1" aria-label="Tooltip 보기" aria-expanded="false">?</a>
+										<button class="btn btn-style1 tooltip-open" role="button" aria-controls="tooltip1" aria-label="자세히보기" aria-labelledby="" aria-expanded="false"><span>?</span></button>
 										<div id="tooltip1" class="tooltip tooltip-basic tooltip-right" role="tooltip" aria-hidden="true">
-											<div class="blind-area tooltip-focus" role="text" tabindex="0" aria-label="Tooltip Panel"></div>
-											<i class="arw arw-tooltip" aria-hidden="true"></i>
 											<div class="tooltip-inner">
 												Tooltip
-												<a href="#tooltip1" role="button" aria-controls="tooltip1" aria-expanded="true" class="btn tooltip-close" aria-label="Tooltip Close"></a>
+												<button type="button" class="btn tooltip-close" aria-controls="tooltip1"><span class="blind">닫기</span></button>
 											</div>
+											<i class="arw arw-tooltip" aria-hidden="true"></i>
 										</div>
 									</div>
 								</div>
@@ -55,7 +54,7 @@
 								<pre class="brush:html">
 									무궁화 꽃이 피었습니다.
 									&lt;div class="tooltip-wrap">
-										&lt;a href="#tooltip1" aria-controls="tooltip1" aria-expanded="false" class="btn btn-type3 btn-primary tooltip-open" aria-label="Tooltip 자세히보기">?&lt;/a>
+										&lt;a href="#tooltip1" aria-controls="tooltip1" aria-expanded="false" class="btn btn-style1 btn-primary tooltip-open" aria-label="Tooltip 자세히보기">?&lt;/a>
 										&lt;div id="tooltip1" class="tooltip tooltip-basic tooltip-right" role="tooltip" aria-hidden="true">
 											&lt;div class="blind-area tooltip-focus" tabindex="0" aria-label="Button Tooltip Panel">&lt;/div>
 											&lt;i class="arw arw-tooltip" aria-hidden="true">&lt;/i>
@@ -110,7 +109,6 @@
 											eleOpener : '.tooltip-open',
 											eleCloser : '.tooltip-close',
 											eleModule : '.tooltip',
-											eleFocus  : '.tooltip-focus',
 											setTime : null,
 											init : function(){
 												this.event();
@@ -137,121 +135,6 @@
 											},
 										},
 									}
-								</pre>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- //Section -->
-
-				<!-- Section -->
-				<section class="g-section g-in-sec">
-					<div class="g-section-header">
-						<h2 class="g-h2">Directions</h2>
-					</div>
-					<div class="g-section-body">
-						<div class="g-example-wrap">
-							<div class="g-example-header">
-								<strong class="g-example-tit is-before"></strong>
-								<div class="g-example-nav">
-									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
-									<a href="javascript:;" class="g-example-btn">CSS</a>
-									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
-								</div>
-							</div>
-							<div class="g-example-body">
-								<div class="g-example-preview">
-									<div class="row">
-										<div class="col col-3">
-											Right
-											<div class="tooltip-wrap">
-												<a href="#tooltip2" aria-controls="tooltip2" aria-expanded="false" class="btn btn-type3 btn-primary tooltip-open" aria-label="Tooltip 자세히보기">?</a>
-												<div id="tooltip2" class="tooltip tooltip-basic tooltip-right" role="tooltip" aria-hidden="true">
-													<div class="blind-area tooltip-focus" tabindex="0" aria-label="Button Tooltip Panel"></div>
-													<i class="arw arw-tooltip" aria-hidden="true"></i>
-													<div class="tooltip-inner">
-														Tooltip
-														<a href="#tooltip2" aria-controls="tooltip2" aria-expanded="true" class="btn tooltip-close" aria-label="Tooltip Close"></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col col-3">
-											Top
-											<div class="tooltip-wrap">
-												<a href="#tooltip3" aria-controls="tooltip3" aria-expanded="false" class="btn btn-type3 btn-primary tooltip-open" aria-label="Tooltip 자세히보기">?</a>
-												<div id="tooltip3" class="tooltip tooltip-basic tooltip-top" role="tooltip" aria-hidden="true">
-													<div class="blind-area tooltip-focus" tabindex="0" aria-label="Button Tooltip Panel"></div>
-													<i class="arw arw-tooltip" aria-hidden="true"></i>
-													<div class="tooltip-inner">
-														Tooltip
-														<a href="#tooltip3" aria-controls="tooltip3" aria-expanded="true" class="btn tooltip-close" aria-label="Tooltip Close"></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col col-3">
-											Bottom
-											<div class="tooltip-wrap">
-												<a href="#tooltip4" aria-controls="tooltip4" aria-expanded="false" class="btn btn-type3 btn-primary tooltip-open" aria-label="Tooltip 자세히보기">?</a>
-												<div id="tooltip4" class="tooltip tooltip-basic tooltip-bottom" role="tooltip" aria-hidden="true">
-													<div class="blind-area tooltip-focus" tabindex="0" aria-label="Button Tooltip Panel"></div>
-													<i class="arw arw-tooltip" aria-hidden="true"></i>
-													<div class="tooltip-inner">
-														Tooltip
-														<a href="#tooltip4" aria-controls="tooltip4" aria-expanded="true" class="btn tooltip-close" aria-label="Tooltip Close"></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col col-3">
-											Left
-											<div class="tooltip-wrap">
-												<a href="#tooltip5" aria-controls="tooltip5" aria-expanded="false" class="btn btn-type3 btn-primary tooltip-open" aria-label="Tooltip 자세히보기">?</a>
-												<div id="tooltip5" class="tooltip tooltip-basic tooltip-left" role="tooltip" aria-hidden="true">
-													<div class="blind-area tooltip-focus" tabindex="0" aria-label="Button Tooltip Panel"></div>
-													<i class="arw arw-tooltip" aria-hidden="true"></i>
-													<div class="tooltip-inner">
-														Tooltip
-														<a href="#tooltip5" aria-controls="tooltip5" aria-expanded="true" class="btn tooltip-close" aria-label="Tooltip Close"></a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:html">
-									<div class="tooltip tooltip-right">(생략)</div>
-									<div class="tooltip tooltip-top">(생략)</div>
-									<div class="tooltip tooltip-bottom">(생략)</div>
-									<div class="tooltip tooltip-left">(생략)</div>
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:css">
-									/* Common - Directions */
-									.tooltip-top {left:50%; bottom:100%; margin-bottom:10px;}
-									.tooltip-right {left:100%; top:50%; margin-left:10px;}
-									.tooltip-bottom {left:50%; top:100%; margin-top:10px;}
-									.tooltip-left {right:100%; top:50%; margin-right:10px;}
-									.tooltip-top,.tooltip-bottom {transform:translateX(-50%); -webkit-transform:translateX(-50%);}
-									.tooltip-right,.tooltip-left {transform:translateY(-50%); -webkit-transform:translateY(-50%);}
-									.tooltip-top > .arw {left:50%; bottom:3px;}
-									.tooltip-right > .arw {left:1px; top:50%;}
-									.tooltip-bottom > .arw {left:50%; top:3px;}
-									.tooltip-left > .arw {right:1px; top:50%;}
-									.tooltip-top > .arw {transform:translate(-50%, 100%) rotate(-90deg); -webkit-transform:translate(-50%, 100%) rotate(-90deg);}
-									.tooltip-bottom > .arw {transform:translate(-50%, -100%) rotate(90deg); -webkit-transform:translate(-50%, -100%) rotate(90deg);}
-									.tooltip-right > .arw {transform:translate(-100%, -50%) rotate(0deg); -webkit-transform:translate(-100%, -50%) rotate(0deg);}
-									.tooltip-left > .arw {transform:translate(100%, -50%) rotate(180deg); -webkit-transform:translate(100%, -50%) rotate(180deg);}
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:js">
-									SCRIPT SOURCE
 								</pre>
 							</div>
 						</div>
