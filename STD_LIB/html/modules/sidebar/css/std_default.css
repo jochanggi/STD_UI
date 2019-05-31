@@ -1,1 +1,187 @@
-@charset "UTF-8";.header-sidebar{position:absolute!important;left:0;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}#skipNav{position:absolute;left:0;top:0;width:100%;height:0;z-index:110}#skipNav a{display:block;position:absolute;left:0;bottom:0;width:100%;line-height:30px;background-color:#000;color:#fff;text-align:center;-webkit-transform:translateY(0);transform:translateY(0)}#skipNav a:focus{-webkit-transform:translateY(100%);transform:translateY(100%)}.out-sec{min-width:320px}.in-sec{padding:0 30px}#wrapper,body,html{height:100%}#sidebar{display:none;position:absolute;z-index:1001;left:-200px;width:200px;height:100%;padding:20px;background-color:#000}#header{position:absolute;z-index:103;top:0;left:0;width:100%;height:72px;background-color:#fff;border-bottom:1px solid #ddd}#container{min-height:100%;padding:72px 0 40px}.header-inner{height:100%}.footer-inner{max-width:100%}#sidebar,#wrapper{-webkit-transform:translateX(0);transform:translateX(0);-webkit-transition:-webkit-transform 0.4s 0.2s ease;transition:-webkit-transform 0.4s 0.2s ease;transition:transform 0.4s 0.2s ease;transition:transform 0.4s 0.2s ease, -webkit-transform 0.4s 0.2s ease}body.is-sidebar-opened #sidebar{display:block}body.is-sidebar-opened[data-sidebar=push] #wrapper{-webkit-transform:translateX(200px);transform:translateX(200px)}body.is-sidebar-opened[data-sidebar=over] #sidebar{-webkit-transform:translateX(100%);transform:translateX(100%)}.sidebar-wrap .btn{color:#fff}.header-logo{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.header-logo .logo{color:#000;font-size:20px;font-family:'NSB'}.header-sidebar{left:180px}
+@charset "UTF-8";
+/*-------------------------------------------------------------------
+    파일정의 : 레이아웃 스타일
+	작성날짜 : YYYY-MM-DD 홍길동
+    참고사항 : 레이아웃, 상세스타일, 메뉴스타일 분류
+    분류순서 : Wrapper > Header > Content > Footer > Navigation
+    속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
+-------------------------------------------------------------------*/
+.header-sidebar {
+  position: absolute !important;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+/*-------------------------------------------------------------------
+    ## Wrapper
+-------------------------------------------------------------------*/
+/* SkipNav */
+.skipNav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  z-index: 110; }
+
+.skipNav a {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  line-height: 30px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0); }
+
+.skipNav a:focus {
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%); }
+
+/* Common Layout */
+.out-sec {
+  min-width: 320px; }
+
+.in-sec {
+  padding: 0 30px; }
+
+/* Wrapper Layout */
+html, body, .wrapper {
+  height: 100%; }
+
+.sidebar {
+  display: none;
+  position: absolute;
+  z-index: 1001;
+  left: -200px;
+  width: 200px;
+  height: 100%;
+  padding: 20px;
+  background-color: #000; }
+
+.header {
+  position: absolute;
+  z-index: 103;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd; }
+
+.container {
+  min-height: 100%;
+  padding: 72px 0 40px; }
+
+.header-inner {
+  height: 100%; }
+
+.footer-inner {
+  max-width: 100%; }
+
+/*-------------------------------------------------------------------
+    ## Sidebar
+-------------------------------------------------------------------*/
+/* Transition */
+.wrapper, .sidebar {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: -webkit-transform 0.4s 0.2s ease;
+  transition: -webkit-transform 0.4s 0.2s ease;
+  -o-transition: transform 0.4s 0.2s ease;
+  transition: transform 0.4s 0.2s ease;
+  transition: transform 0.4s 0.2s ease, -webkit-transform 0.4s 0.2s ease; }
+
+/* cubic-bezier(.2,.4,.57,1); */
+body.is-sidebar-opened .sidebar {
+  display: block; }
+
+body.is-sidebar-opened[data-sidebar=push] .wrapper {
+  -webkit-transform: translateX(200px);
+  -ms-transform: translateX(200px);
+  transform: translateX(200px); }
+
+body.is-sidebar-opened[data-sidebar=over] .sidebar {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%); }
+
+/* UI */
+.btn.btn-drawer {
+  width: 44px;
+  height: 44px; }
+
+.btn.btn-drawer span {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 24px;
+  height: 20px;
+  margin: -10px 0 0 -12px;
+  vertical-align: top; }
+
+.btn.btn-drawer span:before, .btn-drawer span:after {
+  content: ''; }
+
+.btn.btn-drawer i, .btn-drawer span:before, .btn-drawer span:after {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 24px;
+  height: 2px;
+  background: #000;
+  vertical-align: top; }
+
+.btn.btn-drawer i {
+  margin-top: -1px;
+  width: 16px; }
+
+.btn.btn-drawer span:before {
+  top: 0; }
+
+.btn.btn-drawer span:after {
+  top: auto;
+  bottom: 0; }
+
+.sidebar .btn-drawer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff; }
+
+.sidebar .btn-drawer i, .sidebar .btn-drawer span:before, .sidebar .btn-drawer span:after {
+  background-color: #fff; }
+
+/*-------------------------------------------------------------------
+    ## Header
+-------------------------------------------------------------------*/
+/* Header Layout */
+.header-logo {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.header-logo .logo {
+  color: #000;
+  font-size: 20px;
+  font-family: 'NSB'; }
+
+.header-sidebar {
+  left: 180px; }
+
+/* Header UI */
+/*-------------------------------------------------------------------
+    ## Footer
+-------------------------------------------------------------------*/

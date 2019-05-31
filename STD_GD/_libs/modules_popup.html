@@ -36,35 +36,35 @@
 							<div id="tabContentCode1-1" class="g-example-footer is-active">
 								<pre class="brush:html">
 									<!-- 버튼공통 -->
-									<button type="button" class="ui-btn ui-popup-open" aria-controls="popupName1" onclick="ui.popup.open(this, 'popupName1')"><span>Popup Open</span></button>
-									<button type="button" class="ui-btn ui-popup-close" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')"><span>Popup Close</span></button>
+									<button type="button" class="btn popup-open" aria-controls="popupName1" onclick="ui.popup.open(this, 'popupName1')"><span>Popup Open</span></button>
+									<button type="button" class="btn popup-close" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')"><span>Popup Close</span></button>
 
 									<!-- 컨텐츠 팝업 -->
-									<div id="popupName1" class="ui-popup-wrap" role="dialog" aria-modal="true" aria-labelledby="popupTitle1" aria-describedby="popupDesc1">
-										<div class="ui-popup">
-											<div class="ui-popup-header">
+									<div id="popupName1" class="popup-wrap" role="dialog" aria-modal="true" aria-labelledby="popupTitle1" aria-describedby="popupDesc1">
+										<div class="popup">
+											<div class="popup-header">
 												<h3 id="popupTitle1"></h3>
 											</div>
-											<div class="ui-popup-body">
-												<div id="popupDesc1" class="ui-popup-content">
+											<div class="popup-body">
+												<div id="popupDesc1" class="popup-content">
 													컨텐츠설명
 												</div>
 											</div>
-											<div class="ui-popup-footer"></div>
-											<button type="button" class="ui-btn ui-popup-close" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')"><span>Popup Close</span></button>
+											<div class="popup-footer"></div>
+											<button type="button" class="btn popup-close" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')"><span>Popup Close</span></button>
 										</div>
 									</div>
 
 									<!-- 경고 팝업 -->
-									<div id="popupName2" class="ui-popup-wrap" role="alertdialog" aria-modal="true" aria-describedby="popupDesc2">
-										<div class="ui-popup">
-											<div class="ui-popup-body">
-												<div id="popupDesc2" class="ui-popup-alert">
+									<div id="popupName2" class="popup-wrap" role="alertdialog" aria-modal="true" aria-describedby="popupDesc2">
+										<div class="popup">
+											<div class="popup-body">
+												<div id="popupDesc2" class="popup-alert">
 													경고메세지
 												</div>
 											</div>
-											<div class="ui-popup-footer"></div>
-											<button type="button" class="ui-btn ui-popup-close" aria-controls="popupName2" onclick="ui.popup.close(this, 'popupName2')"><span>Popup Close</span></button>
+											<div class="popup-footer"></div>
+											<button type="button" class="btn popup-close" aria-controls="popupName2" onclick="ui.popup.close(this, 'popupName2')"><span>Popup Close</span></button>
 										</div>
 									</div>
 								</pre>

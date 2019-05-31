@@ -7,12 +7,13 @@ var ui = {
 
 		if ($('.gnb-dropdown').length)		{this.gnb_dropdown.init();}		// #Gnb Dropdown
 		if ($('.gnb-fulldown').length)		{this.gnb_fulldown.init();}		// #Gnb Fulldown
-		if ($('.ui-tab-nav').length)		{this.tab.init();}				// #Tab
-		if ($('.ui-acco').length)			{this.acco.init();}				// #acco
+		if ($('.tab-nav').length)			{this.tab.init();}				// #Tab
+		if ($('.acco').length)				{this.acco.init();}				// #acco
 		if ($('[data-role=fold]').length)	{this.foldToggle.init();}		// #Folder (접기)
 		if ($('[data-role=more]').length)	{this.moreToggle.init();}		// #FolderMore (더보기)
-		if ($('.tooltip-basic').length)		{this.tooltip.init();}			// #Tooltip
-		if ($('.dropdown').length)			{this.dropdown.init();}			// #Dropdown
+		if ($('.tooltip').length)			{this.tooltip.init();}			// #Tooltip
+		if ($('.drop').length)				{this.drop.init();}				// #Dropdown
+		if ($('.drop-select').length)		{this.dropSelect.init();}		// #Dropdown
 		if ($('.popup-open').length)		{this.popup.init();}			// #Popup
 		if ($('.js-popup').length)			{this.fullpopup.init();}		// Full Popup
 		if ($('.js-sticky').length)			{this.sticky.init();}			// Sticky
@@ -26,78 +27,49 @@ var ui = {
 
 	//#Gnb Dropdown
 	gnb_dropdown : {
-		eleModule		: '.gnb-dropdown',
-		eleNode1_item	: '.node1-item',
-		eleNode2_item	: '.node2-item',
-		idxNode1		: -1,
-		idxNode2		: -1,
-		isEvented		: false,
-		init : function(){
-			if (this.isEvented == false){ this.event(); this.isEvented = true; }
+		eleNode1_item : '.gnb-dropdown .node1-item',
+		eleNode2_item : '.gnb-dropdown .node2-item',
+		init: function(){
+			var setTime = null;
+			$(this.eleNode1_item).not('.is-entered').on('mouseenter focusin', function(){
+				clearTimeout(setTime);
+				$(this).addClass('is-active').find('> a').attr({'aria-expended':'true'});
+				$(this).siblings().removeClass('is-active').find('> a').attr({'aria-expended':'false'});
+			}).addClass('is-entered');
+			$(this.eleNode1_item).not('.is-leaved').on('mouseleave focusout', function(){
+				var $this = $(this);
+				setTime = setTimeout(function(){ $this.removeClass('is-active') });
+			}).addClass('is-leaved');
 		},
 		set : function(n1, n2){
-			this.idxNode1 = n1, this.idxNode2 = n2;
-			if (this.idxNode1 > -1){ $(this.eleModule).find(this.eleNode1_item).eq(this.idxNode1).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
-			if (this.idxNode2 > -1){ $(this.eleModule).find(this.eleNode2_item).eq(this.idxNode2).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
-		},
-		event : function(){
-			var _this = this, setTime = null;
-			$(this.eleModule).find(this.eleNode1_item).on('mouseenter focusin', function(){
-				clearTimeout(setTime);
-				var idx = $(this).index();
-				_this.open(idx);
-			});
-			$(this.eleModule).find(this.eleNode1_item).on('mouseleave focusout', function(){
-				var idx = $(this).index();
-				setTime = setTimeout(function(){ _this.close(idx) }, 50);
-			});
-		},
-		open : function(idx){
-			$(this.eleModule).find(this.eleNode1_item).eq(idx).attr({'aria-selected':'true', 'aria-expanded':'true'}).siblings().attr({'aria-selected':'false', 'aria-expanded':'false'});
-		},
-		close : function(idx){
-			$(this.eleModule).find(this.eleNode1_item).eq(idx).attr({'aria-selected':'false', 'aria-expanded':'false'});
-		},
+			$(this.eleNode1_item).eq(n1).addClass('is-current').siblings().removeClass('is-current');
+			$(this.eleNode2_item).eq(n2).addClass('is-current').siblings().removeClass('is-current');
+		}
 	},
 
 	//#Gnb Fulldown
 	gnb_fulldown : {
-		eleModule		: '.gnb-fulldown',
-		eleNode1_item	: '.node1-item',
-		eleNode2_item	: '.node2-item',
-		idxNode1		: -1,
-		idxNode2		: -1,
-		isEvented		: false,
+		eleModule : '.gnb-fulldown',
+		eleNode1_item : '.gnb-fulldown .node1-item',
+		eleNode2_item : '.gnb-fulldown .node2-item',
 		init : function(){
-			if (this.isEvented == false){ this.event(); this.isEvented = true; }
+			var _this = this, setTime = null;
+			$(this.eleNode1_item).not('.is-entered').on('mouseenter focusin', function(){
+				clearTimeout(setTime);
+				$(_this.eleModule).addClass('is-active');
+				$(_this.eleNode1_item).find('> a').attr({'aria-expanded':'true'});
+			}).addClass('is-entered');
+			$(this.eleNode1_item).not('.is-leaved').on('mouseleave focusout', function(){
+				setTime = setTimeout(function(){
+					$(_this.eleModule).removeClass('is-active');
+					$(_this.eleNode1_item).find('> a').attr({'aria-expanded':'false'});
+				});
+			}).addClass('is-leaved');
 		},
 		set : function(n1, n2){
-			this.idxNode1 = n1, this.idxNode2 = n2;
-			if (this.idxNode1 > -1){ $(this.eleModule).find(this.eleNode1_item).eq(this.idxNode1).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
-			if (this.idxNode2 > -1){ $(this.eleModule).find(this.eleNode2_item).eq(this.idxNode2).attr({'aria-current':'true'}).siblings().attr({'aria-current':'false'}) }
-		},
-		event : function(){
-			var _this = this, setTime = null;
-			$(this.eleModule).find(this.eleNode1_item).on('mouseenter focusin', function(){
-				clearTimeout(setTime);
-				var idx = $(this).index();
-				_this.open(idx);
-			});
-			$(this.eleModule).find(this.eleNode1_item).on('mouseleave focusout', function(){
-				var idx = $(this).index();
-				setTime = setTimeout(function(){
-					_this.close(idx)
-				}, 50);
-			});
-		},
-		open : function(idx){
-			$(this.eleModule).addClass('is-active')
-			$(this.eleModule).find(this.eleNode1_item).attr({'aria-expanded':'true'}).eq(idx).attr({'aria-selected':'true'}).siblings().attr({'aria-selected':'false'});
-		},
-		close : function(idx){
-			$(this.eleModule).removeClass('is-active');
-			$(this.eleModule).find(this.eleNode1_item).attr({'aria-expanded':'false'}).eq(idx).attr({'aria-selected':'false'});
-		},
+			$(this.eleNode1_item).eq(n1).addClass('is-current').siblings().removeClass('is-current');
+			$(this.eleNode2_item).eq(n2).addClass('is-current').siblings().removeClass('is-current');
+		}
 	},
 
 	/*
@@ -107,8 +79,8 @@ var ui = {
 		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 	*/
 	tab: {
-		eleButton: '.ui-tab-nav a',
-		eleContent: '.ui-tab-content',
+		eleButton: '.tab-nav a',
+		eleContent: '.tab-content',
 		init: function(){
 			this.event();
 		},
@@ -131,11 +103,11 @@ var ui = {
 		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 	*/
 	acco : {
-		eleModule: '.ui-acco',
-		eleItem: '.ui-acco-item',
-		eleButton: '.ui-acco-toggle',
-		eleTitle: '.ui-acco-title',
-		eleContent: '.ui-acco-cont',
+		eleModule: '.acco',
+		eleItem: '.acco-item',
+		eleButton: '.acco-toggle',
+		eleTitle: '.acco-title',
+		eleContent: '.acco-cont',
 		duration: 300,
 		init: function(){
 			this.reset();
@@ -200,9 +172,9 @@ var ui = {
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
 	foldToggle : {
-		eleButton: '.ui-fold-toggle[data-role=fold]',
-		eleContent: '.ui-fold-cont',
-		eleFocus: '.ui-fold-focus',
+		eleButton: '.fold-toggle[data-role=fold]',
+		eleContent: '.fold-cont',
+		eleFocus: '.fold-focus',
 		speed: 250,
 		init : function(){
 			var _this = this;
@@ -234,10 +206,10 @@ var ui = {
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
 	moreToggle : {
-		eleButton:	'.ui-fold-toggle[data-role=more]',
-		eleContent: '.ui-fold-cont',
-		eleHide:	'.ui-fold-hide',
-		eleFocus:	'.ui-fold-focus',
+		eleButton:	'.fold-toggle[data-role=more]',
+		eleContent: '.fold-cont',
+		eleHide:	'.fold-hide',
+		eleFocus:	'.fold-focus',
 		speed: 250,
 		init: function(){
 			var _this = this;
@@ -280,116 +252,115 @@ var ui = {
 		eleOpener: '.tooltip-open',
 		eleCloser: '.tooltip-close',
 		eleModule: '.tooltip',
-		eleFocus : '.tooltip-focus',
-		setTime: null,
 		init: function(){
 			this.event();
 		},
 		event: function(){
 			var _this = this;
-			$(this.eleOpener).not('.is-evented').on('click', function(){_this.open($(this).attr('href')); return false});
-			$(this.eleCloser).not('.is-evented').on('click', function(){_this.close($(this).attr('href')); return false});
-			$(this.eleWrapper).not('.is-evented').on('mouseover', function(){_this.open('#'+$(this).find(_this.eleModule).attr('id'))});
-			$(this.eleWrapper).not('.is-evented').on('mouseleave', function(){_this.close('#'+$(this).find(_this.eleModule).attr('id'))});
+			$(this.eleOpener).not('.is-evented').on('click', function(){_this.open($(this).attr('aria-controls')); return false});
+			$(this.eleCloser).not('.is-evented').on('click', function(){_this.close($(this).attr('aria-controls')); return false});
+			$(this.eleWrapper).not('.is-evented').on('mouseover', function(){_this.open($(this).find(_this.eleModule).attr('id'))});
+			$(this.eleWrapper).not('.is-evented').on('mouseleave', function(){_this.close($(this).find(_this.eleModule).attr('id'))});
 		},
-		open: function(id){
+		open: function(id, callback){
 			var _this = this;
-			$(id).attr({'data-state':'null', 'aria-hidden':'false'});
-			$(id).stop().fadeIn(200, function(){$(this).attr({'data-state':'opened'})});
-			$(_this.eleOpener+'[href="'+id+'"]').attr({'aria-expanded':'true'});
+			var $id = $('#'+id);
+			$id.attr({'data-state':'null', 'aria-hidden':'false'});
+			$id.stop().fadeIn(200);
+			$(_this.eleOpener+'[aria-controls="'+id+'"]').attr({'aria-expanded':'true'});
+			if (callback){ callback }
 		},
-		close: function(id){
+		close: function(id, callback){
 			var _this = this;
-			$(id).attr({'data-state':'null', 'aria-hidden':'true'});
-			$(id).stop().fadeOut(200, function(){$(this).attr({'data-state':'closed'})});
-			$(_this.eleOpener+'[href="'+id+'"]').attr({'aria-expanded':'false'});
-			//	$(this.eleOpener+'[href="'+id+'"]').attr('tabindex','0').focus();
+			var $id = $('#'+id);
+			$id.attr({'data-state':'null', 'aria-hidden':'true'});
+			$id.stop().fadeOut(200);
+			$(_this.eleOpener+'[aria-controls="'+id+'"]').attr({'aria-expanded':'false'});
+			if (callback){ callback }
 		},
 	},
 
 	/*
-		기능정의: #Dropdown
+		기능정의: #Drop
 		참고사항: href="" / id="" 연결
 		참고메뉴: 대메뉴 > 중메뉴 > 소메뉴 > 화면명
 		참고경로: /html/menu1/page.html
 		(공통여부와 관계없이 확인이 가능한 대표화면 적용)
 	*/
-	dropdown: {
-		eleModule: '.dropdown',
-		eleButton: '.dropdown-toggle',
-		eleMenu: '.dropdown-menu',
-		eleSelect : '.dropdown-select',
+	drop: {
+		eleWrap: '.drop',
+		eleButton: '.drop-toggle',
 		init: function(){
-			this.reset($(this.eleModule));
 			this.event();
-		},
-		reset: function($eleModule){
-			$eleModule.each(function(){
-				if ($(this).hasClass('is-visible')){ $(this).attr({'data-state':'opened'}) }
-				else if (!$(this).hasClass('is-visible')){ $(this).attr({'data-state':'closed'}) }
-			})
 		},
 		event: function(){
 			var _this = this;
 			var setTime;
-			//토글
-			$(_this.eleButton).off().on('click', function(){
+			//토글이벤트(기본기능) Reflow 발생하므로 토글슬라이스 사용안함
+			$(this.eleButton).not('.is-toggled').on('click', function(){
 				var id = $(this).attr('aria-controls');
-				var $eleModule = $('#'+id).closest(_this.eleModule);
-				if($eleModule.attr('data-state') == 'opened') { _this.close(id) }
-				else if($eleModule.attr('data-state') == 'closed') { _this.open(id) }
-			});
-			//포커싱
-			$(_this.eleMenu).on('focusin', function(){
-				clearTimeout(setTime);
-			});
-			$(_this.eleModule).on('focusout', function(){
-				var $this = $(this);
-				var id = $this.find(_this.eleMenu).attr('id');
-				setTime = setTimeout(function(){ if( $this.attr('data-state') == 'opened'){ _this.close(id)} },50);
-			})
-			//셀렉트
-			$(_this.eleSelect).find('a, button').off().on('click', function(){
-				_this.select($(this));
-			})
+				var isActive = $(this).closest(_this.eleWrap).hasClass('is-active');
+				if (isActive){ _this.close(id) } //활성화된 경우, 닫기
+				if (!isActive){ _this.open(id) } //비활성화 경우, 열기
+			}).addClass('is-toggled');
+			//모듈내 포커스아웃 닫기 막기
+			$(this.eleWrap).not('.is-focusin').on('focusin', function(){ clearTimeout(setTime) }).addClass('is-focusin');
+			//모듈 포커스아웃 닫기
+			$(this.eleWrap).not('.is-focusout').on('focusout', function(){
+				var id = $(this).find(_this.eleButton).attr('aria-controls');
+				if ($(this).hasClass('is-active')){ setTime = setTimeout(function(){ _this.close(id) }, 10) }
+			}).addClass('is-focusout');
 		},
 		open: function(id){
-			var _this = this;
-			var $eleMenu = $('#'+id);
-			var $eleModule = $eleMenu.closest(_this.eleModule);
-			var $eleButton = $eleModule.find(_this.eleButton);
-			$eleModule.attr({'data-state':'wait'}).addClass('is-visible');
-			setTimeout(function(){
-				$eleModule.addClass('is-active');
-				$eleMenu.off(transitionend).on(transitionend, function(){
-					$eleButton.attr({'aria-expanded':'true'});
-					_this.reset($eleModule);
-				});
-			});
+			//초기화
+			var $wrapActive = $(this.eleWrap).filter('.is-active');
+			var idActive = $wrapActive.find(this.eleButton).attr('aria-controls');
+			this.close(idActive);
+
+			//활성화
+			var $id = $('#'+id);
+			var $button = $('[aria-controls='+id+']');
+			var $wrap = $('#'+id).closest(this.eleWrap);
+			$id.removeAttr('hidden');
+			$button.attr({'aria-expanded':'true'});
+			setTimeout(function(){ $wrap.addClass('is-active') });
 		},
 		close: function(id){
-			var _this = this;
-			var $eleMenu = $('#'+id);
-			var $eleModule = $eleMenu.closest(_this.eleModule);
-			var $eleButton = $eleModule.find(_this.eleButton);
-			$eleModule.attr({'data-state':'wait'});
-			$eleModule.removeClass('is-active');
-			$eleMenu.off(transitionend).on(transitionend, function(){
-				$eleModule.removeClass('is-visible');
-				$eleButton.attr({'aria-expanded':'false'});
-				_this.reset($eleModule);
-			});
+			var $id = $('#'+id);
+			var $button = $('[aria-controls='+id+']');
+			var $wrap = $('#'+id).closest(this.eleWrap);
+			$wrap.removeClass('is-active');
+			$id.one(transitionend, function(){
+				if (!$wrap.hasClass('is-active')){
+					$id.attr({'hidden':'hidden'});
+					$button.attr({'aria-expanded':'false'});
+				}
+			})
 		},
-		select : function($this){
+	},
+
+	dropSelect : {
+		eleModule: '.drop-select',
+		eleLabel: '.drop-label',
+		eleItem: '.drop-item',
+		init : function(){
+			this.event();
+		},
+		event : function(){
 			var _this = this;
-			var $eleModule = $this.closest(_this.eleModule);
-			var $eleButton = $eleModule.find(_this.eleButton);
-			var $eleLabel = $eleButton.children();
-			var id = $eleButton.attr('aria-controls');
-			$this.parent().addClass('is-current').siblings().removeClass('is-current');
-			$eleLabel.text($this.text());
-			if($eleModule.attr('data-state') == 'opened') { _this.close(id) }
-		}
+			$(this.eleModule).find(this.eleItem).children().not('.is-clicked').on('click', function(e){
+				_this.action($(this));
+				e.preventDefault();
+			}).addClass('is-clicked');
+		},
+		action : function($link){
+			var $eleCurrent = $link.closest(this.eleItem);
+			var $eleModule = $link.closest(this.eleModule);
+			var $eleLabel = $eleModule.find(this.eleLabel);
+			$eleCurrent.attr({'hidden':'hidden'}).siblings().removeAttr('hidden');
+			$eleLabel.text($link.text());
+
+		},
 	},
 
 	/*

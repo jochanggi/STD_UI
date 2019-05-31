@@ -40,21 +40,21 @@
 											- 비활성버튼 : disabled="disabled"
 											- 현재페이지 : aria-current="true" disabled="disabled"
 										-->
-										&lt;div class="ui-pagination">
-											&lt;div class="ui-inner">
-												&lt;div class="ui-page-group">
-													&lt;button type="button" class="ui-btn first" title="공지사항 처음 페이지" disabled="disabled">&lt;span>&lt;i class="ui-arw arw-page-first">처음&lt;/i>&lt;/span>&lt;/button>
-													&lt;button type="button" class="ui-btn prev" title="공지사항 이전 페이지" disabled="disabled">&lt;span>&lt;i class="ui-arw arw-page-prev">이전&lt;/i>&lt;/span>&lt;/button>
+										&lt;div class="pagination">
+											&lt;div class="inner">
+												&lt;div class="page-group">
+													&lt;button type="button" class="btn first" title="공지사항 처음 페이지" disabled="disabled">&lt;span>&lt;i class="arw arw-page-first">처음&lt;/i>&lt;/span>&lt;/button>
+													&lt;button type="button" class="btn prev" title="공지사항 이전 페이지" disabled="disabled">&lt;span>&lt;i class="arw arw-page-prev">이전&lt;/i>&lt;/span>&lt;/button>
 												&lt;/div>
-												&lt;ul class="ui-num-group">
-													&lt;li>&lt;button type="button" class="ui-btn" title="공지사항 1 페이지" aria-current="true" disabled="disabled">&lt;span>1&lt;/span>&lt;/button>&lt;/li>
-													&lt;li>&lt;button type="button" class="ui-btn" title="공지사항 2 페이지">&lt;span>2&lt;/span>&lt;/button>&lt;/li>
-													&lt;li>&lt;button type="button" class="ui-btn" title="공지사항 3 페이지">&lt;span>3&lt;/span>&lt;/button>&lt;/li>
+												&lt;ul class="num-group">
+													&lt;li>&lt;button type="button" class="btn" title="공지사항 1 페이지" aria-current="true" disabled="disabled">&lt;span>1&lt;/span>&lt;/button>&lt;/li>
+													&lt;li>&lt;button type="button" class="btn" title="공지사항 2 페이지">&lt;span>2&lt;/span>&lt;/button>&lt;/li>
+													&lt;li>&lt;button type="button" class="btn" title="공지사항 3 페이지">&lt;span>3&lt;/span>&lt;/button>&lt;/li>
 													...
 												&lt;/ul>
-												&lt;div class="ui-page-group">
-													&lt;button type="button" class="ui-btn next" title="공지사항 다음 페이지">&lt;span>&lt;i class="ui-arw arw-page-next">다음&lt;/i>&lt;/span>&lt;/button>
-													&lt;button type="button" class="ui-btn last" title="공지사항 마지막 페이지">&lt;span>&lt;i class="ui-arw arw-page-last">마지막&lt;/i>&lt;/span>&lt;/button>
+												&lt;div class="page-group">
+													&lt;button type="button" class="btn next" title="공지사항 다음 페이지">&lt;span>&lt;i class="arw arw-page-next">다음&lt;/i>&lt;/span>&lt;/button>
+													&lt;button type="button" class="btn last" title="공지사항 마지막 페이지">&lt;span>&lt;i class="arw arw-page-last">마지막&lt;/i>&lt;/span>&lt;/button>
 												&lt;/div>
 											&lt;/div>
 										&lt;/div>
@@ -66,12 +66,12 @@
 										## Pagination
 									-------------------------------------------------------------------*/
 									/* Default */
-									.ui-pagination {position:relative; text-align:center;}
-									.ui-pagination .ui-inner {display:inline-block; position:relative; z-index:10; vertical-align:top;}
-									.ui-pagination .ui-inner:after {content:''; display:block; clear:both;}
-									.ui-pagination .ui-page-group,
-									.ui-pagination .ui-num-group,
-									.ui-pagination .ui-btn {display:inline-block; position:relative; z-index:0; float:left; overflow:hidden;}
+									.pagination {position:relative; text-align:center;}
+									.pagination .inner {display:inline-block; position:relative; z-index:10; vertical-align:top;}
+									.pagination .inner:after {content:''; display:block; clear:both;}
+									.pagination .page-group,
+									.pagination .num-group,
+									.pagination .btn {display:inline-block; position:relative; z-index:0; float:left; overflow:hidden;}
 								</pre>
 							</div>
 						</div>
@@ -96,27 +96,27 @@
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
-									<div class="ui-pagination pagination-basic">
-										<div class="ui-inner">
-											<div class="ui-page-group">
-												<button type="button" class="ui-btn first" title="공지사항 처음 페이지" disabled="disabled"><span><i class="ui-arw arw-board1-first">처음</i></span></button>
-												<button type="button" class="ui-btn prev" title="공지사항 이전 페이지" disabled="disabled"><span><i class="ui-arw arw-board1-prev">이전</i></span></button>
+									<div class="pagination pagination-basic">
+										<div class="inner">
+											<div class="page-group">
+												<button type="button" class="btn first" title="공지사항 처음 페이지" disabled="disabled"><span><i class="arw arw-board1-first">처음</i></span></button>
+												<button type="button" class="btn prev" title="공지사항 이전 페이지" disabled="disabled"><span><i class="arw arw-board1-prev">이전</i></span></button>
 											</div>
-											<ul class="ui-num-group">
-												<li><button type="button" class="ui-btn" title="공지사항 1 페이지" aria-current="true" disabled="disabled"><span>1</span></button></li>
-												<li><button type="button" class="ui-btn" title="공지사항 2 페이지"><span>2</span></button></li>
-												<li><button type="button" class="ui-btn" title="공지사항 3 페이지"><span>3</span></button></li>
-												<li><button type="button" class="ui-btn" title="공지사항 4 페이지"><span>4</span></button></li>
-												<li><button type="button" class="ui-btn" title="공지사항 5 페이지"><span>5</span></button></li>
-												<li><button type="button" class="ui-btn" title="공지사항 6 페이지"><span>6</span></button></li>
-												<li><button type="button" class="ui-btn" title="공지사항 7 페이지"><span>7</span></button></li>
-												<li><button type="button" class="ui-btn" title="공지사항 8 페이지"><span>8</span></button></li>
-												<li><button type="button" class="ui-btn" title="공지사항 9 페이지"><span>9</span></button></li>
-												<li><button type="button" class="ui-btn" title="공지사항 10 페이지"><span>10</span></button></li>
+											<ul class="num-group">
+												<li><button type="button" class="btn" title="공지사항 1 페이지" aria-current="true" disabled="disabled"><span>1</span></button></li>
+												<li><button type="button" class="btn" title="공지사항 2 페이지"><span>2</span></button></li>
+												<li><button type="button" class="btn" title="공지사항 3 페이지"><span>3</span></button></li>
+												<li><button type="button" class="btn" title="공지사항 4 페이지"><span>4</span></button></li>
+												<li><button type="button" class="btn" title="공지사항 5 페이지"><span>5</span></button></li>
+												<li><button type="button" class="btn" title="공지사항 6 페이지"><span>6</span></button></li>
+												<li><button type="button" class="btn" title="공지사항 7 페이지"><span>7</span></button></li>
+												<li><button type="button" class="btn" title="공지사항 8 페이지"><span>8</span></button></li>
+												<li><button type="button" class="btn" title="공지사항 9 페이지"><span>9</span></button></li>
+												<li><button type="button" class="btn" title="공지사항 10 페이지"><span>10</span></button></li>
 											</ul>
-											<div class="ui-page-group">
-												<button type="button" class="ui-btn next" title="공지사항 다음 페이지"><span><i class="ui-arw arw-board1-next">다음</i></span></button>
-												<button type="button" class="ui-btn last" title="공지사항 마지막 페이지"><span><i class="ui-arw arw-board1-last">마지막</i></span></button>
+											<div class="page-group">
+												<button type="button" class="btn next" title="공지사항 다음 페이지"><span><i class="arw arw-board1-next">다음</i></span></button>
+												<button type="button" class="btn last" title="공지사항 마지막 페이지"><span><i class="arw arw-board1-last">마지막</i></span></button>
 											</div>
 										</div>
 									</div>
@@ -124,7 +124,7 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									&lt;div class="ui-pagination pagination-basic">
+									&lt;div class="pagination pagination-basic">
 										...
 									&lt;/div>
 								</pre>
@@ -132,12 +132,12 @@
 							<div class="g-example-footer">
 								<pre class="brush:css">
 									/* Design */
-									.pagination-basic .ui-btn {min-width:30px; height:30px; padding:0 5px 1px; line-height:27px; border:1px solid #ddd;}
-									.pagination-basic .ui-num-group {margin:0 16px;}
-									.pagination-basic .ui-page-group .ui-btn + .ui-btn,
-									.pagination-basic .ui-num-group li + li  {margin-left:4px;}
-									.pagination-basic .ui-num-group .ui-btn[aria-current=true] {color:$color-primary; border:1px solid $color-primary;}
-									.pagination-basic .ui-page-group .ui-btn:disabled {opacity:0.5;}
+									.pagination-basic .btn {min-width:30px; height:30px; padding:0 5px 1px; line-height:27px; border:1px solid #ddd;}
+									.pagination-basic .num-group {margin:0 16px;}
+									.pagination-basic .page-group .btn + .btn,
+									.pagination-basic .num-group li + li  {margin-left:4px;}
+									.pagination-basic .num-group .btn[aria-current=true] {color:$color-primary; border:1px solid $color-primary;}
+									.pagination-basic .page-group .btn:disabled {opacity:0.5;}
 								</pre>
 							</div>
 						</div>

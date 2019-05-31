@@ -15,10 +15,147 @@
 		<!-- Content -->
 		<article id="g-content">
 			<div class="g-content-header">
-				<h1 class="g-h1">Dropdown</h1>
+				<h1 class="g-h1">drop</h1>
 				<p class="g-explain-h1">Library Modules</p>
 			</div>
 			<div class="g-content-body">
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Default</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;div class="drop drop-down drop-basic">
+										&lt;button type="button" class="btn btn-style1 drop-toggle" aria-controls="drop31" aria-haspopup="listbox" aria-expanded="false">drop &lt;i class="arw arw-toggle1 dark">&lt;/i>&lt;/button>
+										&lt;div id="drop31" class="drop-menu" hidden>
+											&lt;ul class="drop-list" role="listbox">
+												&lt;li class="drop-item" role="option">&lt;a href="#">drop Link&lt;/a>&lt;/li>
+												&lt;li class="drop-item" role="option">&lt;a href="#">drop Link&lt;/a>&lt;/li>
+											&lt;/ul>
+										&lt;/div>
+									&lt;/div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									/* Transition */
+									%dropdown {left:0; top:100%; opacity:0; animation:dropdown 0.3s ease both; transform:translateY(-50%) scaleY(0); transition:opacity 0.2s ease;}
+									%dropdown-active {opacity:1; animation:dropdown-active 0.3s ease both;}
+									%dropup {left:0; bottom:100%; opacity:0; animation:dropup 0.3s ease both; transform:translateY(-50%) scaleY(0); transition:opacity 0.2s ease;}
+									%dropup-active {opacity:1; animation:dropup-active 0.3s ease both;}
+									%wideScale {transform:scaleX(0); transition:transform 0.25s ease;}
+									%wideScale-active {transform:scaleX(1);}
+
+									@keyframes dropdown {
+										from {transform:translateY(0) scaleY(1);}
+										to {transform:translateY(-50%) scaleY(0);}
+									}
+									@keyframes dropdown-active {
+										from {transform:translateY(-50%) scaleY(0);}
+										to {transform:translateY(0) scaleY(1);}
+									}
+									@keyframes dropup {
+										from {transform:translateY(0) scaleY(1);}
+										to {transform:translateY(50%) scaleY(0);}
+									}
+									@keyframes dropup-active {
+										from {transform:translateY(50%) scaleY(0);}
+										to {transform:translateY(0) scaleY(1);}
+									}
+
+									/*-------------------------------------------------------------------
+										## Dropdown
+									-------------------------------------------------------------------*/
+									/* Common */
+									.drop {width:100%; position:relative; z-index:10; display:inline-block;}
+									.drop-menu {position:absolute; z-index:2; width:100%; background-color:#fff;}
+									.drop-toggle {position:relative; z-index:3; width:100%; text-align:left;}
+									.drop-toggle .arw {position:absolute; top:50%; right:10px;}
+
+									/* Transition */
+									.drop-down .drop-menu {@extend %dropdown}
+									.drop-down.is-active .drop-menu {@extend %dropdown-active}
+									.drop-down .drop-toggle .arw {transform:translateY(-50%) rotate(0deg); transition:transform 0.2s ease;}
+									.drop-down.is-active .drop-toggle .arw {transform:translateY(-50%) rotate(180deg);}
+									.drop-top .drop-menu {@extend %dropup}
+									.drop-top.is-active .drop-menu {@extend %dropup-active}
+									.drop-top .drop-toggle .arw {transform:translateY(-50%) rotate(180deg); transition:transform 0.2s ease;}
+									.drop-top.is-active .drop-toggle .arw {transform:translateY(-50%) rotate(0deg);}
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									drop: {
+										eleWrap: '.drop',
+										eleButton: '.drop-toggle',
+										init: function(){
+											this.event();
+										},
+										event: function(){
+											var _this = this;
+											var setTime;
+											//토글이벤트(기본기능) Reflow 발생하므로 토글슬라이스 사용안함
+											$(this.eleButton).not('.is-toggled').on('click', function(){
+												var id = $(this).attr('aria-controls');
+												var isActive = $(this).closest(_this.eleWrap).hasClass('is-active');
+												if (isActive){ _this.close(id) } //활성화된 경우, 닫기
+												if (!isActive){ _this.open(id) } //비활성화 경우, 열기
+											}).addClass('is-toggled');
+											//모듈내 포커스아웃 닫기 막기
+											$(this.eleWrap).not('.is-focusin').on('focusin', function(){ clearTimeout(setTime) }).addClass('is-focusin');
+											//모듈 포커스아웃 닫기
+											$(this.eleWrap).not('.is-focusout').on('focusout', function(){
+												var id = $(this).find(_this.eleButton).attr('aria-controls');
+												if ($(this).hasClass('is-active')){ setTime = setTimeout(function(){ _this.close(id) }, 10) }
+											}).addClass('is-focusout');
+										},
+										open: function(id){
+											//초기화
+											var $wrapActive = $(this.eleWrap).filter('.is-active');
+											var idActive = $wrapActive.find(this.eleButton).attr('aria-controls');
+											this.close(idActive);
+
+											//활성화
+											var $id = $('#'+id);
+											var $button = $('[aria-controls='+id+']');
+											var $wrap = $('#'+id).closest(this.eleWrap);
+											$id.removeAttr('hidden');
+											$button.attr({'aria-expanded':'true'});
+											setTimeout(function(){ $wrap.addClass('is-active') });
+										},
+										close: function(id){
+											var $id = $('#'+id);
+											var $button = $('[aria-controls='+id+']');
+											var $wrap = $('#'+id).closest(this.eleWrap);
+											$wrap.removeClass('is-active');
+											$id.one(transitionend, function(){
+												if (!$wrap.hasClass('is-active')){
+													$id.attr({'hidden':'hidden'});
+													$button.attr({'aria-expanded':'false'});
+												}
+											})
+										},
+									},
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
@@ -32,37 +169,20 @@
 									<span class="g-example-txt"></span>
 									<a href="javascript:;" class="g-example-btn">HTML</a>
 									<a href="javascript:;" class="g-example-btn">CSS</a>
-									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
 								</div>
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
-									<div class="dropdown-wrap dropdown-basic">
-										<a href="#dropdown1" class="ui-btn btn-type3 dropdown-toggle" role="button" aria-controls="dropdown1" aria-expanded="false">Dropdown <i class="ui-arw arw-toggle1 dark"></i></a>
-										<div id="dropdown1" class="dropdown" aria-hidden="true">
-											<div class="blind-area" tabindex="0" role="text" aria-label="Dropdown Menu Panel"></div>
-											<div class="dropdown-inner">
-												<ul class="dropdown-menu">
-													<li class="dropdown-item"><a href="#">Dropdown Link</a></li>
-													<li class="dropdown-item"><a href="#">Dropdown Link</a></li>
-													<li class="dropdown-item"><a href="#">Dropdown Link</a></li>
-													<li class="dropdown-item"><a href="#">Dropdown Link</a></li>
-													<li class="dropdown-item"><a href="#">Dropdown Link</a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<div class="dropdown-wrap dropdown-basic">
-										<a href="#dropdown2" class="ui-btn btn-type3 dropdown-toggle" role="button" aria-controls="dropdown2" aria-expanded="false">Dropdown Top<i class="ui-arw arw-toggle1 dark arw-top"></i></a>
-										<div id="dropdown2" class="dropdown dropdown-top" aria-hidden="true">
-											<div class="blind-area" tabindex="0" role="text" aria-label="Dropdown Menu Panel"></div>
-											<div class="dropdown-inner">
-												<ul class="dropdown-menu">
-													<li class="dropdown-item"><a href="#">Dropdown Link</a></li>
-													<li class="dropdown-item"><a href="#">Dropdown Link</a></li>
-													<li class="dropdown-item"><a href="#">Dropdown Link</a></li>
-													<li class="dropdown-item"><a href="#">Dropdown Link</a></li>
-													<li class="dropdown-item"><a href="#">Dropdown Link</a></li>
+									<div class="drop-wrap">
+										<div class="drop drop-down drop-basic">
+											<button type="button" class="btn btn-style1 drop-toggle" aria-controls="drop1" aria-haspopup="listbox" aria-expanded="false">drop <i class="arw arw-toggle1 dark"></i></button>
+											<div id="drop1" class="drop-menu" hidden>
+												<ul class="drop-list" role="listbox">
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
 												</ul>
 											</div>
 										</div>
@@ -71,116 +191,17 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									&lt;div class="dropdown-wrap">
-										&lt;a href="#dropdown1" class="ui-btn btn-type3 dropdown-toggle" role="button" aria-controls="dropdown1" aria-expanded="false">Dropdown &lt;i class="ui-arw arw-toggle1 dark">&lt;/i>&lt;/a>
-										&lt;div id="dropdown1" class="dropdown dropdown-basic" aria-hidden="true">
-											&lt;div class="blind-area" tabindex="0" role="text" aria-label="Dropdown Menu Panel">&lt;/div>
-											&lt;div class="dropdown-inner">
-												&lt;ul class="dropdown-menu">
-													&lt;li class="dropdown-item">&lt;a href="#">Dropdown Link&lt;/a>&lt;/li>
-													&lt;li class="dropdown-item">&lt;a href="#">Dropdown Link&lt;/a>&lt;/li>
-													&lt;li class="dropdown-item">&lt;a href="#">Dropdown Link&lt;/a>&lt;/li>
-													&lt;li class="dropdown-item">&lt;a href="#">Dropdown Link&lt;/a>&lt;/li>
-													&lt;li class="dropdown-item">&lt;a href="#">Dropdown Link&lt;/a>&lt;/li>
-												&lt;/ul>
-											&lt;/div>
-										&lt;/div>
+									&lt;div class="drop drop-down drop-basic">
+										...
 									&lt;/div>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									/*-------------------------------------------------------------------
-										## Dropdown
-									-------------------------------------------------------------------*/
-									/* Default */
-									.dropdown-wrap {position:relative; z-index:10; display:inline-block;}
-									.dropdown-toggle {position:relative; z-index:3; text-align:left;}
-									.dropdown {display:none; position:absolute; z-index:2; width:100%; background-color:#fff;}
-									.dropdown-inner {position:relative; z-index:1;}
-									.dropdown.is-active {display:block;}
-
-									/* Common */
-									.dropdown-toggle .arw {position:absolute; top:50%; right:10px; transform:translateY(-50%) rotate(0); -webkit-transform:translateY(-50%) rotate(0); transition:all 0.2s;}
-									.dropdown-toggle.is-active .arw {transform:translateY(-50%) rotate(180deg); -webkit-transform:translateY(-50%) rotate(180deg);}
-
 									/* Design */
-									.dropdown-basic .dropdown-toggle {width:150px; padding-right:40px; font-size:14px;}
-									.dropdown-basic .dropdown-toggle.is-active {border-radius:3px 3px 0 0;}
-									.dropdown-basic .dropdown {padding:5px 10px; border:1px solid #ddd; background-color:#fff; border-radius:0 0 3px 3px; line-height:24px; outline:0;}
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:js">
-									var ui = {
-										init : function(){
-											if ($('.dropdown').length)			{this.dropdown.init();}			// #Dropdown
-
-											/*
-												기능정의 : #Dropdown
-												참고사항 : href="" / id="" 연결
-												참고메뉴 : 대메뉴 > 중메뉴 > 소메뉴 > 화면명
-												참고경로 : /html/menu1/page.html
-												(공통여부와 관계없이 확인이 가능한 대표화면 적용)
-											*/
-											dropdown : {
-												eleWrapper : '.dropdown-wrap',
-												eleButton : '.dropdown-toggle',
-												eleModule : '.dropdown',
-												clsActive : 'is-active',
-												init : function(){
-													this.reset();
-													this.event();
-												},
-												reset : function(){
-													$(this.eleModule).attr({'data-state':'closed'});
-												},
-												event : function(){
-													var _this = this;
-													$(_this.eleButton).on('click', function(){
-														var id = $(this).attr('href');
-														if ($(id).attr('data-state') == 'closed'){ _this.open(id); }
-														else if ($(id).attr('data-state') == 'opened'){ _this.close(id); }
-														return false;
-													}).addClass('is-evented');
-												},
-												open : function(id){
-													var _this = this;
-													var $button = $(this.eleButton+'[href="'+id+'"]');
-													$(id).attr({'data-state':'null'});
-													$button.attr({'aria-expanded':'true'}).addClass(this.clsActive);
-													if ($(id).hasClass('dropdown-top')){
-														TweenMax.set($(id), {display:'block', scaleY:0, opacity:0, bottom:-36});
-														TweenMax.to($(id), 0.25,  {scaleY:1, opacity:1, bottom:$button.outerHeight()-1, ease:Power2.easeOut, onComplate:function(){
-															$(id).attr({'aria-hidden':'false', 'data-state':'opened'}).addClass(_this.clsActive);
-														}});
-													} else {
-														TweenMax.set($(id), {display:'block', scaleY:0, opacity:0, top:-36});
-														TweenMax.to($(id), 0.25,  {scaleY:1, opacity:1, top:$button.outerHeight()-1, ease:Power2.easeOut, onComplate:function(){
-															$(id).attr({'aria-hidden':'false', 'data-state':'opened'}).addClass(_this.clsActive);
-														}});
-													}
-												},
-												close : function(id){
-													var _this = this;
-													var $button = $(this.eleButton+'[href="'+id+'"]');
-													$(id).attr({'data-state':'null'});
-													if ($(id).hasClass('dropdown-top')){
-														TweenMax.set($(id), {scaleY:1, opacity:1, bottom:$button.outerHeight()-1});
-														TweenMax.to($(id), 0.25,  {scaleY:0, opacity:0, bottom:-36, ease:Power2.easeOut, onComplate:function(){
-															$button.attr({'aria-expanded':'false'}).removeClass(_this.clsActive);
-															$(id).attr({'aria-hidden':'true', 'data-state':'closed'}).removeClass(_this.clsActive);
-														}});
-													} else {
-														TweenMax.set($(id), {scaleY:1, opacity:1, top:$button.outerHeight()-1});
-														TweenMax.to($(id), 0.25,  {scaleY:0, opacity:0, top:-36, ease:Power2.easeOut, onComplate:function(){
-															$button.attr({'aria-expanded':'false'}).removeClass(_this.clsActive);
-															$(id).attr({'aria-hidden':'true', 'data-state':'closed'}).removeClass(_this.clsActive);
-														}});
-													}
-												},
-											},
-										}
+									.drop-basic {width:150px;}
+									.drop-basic .drop-toggle {padding:0 30px 0 10px; border:1px solid #ddd; border-radius:3px 3px 0 0; line-height:30px; font-size:14px;}
+									.drop-basic .drop-menu {padding:5px 10px; border:1px solid #ddd; background-color:#fff; border-radius:0 0 3px 3px; line-height:24px; outline:0;}
 								</pre>
 							</div>
 						</div>
@@ -189,9 +210,9 @@
 				<!-- //Section -->
 
 				<!-- Section -->
-				<section class="g-section g-in-sec" style="display:none">
+				<section class="g-section g-in-sec">
 					<div class="g-section-header">
-						<h2 class="g-h2">Heading</h2>
+						<h2 class="g-h2">Direction</h2>
 					</div>
 					<div class="g-section-body">
 						<div class="g-example-wrap">
@@ -201,33 +222,127 @@
 									<span class="g-example-txt"></span>
 									<a href="javascript:;" class="g-example-btn">HTML</a>
 									<a href="javascript:;" class="g-example-btn">CSS</a>
-									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
 								</div>
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
-									Markup Preview
+									<div class="drop-wrap">
+										<div class="drop drop-down drop-basic">
+											<button type="button" class="btn btn-style1 drop-toggle" aria-controls="drop21" aria-haspopup="listbox" aria-expanded="false">drop <i class="arw arw-toggle1 dark"></i></button>
+											<div id="drop21" class="drop-menu" hidden>
+												<ul class="drop-list" role="listbox">
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="drop drop-top drop-basic">
+											<button type="button" class="btn btn-style1 drop-toggle" aria-controls="drop22" aria-haspopup="listbox" aria-expanded="false">drop <i class="arw arw-toggle1 dark"></i></button>
+											<div id="drop22" class="drop-menu" hidden>
+												<ul class="drop-list" role="listbox">
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+													<li class="drop-item" role="option"><a href="#">drop Link</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									HTML SOURCE
+									&lt;div class="drop drop-down">
+										...
+									&lt;/div>
+									&lt;div class="drop drop-top">
+										...
+									&lt;/div>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									CSS SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:js">
-									SCRIPT SOURCE
+									(Default 참고)
 								</pre>
 							</div>
 						</div>
 					</div>
 				</section>
 				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Selection</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<div class="drop drop-down drop-select drop-basic">
+										<button type="button" class="btn btn-style1 drop-toggle" aria-controls="drop31" aria-haspopup="listbox" aria-expanded="false"><span class="drop-label">drop</span> <i class="arw arw-toggle1 dark"></i></button>
+										<div id="drop31" class="drop-menu" hidden>
+											<ul class="drop-list" role="listbox">
+												<li class="drop-item" role="option"><a href="#">drop Link1</a></li>
+												<li class="drop-item" role="option"><a href="#">drop Link2</a></li>
+												<li class="drop-item" role="option"><a href="#">drop Link3</a></li>
+												<li class="drop-item" role="option"><a href="#">drop Link4</a></li>
+												<li class="drop-item" role="option"><a href="#">drop Link5</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									&lt;div class="drop drop-down drop-select">
+										...
+									&lt;/div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									dropSelect : {
+										eleModule: '.drop-select',
+										eleLabel: '.drop-label',
+										eleItem: '.drop-item',
+										init : function(){
+											this.event();
+										},
+										event : function(){
+											var _this = this;
+											$(this.eleModule).find(this.eleItem).children().not('.is-clicked').on('click', function(e){
+												_this.action($(this));
+												e.preventDefault();
+											}).addClass('is-clicked');
+										},
+										action : function($link){
+											var $eleCurrent = $link.closest(this.eleItem);
+											var $eleModule = $link.closest(this.eleModule);
+											var $eleLabel = $eleModule.find(this.eleLabel);
+											$eleCurrent.attr({'hidden':'hidden'}).siblings().removeAttr('hidden');
+											$eleLabel.text($link.text());
+										},
+									},
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+				<br><br><br>
 			</div>
 		</article>
 		<!-- //Content -->

@@ -8900,38 +8900,38 @@ var JqueryUiTheme = /** @class */ (function (_super) {
 }(Theme_1.default));
 exports.default = JqueryUiTheme;
 JqueryUiTheme.prototype.classes = {
-    widget: 'ui-widget',
-    widgetHeader: 'ui-widget-header',
-    widgetContent: 'ui-widget-content',
+    widget: 'widget',
+    widgetHeader: 'widget-header',
+    widgetContent: 'widget-content',
     buttonGroup: 'fc-button-group',
-    button: 'ui-button',
-    cornerLeft: 'ui-corner-left',
-    cornerRight: 'ui-corner-right',
-    stateDefault: 'ui-state-default',
-    stateActive: 'ui-state-active',
-    stateDisabled: 'ui-state-disabled',
-    stateHover: 'ui-state-hover',
-    stateDown: 'ui-state-down',
-    today: 'ui-state-highlight',
-    popoverHeader: 'ui-widget-header',
-    popoverContent: 'ui-widget-content',
+    button: 'button',
+    cornerLeft: 'corner-left',
+    cornerRight: 'corner-right',
+    stateDefault: 'state-default',
+    stateActive: 'state-active',
+    stateDisabled: 'state-disabled',
+    stateHover: 'state-hover',
+    stateDown: 'state-down',
+    today: 'state-highlight',
+    popoverHeader: 'widget-header',
+    popoverContent: 'widget-content',
     // day grid
-    headerRow: 'ui-widget-header',
-    dayRow: 'ui-widget-content',
+    headerRow: 'widget-header',
+    dayRow: 'widget-content',
     // list view
-    listView: 'ui-widget-content'
+    listView: 'widget-content'
 };
-JqueryUiTheme.prototype.baseIconClass = 'ui-icon';
+JqueryUiTheme.prototype.baseIconClass = 'icon';
 JqueryUiTheme.prototype.iconClasses = {
-    close: 'ui-icon-closethick',
-    prev: 'ui-icon-circle-triangle-w',
-    next: 'ui-icon-circle-triangle-e',
-    prevYear: 'ui-icon-seek-prev',
-    nextYear: 'ui-icon-seek-next'
+    close: 'icon-closethick',
+    prev: 'icon-circle-triangle-w',
+    next: 'icon-circle-triangle-e',
+    prevYear: 'icon-seek-prev',
+    nextYear: 'icon-seek-next'
 };
 JqueryUiTheme.prototype.iconOverrideOption = 'themeButtonIcons';
 JqueryUiTheme.prototype.iconOverrideCustomButtonOption = 'themeIcon';
-JqueryUiTheme.prototype.iconOverridePrefix = 'ui-icon-';
+JqueryUiTheme.prototype.iconOverridePrefix = 'icon-';
 
 
 /***/ }),
@@ -10154,7 +10154,7 @@ var ExternalDropping = /** @class */ (function (_super) {
     tslib_1.__extends(ExternalDropping, _super);
     function ExternalDropping() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.isDragging = false; // jqui-dragging an external element? boolean
+        _this.isDragging = false; // jqdragging an external element? boolean
         return _this;
     }
     /*

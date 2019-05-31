@@ -36,25 +36,30 @@
 							</div>
 							<div class="g-example-footer is-active">
 								<pre class="brush:html">
-									&lt;button type="button" class="ui-btn btn-drawer js-sidebar-opener" aria-controls="sidebar" aria-expanded="false">&lt;span>Sidebar 열기&lt;/span>&lt;/button>
+									&lt;button type="button" class="btn btn-drawer sidebar-opener" aria-controls="sidebar" aria-expanded="false">&lt;span>&lt;i class="ico">Sidebar 열기&lt;/i>&lt;/span>&lt;/button>
 
-									&lt;aside id="sidebar" class="sidebar-wrap">
-										&lt;button type="button" class="ui-btn js-sidebar-closer" aria-controls="sidebar" aria-expanded="true">&lt;span>Sidebar 닫기&lt;/span>&lt;/button>
+									&lt;aside id="sidebar" class="sidebar">
+										&lt;button type="button" class="btn sidebar-closer" aria-controls="sidebar" aria-expanded="true">&lt;span>&lt;i class="ico">Sidebar 닫기&lt;/i>&lt;/span>&lt;/button>
 									&lt;/aside>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									.btn-drawer {position:relative; width:44px; height:44px;}
-									.btn-drawer:after, .btn-drawer:before {content:''}
-									.btn-drawer span, .btn-drawer:after, .btn-drawer:before {display:block; width:22px; height:2px; background-color:#333; overflow:hidden; color:transparent; @extend %centered-l; left:11px;}
-									.btn-drawer:before {margin-top:-7px;}
-									.btn-drawer span {width:18px;}
-									.btn-drawer:after {margin-top:7px;}
+									/* UI */
+									.btn.btn-drawer {width:44px; height:44px;}
+									.btn.btn-drawer span {display:inline-block; position:absolute; left:50%; top:50%; width:24px; height:20px; margin:-10px 0 0 -12px; vertical-align:top;}
+									.btn.btn-drawer span:before, .btn-drawer span:after {content:'';}
+									.btn.btn-drawer i, .btn-drawer span:before, .btn-drawer span:after {display:inline-block; position:absolute; left:0; top:50%; width:24px; height:2px; background:#000; vertical-align:top;}
+									.btn.btn-drawer i {margin-top:-1px; width:16px;}
+									.btn.btn-drawer span:before {top:0;}
+									.btn.btn-drawer span:after {top:auto; bottom:0;}
 
-									#sidebar {display:none; position:absolute; z-index:1001; left:-200px; width:200px; height:100%; padding:20px; background-color:#000;}
-									#wrapper, #sidebar {transform:translateX(0); transition:transform 0.4s 0.2s ease; }/* cubic-bezier(.2,.4,.57,1); */
-									body.is-sidebar-opened #sidebar {display:block;}
+									.sidebar .btn-drawer {position:absolute; right:0; top:0; color:#fff;}
+									.sidebar .btn-drawer i, .sidebar .btn-drawer span:before, .sidebar .btn-drawer span:after {background-color:#fff;}
+
+									.sidebar {display:none; position:absolute; z-index:1001; left:-200px; width:200px; height:100%; padding:20px; background-color:#000;}
+									.wrapper, .sidebar {transform:translateX(0); transition:transform 0.4s 0.2s ease; }/* cubic-bezier(.2,.4,.57,1); */
+									body.is-sidebar-opened .sidebar {display:block;}
 								</pre>
 							</div>
 						</div>
@@ -86,21 +91,21 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									&lt;aside id="sidebar" class="sidebar-wrap" data-sidebar="over">&lt;/aside>
+									&lt;aside id="sidebar" class="sidebar" data-sidebar="over">&lt;/aside>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									body.is-sidebar-opened[data-sidebar=over] #sidebar {transform:translateX(100%);}
+									body.is-sidebar-opened[data-sidebar=over] .sidebar {transform:translateX(100%);}
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:js">
 									var transitionend = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend';
 									sidebar : {
-										eleModule : '.sidebar-wrap',
-										eleOpener : '.js-sidebar-opener',
-										eleCloser : '.js-sidebar-closer',
+										eleModule : '.sidebar',
+										eleOpener : '.sidebar-opener',
+										eleCloser : '.sidebar-closer',
 										eleFocus : 'a, button, [tabindex=0]',
 										init : function(){
 											this.reset();
@@ -120,14 +125,14 @@
 											var $module = $('#'+id);
 											$module.show();
 											setTimeout(function(){
-												$('body').addClass('sidebar-opened');
+												$('body').addClass('is-sidebar-opened');
 												$module.one(transitionend, function(){ $module.find(_this.eleFocus).first().focus() });
 											},10);
 										},
 										close : function(id){
 											var _this = this;
 											var $module = $('#'+id);
-											$('body').removeClass('sidebar-opened');
+											$('body').removeClass('is-sidebar-opened');
 											$module.one(transitionend, function(){ $module.hide(); $(_this.eleOpener).focus(); });
 										},
 									}
@@ -162,7 +167,7 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									&lt;aside id="sidebar" class="sidebar-wrap" data-sidebar="push">&lt;/aside>
+									&lt;aside id="sidebar" class="sidebar" data-sidebar="push">&lt;/aside>
 								</pre>
 							</div>
 							<div class="g-example-footer">
@@ -173,9 +178,9 @@
 							<div class="g-example-footer">
 								<pre class="brush:js">
 									sidebar : {
-										eleModule : '.sidebar-wrap',
-										eleOpener : '.js-sidebar-opener',
-										eleCloser : '.js-sidebar-closer',
+										eleModule : '.sidebar',
+										eleOpener : '.sidebar-opener',
+										eleCloser : '.sidebar-closer',
 										eleFocus : 'a, button, [tabindex=0]',
 										init : function(){
 											this.reset();
