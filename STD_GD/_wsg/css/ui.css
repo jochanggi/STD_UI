@@ -60,7 +60,7 @@ ul.g-desc.g-gutter > li + li {margin-top:15px;}
 .g-tbl-type1 {overflow:hidden; border:1px solid #333; border-width:1px 0; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
 .g-tbl-type1 table {width:calc(100% + 2px); table-layout:fixed; margin:0 -1px -1px;}
 .g-tbl-type1 table th, .g-tbl-type1 table td {height:30px; vertical-align:middle; text-align:left; line-height:13px; font-size:12px; background:#fff; line-height:1.5;}
-.g-tbl-type1 table th {padding:3px 15px; border-bottom:1px solid #666; background-color:#f8f8f8; text-align:center; font-family:'NSB'; word-break:keep-all;}
+.g-tbl-type1 table th {padding:3px 15px; border-bottom:1px solid #666; background-color:#f8f8f8; text-align:center; font-family:'NSR'; word-break:keep-all;}
 .g-tbl-type1 table td {padding:3px 15px; border:1px solid #eee; border-bottom:0;}
 .g-tbl-type1 table tbody tr:first-child td {border-top:0;}
 .g-tbl-type1 table tbody + tbody tr:first-child td {border-top:1px solid #666;}

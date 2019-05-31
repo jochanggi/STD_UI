@@ -32,11 +32,7 @@ var include = {
 		document.write('<![endif]-->');
 
 		document.write('<!-- Guide -->');
-		document.write('<link href="'+gBaseURL._wsg+'css/layout.css" rel="stylesheet" />');
-		document.write('<link href="'+gBaseURL._wsg+'css/ui.css" rel="stylesheet" />');
-		document.write('<link href="'+gBaseURL._wsg+'css/setting.css" rel="stylesheet" />');
-		document.write('<link href="'+gBaseURL._wsg+'css/setting_v2.css" rel="stylesheet" />');
-		document.write('<link href="'+gBaseURL._wsg+'css/theme_bluesky.css" rel="stylesheet" />');
+		document.write('<link href="'+gBaseURL._wsg+'css/import.css" rel="stylesheet">');
 		document.write('<link href="'+gBaseURL._wsg+'codeview/styles/shCoreDefaultWhite.css" rel="stylesheet" />');
 		document.write('<script src="'+gBaseURL._wsg+'js/addon/jquery.mCustomScrollbar.min.js"></script>');
 		document.write('<script src="'+gBaseURL._wsg+'js/addon/jquery.clipboard.min.js"></script>');

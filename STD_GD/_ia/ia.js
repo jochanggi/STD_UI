@@ -8,7 +8,7 @@ var ia = {
 		var lens = $('.ia-section-ajax').length;
 		$('.ia-section-ajax').each(function(i){
 			var file = $(this).data('file');
-			var color = $(this).data('color');
+			var color = '#'+$(this).data('color');
 			var graphHtml =
 				'<li>'
 				+'	<a href="#gIA'+i+'" data-role="spy-scroll">'
