@@ -35,6 +35,8 @@ var include = {
 		document.write('<link href="'+gBaseURL._wsg+'css/layout.css" rel="stylesheet" />');
 		document.write('<link href="'+gBaseURL._wsg+'css/ui.css" rel="stylesheet" />');
 		document.write('<link href="'+gBaseURL._wsg+'css/setting.css" rel="stylesheet" />');
+		document.write('<link href="'+gBaseURL._wsg+'css/setting_v2.css" rel="stylesheet" />');
+		document.write('<link href="'+gBaseURL._wsg+'css/theme_bluesky.css" rel="stylesheet" />');
 		document.write('<link href="'+gBaseURL._wsg+'codeview/styles/shCoreDefaultWhite.css" rel="stylesheet" />');
 		document.write('<script src="'+gBaseURL._wsg+'js/addon/jquery.mCustomScrollbar.min.js"></script>');
 		document.write('<script src="'+gBaseURL._wsg+'js/addon/jquery.clipboard.min.js"></script>');
@@ -49,7 +51,7 @@ var include = {
 	header : function(){
 		document.write('	<header id="g-header">');
 		document.write('		<div class="g-header-inner">');
-		document.write('			<h1 class="g-logo"><a href="/">UI 개발가이드</a></h1>');
+		document.write('			<h1 class="g-logo"><a href="/">Project Guide</a></h1>');
 		document.write('			<button type="button" class="g-btn-aside"><span>Menu</span></button>');
 		document.write('			<nav class="g-lnb">');
 		document.write('				<ul>');

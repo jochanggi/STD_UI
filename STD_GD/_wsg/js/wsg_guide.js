@@ -184,7 +184,7 @@ var gUI = {
 		scrollEl : '.g-js-scroll',
 		init : function(){
 			$(this.scrollEl).each(function(){
-				$(this).mCustomScrollbar({scrollInertia:200});
+				$this.mCustomScrollbar({scrollInertia:200});
 			})
 		}
 	},
