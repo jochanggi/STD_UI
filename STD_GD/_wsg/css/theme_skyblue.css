@@ -25,7 +25,7 @@ a.g-top {background-color:#28a5f5;}
 /* Active */
 .g-lnb > ul > li.is-current > a,
 .g-example-wrap .g-example-header .g-example-btn.is-active:hover,
-.g-example-wrap .g-example-header .g-example-btn.is-active + .g-example-copy:hover {background-color:#007dac;}
+.g-example-wrap .g-example-header .g-example-btn.is-active + .g-example-copy:hover {background-color:#0074be;}
 
 /* Invert */
 .g-logo a {color:#fff;}

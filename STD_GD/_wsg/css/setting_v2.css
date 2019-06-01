@@ -25,6 +25,19 @@
 .g-section + .g-section {margin-top:80px;}
 .g-section[hidden]:first-child + .g-section {margin-top:0px;}
 .g-section-header {padding-bottom:15px;}
+@media only screen and (max-width: 959px) {
+.g-content-header, .g-content-body {padding:30px 30px;}
+.g-content-header {padding-top:30px; border-bottom:0;}
+.g-content-body {padding-bottom:40px;}
+.g-section + .g-section {margin-top:40px;}
+}
+@media only screen and (max-width: 480px) {
+.g-content-header, .g-content-body {padding:20px 15px;}
+}
+
+/* UI */
+.g-example-nav {margin:-2px 0;}
+.g-example-wrap .g-example-header .g-example-btn, .g-example-wrap .g-example-header .g-example-copy {margin:2px 0;}
 
 /*-------------------------------------------------------------------
     ## Basic
