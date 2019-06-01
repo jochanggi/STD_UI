@@ -35,38 +35,36 @@
 							</div>
 							<div id="tabContentCode1-1" class="g-example-footer is-active">
 								<pre class="brush:html">
-									<!-- 버튼공통 -->
-									<button type="button" class="btn popup-open" aria-controls="popupName1" onclick="ui.popup.open(this, 'popupName1')"><span>Popup Open</span></button>
-									<button type="button" class="btn popup-close" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')"><span>Popup Close</span></button>
+									&lt;!-- 버튼공통 -->
+									&lt;button type="button" class="btn popup-opener" aria-controls="popupName1" aria-haspopup="dialog" onclick="ui.popup.open(this, 'popupName1')">&lt;span>Popup Open&lt;/span>&lt;/button>
+									&lt;button type="button" class="btn popup-closer" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')">&lt;span>Popup Close&lt;/span>&lt;/button>
 
-									<!-- 컨텐츠 팝업 -->
-									<div id="popupName1" class="popup-wrap" role="dialog" aria-modal="true" aria-labelledby="popupTitle1" aria-describedby="popupDesc1">
-										<div class="popup">
-											<div class="popup-header">
-												<h3 id="popupTitle1"></h3>
-											</div>
-											<div class="popup-body">
-												<div id="popupDesc1" class="popup-content">
-													컨텐츠설명
-												</div>
-											</div>
-											<div class="popup-footer"></div>
-											<button type="button" class="btn popup-close" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')"><span>Popup Close</span></button>
-										</div>
-									</div>
+									&lt;!-- 컨텐츠 팝업 -->
+									&lt;div id="popupName1" class="popup-wrap" role="dialog" aria-modal="true" aria-labelledby="popupTitle1" hidden>
+										&lt;div class="popup">
+											&lt;div class="popup-header">
+												&lt;h3 id="popupTitle1">&lt;/h3>
+											&lt;/div>
+											&lt;div class="popup-body">
+												컨텐츠설명
+											&lt;/div>
+											&lt;div class="popup-footer">&lt;/div>
+											&lt;button type="button" class="btn popup-closer" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')">&lt;span>Popup Close&lt;/span>&lt;/button>
+										&lt;/div>
+									&lt;/div>
 
-									<!-- 경고 팝업 -->
-									<div id="popupName2" class="popup-wrap" role="alertdialog" aria-modal="true" aria-describedby="popupDesc2">
-										<div class="popup">
-											<div class="popup-body">
-												<div id="popupDesc2" class="popup-alert">
+									&lt;!-- 경고 팝업 -->
+									&lt;div id="popupName2" class="popup-wrap" role="alertdialog" aria-modal="true" aria-describedby="popupDesc2" hidden>
+										&lt;div class="popup">
+											&lt;div class="popup-body">
+												&lt;div id="popupDesc2" class="popup-alert">
 													경고메세지
-												</div>
-											</div>
-											<div class="popup-footer"></div>
-											<button type="button" class="btn popup-close" aria-controls="popupName2" onclick="ui.popup.close(this, 'popupName2')"><span>Popup Close</span></button>
-										</div>
-									</div>
+												&lt;/div>
+											&lt;/div>
+											&lt;div class="popup-footer">&lt;/div>
+											&lt;button type="button" class="btn popup-closer" aria-controls="popupName2" onclick="ui.popup.close(this, 'popupName2')">&lt;span>Popup Close&lt;/span>&lt;/button>
+										&lt;/div>
+									&lt;/div>
 								</pre>
 							</div>
 						</div>

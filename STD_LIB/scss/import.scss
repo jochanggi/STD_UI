@@ -1,11 +1,11 @@
 @charset "utf-8";
 
 @import '_variables';
-@import '_reset';
+@import '_base';
 @import '_common';
 @import '_layout';
 @import '_ui';
 @import '_content';
 @import '_main';
 @import 'animate.css';
-@import 'plugin.css';
+@import 'plugins.css';

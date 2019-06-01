@@ -24,6 +24,7 @@
     ## Reset
 -------------------------------------------------------------------*/
 @import url(animate.css);
+@import url(plugins.css);
 html, body, div, ul, ol, dl, li, dt, dd, p, h1, h2, h3, h4, h5, h6, table, th, td, caption, address, article, aside,
 canvas, details, figure, figcaption, footer, header, menu, nav, section,
 button, select, textarea, input, fieldset, legend, a, span, strong, em, address, dfn, small, i, b {
@@ -53,6 +54,7 @@ article, aside, canvas, details, figure, figcaption, footer, header, menu, nav, 
   display: block; }
 
 body {
+  font-family: "NSR", "Dotum", "Dotumche", "돋움", "돋움체", "Arial";
   font-size: 14px;
   line-height: 1;
   word-break: keep-all;
@@ -114,34 +116,39 @@ button::-moz-focus-inner {
   border: 0px;
   padding: 0px; }
 
+.dv-android [tabindex='0']:focus,
+.dv-android a:focus,
+.dv-android button:focus,
+.dv-android input:focus,
+.dv-android textarea:focus,
+.dv-android select:focus {
+  outline: 0; }
+
+.dv-ios [tabindex='0'],
+.dv-ios a,
+.dv-ios button,
+.dv-ios input,
+.dv-ios textarea,
+.dv-ios select {
+  -webkit-tap-highlight-color: transparent; }
+
 /*-------------------------------------------------------------------
     ## Fonts
 -------------------------------------------------------------------*/
 @font-face {
-  font-family: "roboto-l";
-  src: url("../fonts/Roboto-Light.woff") format("woff"); }
+  font-family: "NST";
+  src: url("../fonts/NotoSans-Thin.eot");
+  src: local("※"), url("../fonts/NotoSans-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-Thin.woff") format("woff"); }
 
 @font-face {
-  font-family: "roboto-r";
-  src: url("../fonts/Roboto-Regular.woff") format("woff"); }
-
-@font-face {
-  font-family: "roboto-m";
-  src: url("../fonts/Roboto-Medium.woff") format("woff"); }
-
-@font-face {
-  font-family: "roboto-b";
-  src: url("../fonts/Roboto-Bold.woff") format("woff"); }
+  font-family: "NSL";
+  src: url("../fonts/NotoSans-Light.eot");
+  src: local("※"), url("../fonts/NotoSans-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-Light.woff") format("woff"); }
 
 @font-face {
   font-family: "NSDL";
   src: url("../fonts/NotoSans-DemiLight.eot");
   src: local("※"), url("../fonts/NotoSans-DemiLight.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-DemiLight.woff") format("woff"); }
-
-@font-face {
-  font-family: "MSL";
-  src: url("../fonts/NotoSans-Light.eot");
-  src: local("※"), url("../fonts/NotoSans-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-Light.woff") format("woff"); }
 
 @font-face {
   font-family: "NSR";
@@ -712,3 +719,19 @@ select::-ms-expand {
     ## Popup
 -------------------------------------------------------------------*/
 /* 메뉴명 > 화면명 > 팝업명 */
+/*-------------------------------------------------------------------
+	파일정의 : 메인컨텐츠 스타일
+	작성날짜 : YYYY-MM-DD 홍길동
+	참고사항 : 서브스타일과 메인스타일의 분리
+	분류순서 : 레이아웃 > 공통디자인 > 컨텐츠
+	속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------
+    ## 레이아웃
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------
+    ## 공통디자인
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------
+    ## 컨텐츠
+-------------------------------------------------------------------*/

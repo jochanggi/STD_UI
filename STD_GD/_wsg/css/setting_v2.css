@@ -11,7 +11,8 @@
 .g-mask {top:60px;}
 .g-logo a {line-height:60px;}
 .g-lnb {padding:15px 0;}
-.g-lnb > ul > li > a {line-height:30px; border-radius:20px; font-size:14px; padding:0 15px;}
+.g-lnb > ul > li > a {line-height:30px; border-radius:20px; font-size:14px; padding:0 15px; font-family:'NSL'}
+.g-lnb > ul > li.is-current > a {font-family:'NSR'}
 
 /* Aside Width */
 #g-aside {width:250px;}
@@ -27,13 +28,14 @@
 .g-section-header {padding-bottom:15px;}
 @media only screen and (max-width: 959px) {
 .g-content-header, .g-content-body {padding:30px 30px;}
-.g-content-header {padding-top:30px; border-bottom:0;}
+.g-content-header {padding-top:30px; padding-bottom:0; border-bottom:0;}
 .g-content-body {padding-bottom:40px;}
 .g-section + .g-section {margin-top:40px;}
 }
 @media only screen and (max-width: 480px) {
 .g-content-header, .g-content-body {padding:20px 15px;}
 }
+.g-snb .g-depth2 .g-node2.is-current > a, .g-snb .g-depth2 .g-node2 > a:focus, .g-snb .g-depth2 .g-node2 > a:hover {font-family:'NSL';}
 
 /* UI */
 .g-example-nav {margin:-2px 0;}

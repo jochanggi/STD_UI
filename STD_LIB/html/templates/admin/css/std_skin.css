@@ -88,6 +88,7 @@ html, body, #wrapper {
   left: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
 
 .header-logo .logo {
@@ -99,6 +100,7 @@ html, body, #wrapper {
   right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
 
 .header-gnb {
@@ -154,6 +156,7 @@ html, body, #wrapper {
   height: 2px;
   background-color: #000;
   -webkit-transition: left right 0.3s;
+  -o-transition: left right 0.3s;
   transition: left right 0.3s; }
 
 .gnb .node2-wrap {
@@ -163,6 +166,7 @@ html, body, #wrapper {
   top: 100%;
   padding-top: 5px;
   -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   transform: translateX(-50%); }
 
