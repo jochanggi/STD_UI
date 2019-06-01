@@ -24,12 +24,12 @@ var include = {
 		document.write('<![endif]-->');
 	},
 	skipNav : function(){
-		document.write('   <div id="skipNav"></div>');
+		document.write('   <div class="skipNav"></div>');
 	},
 	header : function(){
-		document.write('    <header id="header"></header>');
+		document.write('    <header class="header"></header>');
 	},
 	footer : function(){
-		document.write('    <footer id="footer"></footer>');
+		document.write('    <footer class="footer"></footer>');
 	},
 }
