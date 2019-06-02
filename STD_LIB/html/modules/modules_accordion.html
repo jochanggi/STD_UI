@@ -41,11 +41,10 @@
 										&lt;li class="acco-item">
 											&lt;div class="acco-title">
 												&lt;button type="button" id="accoTitle01" class="btn acco-toggle" aria-controls="accoContent01" aria-expanded="false">
-													&lt;span class="acco-label">acco-title1&lt;/span>
-													&lt;i class="arw arw-toggle1 dark">&lt;/i>
+													&lt;span class="acco-label">acco-title1&lt;/span>&lt;i class="arw arw-toggle1 dark">&lt;/i>
 												&lt;/button>
 											&lt;/div>
-											&lt;div id="accorContent01" class="acco-cont" aria-labelledby="accoTitle01">
+											&lt;div id="accorContent01" class="acco-cont" aria-labelledby="accoTitle01" aria-hidden="true" hidden="hidden">
 												acco-content1
 											&lt;/div>
 										&lt;/li>
@@ -62,9 +61,8 @@
 									.acco-title .acco-label {display:block; position:relative;}
 									.acco-title .acco-toggle .arw {position:absolute; top:50%; right:0px; transform:translateY(-50%) rotate(0); transition:all 0.3s;}
 									.acco-title.is-active .acco-toggle .arw {transform:translateY(-50%) rotate(180deg)}
-									.acco-content {position:relative; display:none;}
-									.acco-content.is-active {display:block;}
-									.acco-content > div {position:relative; z-index:10;}
+									.acco-cont {position:relative; display:none;}
+									.acco-cont > div {position:relative; z-index:10;}
 
 									/* Design Basic */
 									.acco-basic {overflow:hidden; border:1px solid #ddd; border-radius:5px;}

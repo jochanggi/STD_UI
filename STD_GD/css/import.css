@@ -32,6 +32,7 @@ button, select, textarea, input, fieldset, legend, a, span, strong, em, address,
   padding: 0;
   border: 0;
   list-style: none;
+  color: inherit;
   font-style: normal;
   font-size: 100%;
   font-weight: inherit;
