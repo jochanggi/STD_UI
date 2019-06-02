@@ -35,7 +35,7 @@
 @media only screen and (max-width: 480px) {
 .g-content-header, .g-content-body {padding:20px 15px;}
 }
-.g-snb .g-depth2 .g-node2.is-current > a, .g-snb .g-depth2 .g-node2 > a:focus, .g-snb .g-depth2 .g-node2 > a:hover {font-family:'NSL';}
+.g-snb .g-depth2 .g-node2.is-current > a, .g-snb .g-depth2 .g-node2 > a:focus, .g-snb .g-depth2 .g-node2 > a:hover {font-family:'NSR';}
 
 /* UI */
 .g-example-nav {margin:-2px 0;}

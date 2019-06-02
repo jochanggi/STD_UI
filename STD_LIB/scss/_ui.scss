@@ -852,27 +852,20 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 .drop-basic .drop-menu {padding:5px 10px; border:1px solid #ddd; background-color:#fff; border-radius:0 0 3px 3px; line-height:24px; outline:0;}
 
 /*-------------------------------------------------------------------
-	## Modal
+	## Popup
 -------------------------------------------------------------------*/
 /* Default */
-.popup-wrap {display:none; position:fixed; left:50%; top:50%; z-index:1002; min-width:280px; transform:translate(-50%, -50%); -webkit-transform:translate(-50%, -50%); opacity:0;}
-.popup-wrap.is-visible {display:inline-block;}
+.popup-wrap {position:fixed; z-index:1002; min-width:280px; opacity:0; transition:opacity 0.3s ease;}
+.popup-wrap.is-active {opacity:1;}
 .popup {position:relative; z-index:10;}
-
-/* Common */
-.popup-xs {width:320px;}
-.popup-sm {width:400px;}
-.popup-md {width:600px;}
-.popup-lg {width:800px;}
-.popup-xl {width:1000px;}
 
 /* Basic */
 .popup-basic {height:100%; border:1px solid #ddd; background-color:#fff; border-radius:5px;}
-.popup-basic .popup-header {padding:10px; border-bottom:1px solid #ddd;}
+.popup-basic .popup-head {padding:10px; border-bottom:1px solid #ddd;}
 .popup-basic .popup-body {min-height:101px; padding:10px;}
-.popup-basic .popup-footer {padding:10px; border-top:1px solid #ddd;}
-.popup-basic .popup-close {position:absolute; right:10px; top:6px; width:30px; height:30px;}
-.popup-basic .popup-close .btn {vertical-align:top;}
+.popup-basic .popup-foot {padding:10px; border-top:1px solid #ddd;}
+.popup-basic .popup-closer {position:absolute; right:2px; top:2px; width:30px; height:30px;}
+.popup-basic .popup-closer .btn {vertical-align:top;}
 
 /* Full */
 
