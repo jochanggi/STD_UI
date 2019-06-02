@@ -206,43 +206,21 @@ var dimmer = {
 		}
 	},
 	event : function(selector){
-		if (selector == 'dimmer-tab'){
-			$('.dimmer-tab').not('.is-clicked').on('click', function(){
-				ui.tabFolder.close('popupTabSelect');
-			}).addClass('is-clicked').attr({'aria-hidden':'false'});
-		}
 	},
 	open : function($module, selector, callback){
 		var _this = this;
-		_this.lens = _this.lens + 1;
-		if (selector != 'dimmer-loading'){ bodyScroll.fixed() }
-
-		//처음호출할때 생성
 		if ($(_this.eleModule).length == 0){
-			if (selector == 'dimmer-aside'){$('#header > .in-sec').append('<div class="dimmer" aria-hidden="true"></div>')} //전체메뉴 예외처리
-			else {$('#app').append('<div class="dimmer" aria-hidden="true"></div>')} //팝업 공통
-			$(_this.eleModule).addClass(_this.selector).addClass('is-visible'); //투명상태로 활성화
-			TweenMax.to($(_this.eleModule), duration, {opacity:1, ease:Power3.easeOut, onComplete:function(){
-				if (typeof($module) == 'object'){ setFocus.apply($module) };
-				if (callback){callback(); }
-			}}); //효과 진행
+			$('body').append('<div class="dimmer" aria-hidden="true"></div>') //팝업 공통
+			setTimeout(function(){ $(_this.eleModule).addClass(_this.selector).addClass('is-active'); }); //투명상태로 활성화
+			setScroll.disable();
+			setFocus.disable($module);
 		}
-		//기본실행
-		$(_this.eleModule).attr('data-lens', _this.lens).addClass(selector);
-		//console.log('Dim Layer : ', _this.lens, '개');
 	},
-	close : function($module, selector, duration, callback){
+	close : function($module, selector, callback){
 		var _this = this;
 		_this.lens = _this.lens - 1;
-		bodyScroll.static();
-		setFocus.release($module);
-		if (_this.lens < 1){ // 레이어순서 검토필요
-			_this.lens = 0;
-			TweenMax.to($(_this.eleModule), duration, {opacity:0, ease:Power3.easeOut, onComplete:function(){
-				$(_this.eleModule).remove();
-				if (callback){callback();}
-			}});
-		}
-		//console.log('Dim Layer : ', _this.lens, '개');
+		setScroll.enable();
+		setFocus.enable($module);
+		$(_this.eleModule).removeClass('is-active');
 	}
 }

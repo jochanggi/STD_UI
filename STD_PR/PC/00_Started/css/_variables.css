@@ -1,0 +1,36 @@
+/*
+%dropdown {opacity:0; transform:translateY(-50%) scaleY(0); transition:all 0.3s ease; will-change:transform;}
+%dropdown-active {opacity:1; transform:translateY(0) scaleY(1);}
+%wideScale {transform:scaleX(0); transition:transform 0.25s ease;}
+%wideScale-active {transform:scaleX(1);}
+*/
+@-webkit-keyframes dropdown {
+  from {
+    -webkit-transform: translateY(0) scaleY(1);
+    transform: translateY(0) scaleY(1); }
+  to {
+    -webkit-transform: translateY(-50%) scaleY(0);
+    transform: translateY(-50%) scaleY(0); } }
+@keyframes dropdown {
+  from {
+    -webkit-transform: translateY(0) scaleY(1);
+    transform: translateY(0) scaleY(1); }
+  to {
+    -webkit-transform: translateY(-50%) scaleY(0);
+    transform: translateY(-50%) scaleY(0); } }
+
+@-webkit-keyframes dropdown-active {
+  from {
+    -webkit-transform: translateY(-50%) scaleY(0);
+    transform: translateY(-50%) scaleY(0); }
+  to {
+    -webkit-transform: translateY(0) scaleY(1);
+    transform: translateY(0) scaleY(1); } }
+
+@keyframes dropdown-active {
+  from {
+    -webkit-transform: translateY(-50%) scaleY(0);
+    transform: translateY(-50%) scaleY(0); }
+  to {
+    -webkit-transform: translateY(0) scaleY(1);
+    transform: translateY(0) scaleY(1); } }
