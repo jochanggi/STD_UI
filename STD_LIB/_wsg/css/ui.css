@@ -159,7 +159,7 @@ a.g-top {display:block; position:fixed; right:20px; bottom:20px; width:50px; hei
 .ex-btn-basic {display:inline-block; line-height:28px;}
 
 /* Arrow */
-.arw {position:relative; display:inline-block; background:url() no-repeat -999em -999em; vertical-align:middle; text-indent:-9999em;}
+.arw {position:relative; display:inline-block; vertical-align:middle; text-indent:-9999em;}
 .ex-arw-fold {display:inline-block; width:8px; height:8px; border-left:2px solid transparent; border-top:2px solid transparent; border-radius:2px 0 0 0; content:'';}
 .ex-arw-fold.white {border-left-color:white; border-top-color:white;}
 .ex-arw-fold.black {border-left-color:#222; border-top-color:#222;}

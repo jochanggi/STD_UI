@@ -33,8 +33,8 @@ var ui = {
 			var setTime = null;
 			$(this.eleNode1_item).not('.is-entered').on('mouseenter focusin', function(){
 				clearTimeout(setTime);
-				$(this).addClass('is-active').find('> a').attr({'aria-expended':'true'});
-				$(this).siblings().removeClass('is-active').find('> a').attr({'aria-expended':'false'});
+				$(this).addClass('is-active').find('> a').attr({'aria-expanded':'true'});
+				$(this).siblings().removeClass('is-active').find('> a').attr({'aria-expanded':'false'});
 			}).addClass('is-entered');
 			$(this.eleNode1_item).not('.is-leaved').on('mouseleave focusout', function(){
 				var $this = $(this);
@@ -91,8 +91,8 @@ var ui = {
 			}).attr('.is-clicked');
 		},
 		action: function(id){
-			$(this.eleButton+'[href="#'+id+'"]').attr({'aria-selected':'true'}).parent().siblings().children().attr({'aria-selected':'false'});
-			$('#'+id).attr({'aria-hidden':'false'}).siblings().attr({'aria-hidden': 'true'});
+			$(this.eleButton+'[href="#'+id+'"]').attr({'aria-selected':'true'}).parent().addClass('is-selected').siblings().removeClass('is-selected').children().attr({'aria-selected':'false'});
+			$('#'+id).attr({'aria-hidden':'false'}).removeAttr('hidden').siblings().attr({'aria-hidden': 'true'}).attr('hidden', 'hidden');
 		},
 	},
 

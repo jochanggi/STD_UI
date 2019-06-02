@@ -192,8 +192,8 @@
 											var setTime = null;
 											$(this.eleNode1_item).not('.is-entered').on('mouseenter focusin', function(){
 												clearTimeout(setTime);
-												$(this).addClass('is-active').find('> a').attr({'aria-expended':'true'});
-												$(this).siblings().removeClass('is-active').find('> a').attr({'aria-expended':'false'});
+												$(this).addClass('is-active').find('> a').attr({'aria-expanded':'true'});
+												$(this).siblings().removeClass('is-active').find('> a').attr({'aria-expanded':'false'});
 											}).addClass('is-entered');
 											$(this.eleNode1_item).not('.is-leaved').on('mouseleave focusout', function(){
 												var $this = $(this);

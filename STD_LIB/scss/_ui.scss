@@ -708,8 +708,6 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 .tab-nav li {position:relative; text-align:center;}
 .tab-nav a {display:block; padding:10px;}
 .tab-content {position:relative; padding:10px;}
-.tab-content[aria-hidden=false] {display:block;}
-.tab-content[aria-hidden=true] {display:none;}
 
 /* Layout */
 .tab-nav.tab-float ul::after {display:block; clear:both; content:'';}
@@ -724,7 +722,7 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 .tab-basic ul::after {display:block; clear:both; content:'';}
 .tab-basic li {float:left;}
 .tab-basic a {background:#eee; color:#222;}
-.tab-basic a[aria-selected=true] {background:$color-primary; color:#fff;}
+.tab-basic .is-selected a {background:$color-primary; color:#fff;}
 
 /*-------------------------------------------------------------------
 	## Collapse
@@ -1004,21 +1002,6 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 .slickSlider::after {content:''; clear:both; display:block;}
 .slickSlider .item {float:left;}
 .slickSlider .slick-track {position:relative; margin:0 auto;}
-
-/*-------------------------------------------------------------------
-	## mCustomScrollbar
--------------------------------------------------------------------*/
-/* Default */
-.mCSB_scrollTools {width:6px;}
-.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {background:#aaa; border-radius:3px;}
-.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar {background:#aaa; border-radius:3px;}
-.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {width:6px; background:#aaa; border-radius:3px;}
-.mCSB_scrollTools .mCSB_draggerRail {width:6px; border-radius:3px; background:#efefef;}
-.mCSB_scrollTools .mCSB_draggerRail {filter:"alpha(opacity=100)"; -ms-filter: "alpha(opacity=100)";}
-.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {background-color: #aaa; filter: "alpha(opacity=100)"; -ms-filter: "alpha(opacity=100)";}
-.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {background-color: #aaa; filter: "alpha(opacity=100)"; -ms-filter: "alpha(opacity=100)";}
-.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
-.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {background-color: #aaa; filter: "alpha(opacity=100)"; -ms-filter: "alpha(opacity=100)";}
 
 /*-------------------------------------------------------------------
 	## 기타 UI

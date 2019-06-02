@@ -15,6 +15,7 @@ var include = {
 		document.write('<script type="text/javascript" src="'+baseURL+'js/libs/EasePack.js"></script>');
 		document.write('<script type="text/javascript" src="'+baseURL+'js/libs/TweenMax.js"></script>');
 		document.write('<script type="text/javascript" src="'+baseURL+'js/pub/pub_device.js"></script>');
+		document.write('<script type="text/javascript" src="'+baseURL+'js/pub/pub_utility.js"></script>');
 		document.write('<script type="text/javascript" src="'+baseURL+'js/pub/pub_ui.js"></script>');
 		document.write('<!--[if lt IE 9]>');
 		document.write('<script type="text/javascript" src="'+baseURL+'js/libs/html5shiv-printshiv.js"></script>');

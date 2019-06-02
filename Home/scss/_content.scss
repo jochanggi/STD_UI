@@ -14,17 +14,23 @@
 /*-------------------------------------------------------------------
     ##Intro
 -------------------------------------------------------------------*/
-/* Intro */
-.intro-nav {overflow:hidden; margin-top:100px; font-size:20px; text-align:center;}
-.intro-nav ul {display:inline-block; width:170px; margin:-20px 0; text-align:left;}
-.intro-nav li {margin:20px 0;}
-.intro-nav li a {display:block; color:#333; white-space:nowrap;}
-.intro-nav li a:hover,
-.intro-nav li a:focus {color:#d3002e;}
-.intro-nav li em {display:block; width:120px;}
-.intro-nav li small {display:none; color:#999; font-family:'NSL'; font-size:12px;}
+/* Layout */
+.intro-page {height:250px; @extend %centered-c;}
 
-.intro-nav .bul {margin-right:10px;}
+/* Header */
+.intro-header .tit-wrap {text-align:center;}
+.intro-header .tit-h1 {font-family:'NSB'; font-size:36px; color:#fff;}
+.intro-header .btn-area {margin-top:40px;}
+
+/* Navigation */
+.intro-nav {overflow:hidden; margin-top:100px; font-size:16px; text-align:center; color:#fff;}
+.intro-nav ul {display:inline-block;}
+.intro-nav li {display:inline-block;}
+.intro-nav li a {display:inline-block; padding:5px 10px; border:1px solid transparent; border-radius:20px;}
+.intro-nav li a:hover,
+.intro-nav li a:focus {border-color:#fff;}
+.intro-nav li em {display:block;}
+.intro-nav li small {display:none; color:#999; font-family:'NSL'; font-size:12px;}
 
 /*-------------------------------------------------------------------
     ##Popup

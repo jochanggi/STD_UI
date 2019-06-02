@@ -37,18 +37,22 @@
 								<pre class="brush:html">
 									&lt;div class="tab-nav">
 										&lt;ul role="tablist">
-											&lt;li role="presentation" class="is-selected">&lt;button type="button" id="tabNav11" role="tab" aria-controls="tabContent11" aria-selected="true">탭제목1&lt;/button>&lt;/li>
-											&lt;li role="presentation">&lt;button type="button" id="tabNav12" role="tab" aria-controls="tabContent12" aria-selected="false">탭제목2&lt;/button>&lt;/li>
+											&lt;li role="presentation" class="is-selected">
+												&lt;button type="button" id="tabNav11" role="tab" aria-controls="tabContent11" aria-selected="true">탭제목1&lt;/button>
+											&lt;/li>
+											&lt;li role="presentation">
+												&lt;button type="button" id="tabNav12" role="tab" aria-controls="tabContent12" aria-selected="false">탭제목2&lt;/button>
+											&lt;/li>
 										&lt;/ul>
 									&lt;/div>
 									&lt;div class="tab-body">
 										&lt;!-- 탭내용1 -->
-										&lt;div id="tabContent11" role="tabpanel" aria-labelledby="tabNav11" class="tab-content is-visibled">
+										&lt;div id="tabContent11" class="tab-content" role="tabpanel" aria-labelledby="tabNav11" aria-hidden="false">
 											탭내용1
 										&lt;/div>
 										&lt;!-- //탭내용1 -->
 										&lt;!-- 탭내용2 -->
-										&lt;div id="tabContent12" role="tabpanel" aria-labelledby="tabNav12" class="tab-content">
+										&lt;div id="tabContent12" class="tab-content" role="tabpanel" aria-labelledby="tabNav12" aria-hidden="true" hidden="hidden">
 											탭내용2
 										&lt;/div>
 										&lt;!-- //탭내용2 -->
@@ -72,6 +76,7 @@
 								<strong class="g-example-tit is-before"></strong>
 								<div class="g-example-nav">
 									<span class="g-example-txt"></span>
+									<a href="#none" class="g-example-btn">HTML</a>
 								</div>
 							</div>
 							<div class="g-example-body">
@@ -80,6 +85,11 @@
 
 									<!-- //마크업뷰영역 -->
 								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML Code
+								</pre>
 							</div>
 						</div>
 
@@ -89,6 +99,7 @@
 								<strong class="g-example-tit is-before"></strong>
 								<div class="g-example-nav">
 									<span class="g-example-txt"></span>
+									<a href="#none" class="g-example-btn">HTML</a>
 								</div>
 							</div>
 							<div class="g-example-body">
@@ -97,6 +108,11 @@
 
 									<!-- //마크업뷰영역 -->
 								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML Code
+								</pre>
 							</div>
 						</div>
 					</div>

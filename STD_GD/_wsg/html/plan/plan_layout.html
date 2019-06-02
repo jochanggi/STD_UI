@@ -42,13 +42,13 @@
 											<div class="g-frame">
 												<p class="g-frame-title">.[이름]</p>
 												<div class="g-frame">
-													<p class="g-frame-title">.[이름]-header</p>
+													<p class="g-frame-title">.[이름]-head</p>
 												</div>
 												<div class="g-frame">
 													<p class="g-frame-title">.[이름]-body</p>
 												</div>
 												<div class="g-frame">
-													<p class="g-frame-title">.[이름]-footer</p>
+													<p class="g-frame-title">.[이름]-foot</p>
 												</div>
 											</div>
 										</div>
@@ -59,11 +59,11 @@
 									<pre class="brush:html">
 										&lt;div class="이름-wrap">
 											&lt;div class="이름">
-												&lt;div class="이름-header">
+												&lt;div class="이름-head">
 												&lt;/div>
 												&lt;div class="이름-body">
 												&lt;/div>
-												&lt;div class="이름-footer">
+												&lt;div class="이름-foot">
 												&lt;/div>
 											&lt;/div>
 										&lt;/div>
@@ -92,18 +92,18 @@
 									<!-- 마크업뷰영역 -->
 									<div class="g-frame-wrap">
 										<div class="g-frame">
-											<p class="g-frame-title">#wrap</p>
+											<p class="g-frame-title">.wrapper</p>
 											<div class="g-frame">
-												<p class="g-frame-title">#skipNav</p>
+												<p class="g-frame-title">.skipNav</p>
 											</div>
 											<div class="g-frame">
-												<p class="g-frame-title">#header</p>
+												<p class="g-frame-title">.header</p>
 											</div>
 											<div class="g-frame">
-												<p class="g-frame-title">#container</p>
+												<p class="g-frame-title">.container</p>
 											</div>
 											<div class="g-frame">
-												<p class="g-frame-title">#footer</p>
+												<p class="g-frame-title">.footer</p>
 											</div>
 											<div class="g-frame">
 												<p class="g-frame-title">#popupName</p>
@@ -115,39 +115,39 @@
 								<div id="tabContentCode2-1" class="g-example-footer">
 									<pre class="brush:html">
 										&lt;body>
-										&lt;div id="wrapper">
-											&lt;!-- skipNav -->
-											&lt;div id="skipNav">
+										&lt;div class="wrapper">
+											&lt;!-- s: skipNav -->
+											&lt;div class="skipNav">
 											&lt;/div>
-											&lt;!-- //skipNav -->
+											&lt;!-- e: skipNav -->
 
 											&lt;hr>
 
-											&lt;!-- Header -->
-											&lt;header id="header">
+											&lt;!-- s: Header -->
+											&lt;header class="header">
 											&lt;/header>
-											&lt;!-- //Header -->
+											&lt;!-- e: Header -->
 
 											&lt;hr>
 
-											&lt;!-- Container -->
-											&lt;div id="container">
+											&lt;!-- s: Container -->
+											&lt;div class="container">
 											&lt;/div>
-											&lt;!-- //Container -->
+											&lt;!-- e: Container -->
 
 											&lt;hr>
 
-											&lt;!-- Footer -->
-											&lt;footer id="footer">
+											&lt;!-- s: Footer -->
+											&lt;footer class="footer">
 											&lt;/footer>
-											&lt;!-- //Footer -->
+											&lt;!-- e: Footer -->
 
 											&lt;hr>
 
-											&lt;!-- Popup -->
+											&lt;!-- s: Popup -->
 											&lt;div id="popupName">
 											&lt;/div>
-											&lt;!-- //Popup -->
+											&lt;!-- e: Popup -->
 										&lt;/div>
 										&lt;/body>
 									</pre>
@@ -175,20 +175,14 @@
 									<!-- 마크업뷰영역 -->
 									<div class="g-frame-wrap">
 										<div class="g-frame">
-											<p class="g-frame-title">#container</p>
+											<p class="g-frame-title">.container</p>
 											<div class="g-frame">
-												<p class="g-frame-title">#content</p>
+												<p class="g-frame-title">.content [페이지]-page</p>
 												<div class="g-frame">
-													<p class="g-frame-title">.content-header</p>
-													<div class="g-frame">
-														<p class="g-frame-title">.in-sec</p>
-													</div>
+													<p class="g-frame-title">.content-head</p>
 												</div>
 												<div class="g-frame">
 													<p class="g-frame-title">.content-body</p>
-													<div class="g-frame">
-														<p class="g-frame-title">.in-sec</p>
-													</div>
 												</div>
 											</div>
 										</div>
@@ -197,28 +191,18 @@
 								</div>
 								<div id="tabContentCode4-1" class="g-example-footer">
 									<pre class="brush:html">
-										&lt;!-- Container -->
-										&lt;div id="container">
-											&lt;!-- Content -->
-											&lt;div id="content" class="content 페이지명-cont">
+										&lt;!-- s: Container -->
+										&lt;div class="container">
+											&lt;!-- s: Content -->
+											&lt;div id="content" class="content 페이지명-page">
 												&lt;!-- 여기부터 본문입니다 -->
-												&lt;div class="content-header">
-												&lt;/div>
-												&lt;div class="content-body">
-													&lt;div class="section-wrap 섹션명-sec">
-														&lt;section class="section">
-															&lt;div class="section-header">
-															&lt;/div>
-															&lt;div class="section-body">
-															&lt;/div>
-														&lt;/section>
-													&lt;/div>
-												&lt;/div>
+												&lt;div class="content-head">&lt;/div>
+												&lt;div class="content-body">&lt;/div>
 												&lt;!-- 여기까지 본문입니다 -->
 											&lt;/div>
-											&lt;!-- //Content -->
+											&lt;!-- e: Content -->
 										&lt;/div>
-										&lt;!-- //Container -->
+										&lt;!-- e: Container -->
 									</pre>
 								</div>
 							</div>
@@ -244,50 +228,33 @@
 									<!-- 마크업뷰영역 -->
 									<div class="g-frame-wrap">
 										<div class="g-frame">
-											<p class="g-frame-title">.section-wrap</p>
+											<p class="g-frame-title">section</p>
 											<div class="g-frame">
-												<p class="g-frame-title">.section</p>
-												<div class="g-frame">
-													<p class="g-frame-title">.section-header</p>
-												</div>
-												<div class="g-frame">
-													<p class="g-frame-title">.section-body</p>
-												</div>
+												<p class="g-frame-title">.section-head</p>
+											</div>
+											<div class="g-frame">
+												<p class="g-frame-title">.section-body</p>
 											</div>
 										</div>
 										<div class="g-frame">
-											<p class="g-frame-title">.section-wrap</p>
+											<p class="g-frame-title">section</p>
 										</div>
 										<div class="g-frame">
-											<p class="g-frame-title">.section-wrap</p>
+											<p class="g-frame-title">section</p>
 										</div>
 									</div>
 									<!-- //마크업뷰영역 -->
 								</div>
 								<div id="tabContentCode5-1" class="g-example-footer">
 									<pre class="brush:html">
-										&lt;!-- Container -->
-										&lt;div id="container">
-											&lt;!-- Content -->
-											&lt;div id="content" class="content 페이지명-cont">
-												&lt;!-- 여기부터 본문입니다 -->
-												&lt;div class="content-header">
-												&lt;/div>
-												&lt;div class="content-body">
-													&lt;div class="section-wrap 섹션명-sec">
-														&lt;section class="section">
-															&lt;div class="section-header">
-															&lt;/div>
-															&lt;div class="section-body">
-															&lt;/div>
-														&lt;/section>
-													&lt;/div>
-												&lt;/div>
-												&lt;!-- 여기까지 본문입니다 -->
+										<!-- s: section -->
+										&lt;section class="section">
+											&lt;div class="section-head">
 											&lt;/div>
-											&lt;!-- //Content -->
-										&lt;/div>
-										&lt;!-- //Container -->
+											&lt;div class="section-body">
+											&lt;/div>
+										&lt;/section>
+										<!-- e: section -->
 									</pre>
 								</div>
 							</div>
@@ -328,9 +295,6 @@
 														</div>
 														<div class="g-frame">
 															<p class="g-frame-title">.popup-footer</p>
-														</div>
-														<div class="g-frame">
-															<p class="g-frame-title">.popup-close</p>
 														</div>
 													</div>
 												</div>

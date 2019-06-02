@@ -24,6 +24,7 @@
     ## Reset
 -------------------------------------------------------------------*/
 @import url(animate.css);
+@import url(plugins.css);
 html, body, div, ul, ol, dl, li, dt, dd, p, h1, h2, h3, h4, h5, h6, table, th, td, caption, address, article, aside,
 canvas, details, figure, figcaption, footer, header, menu, nav, section,
 button, select, textarea, input, fieldset, legend, a, span, strong, em, address, dfn, small, i, b {
@@ -31,10 +32,14 @@ button, select, textarea, input, fieldset, legend, a, span, strong, em, address,
   padding: 0;
   border: 0;
   list-style: none;
+  color: inherit;
   font-style: normal;
   font-size: 100%;
   font-weight: inherit;
   font-family: inherit;
+  line-height: inherit;
+  word-break: inherit;
+  word-wrap: inherit;
   box-sizing: inherit;
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
@@ -50,14 +55,15 @@ article, aside, canvas, details, figure, figcaption, footer, header, menu, nav, 
   display: block; }
 
 body {
+  font-family: "NSR", "Dotum", "Dotumche", "돋움", "돋움체", "Arial";
   font-size: 14px;
   line-height: 1;
   word-break: keep-all;
   word-wrap: word-break;
-  box-sizing: inherit;
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  -o-box-sizing: inherit;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none; }
@@ -85,14 +91,7 @@ img, a, frame, iframe, fieldset {
   border: 0; }
 
 a {
-  color: #333;
   text-decoration: none; }
-
-a:active, a:visited, a:link {
-  color: #333; }
-
-a:hover {
-  color: #333; }
 
 table {
   width: 100%;
@@ -118,98 +117,39 @@ button::-moz-focus-inner {
   border: 0px;
   padding: 0px; }
 
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  color: #999; }
+.dv-android [tabindex='0']:focus,
+.dv-android a:focus,
+.dv-android button:focus,
+.dv-android input:focus,
+.dv-android textarea:focus,
+.dv-android select:focus {
+  outline: 0; }
 
-/* IE 10 + */
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #999; }
-
-/* Webkit Browser */
-input:-moz-placeholder, textarea:-moz-placeholder {
-  color: #999; }
-
-/* Mozilla Firefox 4 to 18 */
-input::-moz-placeholder, textarea::-moz-placeholder {
-  color: #999; }
-
-/* Mozilla Firefox 19+ */
-input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {
-  color: transparent; }
-
-/* IE 10 + */
-input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
-  color: transparent; }
-
-/* Webkit Browser */
-input:focus:-moz-placeholder, textarea:focus:-moz-placeholder {
-  color: transparent; }
-
-/* Mozilla Firefox 4 to 18 */
-input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
-  color: transparent; }
-
-/* Mozilla Firefox 19+ */
-input {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  border: 0px;
-  vertical-align: middle; }
-
-textarea {
-  width: 100%;
-  vertical-align: middle;
-  resize: none; }
-
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none; }
-
-select::-ms-expand {
-  display: none; }
-
-:root select {
-  padding: 0px 30px 0px 5px; }
-
-.ie9 select {
-  padding: 5px 35px 4px 5px;
-  background: none; }
-
-.ie9 :root select {
-  padding: 0;
-  font-size: 0; }
+.dv-ios [tabindex='0'],
+.dv-ios a,
+.dv-ios button,
+.dv-ios input,
+.dv-ios textarea,
+.dv-ios select {
+  -webkit-tap-highlight-color: transparent; }
 
 /*-------------------------------------------------------------------
     ## Fonts
 -------------------------------------------------------------------*/
 @font-face {
-  font-family: "roboto-l";
-  src: url("../fonts/Roboto-Light.woff") format("woff"); }
+  font-family: "NST";
+  src: url("../fonts/NotoSans-Thin.eot");
+  src: local("※"), url("../fonts/NotoSans-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-Thin.woff") format("woff"); }
 
 @font-face {
-  font-family: "roboto-r";
-  src: url("../fonts/Roboto-Regular.woff") format("woff"); }
-
-@font-face {
-  font-family: "roboto-m";
-  src: url("../fonts/Roboto-Medium.woff") format("woff"); }
-
-@font-face {
-  font-family: "roboto-b";
-  src: url("../fonts/Roboto-Bold.woff") format("woff"); }
+  font-family: "NSL";
+  src: url("../fonts/NotoSans-Light.eot");
+  src: local("※"), url("../fonts/NotoSans-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-Light.woff") format("woff"); }
 
 @font-face {
   font-family: "NSDL";
   src: url("../fonts/NotoSans-DemiLight.eot");
   src: local("※"), url("../fonts/NotoSans-DemiLight.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-DemiLight.woff") format("woff"); }
-
-@font-face {
-  font-family: "MSL";
-  src: url("../fonts/NotoSans-Light.eot");
-  src: local("※"), url("../fonts/NotoSans-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-Light.woff") format("woff"); }
 
 @font-face {
   font-family: "NSR";
@@ -505,6 +445,70 @@ select::-ms-expand {
 	## Form Controls
 -------------------------------------------------------------------*/
 /* Default */
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #999; }
+
+/* IE 10 + */
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #999; }
+
+/* Webkit Browser */
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #999; }
+
+/* Mozilla Firefox 4 to 18 */
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #999; }
+
+/* Mozilla Firefox 19+ */
+input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {
+  color: transparent; }
+
+/* IE 10 + */
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+  color: transparent; }
+
+/* Webkit Browser */
+input:focus:-moz-placeholder, textarea:focus:-moz-placeholder {
+  color: transparent; }
+
+/* Mozilla Firefox 4 to 18 */
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
+  color: transparent; }
+
+/* Mozilla Firefox 19+ */
+input {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 0px;
+  vertical-align: middle; }
+
+textarea {
+  width: 100%;
+  vertical-align: middle;
+  resize: none; }
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none; }
+
+select::-ms-expand {
+  display: none; }
+
+:root select {
+  padding: 0px 30px 0px 5px; }
+
+.ie9 select {
+  padding: 5px 35px 4px 5px;
+  background: none; }
+
+.ie9 :root select {
+  padding: 0;
+  font-size: 0; }
+
 /*-------------------------------------------------------------------
 	## Form Text
 -------------------------------------------------------------------*/
@@ -716,3 +720,19 @@ select::-ms-expand {
     ## Popup
 -------------------------------------------------------------------*/
 /* 메뉴명 > 화면명 > 팝업명 */
+/*-------------------------------------------------------------------
+	파일정의 : 메인컨텐츠 스타일
+	작성날짜 : YYYY-MM-DD 홍길동
+	참고사항 : 서브스타일과 메인스타일의 분리
+	분류순서 : 레이아웃 > 공통디자인 > 컨텐츠
+	속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------
+    ## 레이아웃
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------
+    ## 공통디자인
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------
+    ## 컨텐츠
+-------------------------------------------------------------------*/
