@@ -136,40 +136,23 @@ var callChildTarget = function($this, callback){
 	기능명칭 : SET FOCUS
 	기능상세 : 모달 노출시 배경포커스 잠금
 */
-
 var setFocus = {
 	eleTabIdx : 'a, button, select, input, textarea', //키보드제어 요소
-	//포커싱 설정호출
-	call : function($eleModule){
-		//부모의 그룹 오브젝트를 파라미터로 전송 (형제구조를 접근 못하도록 설정)
-		//$eleModule가 #header, #container 형제구조인경우 부모그룹 생략
-		if ($eleModule.hasClass('popup-wrap')){ //팝업
-			this.setApply($('#container').siblings());
-			this.setApply($('.content-body').siblings());
-			this.setApply($eleModule.siblings());
-		}
-		if ($eleModule.hasClass('aside-wrap')){ //모바일메뉴
-			this.setApply($('#header').siblings());
-			this.setApply($eleModule.siblings());
-		}
-		if ($eleModule.hasClass('search-all-wrap')){
-			this.setApply($eleModule.siblings().not('#header'));
-		}
+	//포커스 비활성
+	disable : function($module){
+		var $siblings = $module.siblings();
+		$siblings.not('[aria-hidden=true]').addClass('is-ariaHidden').attr({'aria-hidden':'true'});			// 자신의 아리아히든 설정
+		$siblings.filter(this.eleTabIdx).not('[tabindex]').addClass('is-tabindex-none').attr({'tabindex':'-1'});	// 자신의 탭인덱스 없는요소 설정
+		$siblings.filter('[tabindex=0]').addClass('is-tabindex-0').attr({'tabindex':'-1'});							// 자신의 탭인덱스 0 요소 설정
+		$siblings.find(this.eleTabIdx).not('[tabindex]').addClass('is-tabindex-none').attr({'tabindex':'-1'});		// 자식의 탭인덱스 없는요소 설정
+		$siblings.find('[tabindex=0]').addClass('is-tabindex-0').attr({'tabindex':'-1'});							// 자식의 탭인덱스 0 요소 설정
 	},
 	//포커스 활성화
-	enable : function($eleModule){
-		$('.is-ariaHidden').attr({'aria-hidden':'false'}).removeClass('is-ariaHidden'); // 아리아히든 초기화
-		$('.not-tabindex').removeClass('not-tabindex');							// 탭인덱스 -1이었던 요소 초기화
-		$('.is-tabindex-0').attr('tabindex', '0').removeClass('is-tabindex');   // 탭인덱스 0이었던 요소 초기화
-		$('.is-tabindex-n').removeAttr('tabindex').removeClass('is-tabindex');  // 탭인덱스 없었던 요소 초기화
+	enable : function(){
+		$('.is-ariaHidden').attr({'aria-hidden':'false'}).removeClass('is-ariaHidden'); // 모든 아리아히든 초기화
+		$('.is-tabindex-0').attr({'tabindex':'0'}).removeClass('is-tabindex-0');		// 모든 탭인덱스 0 이었던 요소 초기화
+		$('.is-tabindex-none').removeAttr('tabindex').removeClass('is-tabindex-none');								// 모든 탭인덱스 없었던 요소 초기화
 	},
-	//포커스 비활성
-	disable : function($obj){
-		$obj.attr({'aria-hidden':'true'}).addClass('is-ariaHidden'); // 아리아히든 설정
-		$obj.find('[tabindex=-1]').addClass('not-tabindex');			// 탭인덱스 -1 요소 설정
-		$obj.find('[tabindex=0]').attr({'tabindex':'-1'}).addClass('is-tabindex-0'); // 탭인덱스 0 요소 설정
-		$obj.find(this.eleTabIdx).not('[tabindex=-1]').attr({'tabindex':'-1'}).addClass('is-tabindex-n'); // 탭인덱스 없는요소 설정
-	}
 }
 
 /*
@@ -177,50 +160,52 @@ var setFocus = {
 	기능상세 : 모달 노출시 배경스크롤링 잠금
 */
 var setScroll = {
-	clsFixed : 'is-bodyFixed',
+	clsFixed : 'is-scroll-fixed',
 	scrTop : null,
-	//스크롤 활성화
-	enable : function(){
-		$('html, body, #app').removeClass(this.clsFixed);
-		$(window).scrollTop(this.scrTop);
-		$(ui.floating.eleModule).removeClass('is-floated');
-	},
 	//스크롤 비활성
 	disable : function(){
 		this.scrTop = $(window).scrollTop();
-		$('html, body, #app').addClass(this.clsFixed);
-		$('#app').scrollTop(this.scrTop);
-	}
+		$('html, body').addClass(this.clsFixed);
+		$('body').scrollTop(this.scrTop);
+	},
+	//스크롤 활성화
+	enable : function(){
+		$('html, body').removeClass(this.clsFixed);
+		$(window).scrollTop(this.scrTop);
+	},
 }
 
 /*
-	기능명칭 : Dimmer
-	기능상세 : 모달 노출시 배경화면 가리기
+	기능명칭: Dimmer
 */
 var dimmer = {
 	eleModule : '.dimmer',
 	lens      : 0,
-	init : function(){
-		if (this.lens == 1 && $(this.eleModule).is(':visible')){
-			this.close($(this.eleModule), '', 0.5);
-		}
-	},
-	event : function(selector){
-	},
-	open : function($module, selector, callback){
+	open: function($module, selector, callback){
 		var _this = this;
-		if ($(_this.eleModule).length == 0){
-			$('body').append('<div class="dimmer" aria-hidden="true"></div>') //팝업 공통
-			setTimeout(function(){ $(_this.eleModule).addClass(_this.selector).addClass('is-active'); }); //투명상태로 활성화
-			setScroll.disable();
-			setFocus.disable($module);
-		}
+		_this.lens = _this.lens + 1;
+		//딤이 없는경우 생성
+		if ($(_this.eleModule).length == 0){ $('body').append('<div class="dimmer" aria-hidden="true"></div>') };
+		setTimeout(function(){ $(_this.eleModule).addClass(_this.selector).addClass('is-active'); }); //딤활성화
+		setScroll.disable(); //스크롤비활성
+		setFocus.disable($module); //초점비활성
+		if (callback){callback} //콜백이 있는경우 실행
 	},
-	close : function($module, selector, callback){
+	close: function($module, selector, callback){
 		var _this = this;
-		_this.lens = _this.lens - 1;
-		setScroll.enable();
-		setFocus.enable($module);
-		$(_this.eleModule).removeClass('is-active');
+		_this.lens = this.lens - 1;
+		//딤을 호출하는 요소가 없는경우 닫기
+		console.log(_this.lens);
+		if (_this.lens == 0){
+			setScroll.enable(); //스크롤활성화
+			setFocus.enable(); //초점활성화
+			$(_this.eleModule).removeClass('is-active'); //딤제거
+			$(_this.eleModule).one(transitionend, function(){
+				if (!$(this).hasClass('is-active')){
+					$(this).remove();
+					if (callback){ callback }
+				}
+			});
+		}
 	}
 }

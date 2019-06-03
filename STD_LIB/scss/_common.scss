@@ -9,6 +9,9 @@
 /*-------------------------------------------------------------------
     ##General
 -------------------------------------------------------------------*/
+/* Scroll Fixed */
+.is-scroll-fixed {position:fixed; left:0; top:0; width:100%; height:100%; overflow:hidden;}
+
 /* IR */
 .is-hidden {display:none;}
 .blind {position:absolute; top:-999em; left:-999em; z-index:0; width:1px; height:1px; overflow:hidden;}
