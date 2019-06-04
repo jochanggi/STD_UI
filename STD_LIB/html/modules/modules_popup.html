@@ -38,27 +38,28 @@
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
-									<!-- popup-open -->
-									<button type="button" class="btn btn-basic popup-opener" aria-controls="popup1" aria-haspopup="true" onclick="ui.popup.open('popup1', this);"><span>Popup Open</span></button>
+									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupContent', this);"><span>Basic Popup</span></button>
 								</div>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
 									&lt;!-- popup-open -->
-									&lt;button type="button" class="btn btn-type2 popup-open" aria-controls="popup1" aria-haspopup="true">&lt;span>Popup Open&lt;/span>&lt;/button>
+									&lt;button type="button" class="btn popup-open" aria-controls="popup1" aria-haspopup="dialog">&lt;span>Popup Open&lt;/span>&lt;/button>
 
 									&lt;!-- 모달공통 -->
-									&lt;div id="popup1" class="popup-wrap" role="dialog">
-										&lt;div class="popup popup-popup popup-basic">
-											&lt;div class="popup-container">
-												&lt;div class="popup-head">
-													&lt;h3 id="alertHeading" class="popup-title">&lt;span class="popup-focus">popup-title&lt;/span>&lt;/h3>
-												&lt;/div>
-												&lt;div class="popup-body">
-													popup-body
-												&lt;/div>
-												&lt;div class="popup-foot">
-													popup-footer
+									&lt;div id="popup1" class="popup-wrap" data-popup="content" role="dialog" aria-modal="true" aria-labelledby="popupTitle1">
+										&lt;div class="popup btn-basic">
+											&lt;div class="popup-inner">
+												&lt;div class="popup-inner">
+													&lt;div class="popup-head">
+														&lt;h3 class="popup-title popup-focus">&lt;span id="popupTitle1">Content Popup&lt;/span>&lt;/h3>
+													&lt;/div>
+													&lt;div class="popup-body">
+														popup-body
+													&lt;/div>
+													&lt;div class="popup-foot">
+														popup-footer
+													&lt;/div>
 												&lt;/div>
 											&lt;/div>
 											&lt;button type="button" class="btn-ico popup-closer" aria-controls="popup1" title="제목 팝업닫기" onclick="ui.popup.close('popup1')">&lt;span>&lt;i class="ico ico-close1 dark">Close&lt;/i>&lt;/span>&lt;/button>
@@ -75,14 +76,6 @@
 									.popup-wrap {position:fixed; z-index:1002; min-width:280px; opacity:0; transition:opacity 0.3s ease;}
 									.popup-wrap.is-active {opacity:1;}
 									.popup {position:relative; z-index:10;}
-
-									/* Basic */
-									.popup-basic {height:100%; border:1px solid #ddd; background-color:#fff; border-radius:5px;}
-									.popup-basic .popup-head {padding:10px; border-bottom:1px solid #ddd;}
-									.popup-basic .popup-body {min-height:101px; padding:10px;}
-									.popup-basic .popup-foot {padding:10px; border-top:1px solid #ddd;}
-									.popup-basic .popup-closer {position:absolute; right:2px; top:2px; width:30px; height:30px;}
-									.popup-basic .popup-closer .btn {vertical-align:top;}
 								</pre>
 							</div>
 							<div class="g-example-footer">
@@ -93,15 +86,15 @@
 										eleCloser: '.popup-closer',
 										eleFocus : '.popup-focus',
 										zindex   : 1000,
-										init: function(){
-											this.event();
-										},
-										setPosition : function($obj){
-											var sizeW = $obj.outerWidth(),
-												sizeH = $obj.outerHeight(),
-												posL = -1 * parseInt(sizeW/2),
-												posT = -1 * parseInt(sizeH/2);
-											$obj.css({ left: '50%', top: '50%', marginLeft: posL, marginTop: posT });
+										setPosition : function($popup){
+											//중앙정렬이 아닌경우 타입별 CSS처리
+											if ($popup.closest(this.eleModule).is('[data-popup=content], [data-popup=alert]')){
+												var sizeW = $popup.outerWidth(),
+													sizeH = $popup.outerHeight(),
+													posL = -1 * parseInt(sizeW/2),
+													posT = -1 * parseInt(sizeH/2);
+												$popup.css({marginLeft: posL, marginTop: posT });
+											}
 										},
 										open: function(id, obj){
 											var _this = this;
@@ -125,7 +118,7 @@
 											$id.removeClass('is-active');
 											$id.one(transitionend, function(){
 												if (!$(this).hasClass('is-active')){
-													$id.removeAttr('hidden');
+													$id.attr('hidden', 'hidden');
 													$opner.focus().removeAttr('data-popup');
 													if (callback){ callback }
 												}
@@ -154,8 +147,8 @@
 										##Dimmer
 									-------------------------------------------------------------------*/
 									/* Default */
-									.dimmer {display:none; position:fixed; top:0; right:0; bottom:0; left:0; z-index:1000; opacity:0; background:rgba(0,0,0,0.75);}
-									.dimmer.is-visible {display:block;}
+									.dimmer {position:fixed; top:0; right:0; bottom:0; left:0; z-index:1000; opacity:0; background:rgba(0,0,0,0.75); transition:opacity 0.3s;}
+									.dimmer.is-active {opacity:1;}
 								</pre>
 							</div>
 							<div class="g-example-footer">
@@ -207,7 +200,6 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:js">
-									// Body Fixed
 									var setScroll = {
 										clsFixed : 'is-scroll-fixed',
 										scrTop : null,
@@ -266,10 +258,9 @@
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
-						<h2 class="g-h2">Types</h2>
+						<h2 class="g-h2">data-popup</h2>
 					</div>
 					<div class="g-section-body">
-						<h3 class="g-h3">Alert</h3>
 						<div class="g-example-wrap">
 							<div class="g-example-header">
 								<strong class="g-example-tit is-before"></strong>
@@ -277,122 +268,67 @@
 									<span class="g-example-txt"></span>
 									<a href="javascript:;" class="g-example-btn">HTML</a>
 									<a href="javascript:;" class="g-example-btn">CSS</a>
-									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
 								</div>
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
+									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupContent', this);"><span>Content Popup</span></button>
+									<br><br>
+									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupAlert', this);"><span>Alert Popup</span></button>
+									<br><br>
+									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupSelect', this);"><span>Select Popup</span></button>
+									<br><br>
+									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupFull', this);"><span>Full Popup</span></button>
+									<br><br>
+									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupResponsive', this);" disabled><span>Responsive Popup</span></button> (기본구현 생략 : 이슈 발생시 조치)
 								</div>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
-									HTML SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:css">
-									CSS SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:js">
-									SCRIPT SOURCE
-								</pre>
-							</div>
-						</div>
+									&lt;!-- Content Popup -->
+									&lt;div id="popupContent" class="popup-wrap" data-popup="content" role="dialog" aria-labelledby="popupContentTitle" hidden>
+										&lt;div class="popup popup-basic">...&lt;/div>
+									&lt;/div>
 
-						<h3 class="g-h3">Masagge</h3>
-						<div class="g-example-wrap">
-							<div class="g-example-header">
-								<strong class="g-example-tit is-before"></strong>
-								<div class="g-example-nav">
-									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
-									<a href="javascript:;" class="g-example-btn">CSS</a>
-									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
-								</div>
-							</div>
-							<div class="g-example-body">
-								<div class="g-example-preview">
-								</div>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:html">
-									HTML SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:css">
-									CSS SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:js">
-									SCRIPT SOURCE
-								</pre>
-							</div>
-						</div>
+									&lt;!-- Alert Popup -->
+									&lt;div id="popupAlert" class="popup-wrap" data-popup="alert" role="alertdialog" aria-describedby="popupAlertDesc" hidden>
+										&lt;div class="popup popup-basic">...&lt;/div>
+									&lt;/div>
 
-						<h3 class="g-h3">Content Popup</h3>
-						<div class="g-example-wrap">
-							<div class="g-example-header">
-								<strong class="g-example-tit is-before"></strong>
-								<div class="g-example-nav">
-									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
-									<a href="javascript:;" class="g-example-btn">CSS</a>
-									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
-								</div>
-							</div>
-							<div class="g-example-body">
-								<div class="g-example-preview">
-								</div>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:html">
-									HTML SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:css">
-									CSS SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:js">
-									SCRIPT SOURCE
-								</pre>
-							</div>
-						</div>
+									&lt;!-- Select Popup -->
+									&lt;div id="popupSelect" class="popup-wrap" data-popup="select" role="dialog" aria-labelledby="popupSelectTitle" hidden>
+										&lt;div class="popup popup-basic">...&lt;/div>
+									&lt;/div>
 
-						<h3 class="g-h3">Event Popup</h3>
-						<div class="g-example-wrap">
-							<div class="g-example-header">
-								<strong class="g-example-tit is-before"></strong>
-								<div class="g-example-nav">
-									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn">HTML</a>
-									<a href="javascript:;" class="g-example-btn">CSS</a>
-									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
-								</div>
-							</div>
-							<div class="g-example-body">
-								<div class="g-example-preview">
-								</div>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:html">
-									HTML SOURCE
+									&lt;!-- Full Popup -->
+									&lt;div id="popupFull" class="popup-wrap" data-popup="full" role="dialog" aria-labelledby="popupFullTitle" hidden>
+										&lt;div class="popup popup-basic">...&lt;/div>
+									&lt;/div>
+
+									&lt;!-- Responsive Popup -->
+									&lt;div id="popupResponsive" class="popup-wrap" data-popup="reponsive" role="dialog" aria-labelledby="popupRespTitle" hidden>
+										&lt;div class="popup popup-basic">...&lt;/div>
+									&lt;/div>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									CSS SOURCE
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:js">
-									SCRIPT SOURCE
+									/* Common Type */
+									.popup-wrap[data-popup=content] {left:50%; top:50%;}
+									.popup-wrap[data-popup=content].is-active {}
+									.popup-wrap[data-popup=alert] {left:50%; top:50%;}
+									.popup-wrap[data-popup=alert].is-active {}
+									.popup-wrap[data-popup=select] {left:0; bottom:0; width:100%; transform:translateY(100%); transition-property:transform, opacity;}
+									.popup-wrap[data-popup=select].is-active {transform:translateY(0%);}
+									.popup-wrap[data-popup=select] .popup {width:100%; min-width:100%;}
+									.popup-wrap[data-popup=full] {left:0; top:0; width:100%; height:100%; transform:translateX(100%); transition-property:transform, opacity;}
+									.popup-wrap[data-popup=full].is-active {transform:translateX(0%);}
+									.popup-wrap[data-popup=full] .popup {width:100%; height:100%; min-width:100%; min-height:100%;}
+									.dv-mobile .popup-wrap[data-popup=responsive] {left:0; top:0; transform:translateX(100%); transition-property:transform, opacity;}
+									.dv-mobile .popup-wrap[data-popup=responsive].is-active {transform:translateX(0%);}
+									.dv-mobile .popup-wrap[data-popup=full] .popup {width:100%; height:100%; min-width:100%; min-height:100%;}
+									.dv-pc .popup-wrap[data-popup=responsive] {left:50%; top:50%; transition-property:opacity;}
+
 								</pre>
 							</div>
 						</div>
@@ -408,11 +344,11 @@
 	<script>include.footer()</script>
 
 	<!-- 모달공통 -->
-	<div id="popup1" class="popup-wrap" role="dialog">
-		<div class="popup popup-popup popup-basic">
-			<div class="popup-container">
+	<div id="popupContent" class="popup-wrap" data-popup="content" role="dialog" aria-labelledby="popupContentTitle" hidden>
+		<div class="popup popup-basic">
+			<div class="popup-inner">
 				<div class="popup-head">
-					<h3 id="alertHeading" class="popup-title"><span class="popup-focus">popup-title</span></h3>
+					<h3 id="popupContentTitle" class="popup-title popup-focus">Content Popup</h3>
 				</div>
 				<div class="popup-body">
 					popup-body
@@ -421,7 +357,67 @@
 					popup-footer
 				</div>
 			</div>
-			<button type="button" class="btn-ico popup-closer" aria-controls="popup1" title="제목 팝업닫기" onclick="ui.popup.close('popup1')"><span><i class="ico ico-close1 dark">Close</i></span></button>
+			<button type="button" class="btn-ico popup-closer" aria-controls="popupContent" title="제목 팝업닫기" onclick="ui.popup.close('popupContent')"><span><i class="ico ico-close1 dark">Close</i></span></button>
+		</div>
+	</div>
+	<!-- 모달공통 -->
+	<div id="popupAlert" class="popup-wrap" data-popup="alert" role="alertdialog" aria-describedby="popupAlertDesc" hidden>
+		<div class="popup popup-basic">
+			<div class="popup-inner">
+				<div class="popup-head" hidden>
+					<h3 class="popup-title">Alert Popup</span></h3>
+				</div>
+				<div class="popup-body">
+					<p id="popupAlertDesc"><span class="popup-focus">popup-body</span></p>
+				</div>
+			</div>
+			<button type="button" class="btn-ico popup-closer" aria-controls="popupAlert" title="제목 팝업닫기" onclick="ui.popup.close('popupAlert')"><span><i class="ico ico-close1 dark">Close</i></span></button>
+		</div>
+	</div>
+	<!-- 모달공통 -->
+	<div id="popupSelect" class="popup-wrap" data-popup="select" role="dialog" aria-labelledby="popupSelectTitle" hidden>
+		<div class="popup popup-basic">
+			<div class="popup-inner">
+				<div class="popup-head">
+					<h3 id="popupSelectTitle" class="popup-title popup-focus">popup-title</span></h3>
+				</div>
+				<div class="popup-menu">
+					<ul class="popup-list" role="listbox">
+						<li role="option">popup-list</li>
+						<li role="option">popup-list</li>
+						<li role="option">popup-list</li>
+					</ul>
+				</div>
+			</div>
+			<button type="button" class="btn-ico popup-closer" aria-controls="popupSelect" title="제목 팝업닫기" onclick="ui.popup.close('popupSelect')"><span><i class="ico ico-close1 dark">Close</i></span></button>
+		</div>
+	</div>
+	<!-- 모달공통 -->
+	<div id="popupFull" class="popup-wrap" data-popup="full" role="dialog" aria-labelledby="popupFullTitle" hidden>
+		<div class="popup popup-basic">
+			<div class="popup-inner">
+				<div class="popup-head">
+					<h3 id="popupFullTitle" class="popup-title popup-focus">Full Popup</span></h3>
+				</div>
+				<div class="popup-body">
+					popup-body
+				</div>
+			</div>
+			<button type="button" class="btn-ico popup-closer" aria-controls="popupFull" title="제목 팝업닫기" onclick="ui.popup.close('popupFull')"><span><i class="ico ico-close1 dark">Close</i></span></button>
+		</div>
+	</div>
+	<!-- 모달공통 -->
+	<div id="popupResponsive" class="popup-wrap" data-popup="reponsive" role="dialog" aria-labelledby="popupRespTitle" hidden>
+		<div class="popup popup-basic">
+			<div class="popup-inner">
+				<div class="popup-head">
+					<h3 id="popupRespTitle" class="popup-title popup-focus">Responsive Popup</span></h3>
+				</div>
+				<div class="popup-body">
+					popup-body
+				</div>
+			</div>
+			<button type="button" class="btn-ico popup-closer" aria-controls="popupResponsive" title="제목 팝업닫기" onclick="ui.popup.close('popupResponsive')"><span><i class="ico ico-close1 dark">Close</i></span></button>
 		</div>
 	</div>
 </div>

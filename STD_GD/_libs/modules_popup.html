@@ -25,6 +25,7 @@
 						<h2 class="g-h2">Default Guide</h2>
 					</div>
 					<div class="g-section-body">
+						<h3 class="g-h3">Basic</h3>
 						<div class="g-example-wrap">
 							<div class="g-example-header">
 								<strong class="g-example-tit">Markup Codeview</strong>
@@ -36,34 +37,52 @@
 							<div id="tabContentCode1-1" class="g-example-footer is-active">
 								<pre class="brush:html">
 									&lt;!-- 버튼공통 -->
-									&lt;button type="button" class="btn popup-opener" aria-controls="popupName1" aria-haspopup="dialog" onclick="ui.popup.open(this, 'popupName1')">&lt;span>Popup Open&lt;/span>&lt;/button>
-									&lt;button type="button" class="btn popup-closer" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')">&lt;span>Popup Close&lt;/span>&lt;/button>
+									&lt;button type="button" class="btn popup-opener" aria-controls="popupName1" aria-haspopup="dialog" onclick="ui.popup.open('popupName1', this)">&lt;span>Popup Open&lt;/span>&lt;/button>
 
 									&lt;!-- 컨텐츠 팝업 -->
 									&lt;div id="popupName1" class="popup-wrap" role="dialog" aria-modal="true" aria-labelledby="popupTitle1" hidden>
 										&lt;div class="popup">
-											&lt;div class="popup-header">
-												&lt;h3 id="popupTitle1">&lt;/h3>
-											&lt;/div>
-											&lt;div class="popup-body">
-												컨텐츠설명
-											&lt;/div>
-											&lt;div class="popup-footer">&lt;/div>
-											&lt;button type="button" class="btn popup-closer" aria-controls="popupName1" onclick="ui.popup.close(this, 'popupName1')">&lt;span>Popup Close&lt;/span>&lt;/button>
+											(사용자정의 서브구조)
+											&lt;button type="button" class="btn popup-closer" aria-controls="popupName1" onclick="ui.popup.close('popupName1')" title="제목 닫기">&lt;span>Popup Close&lt;/span>&lt;/button>
 										&lt;/div>
 									&lt;/div>
+								</pre>
+							</div>
+						</div>
+						<h3 class="g-h3">Types</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="#tabContentCode1-1" class="g-example-btn">HTML</a>
+								</div>
+							</div>
+							<div id="tabContentCode1-1" class="g-example-footer">
+								<pre class="brush:html">
+									&lt;!-- Content Popup -->
+									&lt;div id="popupContent" class="popup-wrap" data-popup="content" role="dialog" aria-modal="true" aria-labelledby="popupContentTitle" hidden>
+										&lt;div class="popup">...&lt;/div>
+									&lt;/div>
 
-									&lt;!-- 경고 팝업 -->
-									&lt;div id="popupName2" class="popup-wrap" role="alertdialog" aria-modal="true" aria-describedby="popupDesc2" hidden>
-										&lt;div class="popup">
-											&lt;div class="popup-body">
-												&lt;div id="popupDesc2" class="popup-alert">
-													경고메세지
-												&lt;/div>
-											&lt;/div>
-											&lt;div class="popup-footer">&lt;/div>
-											&lt;button type="button" class="btn popup-closer" aria-controls="popupName2" onclick="ui.popup.close(this, 'popupName2')">&lt;span>Popup Close&lt;/span>&lt;/button>
-										&lt;/div>
+									&lt;!-- Alert Popup -->
+									&lt;div id="popupAlert" class="popup-wrap" data-popup="alert" role="alertdialog" aria-modal="true" aria-describedby="popupAlertDesc" hidden>
+										&lt;div class="popup">...&lt;/div>
+									&lt;/div>
+
+									&lt;!-- Select Popup -->
+									&lt;div id="popupSelect" class="popup-wrap" data-popup="select" role="dialog" aria-modal="true" aria-labelledby="popupSelectTitle" hidden>
+										&lt;div class="popup">...&lt;/div>
+									&lt;/div>
+
+									&lt;!-- Full Popup -->
+									&lt;div id="popupFull" class="popup-wrap" data-popup="full" role="dialog" aria-modal="true" aria-labelledby="popupFullTitle" hidden>
+										&lt;div class="popup">...&lt;/div>
+									&lt;/div>
+
+									&lt;!-- Responsive Popup -->
+									&lt;div id="popupResponsive" class="popup-wrap" data-popup="reponsive" role="dialog" aria-modal="true" aria-labelledby="popupRespTitle" hidden>
+										&lt;div class="popup">...&lt;/div>
 									&lt;/div>
 								</pre>
 							</div>
@@ -78,30 +97,6 @@
 						<h2 class="g-h2">Design Guide</h2>
 					</div>
 					<div class="g-section-body">
-						<h3 class="g-h3">Heading Text3-1</h3>
-						<div class="g-example-wrap">
-							<div class="g-example-header">
-								<strong class="g-example-tit is-before"></strong>
-								<div class="g-example-nav">
-									<span class="g-example-txt"></span>
-									<a href="#none" class="g-example-btn">HTML</a>
-								</div>
-							</div>
-							<div class="g-example-body">
-								<div class="g-example-preview">
-									<!-- 마크업뷰영역 -->
-
-									<!-- //마크업뷰영역 -->
-								</div>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:html">
-									HTML Code
-								</pre>
-							</div>
-						</div>
-
-						<h3 class="g-h3">Heading Text3-2</h3>
 						<div class="g-example-wrap">
 							<div class="g-example-header">
 								<strong class="g-example-tit is-before"></strong>

@@ -14,8 +14,7 @@ var ui = {
 		if ($('.tooltip').length)			{this.tooltip.init();}			// #Tooltip
 		if ($('.drop').length)				{this.drop.init();}				// #Dropdown
 		if ($('.drop-select').length)		{this.dropSelect.init();}		// #Dropdown
-		if ($('.popup-open').length)		{this.popup.init();}			// #Popup
-		if ($('.js-popup').length)			{this.fullpopup.init();}		// Full Popup
+		//HTML Property Events : onclick="ui.popup.open('id', this)"		// #Popup
 		if ($('.js-sticky').length)			{this.sticky.init();}			// Sticky
 		if ($('.js-spyScroll').length)		{this.spyScroll.init();}		// Spy Scroll
 		if ($('.js-infinitScroll').length)	{this.infiniteScroll.init();}	// Infinit Scroll
@@ -373,15 +372,15 @@ var ui = {
 		eleCloser: '.popup-closer',
 		eleFocus : '.popup-focus',
 		zindex   : 1000,
-		init: function(){
-			this.event();
-		},
-		setPosition : function($obj){
-			var sizeW = $obj.outerWidth(),
-				sizeH = $obj.outerHeight(),
-				posL = -1 * parseInt(sizeW/2),
-				posT = -1 * parseInt(sizeH/2);
-			$obj.css({ left: '50%', top: '50%', marginLeft: posL, marginTop: posT });
+		setPosition : function($popup){
+			//중앙정렬이 아닌경우 타입별 CSS처리
+			if ($popup.closest(this.eleModule).is('[data-popup=content], [data-popup=alert]')){
+				var sizeW = $popup.outerWidth(),
+					sizeH = $popup.outerHeight(),
+					posL = -1 * parseInt(sizeW/2),
+					posT = -1 * parseInt(sizeH/2);
+				$popup.css({marginLeft: posL, marginTop: posT });
+			}
 		},
 		open: function(id, obj){
 			var _this = this;
@@ -405,7 +404,7 @@ var ui = {
 			$id.removeClass('is-active');
 			$id.one(transitionend, function(){
 				if (!$(this).hasClass('is-active')){
-					$id.removeAttr('hidden');
+					$id.attr('hidden', 'hidden');
 					$opner.focus().removeAttr('data-popup');
 					if (callback){ callback }
 				}
