@@ -146,8 +146,6 @@ var include = {
 			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_tooltip.html">Tooltip</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_dropdown.html">Dropdown</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_popup.html">Popup</a></li>');
-			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_fullpopup.html">Full Popup</a></li>');
-			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_progress.html">Progress</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_sticky.html">Sticky</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_spyscroll.html">Spy Scroll</a></li>');
 			document.write('							<li class="g-node2"><a href="'+baseURL+'modules_customscroll.html">Custom Scroll</a></li>');
