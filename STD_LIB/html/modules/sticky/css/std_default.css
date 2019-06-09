@@ -82,10 +82,17 @@ html, body, .wrapper {
 /*-------------------------------------------------------------------
     ## Header
 -------------------------------------------------------------------*/
-/* Header Layout */
+/* Header Sticky */
 .header.sticky {
-  position: fixed; }
+  position: fixed;
+  -webkit-transition: height 0.3s ease;
+  -o-transition: height 0.3s ease;
+  transition: height 0.3s ease; }
 
+.is-scrolled .header.sticky {
+  height: 50px; }
+
+/* Header Layout */
 .header-logo {
   position: absolute;
   top: 50%;

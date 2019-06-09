@@ -869,7 +869,7 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 .popup-basic .popup-body {min-height:101px; padding:10px;}
 .popup-basic .popup-foot {padding:10px; border-top:1px solid #ddd;}
 .popup-basic .popup-menu {padding:10px;}
-.popup-basic .popup-closer {position:absolute; right:2px; top:2px; width:30px; height:30px;}
+.popup-basic .popup-close {position:absolute; right:2px; top:2px; width:30px; height:30px;}
 
 /*-------------------------------------------------------------------
 	## Dimmer
@@ -897,31 +897,9 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 /*-------------------------------------------------------------------
 	## bxSlider
 -------------------------------------------------------------------*/
-/* Common */
-.bxSlider::after {content:''; clear:both; display:block;}
-.bxSlider .item {float:left; text-align:center;}
-.bx-controls {text-align:center;}
-.bx-controls .bx-controls-direction {display:inline-block;}
-.bx-controls .bx-controls-direction .bx-prev {display:inline-block;}
-.bx-controls .bx-controls-direction .bx-next {display:inline-block;}
-.bx-controls .bx-controls-auto {display:inline-block;}
-.bx-controls .bx-controls-auto .bx-controls-auto-item {display:inline-block;}
-.bx-controls .bx-controls-auto .bx-start {display:inline-block; text-indent:-999em;}
-.bx-controls .bx-controls-auto .bx-stop {display:inline-block; text-indent:-999em;}
-.bx-controls .bx-controls-auto .is-active {display:none;}/* active인 상태이므로 active가 아닌 버튼을 보여준다. */
-.bx-controls .bx-pager {display:inline-block;}
-.bx-controls .bx-pager .bx-pager-item {display:inline-block; vertical-align:middle;}
-.bx-controls .bx-pager .bx-pager-link {display:inline-block; text-indent:-999em; transition:all 0.2s ease-out 0s; -webkit-transition:all 0.2s ease-out 0s; -moz-transition:all 0.2s ease-out 0s; -o-transition:all 0.2s ease-out 0s;}
-.bx-controls .bx-pager .bx-pager-link.is-active {}
-
 /* Design - Sample */
-.sample-slider1 .bx-controls-direction a {margin:0 5px;}
-.sample-slider1 .bx-controls .bx-controls-auto .bx-start {background-color:#666;}
-.sample-slider1 .bx-controls .bx-controls-auto .bx-stop {background-color:#222;}
-.sample-slider1 .bx-controls .bx-pager {margin-top:20px;}
-.sample-slider1 .bx-controls .bx-pager .bx-pager-item {margin:0 5px;}
-.sample-slider1 .bx-controls .bx-pager .bx-pager-link {width:10px; height:10px; border-radius:5px; background-color:#cccccc;}
-.sample-slider1 .bx-controls .bx-pager .bx-pager-link.is-active {width:30px; background-color:#0099cc;}
+.bx-slider a {display:block; position:relative;}
+.bx-wrapper img {width:100%;}
 
 /*-------------------------------------------------------------------
 	## owlCarousel

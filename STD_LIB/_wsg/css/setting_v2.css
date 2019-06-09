@@ -13,6 +13,8 @@
 .g-lnb {padding:15px 0;}
 .g-lnb > ul > li > a {line-height:30px; border-radius:20px; font-size:14px; padding:0 15px;  font-family:'NSL'}
 .g-lnb > ul > li.is-current > a {font-family:'NSR'}
+.g-snb .g-depth1,
+.g-snb .g-depth1 .g-node1 {padding:25px 0;}
 
 /* Aside Width */
 #g-aside {width:250px;}

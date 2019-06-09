@@ -368,8 +368,8 @@ var ui = {
 	*/
 	popup: {
 		eleModule: '.popup-wrap',
-		eleOpener: '.popup-opener',
-		eleCloser: '.popup-closer',
+		eleOpener: '.popup-open',
+		eleCloser: '.popup-close',
 		eleFocus : '.popup-focus',
 		zindex   : 1000,
 		setPosition : function($popup){

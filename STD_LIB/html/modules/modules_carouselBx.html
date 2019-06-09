@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../../_wsg/js/wsg_include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<!-- <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> -->
+<script src="/STD_LIB/js/addon/jquery.bxslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var bxSlider11 = $(".bxSlider11").bxSlider();
+	var bxSlider12 = $(".bxSlider12").bxSlider();
+	$('.bx-slider-item').on('click', function(){
+		console.log('clicked');
+	})
+})
+</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">BX Slider</h1>
+				<p class="g-explain-h1">마크업뷰중심 + 일부컨텐츠 </p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Default</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+									<a href="javascript:;" class="g-example-btn">API</a>
+								</div>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+									&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">&lt;/script>
+									&lt;script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js">&lt;/script>
+
+									&lt;div class="bxSlider1">
+										&lt;div>&lt;/div>
+										&lt;div>&lt;/div>
+									&lt;/div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									var bxSlider1 = $(".bxSlider1").bxSlider({
+										// Options, Callback()
+									});
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<div style="line-height:20px">
+									// GENERAL
+									<br>mode: 'horizontal',         // 모드
+									<br>infiniteLoop: true,         // 반복
+									<br>speed: 500,                 // 이동속도
+									<br>
+									<br>// PAGER
+									<br>pager: true,                // 페이징노출
+									<br>
+									<br>// CONTROLS
+									<br>controls: true,             // 다음, 이전 컨트롤러
+									<br>autoControls: false,        // 재생, 정지 컨트롤러
+									<br>autoControlsCombine: false, // 재생, 정지 토글 컨트롤러
+									<br>
+									<br>// AUTO
+									<br>auto: false,                // 자동전환
+									<br>pause: 4000,                // 다음재생까지 멈춤시간
+									<br>
+									<br>// CAROUSEL
+									<br>minSlides: 1,               // 표시 할 슬라이드의 최소 수
+									<br>maxSlides: 1,               // 표시 할 최대 슬라이드 수
+									<br>moveSlides: 0,              // 전환시 이동할 슬라이드 수
+									<br>
+									<br>// CALLBACKS
+									<br>onSliderLoad: function(currentIndex){} // 슬라이드 로드됐을 때
+									<br>onSlideBefore: function($slideElement, oldIndex, newIndex) {} // 슬라이드 동작 시작할 때
+									<br>onSlideAfter: function($slideElement, oldIndex, newIndex) {} // 슬라이드 동작 끝났을 때
+									<br>onSlideNext: function($slideElement, oldIndex, newIndex) {} // 다음 슬라이드 동작 시작할 때
+									<br>onSlidePrev: function($slideElement, oldIndex, newIndex) {} // 이전 슬라이드 동작 시작할 때
+									<br>
+									<br>// METHODES
+									<br>sample_bxSlider1.goToSlide(N);      // N번째 슬라이드로 이동
+									<br>sample_bxSlider1.goToNextSlide();   // 다음 슬라이드로 이동
+									<br>sample_bxSlider1.goToPrevSlide();   // 이전 슬라이드로 이동
+									<br>sample_bxSlider1.startAuto();       // 자동재생 시작
+									<br>sample_bxSlider1.stopAuto();        // 자동재생 중지
+									<br>sample_bxSlider1.getCurrentSlide(); // 현재 슬라이드 반환
+									<br>sample_bxSlider1.getSlideCount();   // 현재 슬라이드 수를 반환
+									<br>sample_bxSlider1.destroySlider();   // 슬라이드 호출전 상태로 초기화
+								</div>
+							</div>
+							<div class="g-example-guide">
+								<p><a href="https://bxslider.com/" target="_blank">https://bxslider.com/</a></p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Basic</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Image</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<div class="bxSlider11 bx-slider">
+										<div><img src="/STD_LIB/img/example/@carousel_01.jpg" alt=""></div>
+										<div><img src="/STD_LIB/img/example/@carousel_02.jpg" alt=""></div>
+										<div><img src="/STD_LIB/img/example/@carousel_03.jpg" alt=""></div>
+									</div>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									&lt;div class="bxSlider11 bx-slider">
+										&lt;div>&lt;img src="/STD_LIB/img/example/@carousel_01.jpg" alt="">&lt;/div>
+										&lt;div>&lt;img src="/STD_LIB/img/example/@carousel_02.jpg" alt="">&lt;/div>
+										&lt;div>&lt;img src="/STD_LIB/img/example/@carousel_03.jpg" alt="">&lt;/div>
+									&lt;/div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									var bxSlider11 = $(".bxSlider11").bxSlider();
+								</pre>
+							</div>
+						</div>
+
+						<h3 class="g-h3">Anchor Image</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<div class="bxSlider12 bx-slider">
+										<div><a href="http://www.naver.com" target="_blank" class="bx-slider-item"><img src="/STD_LIB/img/example/@carousel_01.jpg" alt=""></a></div>
+										<div><a href="http://www.daum.net" target="_blank"><img src="/STD_LIB/img/example/@carousel_02.jpg" alt=""></a></div>
+										<div><a href="http://www.nate.com" target="_blank"><img src="/STD_LIB/img/example/@carousel_03.jpg" alt=""></a></div>
+									</div>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									&lt;div class="bxSlider12 bx-slider">
+										&lt;div>&lt;img src="/STD_LIB/img/example/@carousel_01.jpg" alt="">&lt;/div>
+										&lt;div>&lt;img src="/STD_LIB/img/example/@carousel_02.jpg" alt="">&lt;/div>
+										&lt;div>&lt;img src="/STD_LIB/img/example/@carousel_03.jpg" alt="">&lt;/div>
+									&lt;/div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									var bxSlider12 = $(".bxSlider12").bxSlider();
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Design Guide</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

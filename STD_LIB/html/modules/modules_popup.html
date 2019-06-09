@@ -22,6 +22,38 @@
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
+						<h2 class="g-h2">Default</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+								</div>
+							</div>
+							<div class="g-example-footer is-active">
+								<pre class="brush:html">
+									&lt;!-- popup-open -->
+									&lt;button type="button" class="btn popup-open" aria-controls="popupContent" aria-haspopup="dialog" onclick="ui.popup.open('popupContent', this);">&lt;span>Popup Open&lt;/span>&lt;/button>
+
+									&lt;!-- 모달공통 -->
+									&lt;div id="popupContent" class="popup-wrap" data-popup="content" role="dialog" aria-modal="true" aria-labelledby="popupTitle1">
+										&lt;div class="popup">
+											&lt;button type="button" class="btn-ico popup-close" aria-controls="popupContent" title="제목 팝업닫기" onclick="ui.popup.close('popupContent')">&lt;span>&lt;i class="ico ico-close1 dark">Close&lt;/i>&lt;/span>&lt;/button>
+										&lt;/div>
+									&lt;/div>
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
 						<h2 class="g-h2">Basic</h2>
 					</div>
 					<div class="g-section-body">
@@ -38,31 +70,29 @@
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
-									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupContent', this);"><span>Basic Popup</span></button>
+									<button type="button" class="btn btn-basic popup-open" aria-controls="popupContent" aria-haspopup="dialog" onclick="ui.popup.open('popupContent', this);"><span>Basic Popup</span></button>
 								</div>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:html">
 									&lt;!-- popup-open -->
-									&lt;button type="button" class="btn popup-open" aria-controls="popup1" aria-haspopup="dialog">&lt;span>Popup Open&lt;/span>&lt;/button>
+									&lt;button type="button" class="btn popup-open" aria-controls="popupContent" aria-haspopup="dialog" onclick="ui.popup.open('popupContent', this);">&lt;span>Popup Open&lt;/span>&lt;/button>
 
 									&lt;!-- 모달공통 -->
-									&lt;div id="popup1" class="popup-wrap" data-popup="content" role="dialog" aria-modal="true" aria-labelledby="popupTitle1">
+									&lt;div id="popupContent" class="popup-wrap" data-popup="content" role="dialog" aria-modal="true" aria-labelledby="popupTitle1">
 										&lt;div class="popup btn-basic">
 											&lt;div class="popup-inner">
-												&lt;div class="popup-inner">
-													&lt;div class="popup-head">
-														&lt;h3 class="popup-title popup-focus">&lt;span id="popupTitle1">Content Popup&lt;/span>&lt;/h3>
-													&lt;/div>
-													&lt;div class="popup-body">
-														popup-body
-													&lt;/div>
-													&lt;div class="popup-foot">
-														popup-footer
-													&lt;/div>
+												&lt;div class="popup-head">
+													&lt;h3 class="popup-title popup-focus">&lt;span id="popupTitle1">Content Popup&lt;/span>&lt;/h3>
+												&lt;/div>
+												&lt;div class="popup-body">
+													popup-body
+												&lt;/div>
+												&lt;div class="popup-foot">
+													popup-footer
 												&lt;/div>
 											&lt;/div>
-											&lt;button type="button" class="btn-ico popup-closer" aria-controls="popup1" title="제목 팝업닫기" onclick="ui.popup.close('popup1')">&lt;span>&lt;i class="ico ico-close1 dark">Close&lt;/i>&lt;/span>&lt;/button>
+											&lt;button type="button" class="btn-ico popup-close" aria-controls="popupContent" title="제목 팝업닫기" onclick="ui.popup.close('popupContent')">&lt;span>&lt;i class="ico ico-close1 dark">Close&lt;/i>&lt;/span>&lt;/button>
 										&lt;/div>
 									&lt;/div>
 								</pre>
@@ -82,8 +112,8 @@
 								<pre class="brush:js">
 									popup: {
 										eleModule: '.popup-wrap',
-										eleOpener: '.popup-opener',
-										eleCloser: '.popup-closer',
+										eleOpener: '.popup-open',
+										eleCloser: '.popup-close',
 										eleFocus : '.popup-focus',
 										zindex   : 1000,
 										setPosition : function($popup){
@@ -272,15 +302,15 @@
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
-									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupContent', this);"><span>Content Popup</span></button>
+									<button type="button" class="btn btn-basic popup-open" onclick="ui.popup.open('popupContent', this);"><span>Content Popup</span></button>
 									<br><br>
-									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupAlert', this);"><span>Alert Popup</span></button>
+									<button type="button" class="btn btn-basic popup-open" onclick="ui.popup.open('popupAlert', this);"><span>Alert Popup</span></button>
 									<br><br>
-									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupSelect', this);"><span>Select Popup</span></button>
+									<button type="button" class="btn btn-basic popup-open" onclick="ui.popup.open('popupSelect', this);"><span>Select Popup</span></button>
 									<br><br>
-									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupFull', this);"><span>Full Popup</span></button>
+									<button type="button" class="btn btn-basic popup-open" onclick="ui.popup.open('popupFull', this);"><span>Full Popup</span></button>
 									<br><br>
-									<button type="button" class="btn btn-basic popup-opener" onclick="ui.popup.open('popupResponsive', this);" disabled><span>Responsive Popup</span></button> (기본구현 생략 : 이슈 발생시 조치)
+									<button type="button" class="btn btn-basic popup-open" onclick="ui.popup.open('popupResponsive', this);" disabled><span>Responsive Popup</span></button> (기본구현 생략 : 이슈 발생시 조치)
 								</div>
 							</div>
 							<div class="g-example-footer">
@@ -357,7 +387,7 @@
 					popup-footer
 				</div>
 			</div>
-			<button type="button" class="btn-ico popup-closer" aria-controls="popupContent" title="제목 팝업닫기" onclick="ui.popup.close('popupContent')"><span><i class="ico ico-close1 dark">Close</i></span></button>
+			<button type="button" class="btn-ico popup-close" aria-controls="popupContent" title="제목 팝업닫기" onclick="ui.popup.close('popupContent')"><span><i class="ico ico-close1 dark">Close</i></span></button>
 		</div>
 	</div>
 	<!-- 모달공통 -->
@@ -371,7 +401,7 @@
 					<p id="popupAlertDesc"><span class="popup-focus">popup-body</span></p>
 				</div>
 			</div>
-			<button type="button" class="btn-ico popup-closer" aria-controls="popupAlert" title="제목 팝업닫기" onclick="ui.popup.close('popupAlert')"><span><i class="ico ico-close1 dark">Close</i></span></button>
+			<button type="button" class="btn-ico popup-close" aria-controls="popupAlert" title="제목 팝업닫기" onclick="ui.popup.close('popupAlert')"><span><i class="ico ico-close1 dark">Close</i></span></button>
 		</div>
 	</div>
 	<!-- 모달공통 -->
@@ -389,7 +419,7 @@
 					</ul>
 				</div>
 			</div>
-			<button type="button" class="btn-ico popup-closer" aria-controls="popupSelect" title="제목 팝업닫기" onclick="ui.popup.close('popupSelect')"><span><i class="ico ico-close1 dark">Close</i></span></button>
+			<button type="button" class="btn-ico popup-close" aria-controls="popupSelect" title="제목 팝업닫기" onclick="ui.popup.close('popupSelect')"><span><i class="ico ico-close1 dark">Close</i></span></button>
 		</div>
 	</div>
 	<!-- 모달공통 -->
@@ -403,7 +433,7 @@
 					popup-body
 				</div>
 			</div>
-			<button type="button" class="btn-ico popup-closer" aria-controls="popupFull" title="제목 팝업닫기" onclick="ui.popup.close('popupFull')"><span><i class="ico ico-close1 dark">Close</i></span></button>
+			<button type="button" class="btn-ico popup-close" aria-controls="popupFull" title="제목 팝업닫기" onclick="ui.popup.close('popupFull')"><span><i class="ico ico-close1 dark">Close</i></span></button>
 		</div>
 	</div>
 	<!-- 모달공통 -->
@@ -417,7 +447,7 @@
 					popup-body
 				</div>
 			</div>
-			<button type="button" class="btn-ico popup-closer" aria-controls="popupResponsive" title="제목 팝업닫기" onclick="ui.popup.close('popupResponsive')"><span><i class="ico ico-close1 dark">Close</i></span></button>
+			<button type="button" class="btn-ico popup-close" aria-controls="popupResponsive" title="제목 팝업닫기" onclick="ui.popup.close('popupResponsive')"><span><i class="ico ico-close1 dark">Close</i></span></button>
 		</div>
 	</div>
 </div>

@@ -8,8 +8,8 @@ var cm = {
 	},
 	sidebar : {
 		eleModule : '.sidebar',
-		eleOpener : '.sidebar-opener',
-		eleCloser : '.sidebar-closer',
+		eleOpener : '.sidebar-open',
+		eleCloser : '.sidebar-close',
 		eleFocus : 'a, button, [tabindex=0]',
 		init : function(){
 			this.reset();
@@ -30,14 +30,18 @@ var cm = {
 			$module.show();
 			setTimeout(function(){
 				$('body').addClass('is-sidebar-opened').css('overflow','hidden');
-				$('#wrapper').one(transitionend, function(){ $module.find(_this.eleFocus).first().focus() });
+				$('#wrapper').one(transitionend, function(){
+					if ($('body').hasClass('is-sidebar-opened')){ $module.find(_this.eleFocus).first().focus() }
+				});
 			},10);
 		},
 		close : function(id){
 			var _this = this;
 			var $module = $('#'+id);
 			$('body').removeClass('is-sidebar-opened');
-			$('#wrapper').one(transitionend, function(){ $module.hide(); $(_this.eleOpener).focus(); $('body').removeAttr('style') });
+			$('#wrapper').one(transitionend, function(){
+				if (!$('body').hasClass('is-sidebar-opened')){ $module.hide(); $(_this.eleOpener).focus(); $('body').removeAttr('style') }
+			});
 		},
 	}
 }

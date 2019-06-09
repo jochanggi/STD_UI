@@ -15,33 +15,43 @@
 		<!-- Content -->
 		<article id="g-content">
 			<div class="g-content-header">
-				<h1 class="g-h1">Sticky</h1>
-				<p class="g-explain-h1">Library Modules</p>
+				<h1 class="g-h1">Swiper</h1>
+				<p class="g-explain-h1">마크업뷰중심 + 일부컨텐츠 </p>
 			</div>
 			<div class="g-content-body">
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
-						<h2 class="g-h2">Default</h2>
+						<h2 class="g-h2">Basic UI</h2>
 					</div>
 					<div class="g-section-body">
 						<div class="g-example-wrap">
 							<div class="g-example-header">
-								<strong class="g-example-tit is-before"></strong>
+								<strong class="g-example-tit">Markup Codeview</strong>
 								<div class="g-example-nav">
 									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
 									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
 								</div>
 							</div>
-							<div class="g-example-footer is-active">
+							<div class="g-example-body">
+								<div class="g-example-preview">
+								</div>
+							</div>
+							<div class="g-example-footer">
 								<pre class="brush:html">
-									&lt;div class="sticky">&lt;/div>
+									HTML SOURCE
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									.header.sticky {position:fixed;}
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
 								</pre>
 							</div>
 						</div>
@@ -52,83 +62,69 @@
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
-						<h2 class="g-h2">Basic</h2>
+						<h2 class="g-h2">General UI</h2>
 					</div>
 					<div class="g-section-body">
+						<h3 class="g-h3">Heading</h3>
 						<div class="g-example-wrap">
 							<div class="g-example-header">
 								<strong class="g-example-tit is-before"></strong>
 								<div class="g-example-nav">
 									<span class="g-example-txt"></span>
 									<a href="javascript:;" class="g-example-btn">HTML</a>
-								</div>
-							</div>
-							<div class="g-example-body">
-								<div class="g-example-preview">
-									<iframe src="sticky/std_sticky_basic.html" style="height:200px; border:1px solid #ddd" frameborder="0"></iframe>
-									<br><br>
-									<a href="sticky/std_sticky_basic.html" target="_blank" title="새창">[Sticky 새창열기]</a>
-								</div>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:html">
-									<header class="header sticky"></header>
-								</pre>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- //Section -->
-
-				<!-- Section -->
-				<section class="g-section g-in-sec">
-					<div class="g-section-header">
-						<h2 class="g-h2">Transition</h2>
-					</div>
-					<div class="g-section-body">
-						<div class="g-example-wrap">
-							<div class="g-example-header">
-								<strong class="g-example-tit is-before"></strong>
-								<div class="g-example-nav">
-									<span class="g-example-txt"></span>
 									<a href="javascript:;" class="g-example-btn">CSS</a>
 									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
 								</div>
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
-									<iframe src="sticky/std_sticky_transition.html" style="height:200px; border:1px solid #ddd" frameborder="0"></iframe>
-									<br><br>
-									<a href="sticky/std_sticky_transition.html" target="_blank" title="새창">[Sticky 새창열기]</a>
 								</div>
 							</div>
 							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
 								<pre class="brush:css">
-									/* Header Sticky */
-									.header.sticky {position:fixed; transition:height 0.3s ease;}
-									.is-scrolled .header.sticky {height:50px;}
+									CSS SOURCE
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:js">
-									sticky: {
-										init: function(){
-											this.action();
-											this.event();
-										},
-										event: function(){
-											var setTime;
-											$(window).on('scroll', function(){
-												clearTimeout(setTime);
-												setTime = setTimeout(function(){ ui.sticky.action(); }, 50);
-											})
-										},
-										action: function(){
-											var scrTop = $(window).scrollTop();
-											if (scrTop > 0){ $('body').addClass('is-scrolled') }
-											else { $('body').removeClass('is-scrolled') }
-										}
-									}
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+
+						<h3 class="g-h3">Heading</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
 								</pre>
 							</div>
 						</div>
@@ -139,47 +135,37 @@
 				<!-- Section -->
 				<section class="g-section g-in-sec">
 					<div class="g-section-header">
-						<h2 class="g-h2">Direction</h2>
+						<h2 class="g-h2">Design Guide</h2>
 					</div>
 					<div class="g-section-body">
+						<h3 class="g-h3">Heading</h3>
 						<div class="g-example-wrap">
 							<div class="g-example-header">
 								<strong class="g-example-tit is-before"></strong>
 								<div class="g-example-nav">
 									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
 									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
 								</div>
 							</div>
 							<div class="g-example-body">
 								<div class="g-example-preview">
-									<iframe src="sticky/std_sticky_direction.html" style="height:200px; border:1px solid #ddd" frameborder="0"></iframe>
-									<br><br>
-									<a href="sticky/std_sticky_direction.html" target="_blank" title="새창">[Sticky 새창열기]</a>
 								</div>
 							</div>
 							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
 								<pre class="brush:js">
-									sticky: {
-										direction: true,
-										scrOld: 0,
-										init: function(){
-											this.action();
-											this.event();
-										},
-										event: function(){
-											var setTime;
-											$(window).on('scroll', function(){
-												clearTimeout(setTime);
-												setTime = setTimeout(function(){ ui.sticky.action(); }, 100);
-											})
-										},
-										action: function(){
-											var scrTop = $(window).scrollTop();
-											if (this.scrOld < scrTop){ $('body').addClass('is-scrolled') }
-											else if (this.scrOld > scrTop){ $('body').removeClass('is-scrolled') }
-											this.scrOld = scrTop;
-										}
-									}
+									SCRIPT SOURCE
 								</pre>
 							</div>
 						</div>

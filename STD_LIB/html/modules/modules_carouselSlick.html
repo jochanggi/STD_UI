@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<script src="../../_wsg/js/wsg_include.js"></script>
+<script>include.meta()</script>
+<script>include.head()</script>
+<script src="/STD_LIB/js/addon/jquery.slick.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var sample_slick1 = $('.sample-slider1 .slickSlider').slick();
+})
+</script>
+</head>
+<body>
+<div id="g-wrapper">
+	<script>include.header()</script>
+	<div id="g-container">
+		<script>include.aside.init()</script>
+
+		<!-- Content -->
+		<article id="g-content">
+			<div class="g-content-header">
+				<h1 class="g-h1">Carousel Slick</h1>
+				<p class="g-explain-h1">마크업뷰중심 + 일부컨텐츠 </p>
+			</div>
+			<div class="g-content-body">
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Default</h2>
+					</div>
+					<div class="g-section-body">
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit">Markup Codeview</strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+									<a href="javascript:;" class="g-example-btn">API</a>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									&lt;div class="sample-slider1">
+										&lt;div class="slickSlider">
+											&lt;div class="item">&lt;/div>
+											&lt;div class="item">&lt;/div>
+											&lt;div class="item">&lt;/div>
+										&lt;/div>
+									&lt;/div>
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									var sample_slick1 = $('.sample-slider1 .slickSlider').slick();
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<div style="line-height:20px">
+									infinite: true,             // 무한반복
+									<br>initialSlide: 0,            // 시작하는 슬라이드
+									<br>speed: 3000,                // 속도
+									<br>autoplay: false,            // 자동재생
+									<br>autoplaySpeed: 3000,        // 자동재생 속도
+									<br>arrows: true,               // 다음, 이전 표시
+									<br>dots: false,                // Indicators 표시
+									<br>asNavFor: null,             // 슬라이드 연동
+									<br>centerMode: false,          // 센터모드
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+
+				<!-- Section -->
+				<section class="g-section g-in-sec">
+					<div class="g-section-header">
+						<h2 class="g-h2">Basic</h2>
+					</div>
+					<div class="g-section-body">
+						<h3 class="g-h3">Images</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<div class="sample-slider1">
+										<div class="slickSlider">
+											<div class="item"><img src="/STD_LIB/img/example/@carousel_01.jpg" alt=""></div>
+											<div class="item"><img src="/STD_LIB/img/example/@carousel_02.jpg" alt=""></div>
+											<div class="item"><img src="/STD_LIB/img/example/@carousel_03.jpg" alt=""></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<h3 class="g-h3">Anchor Images</h3>
+						<div class="g-example-wrap">
+							<div class="g-example-header">
+								<strong class="g-example-tit is-before"></strong>
+								<div class="g-example-nav">
+									<span class="g-example-txt"></span>
+									<a href="javascript:;" class="g-example-btn">HTML</a>
+									<a href="javascript:;" class="g-example-btn">CSS</a>
+									<a href="javascript:;" class="g-example-btn">SCRIPT</a>
+								</div>
+							</div>
+							<div class="g-example-body">
+								<div class="g-example-preview">
+									<div class="sample-slider1">
+										<div class="slickSlider">
+											<div class="item"><a href="http://www.naver.com" target="_blank" class="bx-slider-item"><img src="/STD_LIB/img/example/@carousel_01.jpg" alt=""></a></div>
+											<div class="item"><a href="http://www.daum.net" target="_blank"><img src="/STD_LIB/img/example/@carousel_02.jpg" alt=""></a></div>
+											<div class="item"><a href="http://www.nate.com" target="_blank"><img src="/STD_LIB/img/example/@carousel_03.jpg" alt=""></a></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:html">
+									HTML SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:css">
+									CSS SOURCE
+								</pre>
+							</div>
+							<div class="g-example-footer">
+								<pre class="brush:js">
+									SCRIPT SOURCE
+								</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //Section -->
+			</div>
+		</article>
+		<!-- //Content -->
+
+		<script>include.quick.init()</script>
+	</div>
+	<script>include.footer()</script>
+</div>
+</body>
+</html>

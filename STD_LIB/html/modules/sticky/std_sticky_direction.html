@@ -15,6 +15,39 @@
 <!--[if lt IE 9]>
 <script type="text/javascript" src="/STD_LIB/js/libs/html5shiv-printshiv.js"></script>
 <![endif]-->
+<script type="text/javascript">
+<!--
+var ui = {
+	init: function(){
+		if ($('.header.sticky').length){ ui.sticky.init() }
+	},
+	sticky: {
+		direction: true,
+		scrOld: 0,
+		init: function(){
+			this.action();
+			this.event();
+		},
+		event: function(){
+			var setTime;
+			$(window).on('scroll', function(){
+				clearTimeout(setTime);
+				setTime = setTimeout(function(){ ui.sticky.action(); }, 100);
+			})
+		},
+		action: function(){
+			var scrTop = $(window).scrollTop();
+			if (this.scrOld < scrTop){ $('body').addClass('is-scrolled') }
+			else if (this.scrOld > scrTop){ $('body').removeClass('is-scrolled') }
+			this.scrOld = scrTop;
+		}
+	}
+}
+$(document).ready(function(){
+	ui.init();
+})
+//-->
+</script>
 </head>
 <body>
 <div class="wrapper">
@@ -28,7 +61,7 @@
     <header class="header sticky">
 		<div class="header-inner in-sec">
 			<div class="header-logo">
-				<a href="#" class="logo">DashBoard</a>
+				<a href="#" class="logo">Sticky</a>
 			</div>
 			<div class="header-gnb">
 				<nav class="gnb">

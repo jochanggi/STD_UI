@@ -36,10 +36,10 @@
 							</div>
 							<div class="g-example-footer is-active">
 								<pre class="brush:html">
-									&lt;button type="button" class="btn btn-drawer sidebar-opener" aria-controls="sidebar" aria-expanded="false">&lt;span>&lt;i class="ico">Sidebar 열기&lt;/i>&lt;/span>&lt;/button>
+									&lt;button type="button" class="btn btn-drawer sidebar-open" aria-controls="sidebar" aria-expanded="false">&lt;span>&lt;i class="ico">Sidebar 열기&lt;/i>&lt;/span>&lt;/button>
 
 									&lt;aside id="sidebar" class="sidebar">
-										&lt;button type="button" class="btn sidebar-closer" aria-controls="sidebar" aria-expanded="true">&lt;span>&lt;i class="ico">Sidebar 닫기&lt;/i>&lt;/span>&lt;/button>
+										&lt;button type="button" class="btn sidebar-close" aria-controls="sidebar" aria-expanded="true">&lt;span>&lt;i class="ico">Sidebar 닫기&lt;/i>&lt;/span>&lt;/button>
 									&lt;/aside>
 								</pre>
 							</div>
@@ -86,6 +86,7 @@
 							<div class="g-example-body">
 								<div class="g-example-preview">
 									<iframe src="sidebar/std_sidebar_over.html" style="height:200px; border:1px solid #ddd" frameborder="0"></iframe>
+									<br><br>
 									<a href="sidebar/std_sidebar_over.html" target="_blank" title="새창">[Sidebar Over 새창열기]</a>
 								</div>
 							</div>
@@ -104,8 +105,8 @@
 									var transitionend = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend';
 									sidebar : {
 										eleModule : '.sidebar',
-										eleOpener : '.sidebar-opener',
-										eleCloser : '.sidebar-closer',
+										eleOpener : '.sidebar-open',
+										eleCloser : '.sidebar-close',
 										eleFocus : 'a, button, [tabindex=0]',
 										init : function(){
 											this.reset();
@@ -126,14 +127,18 @@
 											$module.show();
 											setTimeout(function(){
 												$('body').addClass('is-sidebar-opened');
-												$module.one(transitionend, function(){ $module.find(_this.eleFocus).first().focus() });
+												$module.one(transitionend, function(){
+													if ($('body').hasClass('is-sidebar-opened')){ $module.find(_this.eleFocus).first().focus() }
+												});
 											},10);
 										},
 										close : function(id){
 											var _this = this;
 											var $module = $('#'+id);
 											$('body').removeClass('is-sidebar-opened');
-											$module.one(transitionend, function(){ $module.hide(); $(_this.eleOpener).focus(); });
+											$module.one(transitionend, function(){
+												if (!$('body').hasClass('is-sidebar-opened')){ $module.hide(); $(_this.eleOpener).focus() }
+											});
 										},
 									}
 								</pre>
@@ -162,6 +167,7 @@
 							<div class="g-example-body">
 								<div class="g-example-preview">
 									<iframe src="sidebar/std_sidebar_push.html" style="height:200px; border:1px solid #ddd" frameborder="0"></iframe>
+									<br><br>
 									<a href="sidebar/std_sidebar_push.html" target="_blank" title="새창">[Sidebar Push 새창열기]</a>
 								</div>
 							</div>
@@ -179,8 +185,8 @@
 								<pre class="brush:js">
 									sidebar : {
 										eleModule : '.sidebar',
-										eleOpener : '.sidebar-opener',
-										eleCloser : '.sidebar-closer',
+										eleOpener : '.sidebar-open',
+										eleCloser : '.sidebar-close',
 										eleFocus : 'a, button, [tabindex=0]',
 										init : function(){
 											this.reset();
@@ -201,14 +207,18 @@
 											$module.show();
 											setTimeout(function(){
 												$('body').addClass('is-sidebar-opened').css('overflow','hidden');
-												$('#wrapper').one(transitionend, function(){ $module.find(_this.eleFocus).first().focus() });
+												$('#wrapper').one(transitionend, function(){
+													if ($('body').hasClass('is-sidebar-opened')){ $module.find(_this.eleFocus).first().focus() }
+												});
 											},10);
 										},
 										close : function(id){
 											var _this = this;
 											var $module = $('#'+id);
 											$('body').removeClass('is-sidebar-opened');
-											$('#wrapper').one(transitionend, function(){ $module.hide(); $(_this.eleOpener).focus(); $('body').removeAttr('style') });
+											$('#wrapper').one(transitionend, function(){
+												if (!$('body').hasClass('is-sidebar-opened')){ $module.hide(); $(_this.eleOpener).focus(); $('body').removeAttr('style') }
+											});
 										},
 									}
 								</pre>

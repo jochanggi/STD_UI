@@ -48,8 +48,8 @@ var ui = {
 	*/
 	sidebar : {
 		eleModule : '.sidebar',
-		eleOpener : '.sidebar-opener',
-		eleCloser : '.sidebar-closer',
+		eleOpener : '.sidebar-open',
+		eleCloser : '.sidebar-close',
 		eleFocus : 'a, button, [tabindex=0]',
 		init : function(){
 			this.reset();

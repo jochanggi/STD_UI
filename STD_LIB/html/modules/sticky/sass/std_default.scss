@@ -34,8 +34,11 @@ html, body, .wrapper {height:100%;}
 /*-------------------------------------------------------------------
     ## Header
 -------------------------------------------------------------------*/
+/* Header Sticky */
+.header.sticky {position:fixed; transition:height 0.3s ease;}
+.is-scrolled .header.sticky {height:50px;}
+
 /* Header Layout */
-.header.sticky {position:fixed;}
 .header-logo {position:absolute; top:50%; transform:translateY(-50%);}
 .header-logo .logo {color:#000; font-size:20px; font-family:'NSB';}
 .header-gnb {position:absolute; right:20px; top:50%; transform:translateY(-50%);}
