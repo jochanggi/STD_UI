@@ -1,40 +1,25 @@
 @charset "utf-8";
 /*-------------------------------------------------------------------
 	파일정의 : 레이아웃 스타일
-	작성날짜 : 2019-04-20 조찬기
+	작성날짜 : YYYY-MM-DD 홍길동
 	참고사항 : 레이아웃, 상세스타일, 메뉴스타일 분류
 	분류순서 : Wrapper > Header > Content > Footer > Navigation
 	속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
 -------------------------------------------------------------------*/
 /*-------------------------------------------------------------------
-    ## Layout
+    ## Wrapper
 -------------------------------------------------------------------*/
-/* Wrapper */
-html, body, #app {height:100%;}
-.wrapper {min-height:100%;}
-.header {position:absolute; z-index:1003; left:0; top:0; width:100%; height:5.6rem; border-bottom:1px solid rgb(212,217,220); background-color:#fff;}
-.aside {position:fixed; left:11.4rem; right:0; top:5.6rem; z-index:1001; height:100%; background-color:#fff;}
-.container {padding-top:5.6rem; padding-bottom:7.8rem;}
-.content-body {position:relative;}
-.has-footer .container {padding-bottom:0;}
-.footer {position:relative; z-index:102; width:100%; padding-bottom:7.8rem;}
+
 
 /*-------------------------------------------------------------------
     ## Header
 -------------------------------------------------------------------*/
-/* Header */
-.header-sticky {position:fixed;}
-.header-logo {@extend .centered-l; left:$gut-default;}
-.header-logo a {display:block; width:9.4rem; height:2.6rem;}
-.header-logo img {width:100%;}
-.header-drawer {@extend .centered-r; right:$gut-default; margin-right:-1rem;}
+
 
 /*-------------------------------------------------------------------
-    ## Aside
+    ## Content
 -------------------------------------------------------------------*/
-/* Aside */
-.aside {opacity:0; transform:translateX(100%); transition:transform 0.3s ease;}
-.aside.is-visible {opacity:1; transform:translateX(0);}
+
 
 /*-------------------------------------------------------------------
     ## Footer

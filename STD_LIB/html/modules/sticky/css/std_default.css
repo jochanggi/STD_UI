@@ -83,6 +83,9 @@ html, body, .wrapper {
     ## Header
 -------------------------------------------------------------------*/
 /* Header Layout */
+.header.sticky {
+  position: fixed; }
+
 .header-logo {
   position: absolute;
   top: 50%;
