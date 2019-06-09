@@ -1,0 +1,128 @@
+@charset "UTF-8";
+/*-------------------------------------------------------------------
+	파일정의 : 초기화 스타일
+	작성날짜 : YYYY-MM-DD 홍길동
+	분류순서 : Base > Fonts
+	속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
+-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------
+    ##Base
+-------------------------------------------------------------------*/
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+html, body, div, ul, ol, dl, li, dt, dd, p, h1, h2, h3, h4, h5, h6, table, th, td, caption, address, article, aside, canvas, details, figure, figcaption, footer, header, menu, nav, section, button, select, textarea, input, fieldset, legend, a, span, strong, em, address, dfn, small, i, b {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  word-break: break-all;
+  font-style: normal;
+  font-size: 100%; }
+
+:before, :after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box; }
+
+article, aside, canvas, details, figure, figcaption, footer, header, menu, nav, section {
+  display: block; }
+
+html, body, th, td, select, textarea, input, button {
+  font-family: inherit; }
+
+html {
+  font-size: 14px; }
+
+body {
+  font-weight: 'NST', 'sans-serif';
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none; }
+
+[hidden], hr {
+  display: none; }
+
+img {
+  vertical-align: middle; }
+
+button {
+  background-color: transparent;
+  cursor: pointer; }
+
+fieldset, iframe {
+  width: 100%; }
+
+img, a, frame, iframe, fieldset {
+  border: 0; }
+
+a {
+  color: #333;
+  text-decoration: none; }
+
+table {
+  width: 100%;
+  border-spacing: 0; }
+
+caption {
+  height: 0;
+  overflow: hidden; }
+
+legend {
+  position: absolute;
+  left: -9999em;
+  top: -9999em; }
+
+/*-------------------------------------------------------------------
+    ##Fonts
+-------------------------------------------------------------------*/
+/* CDN */
+body {
+  font: 24px/30px 'Noto Sans KR', sans-serif; }
+
+.thin {
+  font-weight: 100; }
+
+.light {
+  font-weight: 300; }
+
+.regular {
+  font-weight: 400; }
+
+.medium {
+  font-weight: 500; }
+
+.bold {
+  font-weight: 700; }
+
+.bolder {
+  font-weight: 900; }
+
+/* Local Files */
+@font-face {
+  font-family: "NST";
+  src: url("../fonts/NotoSans-Thin.eot");
+  src: local("※"), url("../fonts/NotoSans-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-Thin.woff") format("woff"); }
+
+@font-face {
+  font-family: "NSL";
+  src: url("../fonts/NotoSans-Light.eot");
+  src: local("※"), url("../fonts/NotoSans-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-Light.woff") format("woff"); }
+
+@font-face {
+  font-family: "NSR";
+  src: url("../fonts/NotoSans-Regular.eot");
+  src: local("※"), url("../fonts/NotoSans-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: "NSM";
+  src: url("../fonts/NotoSans-Medium.eot");
+  src: local("※"), url("../fonts/NotoSans-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-Medium.woff") format("woff"); }
+
+@font-face {
+  font-family: "NSB";
+  src: url("../fonts/NotoSans-Bold.eot");
+  src: local("※"), url("../fonts/NotoSans-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/NotoSans-Bold.woff") format("woff"); }

@@ -7,18 +7,8 @@
 속성순서 : 표시 > 위치 > 넘침/흐름 > 크기/간격 > 박스모양 > 폰트/정렬 > 기타
 -------------------------------------------------------------------*/
 /*-------------------------------------------------------------------
-    ## Section
+    ## Text
 -------------------------------------------------------------------*/
-/* Common */
-.sec {max-width:80%; margin-left:auto; margin-right:auto;}
-.sec-head {position:relative;}
-
-/* Style1 */
-.section-basic {margin-top:30px;}
-.section-basic:first-child {margin-top:0;}
-.section-basic .section-head {padding-bottom:5px; border-bottom:1px solid #ddd;}
-.section-basic .section-body {margin-top:20px;}
-
 /* Title */
 .tit-h3 {font-family:'NSM'; font-size:18px;}
 .tit-h4 {font-family:'NSR'; font-size:16px;}
@@ -27,6 +17,7 @@
 
 /* Paragraph */
 .para-basic + .para-basic {margin-top:20px;}
+.para-basic > p {line-height:20px;}
 .para-basic > p + p {margin-top:5px;}
 
 /*-------------------------------------------------------------------
@@ -191,16 +182,12 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 
 /* Common - Layout */
 .btn-float::after {content:""; display:block; clear:both;}
-.btn-float .btn-left {display:inline-block; float:left;}
-.btn-float .btn-right {display:inline-block; float:right;}
+.btn-float .col {float:left;}
+.btn-float .col.right {float:right;}
 .btn-flex {display:flex;}
-.btn-flex .btn-col {display:block; width:100%;}
+.btn-flex .col {display:block; width:100%;}
 .btn-flex .btn {display:block; width:100%;}
-.btn-block {width:100%;}
-.btn-table {display:table; table-layout:fixed; width:100%;}
-.btn-table .btn-col {display:table-cell; width:auto;}
-.btn-table .btn {display:block; width:100%;}
-.btn.btn-fluid {width:100%;}
+.btn-fluid .btn {width:100%;}
 
 /* Styles */
 .btn-basic {min-height:34px; line-height:33px; padding:0 20px 1px; font-size:16px; background:#eee;}
@@ -523,13 +510,13 @@ button::-moz-focus-inner {border:0px; padding:0px;}
 ----------------------------------------------------------------- --*/
 /* Default */
 .panel {position:relative;}
-.panel-inner,.panel-header,.panel-body,.panel-footer {position:relative; z-index:2;}
+.panel-inner,.panel-head,.panel-body,.panel-foot {position:relative; z-index:2;}
 
 /* Design */
-.panel-basic {border:1px solid #ddd; border-radius:3px; line-height:20px;}
-.panel-basic .panel-head {padding:10px 20px; border-bottom:1px solid #ddd;}
-.panel-basic .panel-body {padding:10px 20px;}
-.panel-basic .panel-foot {padding:10px 20px; border-top:1px solid #ddd;}
+.panel-basic {margin-top:30px;}
+.panel-basic:first-child {margin-top:0;}
+.panel-basic .panel-head {padding-bottom:5px; border-bottom:1px solid #ddd;}
+.panel-basic .panel-body {margin-top:20px;}
 
 /*-------------------------------------------------------------------
 	## Table

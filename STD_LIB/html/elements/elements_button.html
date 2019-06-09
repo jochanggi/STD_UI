@@ -190,10 +190,10 @@
 								<div class="g-example-preview">
 									<!-- 마크업뷰영역 -->
 									<div class="btn-group btn-float">
-										<span class="btn-left">
+										<span class="col">
 											<button type="button" class="btn btn-basic btn-primary"><span>Primary</span></button>
 										</span>
-										<span class="btn-right">
+										<span class="col right">
 											<button type="button" class="btn btn-basic btn-secondary"><span>Secondary</span></button>
 										</span>
 									</div>
@@ -203,10 +203,10 @@
 							<div class="g-example-footer is-active">
 								<pre class="brush:html">
 									&lt;div class="btn-group btn-float">
-										&lt;span class="btn-left">
+										&lt;span class="col">
 											&lt;button type="button" class="btn">&lt;span>&lt;/span>&lt;/button>
 										&lt;/span>
-										&lt;span class="btn-right">
+										&lt;span class="col right">
 											&lt;button type="button" class="btn">&lt;span>&lt;/span>&lt;/button>
 										&lt;/span>
 									&lt;/div>
@@ -214,9 +214,9 @@
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									.btn-flex {display:flex;}
-									.btn-flex .btn-col {display:block; width:100%;}
-									.btn-flex .btn {display:block; width:100%;}
+									.btn-float::after {content:""; display:block; clear:both;}
+									.btn-float .col {float:left;}
+									.btn-float .col.right {float:right;}
 								</pre>
 							</div>
 						</div>
@@ -243,12 +243,8 @@
 								<div class="g-example-preview">
 									<!-- 마크업뷰영역 -->
 									<div class="btn-group btn-flex">
-										<span class="btn-col">
-											<button type="button" class="btn btn-basic btn-primary"><span>Primary</span></button>
-										</span>
-										<span class="btn-col">
-											<button type="button" class="btn btn-basic btn-secondary"><span>Secondary</span></button>
-										</span>
+										<button type="button" class="btn btn-basic btn-primary"><span>Primary</span></button>
+										<button type="button" class="btn btn-basic btn-secondary"><span>Secondary</span></button>
 									</div>
 									<!-- //마크업뷰영역 -->
 								</div>
@@ -256,73 +252,15 @@
 							<div class="g-example-footer is-active">
 								<pre class="brush:html">
 									&lt;div class="btn-group btn-flex">
-										&lt;span class="btn-col">
-											&lt;button type="button" class="btn">&lt;span>&lt;/span>&lt;/button>
-										&lt;/span>
-										&lt;span class="btn-col">
-											&lt;button type="button" class="btn">&lt;span>&lt;/span>&lt;/button>
-										&lt;/span>
+										&lt;button type="button" class="btn btn-basic btn-primary">&lt;span>Primary&lt;/span>&lt;/button>
+										&lt;button type="button" class="btn btn-basic btn-secondary">&lt;span>Secondary&lt;/span>&lt;/button>
 									&lt;/div>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
 									.btn-flex {display:flex;}
-									.btn-flex .btn-col {display:block; width:100%;}
 									.btn-flex .btn {display:block; width:100%;}
-								</pre>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- //Section -->
-
-				<!-- Section -->
-				<section class="g-section g-in-sec">
-					<div class="g-section-header">
-						<h2 class="g-h2">Table</h2>
-					</div>
-					<div class="g-section-body">
-						<div class="g-example-wrap">
-							<div class="g-example-header">
-								<strong class="g-example-tit is-before"></strong>
-								<div class="g-example-nav">
-									<span class="g-example-txt"></span>
-									<a href="javascript:;" class="g-example-btn is-active">HTML</a>
-									<a href="javascript:;" class="g-example-btn">CSS</a>
-								</div>
-							</div>
-							<div class="g-example-body">
-								<div class="g-example-preview">
-									<!-- 마크업뷰영역 -->
-									<div class="btn-group btn-table">
-										<span class="btn-col">
-											<button type="button" class="btn btn-basic btn-primary"><span>Primary</span></button>
-										</span>
-										<span class="btn-col">
-											<button type="button" class="btn btn-basic btn-secondary"><span>Secondary</span></button>
-										</span>
-									</div>
-									<!-- //마크업뷰영역 -->
-								</div>
-							</div>
-							<div class="g-example-footer is-active">
-								<pre class="brush:html">
-									&lt;div class="btn-group btn-table">
-										&lt;span class="btn-col">
-											&lt;button type="button" class="btn">&lt;span>&lt;/span>&lt;/button>
-										&lt;/span>
-										&lt;span class="btn-col">
-											&lt;button type="button" class="btn">&lt;span>&lt;/span>&lt;/button>
-										&lt;/span>
-									&lt;/div>
-								</pre>
-							</div>
-							<div class="g-example-footer">
-								<pre class="brush:css">
-									.btn-table {display:table; table-layout:fixed; width:100%;}
-									.btn-table .btn-col {display:table-cell; width:auto;}
-									.btn-table .btn {display:block; width:100%;}
 								</pre>
 							</div>
 						</div>
@@ -348,22 +286,24 @@
 							<div class="g-example-body">
 								<div class="g-example-preview">
 									<!-- 마크업뷰영역 -->
-									<div class="btn-group">
-										<button type="button" class="btn btn-basic btn-fluid btn-primary"><span>Primary</span></button>
-										<button type="button" class="btn btn-basic btn-fluid btn-secondary"><span>Secondary</span></button>
+									<div class="btn-group btn-fluid">
+										<button type="button" class="btn btn-basic btn-primary"><span>Primary</span></button>
+										<button type="button" class="btn btn-basic btn-secondary"><span>Secondary</span></button>
 									</div>
 									<!-- //마크업뷰영역 -->
 								</div>
 							</div>
 							<div class="g-example-footer is-active">
 								<pre class="brush:html">
-									&lt;button type="button" class="btn btn-basic btn-fluid">&lt;span>Button&lt;/span>&lt;/button>
-									&lt;button type="button" class="btn btn-basic btn-fluid">&lt;span>Button&lt;/span>&lt;/button>
+									&lt;div class="btn-group btn-fluid">
+										&lt;button type="button" class="btn btn-basic">&lt;span>Button&lt;/span>&lt;/button>
+										&lt;button type="button" class="btn btn-basic">&lt;span>Button&lt;/span>&lt;/button>
+									&lt;/div>
 								</pre>
 							</div>
 							<div class="g-example-footer">
 								<pre class="brush:css">
-									.btn.btn-fluid {width:100%;}
+									.btn-fluid .btn {width:100%;}
 								</pre>
 							</div>
 						</div>
